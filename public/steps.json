@@ -1,0 +1,74 @@
+{
+  "workflow": [
+    {
+      "step_id": "1",
+      "type": "conflicts",
+      "description": "The first events in real life that are captured in some way by the PA-X Database are the conflict events themselves. A conflict is defined in PA-X as armed violence, causing more than 25 conflict-related deaths in one year."
+    },
+    {
+      "step_id": "2",
+      "type": "negotiations",
+      "description": "Peace negotiations take place in peace processes - these are formal attempts to bring political and/or military protagonists of conflict, to some sort of mutual agreement as to how to end the conflict."
+    },
+    {
+      "step_id": "3",
+      "type": "peace_agreements",
+      "description": "If peace negotiations reach a formal agreement, which can be an oral agreement/handshake or in the form of a written, signed peace agreement."
+    },
+    {
+      "step_id": "4",
+      "type": "collection",
+      "description": "PA-X collects the formal, signed, written peace agreements that are publicly available that address conflicts with more than 25 conflict related deaths in a year."
+    },
+    {
+      "step_id": "5",
+      "type": "translation",
+      "description": "Often, these agreements are published in their local languages. All agreements that get collected for PA-X get translated into english by domain and language experts."
+    },
+    {
+      "step_id": "6",
+      "type": "transcription",
+      "description": "The agreements can be in a range of formats - PDFs, word documents, images of written text or even tweets. The text of the agreement needs to be transcribed into plain text."
+    },
+    {
+      "step_id": "7",
+      "type": "pax_coding",
+      "description": "The plain text of the agreement then gets segmented, and a team of expert coders tags the text segments/agreement provisions with topics that are contained within the PA-X Ontology. There are over 250 topics that text can be tagged with. They are arranged hierarchically into a range of categorys from Gender, to Socio-economic Development, to Political or Military Powersharing. The coders apply relevant tags to text they think is applicable, based on the coding manual."
+    },
+    {
+      "step_id": "8",
+      "type": "pax_quality_control",
+      "description": "The tagged text by the team of coders goes through quality control by the PA-X Data Manager to ensure the coding is consistent with defintions of the topics across versions, and to ensure there are no missed tags."
+    },
+    {
+      "step_id": "9",
+      "type": "pax_database",
+      "description": "Once the data is approved and quality checks are resolved, the data is published in the database as a new version of PA-X. On average, 50 new agreements are added per version which is updated annually."
+    },
+    {
+      "step_id": "10",
+      "type": "research/further_coding/d3_programming/tracker_visualization/infographics",
+      "description": "Immediate key insights and statistics from PA-X data can be made into infographics/visualizations to communicate the key trends to a wide audience."
+    },
+    {
+      "step_id": "11",
+      "type": "publications/further_quality_control/visualization",
+      "description": ""
+    },
+    {
+      "step_id": "12",
+      "type": "sub_databases",
+      "description": "For agreements that include certain content - such as gender references, or if they address local conflicts they are entered into PA-X sub-databases (PA-X Gender or PA-X Local). These agreements are then coded with domain-specific/relevant topics that go in to more depth. For example, in main PA-X Gender is coded at a high level. In PA-X Gender, topics are much more detailed in relation to gender for example if the mention is regarding violence against women, womens involvement in implementation or rights-institutions."
+    },
+    {
+      "step_id": "13",
+      "type": "d3_programming/peacefem_app/visualization",
+      "description": ""
+    },
+    {
+      "step_id": "14",
+      "type": "visualization",
+      "description": "Visualizations are developed to convey key findings and trends from the data, to allow users to analyse the data themselves, or to track changes over time, space or stage of process."
+    }
+  ]
+}

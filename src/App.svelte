@@ -15,6 +15,7 @@
     y_scale_all,
     y_axis,
     all_grouped,
+    all_medics_grouped,
     medics,
     new_college,
     veterinary,
@@ -24,6 +25,7 @@
     women_med_graduates,
     edinburgh_seven,
     medics_sample,
+    full_years,
     year_medics_group,
     year_college_group,
     year_veterinary_group,
@@ -47,15 +49,15 @@
       edinburgh_seven,
       medics_sample,
     ] = await getCSV([
-      "./1762_1826_medical.csv",
-      "new_college_students.csv",
-      "early_veterinary.csv",
-      "veterinary_graduates.csv",
-      "matriculations.csv",
-      "extra_academic.csv",
-      "female_graduates.csv",
-      "edinburgh_seven.csv",
-      "medics_sample.csv",
+      "../1762_1826_medical.csv",
+      "../new_college_students.csv",
+      "../early_veterinary.csv",
+      "../veterinary_graduates.csv",
+      "../matriculations.csv",
+      "../extra_academic.csv",
+      "../female_graduates.csv",
+      "../edinburgh_seven.csv",
+      "../medics_sample.csv",
     ]);
 
     // medics data
@@ -78,9 +80,8 @@
     year_medics_sample_group = d3
       .groups(medics_sample, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
-    console.log(year_medics_sample_group);
 
-    // matriculations data
+    // medics matriculations data
     matriculations = matriculations.map((d) => ({
       ...d,
       entry_year: +d.entry_year.slice(0, -3),
@@ -93,7 +94,7 @@
       ([year]) => Number.isFinite(year) && year >= 1700 && year <= 2025,
     );
 
-    // extra academic data
+    // extra medics academic data
     extra_academic = extra_academic.filter((d) =>
       medical_terms.some((term) =>
         d.Class.toLowerCase().includes(term.toLowerCase()),
@@ -130,6 +131,7 @@
       .groups(women_med_graduates, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
 
+    // edinburgh 7
     edinburgh_seven = edinburgh_seven.map((d) => ({
       ...d,
       entry_year: +d.entry_year,
@@ -168,7 +170,7 @@
     //   .groups(veterinary_graduates, (d) => d.entry_year)
     //   .sort((a, b) => a[0] - b[0]);
 
-    // // all data
+    // all data
     // let all = [
     //   ...medics,
     //   ...new_college,
@@ -176,12 +178,48 @@
     //   ...veterinary_graduates,
     //   ...matriculations,
     //   ...extra_academic,
+    //   ...women_med_graduates,
+    //   ...edinburgh_seven,
+    //   ...medics_sample,
     // ];
     // all_grouped = d3
     //   .groups(all, (d) => d.entry_year)
     //   .filter((d) => d[0] != null && !Number.isNaN(d[0]))
-
     //   .sort((a, b) => a[0] - b[0]);
+
+    let all_medics = [
+      ...medics,
+      ...medics_sample,
+      ...matriculations,
+      ...women_med_graduates,
+      ...edinburgh_seven,
+    ];
+    all_medics_grouped = d3
+      .groups(all_medics, (d) => d.entry_year)
+      .filter((d) => d[0] != null && !Number.isNaN(d[0]))
+      .filter((d) => d[0] >= 1762)
+      .sort((a, b) => a[0] - b[0]);
+
+    // empty years array
+    const dataMap = new Map(
+      all_medics_grouped.map(([year, values]) => [year, values]),
+    );
+
+    const START_YEAR = 1726;
+    const END_YEAR = 2025;
+    const populatedData = [];
+    for (let year = START_YEAR; year <= END_YEAR; year++) {
+      populatedData.push([
+        year,
+        dataMap.get(year) ?? [], // use existing array or empty array
+      ]);
+    }
+
+    full_years = populatedData.map((d) => ({
+      year: d[0],
+      certainty: "uncertain",
+      count: Math.random() * 400,
+    }));
   });
 
   let xStart, xEnd;
@@ -211,8 +249,8 @@
       .call(axis)
       .selectAll("text")
       .attr("fill", "white")
-      .attr("font-family", "Inter, sans-serif")
-      .attr("font-weight", 750)
+      .attr("font-family", "Montserrat, sans-serif")
+      .attr("font-weight", 400)
       .attr("font-size", 12)
       .attr("text-anchor", "middle");
 
@@ -283,14 +321,79 @@
 
     return lines.join(" ");
   }
+
+  $: console.log(all_medics_grouped);
 </script>
 
 <main bind:clientHeight={height} bind:clientWidth={width}>
   {#if year_medics_group}
     <svg bind:this={svgEl} {height} {width}>
+      <defs>
+        <linearGradient id="uncertaintyFade" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="gray" stop-opacity="0.4" />
+          <stop offset="100%" stop-color="gray" stop-opacity="0" />
+        </linearGradient>
+      </defs>
       <g
         transform={`translate(0,${height - margin.bottom})`}
         bind:this={x_axis}
+      />
+
+      <!-- uncertainty years  -->
+      {#each full_years as d}
+        <rect
+          x={x_scale(new Date(d.year, 0, 1))}
+          y={y_scale(d.count)}
+          width={2}
+          height={height - margin.bottom - y_scale(d.count)}
+          fill={d.certainty === "uncertain" ? "url(#uncertaintyFade)" : "white"}
+          fill-opacity="0.7"
+        />
+      {/each}
+
+      <!-- all medics available data -->
+      {#each all_medics_grouped as [year, entries]}
+        <rect
+          x={x_scale(new Date(year, 0, 1))}
+          y={y_scale(entries.length)}
+          width={2}
+          height={height - margin.bottom - y_scale(entries.length)}
+          fill="gray"
+        />
+      {/each}
+
+      <!-- medical school establishment -->
+      <rect
+        x={x_scale(new Date(1726, 0, 1))}
+        y={y_scale(200)}
+        width={1}
+        height={height - margin.bottom - y_scale(200)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1726, 0, 1))}
+        y={y_scale(200) - 10}
+        fill="white"
+        text-anchor="end"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        font-size="14">Medical School Established (1726)</text
+      >
+
+      <!-- charles darwin -->
+      <circle
+        cx={x_scale(new Date(1825, 0, 1)) + 1}
+        cy={y_scale(370)}
+        r={3}
+        fill="white"
+      />
+
+      <!-- edinburgh seven -->
+      <circle
+        cx={x_scale(new Date(1869, 0, 1)) + 1}
+        cy={y_scale(15)}
+        r={3}
+        fill="white"
       />
 
       <!-- {#each lines as d}
@@ -305,7 +408,7 @@
         />
       {/each} -->
 
-      {#each year_medics_group as [year, entries]}
+      <!-- {#each year_medics_group as [year, entries]}
         <path
           d={generateSketchyRect({
             x: x_scale(new Date(year, 0, 1)),
@@ -320,7 +423,18 @@
           fill="none"
           stroke-width="1"
         />
+      {/each} -->
+
+      <!-- {#each year_medics_group as [year, entries]}
+        <rect
+          x={x_scale(new Date(year, 0, 1))}
+          y={y_scale(entries.length)}
+          width={2}
+          height={height - margin.bottom - y_scale(entries.length)}
+          fill="steelblue"
+        />
       {/each}
+
 
       {#each year_medics_sample_group as [year, entries]}
         <rect
@@ -370,11 +484,10 @@
           height={height - margin.bottom - y_scale(entries.length)}
           fill="steelblue"
         />
-      {/each}
+      {/each} -->
 
       <!-- historical events -->
-      <!-- university establishment -->
-      <text
+      <!-- <text
         x={x_scale(new Date(1582, 0, 1)) + 5}
         y={height - 40}
         fill="white"
@@ -383,7 +496,6 @@
         font-size="14">University Established (1583)</text
       >
 
-      <!-- medical school establishment -->
       <rect
         x={x_scale(new Date(1726, 0, 1))}
         y={y_scale(500)}
@@ -398,7 +510,7 @@
         font-family="Inter, sans-serif"
         font-weight="300"
         font-size="14">Medical School (1726)</text
-      >
+      > -->
 
       <!-- edinburgh seven -->
       <!-- <rect
