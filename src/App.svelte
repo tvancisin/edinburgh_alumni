@@ -1,8 +1,17 @@
 <script>
   import * as d3 from "d3";
   import "./lib/d3.sketchy.js";
+  import { Tween } from "svelte/motion";
+  import { cubicInOut } from "svelte/easing";
   import { onMount } from "svelte";
-  import { getCSV, medical_terms } from "./utils.js";
+  import Bars from "./Bars.svelte";
+  import {
+    getCSV,
+    medical_terms,
+    generateSketchyRect,
+    fillMissingYears,
+    groupByYear,
+  } from "./utils.js";
 
   let svgEl; // bind to your <svg>
 
@@ -70,6 +79,7 @@
     year_medics_group = d3
       .groups(medics, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
+    year_medics_group = fillMissingYears(year_medics_group, 1762, 2025);
 
     // medics sample data
     medics_sample = medics_sample.map((d) => ({
@@ -80,6 +90,11 @@
     year_medics_sample_group = d3
       .groups(medics_sample, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
+    year_medics_sample_group = fillMissingYears(
+      year_medics_sample_group,
+      1762,
+      2025,
+    );
 
     // medics matriculations data
     matriculations = matriculations.map((d) => ({
@@ -121,6 +136,11 @@
     year_extra_academic_group = d3
       .groups(final_extra_academics, (d) => d.tha_year)
       .sort((a, b) => a[0] - b[0]);
+    year_extra_academic_group = fillMissingYears(
+      year_extra_academic_group,
+      1762,
+      2025,
+    );
 
     // women medical graduates
     women_med_graduates = women_med_graduates.map((d) => ({
@@ -130,6 +150,11 @@
     year_women_med_graduates_group = d3
       .groups(women_med_graduates, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
+    year_women_med_graduates_group = fillMissingYears(
+      year_women_med_graduates_group,
+      1762,
+      2025,
+    );
 
     // edinburgh 7
     edinburgh_seven = edinburgh_seven.map((d) => ({
@@ -139,86 +164,85 @@
     year_edinburgh_seven_group = d3
       .groups(edinburgh_seven, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
-
-    // // new college data
-    // new_college = new_college.map((d) => ({
-    //   ...d,
-    //   entry_year: +d.entry_year,
-    // }));
-    // year_college_group = d3
-    //   .groups(new_college, (d) => d.entry_year)
-    //   .filter((d) => d[0] != null && !Number.isNaN(d[0]))
-    //   .sort((a, b) => a[0] - b[0]);
-
-    // // veterinary data
-    // veterinary = veterinary.map((d) => ({
-    //   ...d,
-    //   entry_year: +d.entry_year,
-    // }));
-    // year_veterinary_group = d3
-    //   .groups(veterinary, (d) => d.entry_year)
-    //   .sort((a, b) => a[0] - b[0]);
-
-    // // veterinary graduates data
-    // veterinary_graduates = veterinary_graduates
-    //   .filter((d) => +d.entry_year >= 1762)
-    //   .map((d) => ({
-    //     ...d,
-    //     entry_year: +d.entry_year,
-    //   }));
-    // year_veterinary_graduates_group = d3
-    //   .groups(veterinary_graduates, (d) => d.entry_year)
-    //   .sort((a, b) => a[0] - b[0]);
-
-    // all data
-    // let all = [
-    //   ...medics,
-    //   ...new_college,
-    //   ...veterinary,
-    //   ...veterinary_graduates,
-    //   ...matriculations,
-    //   ...extra_academic,
-    //   ...women_med_graduates,
-    //   ...edinburgh_seven,
-    //   ...medics_sample,
-    // ];
-    // all_grouped = d3
-    //   .groups(all, (d) => d.entry_year)
-    //   .filter((d) => d[0] != null && !Number.isNaN(d[0]))
-    //   .sort((a, b) => a[0] - b[0]);
+    year_edinburgh_seven_group = fillMissingYears(
+      year_edinburgh_seven_group,
+      1762,
+      2025,
+    );
 
     let all_medics = [
       ...medics,
       ...medics_sample,
       ...matriculations,
+      ...extra_academic,
       ...women_med_graduates,
       ...edinburgh_seven,
     ];
+
     all_medics_grouped = d3
       .groups(all_medics, (d) => d.entry_year)
       .filter((d) => d[0] != null && !Number.isNaN(d[0]))
       .filter((d) => d[0] >= 1762)
       .sort((a, b) => a[0] - b[0]);
 
-    // empty years array
-    const dataMap = new Map(
-      all_medics_grouped.map(([year, values]) => [year, values]),
-    );
+    all_medics_grouped = fillMissingYears(all_medics_grouped, 1762, 2025);
 
-    const START_YEAR = 1726;
-    const END_YEAR = 2025;
-    const populatedData = [];
-    for (let year = START_YEAR; year <= END_YEAR; year++) {
-      populatedData.push([
-        year,
-        dataMap.get(year) ?? [], // use existing array or empty array
-      ]);
-    }
+    // new college data
+    new_college = new_college.map((d) => ({
+      ...d,
+      entry_year: +d.entry_year,
+    }));
+    year_college_group = d3
+      .groups(new_college, (d) => d.entry_year)
+      .filter((d) => d[0] != null && !Number.isNaN(d[0]))
+      .sort((a, b) => a[0] - b[0]);
+    year_college_group = fillMissingYears(year_college_group, 1762, 2025);
 
-    full_years = populatedData.map((d) => ({
+    // veterinary data
+    veterinary = veterinary.map((d) => ({
+      ...d,
+      entry_year: +d.entry_year,
+    }));
+    year_veterinary_group = d3
+      .groups(veterinary, (d) => d.entry_year)
+      .sort((a, b) => a[0] - b[0]);
+    year_veterinary_group = fillMissingYears(year_veterinary_group, 1762, 2025);
+
+    // veterinary graduates data
+    veterinary_graduates = veterinary_graduates
+      .filter((d) => +d.entry_year >= 1762)
+      .map((d) => ({
+        ...d,
+        entry_year: +d.entry_year,
+      }));
+    year_veterinary_graduates_group = d3
+      .groups(veterinary_graduates, (d) => d.entry_year)
+      .sort((a, b) => a[0] - b[0]);
+
+    // all data
+    let all = [
+      ...medics,
+      ...new_college,
+      ...veterinary,
+      ...veterinary_graduates,
+      ...matriculations,
+      ...extra_academic,
+      ...women_med_graduates,
+      ...edinburgh_seven,
+      ...medics_sample,
+    ];
+    all_grouped = d3
+      .groups(all, (d) => d.entry_year)
+      .filter((d) => d[0] != null && !Number.isNaN(d[0]))
+      .sort((a, b) => a[0] - b[0]);
+    all_grouped = fillMissingYears(all_grouped, 1726, 2025);
+
+    // uncertainty years
+    full_years = all_grouped.map((d) => ({
       year: d[0],
       certainty: "uncertain",
-      count: Math.random() * 400,
+      count: 200 + (Math.random() + Math.random()) * 300,
+      // make years that are certain starting point for drawing uncertain rects but maybe make uncertainty there lower
     }));
   });
 
@@ -275,57 +299,40 @@
     { name: "New College", year: 1843, labelOffset: 130 },
   ];
 
-  // diagonal uncertainty lines
-  // const nLines = 10;
-  // $: lines = Array.from({ length: nLines }, (_, i) => {
-  //   const t = i / (nLines - 1); // 0 → 1
-  //   return {
-  //     x1: xStart + t * (xEnd - xStart),
-  //     x2: xStart + t * (xEnd - xStart) + 100,
-  //   };
-  // });
+  $: data_to_draw = all_medics_grouped;
+  let activeKey = "all";
 
-  // --- sketchy rectangle generator ---
-  function generateSketchyRect({
-    x,
-    y,
-    width,
-    height,
-    density = 4,
-    sketch = 1,
-    angle = 45,
-  }) {
-    const lines = [];
-    const rad = (Math.PI / 180) * angle;
-    const dx = density * Math.cos(rad);
-    const dy = density * Math.sin(rad);
+  $: datasets = {
+    all: all_medics_grouped,
+    medics: year_medics_group,
+    women: year_women_med_graduates_group,
+    sample: year_medics_sample_group,
+    extra: year_extra_academic_group,
+    seven: year_edinburgh_seven_group,
+    all_uni: all_grouped,
+  };
 
-    // simple diagonal line filling logic
-    for (let i = 0; i < width + height; i += density) {
-      // slightly jitter start and end points for sketchiness
-      const jitter = () => (Math.random() - 0.5) * sketch;
-
-      let x1 = x + i * 0.5 + jitter();
-      let y1 = y + i * 0.5 + jitter();
-      let x2 = x + i * 0.5 + jitter();
-      let y2 = y + height - i * 0.5 + jitter();
-
-      // clip to rectangle bounds
-      x1 = Math.min(Math.max(x1, x), x + width);
-      x2 = Math.min(Math.max(x2, x), x + width);
-      y1 = Math.min(Math.max(y1, y), y + height);
-      y2 = Math.min(Math.max(y2, y), y + height);
-
-      lines.push(`M${x1},${y1} L${x2},${y2}`);
-    }
-
-    return lines.join(" ");
+  function handleSwitch(key) {
+    activeKey = key;
+    data_to_draw = datasets[key];
   }
-
-  $: console.log(all_medics_grouped);
+  
 </script>
 
 <main bind:clientHeight={height} bind:clientWidth={width}>
+  <h1>University of Edinburgh Historical Student Records</h1>
+  <div class="button-column">
+    <button on:click={() => handleSwitch("all")}>All Medics</button>
+    <button on:click={() => handleSwitch("medics")}>Medical Students</button>
+    <button on:click={() => handleSwitch("women")}>Women Graduates</button>
+    <button on:click={() => handleSwitch("sample")}>Medics Sample</button>
+    <button on:click={() => handleSwitch("extra")}>Extra</button>
+    <button on:click={() => handleSwitch("seven")}>Edinburgh Seven</button>
+    <button id="all_uni" on:click={() => handleSwitch("all_uni")}
+      >All University</button
+    >
+  </div>
+
   {#if year_medics_group}
     <svg bind:this={svgEl} {height} {width}>
       <defs>
@@ -351,14 +358,16 @@
         />
       {/each}
 
-      <!-- all medics available data -->
-      {#each all_medics_grouped as [year, entries]}
-        <rect
+      {#each data_to_draw as [year, entries], i (year)}
+        <Bars
           x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length)}
+          value={entries.length}
+          yScale={y_scale}
           width={2}
-          height={height - margin.bottom - y_scale(entries.length)}
+          {height}
+          marginBottom={margin.bottom}
           fill="gray"
+          {i}
         />
       {/each}
 
@@ -380,33 +389,47 @@
         font-size="14">Medical School Established (1726)</text
       >
 
-      <!-- charles darwin -->
-      <circle
-        cx={x_scale(new Date(1825, 0, 1)) + 1}
-        cy={y_scale(370)}
-        r={3}
-        fill="white"
-      />
+      {#if activeKey === "all"}
+        <!-- Charles Darwin -->
+        <g>
+          <circle
+            cx={x_scale(new Date(1825, 0, 1)) + 1}
+            cy={y_scale(370)}
+            r={3}
+            fill="white"
+          />
+          <text
+            x={x_scale(new Date(1825, 0, 1)) + 8}
+            y={y_scale(370) + 4}
+            font-size="14"
+            font-family="Montserrat, sans-serif"
+            font-weight="300"
+            fill="white"
+          >
+            Charles Darwin
+          </text>
+        </g>
 
-      <!-- edinburgh seven -->
-      <circle
-        cx={x_scale(new Date(1869, 0, 1)) + 1}
-        cy={y_scale(15)}
-        r={3}
-        fill="white"
-      />
-
-      <!-- {#each lines as d}
-        <line
-          x1={d.x1}
-          y1={height - 50}
-          x2={d.x2}
-          y2={50}
-          stroke="gray"
-          stroke-opacity="0.5"
-          stroke-dasharray="10 5"
-        />
-      {/each} -->
+        <!-- Edinburgh Seven -->
+        <g>
+          <circle
+            cx={x_scale(new Date(1869, 0, 1)) + 1}
+            cy={y_scale(15)}
+            r={3}
+            fill="white"
+          />
+          <text
+            x={x_scale(new Date(1869, 0, 1)) + 8}
+            y={y_scale(15) + 4}
+            font-size="14"
+            font-family="Montserrat, sans-serif"
+            font-weight="300"
+            fill="white"
+          >
+            Edinburgh Seven
+          </text>
+        </g>
+      {/if}
 
       <!-- {#each year_medics_group as [year, entries]}
         <path
@@ -673,5 +696,60 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
+  }
+
+  h1 {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .button-column {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  button {
+    appearance: none;
+    background: rgba(255, 255, 255, 0.08);
+    color: #eaeaea;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    padding: 8px 14px;
+    font-family: inherit;
+    font-size: 13px;
+    text-align: left;
+
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.1s ease;
+  }
+
+  /* hover */
+  button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.35);
+  }
+
+  button:active {
+    transform: translateY(1px);
+  }
+
+  button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(100, 160, 255, 0.6);
+  }
+
+  #all_uni {
+    background: rgba(109, 109, 109, 0.43);
+    border-color: rgba(255, 165, 0, 0.3);
   }
 </style>

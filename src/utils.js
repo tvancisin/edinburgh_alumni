@@ -70,3 +70,68 @@ export let medical_terms = [
   "Mycology",
   "Public Health Lab.",
 ];
+
+export function generateSketchyRect({
+  x,
+  y,
+  width,
+  height,
+  density = 4,
+  sketch = 1,
+  angle = 45,
+}) {
+  const lines = [];
+  const rad = (Math.PI / 180) * angle;
+  const dx = density * Math.cos(rad);
+  const dy = density * Math.sin(rad);
+
+  // simple diagonal line filling logic
+  for (let i = 0; i < width + height; i += density) {
+    // slightly jitter start and end points for sketchiness
+    const jitter = () => (Math.random() - 0.5) * sketch;
+
+    let x1 = x + i * 0.5 + jitter();
+    let y1 = y + i * 0.5 + jitter();
+    let x2 = x + i * 0.5 + jitter();
+    let y2 = y + height - i * 0.5 + jitter();
+
+    // clip to rectangle bounds
+    x1 = Math.min(Math.max(x1, x), x + width);
+    x2 = Math.min(Math.max(x2, x), x + width);
+    y1 = Math.min(Math.max(y1, y), y + height);
+    y2 = Math.min(Math.max(y2, y), y + height);
+
+    lines.push(`M${x1},${y1} L${x2},${y2}`);
+  }
+  return lines.join(" ");
+}
+
+export function groupByYear(data, yearAccessor, {
+  startYear,
+  endYear = 2025,
+  filter = () => true
+} = {}) {
+  const grouped = d3
+    .groups(data.filter(filter), yearAccessor)
+    .sort((a, b) => a[0] - b[0]);
+
+  return startYear != null
+    ? fillMissingYears(grouped, startYear, endYear)
+    : grouped;
+}
+
+export function fillMissingYears(data, startYear = null, endYear = 2025) {
+  // build lookup
+  const map = new Map(data.map(([year, entries]) => [year, entries]));
+
+  // infer start year if not provided
+  const years = data.map(d => d[0]);
+  const minYear = startYear ?? Math.min(...years);
+
+  const result = [];
+  for (let year = minYear; year <= endYear; year++) {
+    result.push([year, map.get(year) ?? []]);
+  }
+
+  return result;
+}
