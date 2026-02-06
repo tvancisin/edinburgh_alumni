@@ -58,15 +58,15 @@
       edinburgh_seven,
       medics_sample,
     ] = await getCSV([
-      "../1762_1826_medical.csv",
-      "../new_college_students.csv",
-      "../early_veterinary.csv",
-      "../veterinary_graduates.csv",
-      "../matriculations.csv",
-      "../extra_academic.csv",
-      "../female_graduates.csv",
-      "../edinburgh_seven.csv",
-      "../medics_sample.csv",
+      "./1762_1826_medical.csv",
+      "./new_college_students.csv",
+      "./early_veterinary.csv",
+      "./veterinary_graduates.csv",
+      "./matriculations.csv",
+      "./extra_academic.csv",
+      "./female_graduates.csv",
+      "./edinburgh_seven.csv",
+      "./medics_sample.csv",
     ]);
 
     // medics data
@@ -107,6 +107,11 @@
       .sort((a, b) => a[0] - b[0]);
     year_matriculations_group = year_matriculations_group.filter(
       ([year]) => Number.isFinite(year) && year >= 1700 && year <= 2025,
+    );
+    year_matriculations_group = fillMissingYears(
+      year_matriculations_group,
+      1700,
+      2025,
     );
 
     // extra medics academic data
@@ -305,6 +310,7 @@
   $: datasets = {
     all: all_medics_grouped,
     medics: year_medics_group,
+    matriculations: year_matriculations_group,
     women: year_women_med_graduates_group,
     sample: year_medics_sample_group,
     extra: year_extra_academic_group,
@@ -324,6 +330,7 @@
   <div class="button-column">
     <button on:click={() => handleSwitch("all")}>All Medics</button>
     <button on:click={() => handleSwitch("medics")}>Medical Students</button>
+    <button on:click={() => handleSwitch("matriculations")}>Matriculations</button>
     <button on:click={() => handleSwitch("women")}>Women Graduates</button>
     <button on:click={() => handleSwitch("sample")}>Medics Sample</button>
     <button on:click={() => handleSwitch("extra")}>Extra</button>
