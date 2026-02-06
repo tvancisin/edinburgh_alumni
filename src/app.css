@@ -5,4 +5,5 @@ html, body {
   font-weight: 500;
   background-color: #121212;
   color: white;
+  overflow: hidden;
 }

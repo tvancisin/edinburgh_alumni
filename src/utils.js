@@ -16,7 +16,7 @@ async function getIndividualJSON(path) {
   return loadedData;
 }
 
-export async function getGeo(paths) {
+export async function getJSON(paths) {
   const promises = paths.map((path) => getIndividualJSON(path));
   const results = await Promise.all(promises);
   return results;

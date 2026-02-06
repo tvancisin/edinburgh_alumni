@@ -1,19 +1,16 @@
 <script>
   import * as d3 from "d3";
   import "./lib/d3.sketchy.js";
-  import { Tween } from "svelte/motion";
-  import { cubicInOut } from "svelte/easing";
   import { onMount } from "svelte";
   import Bars from "./Bars.svelte";
   import {
     getCSV,
+    getJSON,
     medical_terms,
     generateSketchyRect,
     fillMissingYears,
     groupByYear,
   } from "./utils.js";
-
-  let svgEl; // bind to your <svg>
 
   let height,
     width,
@@ -34,6 +31,8 @@
     women_med_graduates,
     edinburgh_seven,
     medics_sample,
+    st_andrews,
+    year_st_andrews_group,
     full_years,
     year_medics_group,
     year_college_group,
@@ -68,6 +67,29 @@
       "./edinburgh_seven.csv",
       "./medics_sample.csv",
     ]);
+    [st_andrews] = await getJSON(["./st_andrews.json"]);
+
+    const st_andrews_students = st_andrews
+      .map((d) => {
+        // find the first entry where official_name === 'Edinburgh'
+        const uni = d.other_universities?.find(
+          (u) => u.location?.official_name === "Edinburgh" && u.from != null,
+        );
+
+        if (!uni) return null; // skip if no valid Edinburgh entry
+
+        return {
+          ...d,
+          entry_year: +uni.from, // convert string to number
+        };
+      })
+      .filter(Boolean); // remove nulls
+
+    year_st_andrews_group = d3
+      .groups(st_andrews_students, (d) => d.entry_year)
+      .sort((a, b) => a[0] - b[0]);
+
+    year_st_andrews_group = fillMissingYears(year_st_andrews_group, 1500, 2025);
 
     // medics data
     medics = medics
@@ -268,14 +290,14 @@
   }
 
   $: if (x_axis) {
-    const axis = d3
+    const xaxis = d3
       .axisBottom(x_scale)
       .ticks(d3.timeYear.every(20))
       .tickFormat(d3.timeFormat("%Y"))
       .tickSizeOuter(0);
 
     d3.select(x_axis)
-      .call(axis)
+      .call(xaxis)
       .selectAll("text")
       .attr("fill", "white")
       .attr("font-family", "Montserrat, sans-serif")
@@ -292,6 +314,28 @@
       .selectAll("line")
       .attr("stroke", "gray")
       .attr("stroke-width", 1);
+
+    // Y AXIS
+    const yaxis = d3.axisLeft(y_scale).ticks(5).tickSizeOuter(0);
+
+    d3.select(y_axis)
+      .call(yaxis)
+      .selectAll("text")
+      .attr("fill", "white")
+      .attr("font-family", "Montserrat, sans-serif")
+      .attr("font-weight", 400)
+      .attr("font-size", 12);
+
+    // remove axis domain line
+    d3.select(y_axis).select("path.domain").remove();
+
+    // // make ticks full width
+    // d3.select(y_axis)
+    //   .selectAll(".tick line")
+    //   .attr("x2", innerWidth)
+    //   .attr("stroke", "gray")
+    //   .attr("stroke-opacity", 0.5)
+    //   .attr("stroke-dasharray", "4 2");
   }
 
   $: baseY = height / 2 - 45;
@@ -316,13 +360,13 @@
     extra: year_extra_academic_group,
     seven: year_edinburgh_seven_group,
     all_uni: all_grouped,
+    st_andrews: year_st_andrews_group,
   };
 
   function handleSwitch(key) {
     activeKey = key;
     data_to_draw = datasets[key];
   }
-  
 </script>
 
 <main bind:clientHeight={height} bind:clientWidth={width}>
@@ -330,18 +374,22 @@
   <div class="button-column">
     <button on:click={() => handleSwitch("all")}>All Medics</button>
     <button on:click={() => handleSwitch("medics")}>Medical Students</button>
-    <button on:click={() => handleSwitch("matriculations")}>Matriculations</button>
-    <button on:click={() => handleSwitch("women")}>Women Graduates</button>
+    <button on:click={() => handleSwitch("matriculations")}
+      >Medical Matriculations</button
+    >
+    <button on:click={() => handleSwitch("women")}
+      >Medical Women Graduates</button
+    >
     <button on:click={() => handleSwitch("sample")}>Medics Sample</button>
-    <button on:click={() => handleSwitch("extra")}>Extra</button>
+    <button on:click={() => handleSwitch("extra")}>Extra Medics</button>
     <button on:click={() => handleSwitch("seven")}>Edinburgh Seven</button>
     <button id="all_uni" on:click={() => handleSwitch("all_uni")}
       >All University</button
     >
+    <button on:click={() => handleSwitch("st_andrews")}>St Andrews Dataset</button>
   </div>
-
   {#if year_medics_group}
-    <svg bind:this={svgEl} {height} {width}>
+    <svg {height} {width}>
       <defs>
         <linearGradient id="uncertaintyFade" x1="0" y1="1" x2="0" y2="0">
           <stop offset="0%" stop-color="gray" stop-opacity="0.4" />
@@ -352,6 +400,7 @@
         transform={`translate(0,${height - margin.bottom})`}
         bind:this={x_axis}
       />
+      <g transform={`translate(${margin.left}, 0)`} bind:this={y_axis} />
 
       <!-- uncertainty years  -->
       {#each full_years as d}
@@ -715,11 +764,12 @@
 
   .button-column {
     position: absolute;
-    top: 60px;
-    left: 10px;
+    top: 10px;
+    right: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    z-index: 10;
   }
 
   button {
