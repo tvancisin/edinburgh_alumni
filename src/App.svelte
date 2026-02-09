@@ -400,7 +400,7 @@
       >St Andrews Dataset</button
     >
   </div>
-  <div class="information_type">{information_type[activeKey]}</div>
+  <div class="information_type">Info: {information_type[activeKey]}</div>
   {#if year_medics_group}
     <svg {height} {width}>
       <defs>
