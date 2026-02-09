@@ -262,13 +262,13 @@
       .groups(all, (d) => d.entry_year)
       .filter((d) => d[0] != null && !Number.isNaN(d[0]))
       .sort((a, b) => a[0] - b[0]);
-    all_grouped = fillMissingYears(all_grouped, 1726, 2025);
+    all_grouped = fillMissingYears(all_grouped, 1583, 2025);
 
     // uncertainty years
     full_years = all_grouped.map((d) => ({
       year: d[0],
       certainty: "uncertain",
-      count: 200 + (Math.random() + Math.random()) * 300,
+      count: 200 + (Math.random() + Math.random()) * 100,
       // make years that are certain starting point for drawing uncertain rects but maybe make uncertainty there lower
     }));
   });
@@ -367,6 +367,16 @@
     activeKey = key;
     data_to_draw = datasets[key];
   }
+
+  let information_type = {
+    medics: "name, study, degree, career, record image",
+    matriculations: "name, birthplace*, previous education*, study, age ",
+    women: "name, nationality*, study, degree, thesis",
+    sample: "name, birthplace*, study, age, address*, thesis",
+    extra: "name, nationality*, study",
+    seven: "name, birth*, parentage, study, degree, career*, death*",
+    st_andrews: "name, birth*, parentage, study, degree, career*, death*"
+  }
 </script>
 
 <main bind:clientHeight={height} bind:clientWidth={width}>
@@ -386,8 +396,11 @@
     <button id="all_uni" on:click={() => handleSwitch("all_uni")}
       >All University</button
     >
-    <button on:click={() => handleSwitch("st_andrews")}>St Andrews Dataset</button>
+    <button on:click={() => handleSwitch("st_andrews")}
+      >St Andrews Dataset</button
+    >
   </div>
+  <div class="information_type">{information_type[activeKey]}</div>
   {#if year_medics_group}
     <svg {height} {width}>
       <defs>
@@ -426,24 +439,6 @@
           {i}
         />
       {/each}
-
-      <!-- medical school establishment -->
-      <rect
-        x={x_scale(new Date(1726, 0, 1))}
-        y={y_scale(200)}
-        width={1}
-        height={height - margin.bottom - y_scale(200)}
-        fill="orange"
-      />
-      <text
-        x={x_scale(new Date(1726, 0, 1))}
-        y={y_scale(200) - 10}
-        fill="white"
-        text-anchor="end"
-        font-family="Montserrat, sans-serif"
-        font-weight="300"
-        font-size="14">Medical School Established (1726)</text
-      >
 
       {#if activeKey === "all"}
         <!-- Charles Darwin -->
@@ -487,6 +482,145 @@
         </g>
       {/if}
 
+      <!-- historical events -->
+      <text
+        x={x_scale(new Date(1582, 0, 1)) + 5}
+        y={y_scale(150)}
+        transform={`rotate(-25 ${x_scale(new Date(1582, 0, 1)) + 5} ${y_scale(150)})`}
+        fill="white"
+        opacity="0.5"
+        font-weight="300"
+        font-size="14">University Established (1583)</text
+      >
+
+      <rect
+        x={x_scale(new Date(1582, 0, 1))}
+        y={y_scale(150)}
+        width={1}
+        height={height - margin.bottom - y_scale(150)}
+        fill="orange"
+        opacity="0.4"
+      />
+
+      <!-- law school -->
+      <rect
+        x={x_scale(new Date(1707, 0, 1))}
+        y={y_scale(200)}
+        width={1}
+        height={height - margin.bottom - y_scale(200)}
+        fill="orange"
+        opacity="0.2"
+      />
+      <text
+        x={x_scale(new Date(1707, 0, 1))}
+        y={y_scale(200) - 10}
+        transform={`rotate(-25 ${x_scale(new Date(1707, 0, 1)) + 5} ${y_scale(200)})`}
+        fill="white"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        opacity="0.5"
+        font-size="14">Law School (1707)</text
+      >
+
+      <!-- art school -->
+      <rect
+        x={x_scale(new Date(1708, 0, 1))}
+        y={y_scale(250)}
+        width={1}
+        opacity="0.2"
+        height={height - margin.bottom - y_scale(250)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1708, 0, 1))}
+        y={y_scale(250) - 10}
+        opacity="0.5"
+        transform={`rotate(-25 ${x_scale(new Date(1708, 0, 1)) + 5} ${y_scale(250)})`}
+        fill="white"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        font-size="14">Art School (1708)</text
+      >
+
+      <!-- medical school establishment -->
+      <rect
+        x={x_scale(new Date(1726, 0, 1))}
+        y={y_scale(350)}
+        width={1}
+        opacity="0.2"
+        height={height - margin.bottom - y_scale(350)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1726, 0, 1))}
+        y={y_scale(350) - 10}
+        transform={`rotate(-25 ${x_scale(new Date(1726, 0, 1)) + 5} ${y_scale(350)})`}
+        fill="white"
+        opacity="0.5"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        font-size="14">Medical School (1726)</text
+      >
+
+      <!-- veterinary school establishment -->
+      <rect
+        x={x_scale(new Date(1823, 0, 1))}
+        y={y_scale(500)}
+        width={1}
+        opacity="0.2"
+        height={height - margin.bottom - y_scale(500)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1823, 0, 1))}
+        y={y_scale(500)}
+        transform={`rotate(-25 ${x_scale(new Date(1823, 0, 1)) + 5} ${y_scale(500)})`}
+        fill="white"
+        opacity="0.5"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        font-size="14">Veterinary School (1823)</text
+      >
+
+      <!-- divinity school establishment -->
+      <rect
+        x={x_scale(new Date(1843, 0, 1))}
+        opacity="0.2"
+        y={y_scale(600)}
+        width={1}
+        height={height - margin.bottom - y_scale(600)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1843, 0, 1))}
+        y={y_scale(600)}
+        opacity="0.5"
+        transform={`rotate(-25 ${x_scale(new Date(1843, 0, 1)) + 5} ${y_scale(600)})`}
+        fill="white"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        font-size="14">Divinity School (1843)</text
+      >
+
+      <!-- infirmary/efi -->
+      <rect
+        x={x_scale(new Date(1880, 0, 1))}
+        opacity="0.2"
+        y={y_scale(600)}
+        width={1}
+        height={height - margin.bottom - y_scale(600)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1880, 0, 1)) + 5}
+        y={y_scale(600)}
+        transform={`rotate(-25 ${x_scale(new Date(1880, 0, 1)) + 5} ${y_scale(600)})`}
+        opacity="0.5"
+        fill="white"
+        font-weight="300"
+        font-size="14">Infirmary built (EFI) (1880)</text
+      >
+
       <!-- {#each year_medics_group as [year, entries]}
         <path
           d={generateSketchyRect({
@@ -503,244 +637,6 @@
           stroke-width="1"
         />
       {/each} -->
-
-      <!-- {#each year_medics_group as [year, entries]}
-        <rect
-          x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length)}
-          width={2}
-          height={height - margin.bottom - y_scale(entries.length)}
-          fill="steelblue"
-        />
-      {/each}
-
-
-      {#each year_medics_sample_group as [year, entries]}
-        <rect
-          x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length)}
-          width={2}
-          height={height - margin.bottom - y_scale(entries.length)}
-          fill="steelblue"
-        />
-      {/each}
-
-      {#each year_matriculations_group as [year, entries]}
-        <rect
-          x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length)}
-          width={2}
-          height={height - margin.bottom - y_scale(entries.length)}
-          fill="steelblue"
-        />
-      {/each}
-
-      {#each year_extra_academic_group as [name, entries]}
-        <rect
-          x={x_scale(new Date(entries[0].tha_year, 0, 1))}
-          y={y_scale(entries.length)}
-          width={2}
-          height={height - margin.bottom - y_scale(entries.length)}
-          fill="orange"
-        />
-      {/each}
-
-      {#each year_women_med_graduates_group as [year, entries]}
-        <rect
-          x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length)}
-          width={2}
-          height={height - margin.bottom - y_scale(entries.length)}
-          fill="yellow"
-        />
-      {/each}
-
-      {#each year_edinburgh_seven_group as [year, entries]}
-        <rect
-          x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length)}
-          width={2}
-          height={height - margin.bottom - y_scale(entries.length)}
-          fill="steelblue"
-        />
-      {/each} -->
-
-      <!-- historical events -->
-      <!-- <text
-        x={x_scale(new Date(1582, 0, 1)) + 5}
-        y={height - 40}
-        fill="white"
-        font-family="Inter, sans-serif"
-        font-weight="600"
-        font-size="14">University Established (1583)</text
-      >
-
-      <rect
-        x={x_scale(new Date(1726, 0, 1))}
-        y={y_scale(500)}
-        width={1}
-        height={height - margin.bottom - y_scale(500)}
-        fill="gray"
-      />
-      <text
-        x={x_scale(new Date(1726, 0, 1)) + 5}
-        y={y_scale(500) - 10}
-        fill="white"
-        font-family="Inter, sans-serif"
-        font-weight="300"
-        font-size="14">Medical School (1726)</text
-      > -->
-
-      <!-- edinburgh seven -->
-      <!-- <rect
-        x={x_scale(new Date(1869, 0, 1))}
-        y={y_scale(500)}
-        width={1}
-        height={height - margin.bottom - y_scale(470)}
-        fill="gray"
-      />
-      <text
-        x={x_scale(new Date(1869, 0, 1)) + 5}
-        y={y_scale(500) - 10}
-        fill="white"
-        font-family="Inter, sans-serif"
-        font-weight="300"
-        font-size="14">Edinburgh Seven (1869)</text
-      > -->
-
-      <!-- {#each year_medics_group as [year, entries]}
-        <rect
-          x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length) - 75}
-          width={2}
-          height={height / 2 - margin.bottom - y_scale(entries.length)}
-          fill="steelblue"
-        />
-      {/each}
-      {#each year_college_group as [year, entries]}
-        <rect
-          x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length) - 135}
-          width={2}
-          height={height / 2 - margin.bottom - y_scale(entries.length)}
-          fill="orange"
-        />
-      {/each}
-      {#each year_veterinary_group as [year, entries]}
-        <rect
-          x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length) - 105}
-          width={2}
-          height={height / 2 - margin.bottom - y_scale(entries.length)}
-          fill="white"
-        />
-      {/each}
-      {#each year_veterinary_graduates_group as [year, entries]}
-        <rect
-          x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length) - 105}
-          width={2}
-          height={height / 2 - margin.bottom - y_scale(entries.length)}
-          fill="white"
-        />
-      {/each}
-      {#each year_matriculations_group as [year, entries]}
-        <rect
-          x={x_scale(new Date(year, 0, 1))}
-          y={y_scale(entries.length) + 15}
-          width={2}
-          height={height / 2 - margin.bottom - y_scale(entries.length)}
-          fill="gray"
-        />
-      {/each} -->
-
-      <!-- {#each schools as s, i}
-        <rect
-          x={x_scale(new Date(s.year, 0, 1))}
-          y={baseY - i * gap}
-          width={x_scale(new Date(2025, 0, 1)) -
-            x_scale(new Date(s.year, 0, 1))}
-          height={0.5}
-          fill="white"
-        />
-
-        <text
-          x={x_scale(new Date(s.year, 0, 1)) - s.labelOffset}
-          y={baseY - i * gap - 5}
-          fill="white"
-          font-family="Inter, sans-serif"
-          font-weight="600"
-          font-size="14"
-        >
-          {s.name} ({s.year})
-        </text>
-      {/each} -->
-
-      <!-- University Established -->
-      <!-- <rect
-        x={x_scale(new Date(1583, 0, 1))}
-        y={y_scale(500)}
-        width={1}
-        height={height - margin.bottom - y_scale(500)}
-        fill="gray"
-      />
-      <text
-        x={x_scale(new Date(1583, 0, 1)) + 5}
-        y={y_scale(500) - 10}
-        fill="white"
-        font-family="Inter, sans-serif"
-        font-weight="300"
-        font-size="14">University Established (1583)</text
-      > -->
-
-      <!-- edinburgh seven -->
-      <!-- <rect
-        x={x_scale(new Date(1869, 0, 1))}
-        y={y_scale(500)}
-        width={1}
-        height={height - margin.bottom - y_scale(500)}
-        fill="gray"
-      />
-      <text
-        x={x_scale(new Date(1869, 0, 1)) + 5}
-        y={y_scale(500) - 10}
-        fill="white"
-        font-family="Inter, sans-serif"
-        font-weight="300"
-        font-size="14">Edinburgh Seven (1869)</text
-      > -->
-      <!-- medical school establishment -->
-      <!-- <rect
-        x={x_scale(new Date(1726, 0, 1))}
-        y={y_scale(500)}
-        width={1}
-        height={height - margin.bottom - y_scale(500)}
-        fill="gray"
-      />
-      <text
-        x={x_scale(new Date(1726, 0, 1)) + 5}
-        y={y_scale(500) - 10}
-        fill="white"
-        font-family="Inter, sans-serif"
-        font-weight="300"
-        font-size="14">Medical School (1726)</text
-      > -->
-      <!-- infirmary/efi -->
-      <!-- <rect
-        x={x_scale(new Date(1880, 0, 1))}
-        y={y_scale(600)}
-        width={1}
-        height={height - margin.bottom - y_scale(500)}
-        fill="gray"
-      />
-      <text
-        x={x_scale(new Date(1880, 0, 1)) + 5}
-        y={y_scale(600) - 10}
-        fill="white"
-        font-family="Inter, sans-serif"
-        font-weight="300"
-        font-size="14">Infirmary finished (EFI) (1880)</text
-      > -->
     </svg>
   {/if}
 </main>
@@ -808,5 +704,16 @@
   #all_uni {
     background: rgba(109, 109, 109, 0.43);
     border-color: rgba(255, 165, 0, 0.3);
+  }
+
+  .information_type {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    color: #eaeaea;
+    font-family: inherit;
+    font-size: 13px;
+    z-index: 10;
+    max-width: 200px;
   }
 </style>
