@@ -21,6 +21,7 @@
     y_scale_all,
     y_axis,
     all_grouped,
+    all_medics,
     all_medics_grouped,
     medics,
     new_college,
@@ -43,7 +44,24 @@
     year_women_med_graduates_group,
     year_edinburgh_seven_group,
     year_medics_sample_group,
-    margin = { top: 20, right: 30, bottom: 30, left: 40 };
+    margin = { top: 20, right: 30, bottom: 30, left: 40 },
+    careerFields = [
+      "Apprentice.of.Royal.College.of.Surgeons",
+      "British.Navy",
+      "Fellow.of.Royal.College.of.Surgeons",
+      "Indian.Medical.Service",
+      "Royal.Army.Medical.Corps",
+      "Royal.Medical.Society",
+    ];
+
+  const hasValue = (v) => v !== "NA" && v !== "" && v != null;
+  function addCareerField(entry) {
+    return {
+      ...entry,
+      career: careerFields.some((field) => hasValue(entry[field])) ? "1" : "NA",
+    };
+  }
+
   onMount(async () => {
     // load the data
     [
@@ -98,6 +116,7 @@
         ...d,
         entry_year: +d.entry_year,
       }));
+    medics = medics.map(addCareerField);
     year_medics_group = d3
       .groups(medics, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
@@ -197,7 +216,7 @@
       2025,
     );
 
-    let all_medics = [
+    all_medics = [
       ...medics,
       ...medics_sample,
       ...matriculations,
@@ -338,29 +357,29 @@
     //   .attr("stroke-dasharray", "4 2");
   }
 
-  $: baseY = height / 2 - 45;
-  const gap = 30;
-  const schools = [
-    { name: "Law", year: 1707, labelOffset: 75 },
-    { name: "Arts", year: 1708, labelOffset: 75 },
-    { name: "Medicine", year: 1726, labelOffset: 105 },
-    { name: "Veterinary", year: 1823, labelOffset: 110 },
-    { name: "New College", year: 1843, labelOffset: 130 },
-  ];
-
   $: data_to_draw = all_medics_grouped;
-  let activeKey = "all";
+  let activeKey = "medics";
 
   $: datasets = {
-    all: all_medics_grouped,
+    all_medics: all_medics_grouped,
     medics: year_medics_group,
     matriculations: year_matriculations_group,
-    women: year_women_med_graduates_group,
-    sample: year_medics_sample_group,
-    extra: year_extra_academic_group,
-    seven: year_edinburgh_seven_group,
+    women_med_graduates: year_women_med_graduates_group,
+    medics_sample: year_medics_sample_group,
+    extra_academic: year_extra_academic_group,
+    edinburgh_seven: year_edinburgh_seven_group,
     all_uni: all_grouped,
     st_andrews: year_st_andrews_group,
+  };
+
+  $: percentage_datasets = {
+    all_medics,
+    medics,
+    medics_sample,
+    matriculations,
+    extra_academic,
+    women_med_graduates,
+    edinburgh_seven,
   };
 
   function handleSwitch(key) {
@@ -368,31 +387,90 @@
     data_to_draw = datasets[key];
   }
 
-  let information_type = {
-    medics: "name, study, degree, career, record image",
-    matriculations: "name, birthplace*, previous education*, study, age ",
-    women: "name, nationality*, study, degree, thesis",
-    sample: "name, birthplace*, study, age, address*, thesis",
-    extra: "name, nationality*, study",
-    seven: "name, birth*, parentage, study, degree, career*, death*",
-    st_andrews: "name, birth*, parentage, study, degree, career*, death*"
+  const uniqueInformationTypes = [
+    "name",
+    "birthplace",
+    "nationality",
+    "previous_education",
+    "previous_uni",
+    "entry_year",
+    "age",
+    "address",
+    "degree",
+    "thesis",
+    "scan",
+    "career",
+    "death",
+  ];
+
+  const infoKeyMap = {
+    name: "name",
+    birthplace: "birthplace",
+    nationality: "nationality",
+    previous_education: "previous_education",
+    previous_uni: "previous_uni",
+    entry_year: "entry_year",
+    age: "age",
+    address: "address",
+    degree: "degree",
+    thesis: "thesis",
+    scan: "scan",
+    career: "career",
+    death: "death",
+  };
+
+  // uncertainty calculation
+  function calculateAttributeCoverage(data) {
+    const total = data.length;
+    const counts = {};
+
+    data.forEach((row) => {
+      Object.entries(row).forEach(([key, value]) => {
+        if (!counts[key]) {
+          counts[key] = { present: 0 };
+        }
+
+        if (value !== "NA" && value !== "") {
+          counts[key].present += 1;
+        }
+      });
+    });
+
+    // convert to percentages
+    return Object.fromEntries(
+      Object.entries(counts).map(([key, { present }]) => [
+        key,
+        Math.round((present / total) * 100),
+      ]),
+    );
   }
+
+  $: percentages =
+    percentage_datasets[activeKey] && percentage_datasets[activeKey].length
+      ? calculateAttributeCoverage(percentage_datasets[activeKey])
+      : Object.fromEntries(uniqueInformationTypes.map((d) => [d, 0]));
+
+  $: console.log(percentages);
 </script>
 
 <main bind:clientHeight={height} bind:clientWidth={width}>
   <h1>University of Edinburgh Historical Student Records</h1>
   <div class="button-column">
-    <button on:click={() => handleSwitch("all")}>All Medics</button>
+    <button on:click={() => handleSwitch("all_medics")}>All Medics</button>
     <button on:click={() => handleSwitch("medics")}>Medical Students</button>
     <button on:click={() => handleSwitch("matriculations")}
       >Medical Matriculations</button
     >
-    <button on:click={() => handleSwitch("women")}
+    <button on:click={() => handleSwitch("women_med_graduates")}
       >Medical Women Graduates</button
     >
-    <button on:click={() => handleSwitch("sample")}>Medics Sample</button>
-    <button on:click={() => handleSwitch("extra")}>Extra Medics</button>
-    <button on:click={() => handleSwitch("seven")}>Edinburgh Seven</button>
+    <button on:click={() => handleSwitch("medics_sample")}>Medics Sample</button
+    >
+    <button on:click={() => handleSwitch("extra_academic")}>Extra Medics</button
+    >
+    <button on:click={() => handleSwitch("edinburgh_seven")}
+      >Edinburgh Seven</button
+    >
     <button id="all_uni" on:click={() => handleSwitch("all_uni")}
       >All University</button
     >
@@ -400,7 +478,25 @@
       >St Andrews Dataset</button
     >
   </div>
-  <div class="information_type">Info: {information_type[activeKey]}</div>
+  <div class="info-list">
+    {#each uniqueInformationTypes as item}
+      <div class="info-row">
+        <span class="label">{item}</span>
+
+        <div class="bar">
+          <div
+            class="bar-fill"
+            style="width: {percentages[infoKeyMap[item]] || 0}%"
+          />
+        </div>
+
+        <span class="pct">
+          {percentages[infoKeyMap[item]] || 0}%
+        </span>
+      </div>
+    {/each}
+  </div>
+
   {#if year_medics_group}
     <svg {height} {width}>
       <defs>
@@ -706,14 +802,31 @@
     border-color: rgba(255, 165, 0, 0.3);
   }
 
-  .information_type {
+  .info-list {
     position: absolute;
-    top: 50px;
-    left: 10px;
-    color: #eaeaea;
-    font-family: inherit;
-    font-size: 13px;
-    z-index: 10;
-    max-width: 200px;
+    top: 80px;
+    left: 70px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+  }
+  .info-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 160px 1fr 40px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: gray;
   }
 </style>
