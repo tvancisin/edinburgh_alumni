@@ -1,4 +1,4 @@
-name,Birthplace,Previous.School.Education,Matriculation.Number,Gender,Faculty,Nationality,entry_year,Collection,Age,Previous.University.education,Previous.medical.education
+name,birthplace,previous_education,Matriculation.Number,Gender,Faculty,nationality,entry_year,Collection,age,previous_uni,Previous.medical.education
 "Fraser, Harry Duncan",Edinburgh,"James Gillespie's School, Edinburgh, Scotland - 1.5 Years Warrender Park Public School, Edinburgh, Scotland - 8 Years",319,Male,Arts,Scotland,1897-98,"First Matriculations, 1890-1899",NA,NA,NA
 "Tudhope, Daniel","Broughton, Peebleshire","Broughton Central school, Scotland - 6 Years Bonnington Park High School, Peebles, Scotland - 2 Years",959,Male,Law,Scotland,1895-96,"First Matriculations, 1890-1899",NA,NA,NA
 "Mackelvie, Donald",Lamlash,"Lamlash Public School, Scotland Glasgow High School, Scotland",1046,Male,Law,Scotland,1890-91,"First Matriculations, 1890-1899",23,NA,NA
