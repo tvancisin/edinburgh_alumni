@@ -477,6 +477,7 @@
     >
   </div>
   <div class="info-list">
+    <em>Type and percentage of information available</em>
     {#each uniqueInformationTypes as item}
       <div class="info-row">
         <span class="label">{item}</span>
@@ -529,7 +530,7 @@
           width={2}
           {height}
           marginBottom={margin.bottom}
-          fill="gray"
+          fill="#bfbfbf"
           {i}
         />
       {/each}
@@ -810,6 +811,7 @@
     gap: 6px;
     font-size: 0.9rem;
   }
+
   .info-row {
     width: 100%;
     display: grid;
@@ -825,6 +827,6 @@
 
   .bar-fill {
     height: 100%;
-    background: gray;
+    background: #bfbfbf;
   }
 </style>
