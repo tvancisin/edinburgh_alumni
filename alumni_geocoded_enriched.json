@@ -1,0 +1,5256 @@
+[{
+  "_id": {
+    "$oid": "6995a33abc9bfb3dda9c1b7f"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Skinner, John Robert",
+    "name_clean": "john robert skinner",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "11 ROXBURGH STREET/GILL'S",
+      "lat": 55.947235,
+      "lon": -3.182942,
+      "place_name": "11 Roxburgh Street, Edinburgh, EH8 9ST, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON THE DISEASES OF THE CONJUNCTIVA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33bbc9bfb3dda9c1b80"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Synnot, Robert",
+    "name_clean": "robert synnot",
+    "birthplace": "Ballymoyer/ Co. Armagh",
+    "address": {
+      "original_name": "11 DRUMMOND STREET",
+      "lat": 55.947197,
+      "lon": -3.186029,
+      "place_name": "11 Drummond Street, Edinburgh, EH8 9DH, United Kingdom"
+    },
+    "age": 24,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON MORTIFICATION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33bbc9bfb3dda9c1b81"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Heygate, William",
+    "name_clean": "william heygate",
+    "birthplace": "West Haddon",
+    "address": {
+      "original_name": "1 ALBYN PLACE",
+      "lat": 55.95351,
+      "lon": -3.206595,
+      "place_name": "1 Albyn Place, Edinburgh, EH2 4NG, United Kingdom"
+    },
+    "age": 24,
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33bbc9bfb3dda9c1b82"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Axe, William",
+    "name_clean": "william axe",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33bbc9bfb3dda9c1b83"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Dunbar, Henry",
+    "name_clean": "henry dunbar",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "NO 1 ANFIELD/ NEWHAVEN",
+      "lat": 55.97963,
+      "lon": -3.18825,
+      "place_name": "1 Annfield, Edinburgh, EH6 4JF, United Kingdom"
+    },
+    "age": 25,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON DYSENTERY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33bbc9bfb3dda9c1b84"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Holt, Thomas",
+    "name_clean": "thomas holt",
+    "birthplace": "Bury/ Lancashire",
+    "address": {
+      "original_name": "13 RANKEILLOR STREET",
+      "lat": 55.942596,
+      "lon": -3.180868,
+      "place_name": "13 Rankeillor Street, Edinburgh, EH8 9JA, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON THE STATES OF THE SYSTEM INDICATED ON THE FACE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33bbc9bfb3dda9c1b85"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Thorburn, Adam W",
+    "name_clean": "adam w thorburn",
+    "birthplace": "Jamaica",
+    "address": {
+      "original_name": "26 CUMBERLAND ST/ HYSLOPS",
+      "lat": 55.958794,
+      "lon": -3.198891,
+      "place_name": "26 Cumberland Street, Edinburgh, EH3 6RT, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "West Indies",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33bbc9bfb3dda9c1b86"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Cumming, Alexander",
+    "name_clean": "alexander cumming",
+    "birthplace": "Argyllshire",
+    "address": {
+      "original_name": "1 LOWER GILMORE PLACE",
+      "lat": 55.94137,
+      "lon": -3.208473,
+      "place_name": "1 Lower Gilmore Place, Edinburgh, EH3 9NX, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON THE SYMPTOMS AND TREATMENT OF HEPATITIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33bbc9bfb3dda9c1b87"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Browne, Francis Greenidge",
+    "name_clean": "francis greenidge browne",
+    "birthplace": "Barbadoes",
+    "address": {
+      "original_name": "35 LOTHIAN STREET",
+      "lat": 55.946207,
+      "lon": -3.188901,
+      "place_name": "35 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "West Indies",
+    "entry_year": 1841,
+    "thesis": "ON THE CONNECTION BETWEEN DISORDERED RESPIRATION AND AFFECTIONS OF NERVES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33bbc9bfb3dda9c1b88"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Paterson, Alexander",
+    "name_clean": "alexander paterson",
+    "birthplace": "Dundee",
+    "address": {
+      "original_name": "59 S. BRIDGE ST",
+      "lat": 55.94784,
+      "lon": -3.18617,
+      "place_name": "59 South Bridge, Edinburgh, EH1 1LS, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1843,
+    "thesis": "ON SYPHILIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33cbc9bfb3dda9c1b89"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Duarte De Faria, Mansel",
+    "name_clean": "mansel duarte de faria",
+    "birthplace": "Pernambuco",
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Brazil",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33cbc9bfb3dda9c1b8a"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Beattie, Joseph",
+    "name_clean": "joseph beattie",
+    "birthplace": "Comber",
+    "address": {
+      "original_name": "8 ROXBURGH TERACE",
+      "lat": 56.45966,
+      "lon": -3.01286,
+      "place_name": "8 Roxburgh Terrace, Dundee, DD2 1NZ, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON TETANUS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33cbc9bfb3dda9c1b8b"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "O'Leary, Goodwin Ricardus Purcell",
+    "name_clean": "goodwin ricardus purcell o'leary",
+    "birthplace": "Cork",
+    "address": {
+      "original_name": "50 SOUTH BRIDGE",
+      "lat": 55.948521,
+      "lon": -3.186757,
+      "place_name": "50 South Bridge, Edinburgh, EH1 1HN, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON THE DISTRIBUTION OF THE NERVOUS FIBRES THROUGH THEIR CENTRES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33cbc9bfb3dda9c1b8c"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bawtree, Edward William",
+    "name_clean": "edward william bawtree",
+    "birthplace": "Colchester",
+    "address": {
+      "original_name": "26 S. FREDERICK ST",
+      "lat": 55.860572,
+      "lon": -4.249164,
+      "place_name": "26 South Frederick Street, Glasgow, G1 1HJ, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON DELIRIUM TREMENS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33cbc9bfb3dda9c1b8d"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Nelson, Charles",
+    "name_clean": "charles nelson",
+    "birthplace": "Buteshire",
+    "address": {
+      "original_name": "21 MONTAGUE ST.",
+      "lat": 55.941856,
+      "lon": -3.180817,
+      "place_name": "21 Montague Street, Edinburgh, EH8 9QT, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1843,
+    "thesis": "ON THE HUMAN AND COMPARATIVE ANATOMY OF THE CUTICLE AND ITS APPENDAGES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33cbc9bfb3dda9c1b8e"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Catlett, William",
+    "name_clean": "william catlett",
+    "birthplace": "Grantham",
+    "address": {
+      "original_name": "PORTOBELLO",
+      "lat": 55.953552,
+      "lon": -3.115548,
+      "place_name": "Portobello, Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": 41,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON CERTAIN PHYSIOLOGICAL AND HITHERTO LITTLE NOTICED EFFECTS OF THE ERGOT OF RYE ON THE PROCESS OF HUMAN PARTURITION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33cbc9bfb3dda9c1b8f"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Odell, George Mountain",
+    "name_clean": "george mountain odell",
+    "birthplace": "Fredericton/ New Brunswick",
+    "address": {
+      "original_name": "2 TEVIOT ROW",
+      "lat": 55.94588,
+      "lon": -3.18984,
+      "place_name": "2-3 Teviot Place, Edinburgh, EH1 2QZ, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Anad",
+    "entry_year": 1841,
+    "thesis": "ON IDIOPATHIC APOPLEXY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33cbc9bfb3dda9c1b90"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Scott, Walter",
+    "name_clean": "walter scott",
+    "birthplace": "Roxburghshire",
+    "address": {
+      "original_name": "27 ELDER STREET/ SMYLES LODGINGS",
+      "lat": 55.954865,
+      "lon": -3.189899,
+      "place_name": "27 Elder Street, Edinburgh, EH1 3AY, United Kingdom"
+    },
+    "age": 24,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON THE CHEMICAL PROCESSES BY WHICH ARSENIOUS ACID MAY BE DETECTED"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33dbc9bfb3dda9c1b91"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Underwood, John",
+    "name_clean": "john underwood",
+    "birthplace": "Pitsford/ Northamptonshire",
+    "address": {
+      "original_name": "7 ROXBURGH TERRACE",
+      "lat": 56.4597,
+      "lon": -3.01243,
+      "place_name": "7 Roxburgh Terrace, Dundee, DD2 1NZ, United Kingdom"
+    },
+    "age": 24,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON TUBERCLE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33dbc9bfb3dda9c1b92"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Gordon, William",
+    "name_clean": "william gordon",
+    "birthplace": "Co. Tyrone",
+    "address": {
+      "original_name": "10 NICHOLSON ST.",
+      "lat": 55.946767,
+      "lon": -3.185792,
+      "place_name": "10 Nicolson Street, Edinburgh, EH8 9BE, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Ireland",
+    "entry_year": 1842,
+    "thesis": "ON PNEUMONIA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33dbc9bfb3dda9c1b93"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Mierre, Albert De",
+    "name_clean": "albert de mierre",
+    "birthplace": "Putney Surrey",
+    "address": {
+      "original_name": "22 CASTLE STREET",
+      "lat": 55.951023,
+      "lon": -3.202748,
+      "place_name": "22 Castle Street, Edinburgh, EH2 3AA, United Kingdom"
+    },
+    "age": 36,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "TO WHAT ARE THE CHANGES OCCURRING AT THE TIME OF PUBERTY IN THE MALE TO BE ATTRIBUTED AND HOW FAR DO THEY DEPEND ON THE SECRETION OF THE SEMINAL FLUID"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33dbc9bfb3dda9c1b94"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Fletcher, Frederick",
+    "name_clean": "frederick fletcher",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "1 HOPE ST/ LEITH",
+      "lat": 55.950557,
+      "lon": -3.208089,
+      "place_name": "1 Hope Street, Edinburgh, EH2 4BL, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33dbc9bfb3dda9c1b95"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Jones, Frederick Denbigh",
+    "name_clean": "frederick denbigh jones",
+    "birthplace": "Manchester",
+    "address": {
+      "original_name": "10 ROXBURGH STREET",
+      "lat": 55.94752,
+      "lon": -3.1835,
+      "place_name": "10 Roxburgh Street, Edinburgh, EH8 9TA, United Kingdom"
+    },
+    "age": 25,
+    "nationality": "England",
+    "entry_year": 1844,
+    "thesis": "ON THE PHENOMENA PRODUCED BY THE ACTIONS OF NARCOTIC POISONS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33dbc9bfb3dda9c1b96"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Gordon, Huntly George",
+    "name_clean": "huntly george gordon",
+    "birthplace": "Glasgow",
+    "address": {
+      "original_name": "8 BRUNTON PLACE",
+      "lat": 55.95773,
+      "lon": -3.17151,
+      "place_name": "8-9 London Road, Edinburgh, EH7 5AP, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON CROUP"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33dbc9bfb3dda9c1b97"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Brown, George W.",
+    "name_clean": "george w. brown",
+    "birthplace": "Middlesex",
+    "address": {
+      "original_name": "8 BRUNTON PLACE",
+      "lat": 55.95773,
+      "lon": -3.17151,
+      "place_name": "8-9 London Road, Edinburgh, EH7 5AP, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "England",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33ebc9bfb3dda9c1b98"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Johnstone, John",
+    "name_clean": "john johnstone",
+    "birthplace": "Moffat",
+    "address": {
+      "original_name": "4 HILL PLACE",
+      "lat": 55.946124,
+      "lon": -3.184777,
+      "place_name": "4 Hill Place, Edinburgh, EH1, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON SYPHILIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33ebc9bfb3dda9c1b99"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Harrison, James",
+    "name_clean": "james harrison",
+    "birthplace": "London",
+    "address": {
+      "original_name": "18 LOTHIAN STREET",
+      "lat": 55.945884,
+      "lon": -3.189451,
+      "place_name": "18 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON THE NERVOUS POWER OR AGENCY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33ebc9bfb3dda9c1b9a"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Daunt, Richard Gumbleton",
+    "name_clean": "richard gumbleton daunt",
+    "birthplace": "Humbleton East Yorkshire",
+    "address": {
+      "original_name": "10 BRIGHTON STREET",
+      "lat": 55.946455,
+      "lon": -3.18926,
+      "place_name": "Brighton Street, Edinburgh, EH1 1HD, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON ACUTE INFLAMMATION OF THE PULMONARY PARECHYMA IN THE ADULT"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33ebc9bfb3dda9c1b9b"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Atkinson, James George",
+    "name_clean": "james george atkinson",
+    "birthplace": "Ceylon",
+    "address": {
+      "original_name": "42 LOTHIAN ST",
+      "lat": 55.946054,
+      "lon": -3.189092,
+      "place_name": "42 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 25,
+    "nationality": "Ceylon",
+    "entry_year": 1841,
+    "thesis": "ON CERTAIN FORMS OF DISEASES SIMULATING INFLAMMATION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33ebc9bfb3dda9c1b9c"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Armstrong, Alexander",
+    "name_clean": "alexander armstrong",
+    "birthplace": "Donegal",
+    "address": {
+      "original_name": "7 BRIGHTON PLACE",
+      "lat": 55.9506,
+      "lon": -3.11562,
+      "place_name": "7 Brighton Place, Edinburgh, EH15 1LR, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON THE DIAGNOSIS OF DISEASES OF THE HEART LUNGS AND THEIR INVESTING MEMBRANES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "matched",
+  "wikidata_data": {
+    "label": "Alexander Armstrong",
+    "birth_date": "1818-01-01T00:00:00Z",
+    "death_date": "1899-07-04T00:00:00Z",
+    "birth_place": "County Donegal",
+    "gender": "male",
+    "occupations": [
+      "explorer"
+    ],
+    "education": [
+      "University of Edinburgh"
+    ]
+  },
+  "wikidata_id": "Q4718255"
+},
+{
+  "_id": {
+    "$oid": "6995a33ebc9bfb3dda9c1b9d"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Jackson, Robert",
+    "name_clean": "robert jackson",
+    "birthplace": "Midlothian",
+    "address": {
+      "original_name": "BONNINGTON BANK",
+      "lat": 55.97442,
+      "lon": -3.185397,
+      "place_name": "Bonnington, Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON ASPHYXIA BY SUBMERSION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33ebc9bfb3dda9c1b9e"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Morrin, William Daniel",
+    "name_clean": "william daniel morrin",
+    "birthplace": "Quebec",
+    "address": {
+      "original_name": "9 SALISBURY STREET",
+      "lat": 56.11732,
+      "lon": -3.16452,
+      "place_name": "9 Salisbury Street, Kirkcaldy, KY2 5HN, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Canada",
+    "entry_year": 1841,
+    "thesis": "ON ASTHMA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33ebc9bfb3dda9c1b9f"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "James, William Rhodes",
+    "name_clean": "william rhodes james",
+    "birthplace": "London",
+    "address": {
+      "original_name": "16 INDIA STREET",
+      "lat": 55.955421,
+      "lon": -3.205583,
+      "place_name": "16 India Street, Edinburgh, EH3 6ES, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON ASPHYXIA BY SUBMERSION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33fbc9bfb3dda9c1ba0"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Henderson, John",
+    "name_clean": "john henderson",
+    "birthplace": "Co. Londonderry",
+    "address": {
+      "original_name": "10 NICOLSON STREET",
+      "lat": 55.946767,
+      "lon": -3.185792,
+      "place_name": "10 Nicolson Street, Edinburgh, EH8 9BE, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON ERYSIPELAS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33fbc9bfb3dda9c1ba1"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bremner, John Traill Urquhart",
+    "name_clean": "john traill urquhart bremner",
+    "birthplace": "Orkney",
+    "address": {
+      "original_name": "11 DRUMMOND ST.",
+      "lat": 55.947197,
+      "lon": -3.186029,
+      "place_name": "11 Drummond Street, Edinburgh, EH8 9DH, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1843,
+    "thesis": "ON ULCERS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33fbc9bfb3dda9c1ba2"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wright, Thomas Bell",
+    "name_clean": "thomas bell wright",
+    "birthplace": "Ireland",
+    "address": {
+      "original_name": "8 ROXBURGH PLACE",
+      "lat": 55.94707,
+      "lon": -3.18369,
+      "place_name": "8 Roxburgh Place, Edinburgh, EH8 9SU, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Ireland",
+    "entry_year": 1842,
+    "thesis": "ON IODINE ITS CHEMICAL PROPERTIES ETC."
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33fbc9bfb3dda9c1ba3"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Dalton, William",
+    "name_clean": "william dalton",
+    "birthplace": "Carlisle",
+    "address": {
+      "original_name": "34 BUCCLEUCH PLACE",
+      "lat": 55.942232,
+      "lon": -3.188096,
+      "place_name": "34 Buccleuch Place, Edinburgh, EH8 9LN, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "SOME REMARKS ON THE DISEASE CALLED 'FALSE HYDATIDS' OF THE HUMAN KIDNEYS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33fbc9bfb3dda9c1ba4"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Smith, William",
+    "name_clean": "william smith",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33fbc9bfb3dda9c1ba5"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Swete, Benjamin",
+    "name_clean": "benjamin swete",
+    "birthplace": "Cork",
+    "address": {
+      "original_name": "35 LOTHIAN STREET",
+      "lat": 55.946207,
+      "lon": -3.188901,
+      "place_name": "35 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Ireland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33fbc9bfb3dda9c1ba6"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Reynolds, James Maxwell",
+    "name_clean": "james maxwell reynolds",
+    "birthplace": "America Septentrionali",
+    "address": {
+      "original_name": "14 RANKEILLOR STREET",
+      "lat": 55.94257,
+      "lon": -3.18172,
+      "place_name": "14 Rankeillor Street, Edinburgh, EH8 9HY, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Usa",
+    "entry_year": 1841,
+    "thesis": "ON UTERINE HAEMORRHAGE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a33fbc9bfb3dda9c1ba7"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Fosbroke, William Michael Malbon",
+    "name_clean": "william michael malbon fosbroke",
+    "birthplace": "Herefordshire",
+    "address": {
+      "original_name": "4 ROXBURGH TERRACE",
+      "lat": 56.45973,
+      "lon": -3.01098,
+      "place_name": "4 Roxburgh Terrace, Dundee, DD2 1NZ, United Kingdom"
+    },
+    "age": 25,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON HYATIDS IN THE LUNGS AND THEIR SUPPOSED ANALOGY TO TUBERCLE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a340bc9bfb3dda9c1ba8"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Fernandes, Bray",
+    "name_clean": "bray fernandes",
+    "birthplace": "Bombay",
+    "address": {
+      "original_name": "3 E. REGISTER STREET",
+      "lat": 56.018458,
+      "lon": -3.606239,
+      "place_name": "Register Street, Bo'Ness, EH51 9AE, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "India",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a340bc9bfb3dda9c1ba9"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Duff, George",
+    "name_clean": "george duff",
+    "birthplace": "Elgin",
+    "address": {
+      "original_name": "30 CASTLE STREET",
+      "lat": 55.95204,
+      "lon": -3.20366,
+      "place_name": "30 Castle Street, Edinburgh, EH2 3HT, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON THE PHAENOMENA AND CAUSES OF ANIMAL HEAT"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a340bc9bfb3dda9c1baa"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Grant, James",
+    "name_clean": "james grant",
+    "birthplace": "Grantown/ Invernessshire",
+    "address": {
+      "original_name": "38 RANKEILLOR ST/ RAMAGE'S",
+      "lat": 55.94285,
+      "lon": -3.18067,
+      "place_name": "38 Rankeillor Street, Edinburgh, EH8 9HZ, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON TRANSMISSION OF PHYSICAL AND MENTAL PROPERTIES FROM PARENTS TO OFFSPRING"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a340bc9bfb3dda9c1bab"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Cleghorn, Hugo Francis Clerke",
+    "name_clean": "hugo francis clerke cleghorn",
+    "birthplace": "Fifeshire",
+    "address": {
+      "original_name": "21 BROWN SQUARE",
+      "lat": 57.59422,
+      "lon": -4.43731,
+      "place_name": "21 Brown Square, Dingwall, IV15 9NU, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON THE REPARATION OF WOUNDS AND REGENERATION OF LOST PARTS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "matched",
+  "wikidata_data": {
+    "label": "Hugh Cleghorn",
+    "birth_date": "1820-08-09T00:00:00Z",
+    "death_date": "1895-05-17T00:00:00Z",
+    "birth_place": "Chennai",
+    "gender": "male",
+    "occupations": [
+      "physician",
+      "forester",
+      "surgeon",
+      "botanical collector",
+      "botanist"
+    ],
+    "education": [
+      "University of St Andrews",
+      "University of Edinburgh",
+      "Royal High School"
+    ]
+  },
+  "wikidata_id": "Q5930356"
+},
+{
+  "_id": {
+    "$oid": "6995a340bc9bfb3dda9c1bac"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Russell, Robert James",
+    "name_clean": "robert james russell",
+    "birthplace": "Northampton",
+    "address": {
+      "original_name": "10 S. COLLEGE ST",
+      "lat": 55.947004,
+      "lon": -3.187151,
+      "place_name": "10 South College Street, Edinburgh, EH8 9AA, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON PHTHISIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a340bc9bfb3dda9c1bad"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Thompson, Waldegrave Rock",
+    "name_clean": "waldegrave rock thompson",
+    "birthplace": "Gibraltar",
+    "address": {
+      "original_name": "3 MONTAGUE STREET",
+      "lat": 55.941687,
+      "lon": -3.181461,
+      "place_name": "3 Montague Street, Edinburgh, EH8 9QT, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Gibraltar",
+    "entry_year": 1841,
+    "thesis": "ON TYPHUS FEVER"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a340bc9bfb3dda9c1bae"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Moorhead, Edward",
+    "name_clean": "edward moorhead",
+    "birthplace": "Ireland",
+    "address": {
+      "original_name": "3 ROXBURGH STREET",
+      "lat": 55.947909,
+      "lon": -3.183609,
+      "place_name": "3 Roxburgh Street, Edinburgh, EH8 9TA, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON THE ANATOMY AND DEVELOPMENT OF THE EYE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a340bc9bfb3dda9c1baf"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Stevenson, Robert John",
+    "name_clean": "robert john stevenson",
+    "birthplace": "Camberwell Surrey",
+    "address": {
+      "original_name": "24 QUEEN STREET",
+      "lat": 55.9546,
+      "lon": -3.19905,
+      "place_name": "24 Queen Street, Edinburgh, EH2 1JX, United Kingdom"
+    },
+    "age": 28,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON OUTLINES OF GENERAL ORTHOPAEDIA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a341bc9bfb3dda9c1bb0"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Stuart, William",
+    "name_clean": "william stuart",
+    "birthplace": "Duffus/ Morayshire",
+    "address": {
+      "original_name": "61 CLERK ST",
+      "lat": 55.942231,
+      "lon": -3.182248,
+      "place_name": "61 Clerk Street, Edinburgh, EH8 9JH, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON DEATH BY HANGING"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a341bc9bfb3dda9c1bb1"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Ashley, William Henry",
+    "name_clean": "william henry ashley",
+    "birthplace": "Brighton",
+    "address": {
+      "original_name": "11 HILL SQUARE",
+      "lat": 55.946435,
+      "lon": -3.183794,
+      "place_name": "11 Hill Square, Edinburgh, EH8 9DS, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON THE CIRCULATION OF VEGETABLES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a341bc9bfb3dda9c1bb2"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Irvine, Francis Wemyss",
+    "name_clean": "francis wemyss irvine",
+    "birthplace": "Sydney, New South Wales",
+    "address": {
+      "original_name": "BLACKET PLACE NEWINGTON",
+      "lat": 55.936027,
+      "lon": -3.174265,
+      "place_name": "Blacket Place, Edinburgh, EH9 1RJ, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Australia",
+    "entry_year": 1842,
+    "thesis": "ON SOLUTION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "matched",
+  "wikidata_data": {
+    "label": "Francis Wemyss Irvine",
+    "birth_date": "1821-08-25T00:00:00Z",
+    "death_date": "1883-05-04T00:00:00Z",
+    "birth_place": "Sydney",
+    "gender": "male",
+    "occupations": [
+      "physician"
+    ],
+    "education": [
+      "University of Edinburgh"
+    ]
+  },
+  "wikidata_id": "Q108762172"
+},
+{
+  "_id": {
+    "$oid": "6995a341bc9bfb3dda9c1bb3"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Sievering, Edward Henry",
+    "name_clean": "edward henry sievering",
+    "birthplace": "London",
+    "address": {
+      "original_name": "57 NORTH HANOVER ST.",
+      "lat": 55.862959,
+      "lon": -4.249492,
+      "place_name": "57 North Hanover Street, Glasgow, G1 2AD, United Kingdom"
+    },
+    "age": 25,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON ERYSIPELAS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "matched",
+  "wikidata_data": {
+    "label": "Edward Henry Sieveking",
+    "birth_date": "1816-08-24T00:00:00Z",
+    "death_date": "1904-02-24T00:00:00Z",
+    "birth_place": "London",
+    "gender": "male",
+    "occupations": [
+      "physician"
+    ],
+    "education": [
+      "Humboldt-Universität zu Berlin",
+      "University College London",
+      "University of Edinburgh"
+    ]
+  },
+  "wikidata_id": "Q1293634"
+},
+{
+  "_id": {
+    "$oid": "6995a341bc9bfb3dda9c1bb4"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Mackenzie, Patrick",
+    "name_clean": "patrick mackenzie",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a341bc9bfb3dda9c1bb5"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Ford, Charles",
+    "name_clean": "charles ford",
+    "birthplace": "Canterbury Kent",
+    "address": {
+      "original_name": "18 DRUMMOND STREET",
+      "lat": 55.94733,
+      "lon": -3.18492,
+      "place_name": "18 Drummond Street, Edinburgh, EH8 9TX, United Kingdom"
+    },
+    "age": 26,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON BRONCHOCELE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a341bc9bfb3dda9c1bb6"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Samuel, Brown",
+    "name_clean": "brown samuel",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a341bc9bfb3dda9c1bb7"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Turnbull, William Mackie",
+    "name_clean": "william mackie turnbull",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "7 MALTA TERRACE",
+      "lat": 55.95971,
+      "lon": -3.20953,
+      "place_name": "7 Malta Terrace, Edinburgh, EH4 1HR, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON UTERINE HAEMORRHAGE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a342bc9bfb3dda9c1bb8"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Patrick, James",
+    "name_clean": "james patrick",
+    "birthplace": "Dalry/ Ayrshire",
+    "address": {
+      "original_name": "6 HOWE ST",
+      "lat": 55.95574,
+      "lon": -3.20236,
+      "place_name": "6 Howe Street, Edinburgh, EH3 6TD, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a342bc9bfb3dda9c1bb9"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Forteath, Alexander",
+    "name_clean": "alexander forteath",
+    "birthplace": "Morayshire",
+    "address": {
+      "original_name": "18 CASTLE STREET/ 1 BROUGHTON PLACE",
+      "lat": 55.932,
+      "lon": -3.17744,
+      "place_name": "1 St Alban's Road, Edinburgh, EH9 2PA, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON THE INFLUENCE OF FOOD AND CLIMATE ON THE COLOUR AND CLOTHING OF ANIMALS MORE PARTICULARLY OF BIRDS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a342bc9bfb3dda9c1bba"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bell, John",
+    "name_clean": "john bell",
+    "birthplace": "Jamaica",
+    "address": {
+      "original_name": "41 CLERK STREET",
+      "lat": 55.942233,
+      "lon": -3.18225,
+      "place_name": "41 Clerk Street, Edinburgh, EH8 9JH, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "West Indies",
+    "entry_year": 1843,
+    "thesis": "ON APOPLEXY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a342bc9bfb3dda9c1bbb"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Young, Emanuel",
+    "name_clean": "emanuel young",
+    "birthplace": "North Shields",
+    "address": {
+      "original_name": "15 DUNDAS ST",
+      "lat": 55.96167,
+      "lon": -3.20107,
+      "place_name": "15 Brandon Street, Edinburgh, EH3 5DX, United Kingdom"
+    },
+    "age": 22,
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a342bc9bfb3dda9c1bbc"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Holmes, Henry",
+    "name_clean": "henry holmes",
+    "birthplace": "Darley Dale/Derbyshire",
+    "address": {
+      "original_name": "56 BUCCLEUCH ST",
+      "lat": 55.942747,
+      "lon": -3.184448,
+      "place_name": "56 Buccleuch Street, Edinburgh, EH8 9LP, United Kingdom"
+    },
+    "age": 26,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON PHTHISIS PULMONALIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a342bc9bfb3dda9c1bbd"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Talbot, Robert",
+    "name_clean": "robert talbot",
+    "birthplace": "Cork",
+    "address": {
+      "original_name": "26 RAINKEILLOR ST",
+      "lat": 55.942579,
+      "lon": -3.180934,
+      "place_name": "26 Rankeillor Street, Edinburgh, EH8 9JA, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Ireland",
+    "entry_year": 1846,
+    "thesis": "ON BURNS AND SCALDS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a342bc9bfb3dda9c1bbe"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wright, Patrick",
+    "name_clean": "patrick wright",
+    "birthplace": "Arbroath",
+    "address": {
+      "original_name": "10 NICHOLSON ST - MRS FORBES",
+      "lat": 55.946767,
+      "lon": -3.185792,
+      "place_name": "10 Nicolson Street, Edinburgh, EH8 9BE, United Kingdom"
+    },
+    "age": 27,
+    "nationality": "Scotland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a342bc9bfb3dda9c1bbf"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Smith, George",
+    "name_clean": "george smith",
+    "birthplace": "Edinburghshire",
+    "address": {
+      "original_name": "ROYAL INSTITUTION",
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1843,
+    "thesis": "ON THE EPIGENESIS ETC OF THE HUMAN EMBRYO"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a343bc9bfb3dda9c1bc0"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wilkinson, Jonas Lyte",
+    "name_clean": "jonas lyte wilkinson",
+    "birthplace": "Barbadoes",
+    "address": {
+      "original_name": "8 LONDON STREET",
+      "lat": 55.958825,
+      "lon": -3.193532,
+      "place_name": "8 London Street, Edinburgh, EH3 6LZ, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "West Indies",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a343bc9bfb3dda9c1bc1"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Smith, Thomas Wilkins",
+    "name_clean": "thomas wilkins smith",
+    "birthplace": "Kinsdale Co Cork",
+    "address": {
+      "original_name": "2 SCIENNES PLACE",
+      "lat": 55.9376,
+      "lon": -3.18212,
+      "place_name": "2 Sciennes House Place, Edinburgh, EH9 1NW, United Kingdom"
+    },
+    "age": 29,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON DEATH FROM DROWNING CONSIDERED WITH RESPECT TO MEDICAL JURISPRUDENCE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a343bc9bfb3dda9c1bc2"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bull, Henry Graves",
+    "name_clean": "henry graves bull",
+    "birthplace": "Pitsford Northamptonshire",
+    "address": {
+      "original_name": "50 RANKEILLOR ST",
+      "lat": 55.942829,
+      "lon": -3.179979,
+      "place_name": "50 Rankeillor Street, Edinburgh, EH8 9JA, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON THE DIAGNOSIS AND SEMEIOLOGY OF CEREBRAL DISEASES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a343bc9bfb3dda9c1bc3"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "M'Cosh, John",
+    "name_clean": "john m'cosh",
+    "birthplace": "Kirkmichael/ Ayr",
+    "address": {
+      "original_name": "17 ST JAMES SQUARE",
+      "lat": 55.955914,
+      "lon": -3.190472,
+      "place_name": "17 St. James Place, Edinburgh, EH1 3HP, United Kingdom"
+    },
+    "age": 36,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON THE PROSPECTS AND PRACTICE OF A BENGAL MEDICAL OFFICER"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a343bc9bfb3dda9c1bc4"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Scott, Alexander",
+    "name_clean": "alexander scott",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a343bc9bfb3dda9c1bc5"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wilson, John",
+    "name_clean": "john wilson",
+    "birthplace": "Nairn",
+    "address": {
+      "original_name": "71 CUMBERLAND STREET",
+      "lat": 55.9581,
+      "lon": -3.20226,
+      "place_name": "71 Cumberland Street, Edinburgh, EH3 6RD, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON INFLAMMATION OF THE LIVER"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a343bc9bfb3dda9c1bc6"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Woodforde, Francis Henry",
+    "name_clean": "francis henry woodforde",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": "17 YORK PLACE",
+      "lat": 55.9559,
+      "lon": -3.19122,
+      "place_name": "17 York Place, Edinburgh, EH1 3EB, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON THE NATURE AND TREATMENT OF SCROFULA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a343bc9bfb3dda9c1bc7"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Maynard, Alleyne",
+    "name_clean": "alleyne maynard",
+    "birthplace": "Barbadoes",
+    "address": {
+      "original_name": "17 YORK PLACE",
+      "lat": 55.9559,
+      "lon": -3.19122,
+      "place_name": "17 York Place, Edinburgh, EH1 3EB, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "West Indies",
+    "entry_year": 1842,
+    "thesis": "ON ICHTHYOSIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a344bc9bfb3dda9c1bc8"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Robinson, John Trimble",
+    "name_clean": "john trimble robinson",
+    "birthplace": "Clogher",
+    "address": {
+      "original_name": "14 NICHOLSON SQUARE",
+      "lat": 55.946015,
+      "lon": -3.186175,
+      "place_name": "14 Nicolson Square, Edinburgh, EH8 9BJ, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON THE SYMPTOMS AND TREATMENT OF SCARLATINA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a344bc9bfb3dda9c1bc9"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Scot, Thomas Goldie",
+    "name_clean": "thomas goldie scot",
+    "birthplace": "Madras",
+    "address": {
+      "original_name": "8 COATES CRESCENT",
+      "lat": 55.94903,
+      "lon": -3.21194,
+      "place_name": "8 Coates Crescent, Edinburgh, EH3 7AL, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "India",
+    "entry_year": 1841,
+    "thesis": "ON APOPLEXY ITS VARIETIES DIAGNOSIS AND TREATMENT"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a344bc9bfb3dda9c1bca"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Hoskin, William Thomas",
+    "name_clean": "william thomas hoskin",
+    "birthplace": "Devonport",
+    "address": {
+      "original_name": "6 HOWE ST",
+      "lat": 55.95574,
+      "lon": -3.20236,
+      "place_name": "6 Howe Street, Edinburgh, EH3 6TD, United Kingdom"
+    },
+    "age": 19,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON STRICTURES OF THE URETHRA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a344bc9bfb3dda9c1bcb"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Blythe, Newton",
+    "name_clean": "newton blythe",
+    "birthplace": "Branton/ Northumberland",
+    "address": {
+      "original_name": "4 CLERK STREET",
+      "lat": 55.942985,
+      "lon": -3.183025,
+      "place_name": "4 Clerk Street, Edinburgh, EH8 9ES, United Kingdom"
+    },
+    "age": 25,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON TUBERCULAR CONSUMPTION ITS NATURE CAUSES AND TREATMENT"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a344bc9bfb3dda9c1bcc"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Mackay, George",
+    "name_clean": "george mackay",
+    "birthplace": "Aberdeen",
+    "address": {
+      "original_name": "15 GREY STREET/ NEWINGTON",
+      "lat": 55.933528,
+      "lon": -3.175876,
+      "place_name": "15 South Gray Street, Edinburgh, EH9 1TQ, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON DYSENTERY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a344bc9bfb3dda9c1bcd"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Freeman, John Evan",
+    "name_clean": "john evan freeman",
+    "birthplace": "Bombay",
+    "address": {
+      "original_name": "14 DUBLIN ST",
+      "lat": 55.95628,
+      "lon": -3.19355,
+      "place_name": "14 Dublin Street, Edinburgh, EH1 3PP, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "India",
+    "entry_year": 1841,
+    "thesis": "ON OPIUM ITS EFFECTS ON THE HEALTHY SUBJECT AND ITS THERAPEUTIC INFLUENCE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a344bc9bfb3dda9c1bce"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Aitken, William",
+    "name_clean": "william aitken",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a345bc9bfb3dda9c1bcf"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Arthur, John",
+    "name_clean": "john arthur",
+    "birthplace": "Castle Bellingham/ Co. Louth",
+    "address": {
+      "original_name": "24 SALISBURY STREET",
+      "lat": 56.11757,
+      "lon": -3.16409,
+      "place_name": "24 Salisbury Street, Kirkcaldy, KY2 5HN, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON THE SYMPTOMS AND TREATMENT OF PNEUMONIA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a345bc9bfb3dda9c1bd0"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Keith, George Skene",
+    "name_clean": "george skene keith",
+    "birthplace": "St Cyrus",
+    "address": {
+      "original_name": "6 RANKEILLOR ST",
+      "lat": 55.94247,
+      "lon": -3.18211,
+      "place_name": "6 Rankeillor Street, Edinburgh, EH8 9HY, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON ACUTE ARTICULAR RHEUMATISM"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a345bc9bfb3dda9c1bd1"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Moderno, Antonio Januario",
+    "name_clean": "antonio januario moderno",
+    "birthplace": "Ins Madeira",
+    "address": {
+      "original_name": "21 LOTHIAN STREET",
+      "lat": 55.945884,
+      "lon": -3.189451,
+      "place_name": "21 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Madeira",
+    "entry_year": 1842,
+    "thesis": "ON SOME DISEASES OF THE BRAIN MORE PARTICULARLY APOPLEXY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a345bc9bfb3dda9c1bd2"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Ogilvie, George",
+    "name_clean": "george ogilvie",
+    "birthplace": "Aberdeen",
+    "address": {
+      "original_name": "ST CUTHBERTS GLEBE LOTHIAN ROAD",
+      "lat": 55.947653,
+      "lon": -3.206106,
+      "place_name": "Lothian Road, Edinburgh, EH1 2DJ, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON THE ANALOGIES OF PLANTS AND ANIMALS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a345bc9bfb3dda9c1bd3"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Stokes, Adrian",
+    "name_clean": "adrian stokes",
+    "birthplace": "Wickwar[?]/ Gloucestershire",
+    "address": {
+      "original_name": "7 SALISBURY STREET",
+      "lat": 56.11783,
+      "lon": -3.16529,
+      "place_name": "7 Salisbury Street, Kirkcaldy, KY2 5HW, United Kingdom"
+    },
+    "age": 26,
+    "nationality": "England",
+    "entry_year": 1844,
+    "thesis": "ON DELIRIUM TREMENS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a345bc9bfb3dda9c1bd4"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Cossar, Thomas",
+    "name_clean": "thomas cossar",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "14 FREDERICK ST",
+      "lat": 55.95202,
+      "lon": -3.20013,
+      "place_name": "14 Frederick Street, Edinburgh, EH2 2HB, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON DIABETES MELLITUS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a345bc9bfb3dda9c1bd5"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bates, William",
+    "name_clean": "william bates",
+    "birthplace": "Lancashire",
+    "address": {
+      "original_name": "13 RANKEILLOR ST/MRS ALEXANDER",
+      "lat": 55.942596,
+      "lon": -3.180868,
+      "place_name": "13 Rankeillor Street, Edinburgh, EH8 9JA, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON DIABETES MELLITUS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a345bc9bfb3dda9c1bd6"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Marlow, Benjamin William",
+    "name_clean": "benjamin william marlow",
+    "birthplace": "Donegal",
+    "address": {
+      "original_name": "6 HOWE ST",
+      "lat": 55.95574,
+      "lon": -3.20236,
+      "place_name": "6 Howe Street, Edinburgh, EH3 6TD, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Ireland",
+    "entry_year": 1842,
+    "thesis": "ON THE SPERMATOZOA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a345bc9bfb3dda9c1bd7"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Tucker, Park Benjamin",
+    "name_clean": "park benjamin tucker",
+    "birthplace": "Bermuda",
+    "address": {
+      "original_name": "11 ROXBURGH ST",
+      "lat": 55.947235,
+      "lon": -3.182942,
+      "place_name": "11 Roxburgh Street, Edinburgh, EH8 9ST, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "West Indies",
+    "entry_year": 1842,
+    "thesis": "ON THE NATURE AND TREATMENT OF UTERINE HAEMORRHAGE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a346bc9bfb3dda9c1bd8"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Jollie, William",
+    "name_clean": "william jollie",
+    "birthplace": "Carlisle Cumbria",
+    "address": {
+      "original_name": "39 MONTAGUE ST.",
+      "lat": 55.942098,
+      "lon": -3.1799,
+      "place_name": "39 Montague Street, Edinburgh, EH8 9QS, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON PUERPERAL CONVULSIONS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a346bc9bfb3dda9c1bd9"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Clarke, Vans Christian",
+    "name_clean": "vans christian clarke",
+    "birthplace": "Smyrna",
+    "address": {
+      "original_name": "15 HENDERSON ROW",
+      "lat": 55.96036,
+      "lon": -3.20153,
+      "place_name": "15 Henderson Row, Edinburgh, EH3 5DH, United Kingdom"
+    },
+    "age": 21,
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": 1842,
+    "thesis": "ON THE HISTORY AND NATURE OF THE PLAGUE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a346bc9bfb3dda9c1bda"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Reid, William L.",
+    "name_clean": "william l. reid",
+    "birthplace": "Ayrshire",
+    "address": {
+      "original_name": "25 WALKER ST.",
+      "lat": 55.95026,
+      "lon": -3.21441,
+      "place_name": "25 Walker Street, Edinburgh, EH3 7HX, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON STRABISMUS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a346bc9bfb3dda9c1bdb"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wright, John Innis",
+    "name_clean": "john innis wright",
+    "birthplace": "Nagpour",
+    "address": {
+      "original_name": "13 HERIOT ROW",
+      "lat": 55.9558,
+      "lon": -3.20073,
+      "place_name": "13 Heriot Row, Edinburgh, EH3 6HP, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "?India",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a346bc9bfb3dda9c1bdc"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Warneford, Charles Francis",
+    "name_clean": "charles francis warneford",
+    "birthplace": "Surrey",
+    "address": {
+      "original_name": "8 DUKE ST",
+      "lat": 55.970331,
+      "lon": -3.170898,
+      "place_name": "8 Duke Street, Edinburgh, EH6 8HQ, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON THE INFLAMMATORY DISEASE OF THE THORACIC VISCERA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a346bc9bfb3dda9c1bdd"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bedell, John",
+    "name_clean": "john bedell",
+    "birthplace": "New Brunswick",
+    "address": {
+      "original_name": "10 ALBANY STREET",
+      "lat": 55.95713,
+      "lon": -3.19284,
+      "place_name": "10 Albany Street, Edinburgh, EH1 3QB, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Canada",
+    "entry_year": 1842,
+    "thesis": "ON SYNOCHUS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a346bc9bfb3dda9c1bde"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Reynolds, Thomas",
+    "name_clean": "thomas reynolds",
+    "birthplace": "Brockville/Upper Canada",
+    "address": {
+      "original_name": "CLERK STREET",
+      "lat": 55.942103,
+      "lon": -3.182114,
+      "place_name": "Clerk Street, Edinburgh, EH8 9JQ, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Canada",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a347bc9bfb3dda9c1bdf"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Panton, Patrick",
+    "name_clean": "patrick panton",
+    "birthplace": "Turriff/ Aberdeenshire",
+    "address": {
+      "original_name": "34 HANOVER STREET",
+      "lat": 55.95307,
+      "lon": -3.19727,
+      "place_name": "34-36 Hanover Street, Edinburgh, EH2 2DR, United Kingdom"
+    },
+    "age": 27,
+    "nationality": "Scotland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a347bc9bfb3dda9c1be0"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Fair, Robert Kendall",
+    "name_clean": "robert kendall fair",
+    "birthplace": "Buenos Ayres",
+    "address": {
+      "original_name": "14 ROYAL CRESCENT",
+      "lat": 55.960501,
+      "lon": -3.195508,
+      "place_name": "14 Royal Crescent, Edinburgh, EH3 6PY, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Brazil",
+    "entry_year": 1843,
+    "thesis": "DE NECROSI OSSIUM"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a347bc9bfb3dda9c1be1"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Dickson, Joseph",
+    "name_clean": "joseph dickson",
+    "birthplace": "Jersey",
+    "address": {
+      "original_name": "16 INDIA ST",
+      "lat": 55.955421,
+      "lon": -3.205583,
+      "place_name": "16 India Street, Edinburgh, EH3 6ES, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Channel Islands",
+    "entry_year": 1842,
+    "thesis": "ON CRURAL PHLEBITIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a347bc9bfb3dda9c1be2"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Duncome, Frederick",
+    "name_clean": "frederick duncome",
+    "birthplace": "Nassau",
+    "address": {
+      "original_name": "20 RANKEILLOR STREET",
+      "lat": 55.94268,
+      "lon": -3.18142,
+      "place_name": "20 Rankeillor Street, Edinburgh, EH8 9HY, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Bahama, West Indies",
+    "entry_year": 1842,
+    "thesis": "ON DELIRIUM TREMENS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a347bc9bfb3dda9c1be3"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "De Wolfe, James Ratchford",
+    "name_clean": "james ratchford de wolfe",
+    "birthplace": "Horton/ Nova Scotia",
+    "address": {
+      "original_name": "5 SOUTH COLLEGE STREET",
+      "lat": 55.947136,
+      "lon": -3.186369,
+      "place_name": "5 South College Street, Edinburgh, EH8 9AA, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Canada",
+    "entry_year": 1841,
+    "thesis": "ON DELIRIUM TREMENS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a347bc9bfb3dda9c1be4"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Lapsley, William",
+    "name_clean": "william lapsley",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "37 HANOVER ST",
+      "lat": 55.95295,
+      "lon": -3.19664,
+      "place_name": "37 Hanover Street, Edinburgh, EH2 2PJ, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a347bc9bfb3dda9c1be5"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Anderson, Thomas",
+    "name_clean": "thomas anderson",
+    "birthplace": "Leith",
+    "address": {
+      "original_name": "33 QUALITY STREET/ LEITH",
+      "lat": 55.96416,
+      "lon": -3.27357,
+      "place_name": "33 Quality Street, Edinburgh, EH4 5BP, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON THE NATURE OF THE CHEMICAL CHANGES WHICH TAKE PLACE IN SECRETION NUTRITION AND THE OTHER FUNCTIONS OF LIVING BEINGS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "matched",
+  "wikidata_data": {
+    "label": "Thomas Anderson",
+    "birth_date": "1819-07-02T00:00:00Z",
+    "death_date": "1874-11-02T00:00:00Z",
+    "birth_place": "Leith",
+    "gender": "male",
+    "occupations": [
+      "university teacher",
+      "chemist"
+    ],
+    "education": [
+      "Edinburgh Academy",
+      "University of Edinburgh"
+    ]
+  },
+  "wikidata_id": "Q903374"
+},
+{
+  "_id": {
+    "$oid": "6995a347bc9bfb3dda9c1be6"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Tresilian, Stewart Jos.",
+    "name_clean": "stewart jos. tresilian",
+    "birthplace": "Brandon/ Co. Cork",
+    "address": {
+      "original_name": "18 DRUMMOND STREET",
+      "lat": 55.94733,
+      "lon": -3.18492,
+      "place_name": "18 Drummond Street, Edinburgh, EH8 9TX, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Ireland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a348bc9bfb3dda9c1be7"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Cassels, Robert",
+    "name_clean": "robert cassels",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "31 ST JAMES' SQUARE",
+      "lat": 55.955914,
+      "lon": -3.190472,
+      "place_name": "31 St. James Place, Edinburgh, EH1 3HP, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON TUBERCULAR PHTHISIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a348bc9bfb3dda9c1be8"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Darwin, Reginald",
+    "name_clean": "reginald darwin",
+    "birthplace": "Lichfield",
+    "address": {
+      "original_name": "11 LOTHIAN ROAD",
+      "lat": 55.949708,
+      "lon": -3.206935,
+      "place_name": "11 Lothian Road, Edinburgh, EH1 2AN, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a348bc9bfb3dda9c1be9"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Paterson, David",
+    "name_clean": "david paterson",
+    "birthplace": "Dumfriesshire",
+    "address": {
+      "original_name": "11 LOTHIAN STREET",
+      "lat": 55.945884,
+      "lon": -3.189451,
+      "place_name": "11 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a348bc9bfb3dda9c1bea"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Thompson, John Alexander William",
+    "name_clean": "john alexander william thompson",
+    "birthplace": "Ballyshannon",
+    "address": {
+      "original_name": "11 DRUMMOND STREET",
+      "lat": 55.947197,
+      "lon": -3.186029,
+      "place_name": "11 Drummond Street, Edinburgh, EH8 9DH, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Ireland",
+    "entry_year": 1842,
+    "thesis": "ON ASTHMA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a348bc9bfb3dda9c1beb"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Jee, Joseph",
+    "name_clean": "joseph jee",
+    "birthplace": "Northampton",
+    "address": {
+      "original_name": "10 COLLEGE ST",
+      "lat": 55.947004,
+      "lon": -3.187151,
+      "place_name": "10 South College Street, Edinburgh, EH8 9AA, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a348bc9bfb3dda9c1bec"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Stewart, Charles",
+    "name_clean": "charles stewart",
+    "birthplace": "Midlothian",
+    "address": {
+      "original_name": "4 HENRY PLACE",
+      "lat": 57.66356,
+      "lon": -2.48808,
+      "place_name": "4 Henry Place, Macduff, AB44 1PF, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1843,
+    "thesis": "ON CARCINOMA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a348bc9bfb3dda9c1bed"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Chapman, Edward",
+    "name_clean": "edward chapman",
+    "birthplace": "Leith",
+    "address": {
+      "original_name": "54 BERNARD ST/ LEITH",
+      "lat": 55.97626,
+      "lon": -3.16911,
+      "place_name": "54 Bernard Street, Edinburgh, EH6 6PR, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON UTERINE HAEMORRHAGE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a348bc9bfb3dda9c1bee"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Johnstone, William Smellie",
+    "name_clean": "william smellie johnstone",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": "Scotland",
+    "entry_year": 1843,
+    "thesis": "ON DISEASES OF THE SPINAL CHORD THEIR DIAGNOSIS AND TREATMENT"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a349bc9bfb3dda9c1bef"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bird, Henry",
+    "name_clean": "henry bird",
+    "birthplace": "Somersetshire",
+    "address": {
+      "original_name": "35 LOTHIAN ST.",
+      "lat": 55.946207,
+      "lon": -3.188901,
+      "place_name": "35 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "England",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a349bc9bfb3dda9c1bf0"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Manning, James",
+    "name_clean": "james manning",
+    "birthplace": "Barbadoes",
+    "address": {
+      "original_name": "35 LOTHIAN STREET",
+      "lat": 55.946207,
+      "lon": -3.188901,
+      "place_name": "35 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 27,
+    "nationality": "West Indies",
+    "entry_year": 1841,
+    "thesis": "ON THE MORBID STATES OF THE UTERUS AND ITS APPENDAGES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a349bc9bfb3dda9c1bf1"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Fraser, William",
+    "name_clean": "william fraser",
+    "birthplace": "Banffshire",
+    "address": {
+      "original_name": "53 FREDERICK STREET",
+      "lat": 55.95388,
+      "lon": -3.20057,
+      "place_name": "53 Frederick Street, Edinburgh, EH2 1LH, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON HYDROPHOBIA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a349bc9bfb3dda9c1bf2"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Blake, Ethelbert Harry",
+    "name_clean": "ethelbert harry blake",
+    "birthplace": "Seamount House/ Co. Mayo",
+    "address": {
+      "original_name": "18 LOTHIAN STREET",
+      "lat": 55.945884,
+      "lon": -3.189451,
+      "place_name": "18 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON PUERPERAL FEVER"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a349bc9bfb3dda9c1bf3"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Robinson, William",
+    "name_clean": "william robinson",
+    "birthplace": "Cumberland",
+    "address": {
+      "original_name": "6 BRIGHTON ST",
+      "lat": 55.94656,
+      "lon": -3.18912,
+      "place_name": "6 Brighton Street, Edinburgh, EH1 1HD, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a349bc9bfb3dda9c1bf4"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wark, Alexander",
+    "name_clean": "alexander wark",
+    "birthplace": "Newton Limavady",
+    "address": {
+      "original_name": "7 BRIGHTON STREET",
+      "lat": 55.946532,
+      "lon": -3.189445,
+      "place_name": "7 Brighton Street, Edinburgh, EH1 1HD, United Kingdom"
+    },
+    "age": 25,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON RESPIRATION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a349bc9bfb3dda9c1bf5"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Steel, James",
+    "name_clean": "james steel",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "1 STEEL'S PLACE/NEWINGTON",
+      "lat": 55.928271,
+      "lon": -3.209431,
+      "place_name": "1 Steel's Place, Edinburgh, EH10 4QT, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON THE SYMPTOMS AND TREATMENT OF PNEUMONIA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a349bc9bfb3dda9c1bf6"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Craigie, James",
+    "name_clean": "james craigie",
+    "birthplace": "Dunkeld Perthshire",
+    "address": {
+      "original_name": "20 HERIOT PLACE",
+      "lat": 55.94535,
+      "lon": -3.1958,
+      "place_name": "20 Heriot Place, Edinburgh, EH3 9EX, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1843,
+    "thesis": "ON THE ANATOMY OF THE INGUINAL CANAL"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34abc9bfb3dda9c1bf7"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Hair, Richard",
+    "name_clean": "richard hair",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "5 PARK PLACE",
+      "lat": 55.97873,
+      "lon": -3.19551,
+      "place_name": "5 Park Place, Edinburgh, EH6 4LB, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON INFLAMMATION OF THE LIVER"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34abc9bfb3dda9c1bf8"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Richardson, Henry",
+    "name_clean": "henry richardson",
+    "birthplace": "Berwick On Tweed",
+    "address": {
+      "original_name": "3 LOTHIAN STREET/ MRS OGILVIE",
+      "lat": 55.87496,
+      "lon": -3.10496,
+      "place_name": "3 Lothian Street, Bonnyrigg, EH19 3AE, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON RHEUMATISM"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34abc9bfb3dda9c1bf9"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Hinson, Henry Joseph",
+    "name_clean": "henry joseph hinson",
+    "birthplace": "Bermuda",
+    "address": {
+      "original_name": "15 CLERK ST",
+      "lat": 55.94303,
+      "lon": -3.18306,
+      "place_name": "15 Clerk Street, Edinburgh, EH8 9ES, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "West Indies",
+    "entry_year": 1842,
+    "thesis": "ON THE SYMPTOMS CAUSES DIAGNOSIS TREATMENT ETC. OF ANEURISMS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34abc9bfb3dda9c1bfa"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Smith, William",
+    "name_clean": "william smith",
+    "birthplace": "Ireland",
+    "address": {
+      "original_name": "3 ROXBURGH STREET",
+      "lat": 55.947909,
+      "lon": -3.183609,
+      "place_name": "3 Roxburgh Street, Edinburgh, EH8 9TA, United Kingdom"
+    },
+    "age": 28,
+    "nationality": "Ireland",
+    "entry_year": 1842,
+    "thesis": "ON THE CULTIVATION OF MEDICAL SCIENCE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34abc9bfb3dda9c1bfb"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "White, John",
+    "name_clean": "john white",
+    "birthplace": "Westmoreland",
+    "address": {
+      "original_name": "INVEREY HOUSE, PORTOBELLO",
+      "lat": 55.953552,
+      "lon": -3.115548,
+      "place_name": "Portobello, Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON THE PHYSIOLOGY OF THE CIRCULATION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34abc9bfb3dda9c1bfc"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Macleod, William",
+    "name_clean": "william macleod",
+    "birthplace": "Sutherlandshire",
+    "address": {
+      "original_name": "35 S. CASTLE ST",
+      "lat": 56.340576,
+      "lon": -2.790838,
+      "place_name": "35 South Castle Street, St. Andrews, KY16 9PL, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON PHTHISIS PULMONALIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34abc9bfb3dda9c1bfd"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Drury, William Vallancey",
+    "name_clean": "william vallancey drury",
+    "birthplace": "Sandymount",
+    "address": {
+      "original_name": "BRUNTSFIELD",
+      "lat": 55.937126,
+      "lon": -3.206995,
+      "place_name": "Bruntsfield, Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Ireland",
+    "entry_year": 1842,
+    "thesis": "ON INSANITY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34abc9bfb3dda9c1bfe"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Murison, Taylor H",
+    "name_clean": "taylor h murison",
+    "birthplace": "Ireland",
+    "address": {
+      "original_name": "35 LOTHIAN STREET (MRS BLAIKS)",
+      "lat": 55.946207,
+      "lon": -3.188901,
+      "place_name": "35 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Ireland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34bbc9bfb3dda9c1bff"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Kelaart, Edward Frederick",
+    "name_clean": "edward frederick kelaart",
+    "birthplace": "Colombo",
+    "address": {
+      "original_name": "32 RANKEILLOR STREET",
+      "lat": 55.942683,
+      "lon": -3.180539,
+      "place_name": "32 Rankeillor Street, Edinburgh, EH8 9JA, United Kingdom"
+    },
+    "age": 24,
+    "nationality": "Ceylon",
+    "entry_year": 1841,
+    "thesis": "CONTRIBUTIONS TO THE MEDICAL TOPOGRAPHY OF CEYLON WITH OBSERVATIONS ON SOME OF ITS NATURAL PRODUCTIONS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34bbc9bfb3dda9c1c00"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Young, James",
+    "name_clean": "james young",
+    "birthplace": "Malin/Co. Donegal",
+    "address": {
+      "original_name": "7 EAST ADAM STREET",
+      "lat": 55.947422,
+      "lon": -3.182193,
+      "place_name": "7 East Adam Street, Edinburgh, EH8 9TJ, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON BRONCHITIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34bbc9bfb3dda9c1c01"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Thomson, David Purdie",
+    "name_clean": "david purdie thomson",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "9 ANNE STREET",
+      "lat": 55.9566,
+      "lon": -3.21395,
+      "place_name": "9 Ann Street, Edinburgh, EH4 1PL, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1843,
+    "thesis": "ON SPONTANEOUS MORTIFICATION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34bbc9bfb3dda9c1c02"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Huggins, William",
+    "name_clean": "william huggins",
+    "birthplace": "St Vincent Island",
+    "address": {
+      "original_name": "9 ROXBURGH TERRACE",
+      "lat": 56.45958,
+      "lon": -3.01358,
+      "place_name": "9 Roxburgh Terrace, Dundee, DD2 1NZ, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "West Indies",
+    "entry_year": 1841,
+    "thesis": "ON ERYSIPELAS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34bbc9bfb3dda9c1c03"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Fisher, Henry",
+    "name_clean": "henry fisher",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "15 FORTH STREET",
+      "lat": 55.957806,
+      "lon": -3.187394,
+      "place_name": "15 Forth Street, Edinburgh, EH1 3LE, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotlan",
+    "entry_year": 1843,
+    "thesis": "ON JAUNDICE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34bbc9bfb3dda9c1c04"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wielobycki, Severin",
+    "name_clean": "severin wielobycki",
+    "birthplace": "Poland",
+    "address": {
+      "original_name": "7 WEST CIRCUS PLACE",
+      "lat": 55.60415,
+      "lon": -2.44299,
+      "place_name": "7 Edinburgh Road, Kelso, TD5 7EN, United Kingdom"
+    },
+    "age": 33,
+    "nationality": "Poland",
+    "entry_year": 1841,
+    "thesis": "ON DYSPEPSIA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34bbc9bfb3dda9c1c05"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wyllie, David",
+    "name_clean": "david wyllie",
+    "birthplace": "Montrose",
+    "address": {
+      "original_name": "7 SALISBURY STREET",
+      "lat": 56.11783,
+      "lon": -3.16529,
+      "place_name": "7 Salisbury Street, Kirkcaldy, KY2 5HW, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON DELIRIUM TREMENS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34bbc9bfb3dda9c1c06"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Andrews, Charles",
+    "name_clean": "charles andrews",
+    "birthplace": "Swansea",
+    "address": {
+      "original_name": "ROYAL INFIRMARY",
+      "lat": 55.948342,
+      "lon": -3.184947,
+      "place_name": "Infirmary Street, Edinburgh, EH1 1LT, United Kingdom"
+    },
+    "age": 27,
+    "nationality": "Wales",
+    "entry_year": 1842,
+    "thesis": "ON THE PRINCIPLES APPLICABLE TO THE TREATMENT OF FRACTURES OF THE EXTREMITIES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34cbc9bfb3dda9c1c07"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Miller, Jacobus",
+    "name_clean": "jacobus miller",
+    "birthplace": "Kent",
+    "address": {
+      "original_name": "28 INDIA ST",
+      "lat": 55.955848,
+      "lon": -3.205809,
+      "place_name": "28 India Street, Edinburgh, EH3 6HE, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON URINARY CALCULUS WITH SOME REMARKS UPON ITS TREATMENT"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34cbc9bfb3dda9c1c08"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Heslop, Ralph Clayton",
+    "name_clean": "ralph clayton heslop",
+    "birthplace": "Withnell Near Chorley, Lancashire",
+    "address": {
+      "original_name": "17 ST PATRICK SQUARE/MISS PEAT",
+      "lat": 55.94315,
+      "lon": -3.18287,
+      "place_name": "17 St. Patrick Square, Edinburgh, EH8 9EZ, United Kingdom"
+    },
+    "age": 24,
+    "nationality": "England",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34cbc9bfb3dda9c1c09"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bird, John Edwards",
+    "name_clean": "john edwards bird",
+    "birthplace": "Jamaica",
+    "address": {
+      "original_name": "6 ROXBURGH PLACE",
+      "lat": 55.947127,
+      "lon": -3.18409,
+      "place_name": "6 Roxburgh Place, Edinburgh, EH8 9DR, United Kingdom"
+    },
+    "age": 26,
+    "nationality": "West Indies",
+    "entry_year": 1841,
+    "thesis": "ON INFANTICIDE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34cbc9bfb3dda9c1c0a"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Castle, Henry Thomas",
+    "name_clean": "henry thomas castle",
+    "birthplace": "High Wycombe, Bucks.",
+    "address": {
+      "original_name": "5 S. COLLEGE ST",
+      "lat": 55.947136,
+      "lon": -3.186369,
+      "place_name": "5 South College Street, Edinburgh, EH8 9AA, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON SOME OF THE DISEASES OF JOINTS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34cbc9bfb3dda9c1c0b"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Gordon, Alexander",
+    "name_clean": "alexander gordon",
+    "birthplace": "?Saintfield Down",
+    "address": {
+      "original_name": "21 LOTHIAN STREET",
+      "lat": 55.945884,
+      "lon": -3.189451,
+      "place_name": "21 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON THE GRANULAR DISEASE OF THE KIDNEY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34cbc9bfb3dda9c1c0c"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Mort, William",
+    "name_clean": "william mort",
+    "birthplace": "Manchester",
+    "address": {
+      "original_name": "14 CLERK STREET",
+      "lat": 55.942772,
+      "lon": -3.182814,
+      "place_name": "14 Clerk Street, Edinburgh, EH8 9JH, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON CHOREA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34cbc9bfb3dda9c1c0d"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Carlyle, William Johnstone",
+    "name_clean": "william johnstone carlyle",
+    "birthplace": "Waterbeck",
+    "address": {
+      "original_name": "4 CLERK ST",
+      "lat": 55.942985,
+      "lon": -3.183025,
+      "place_name": "4 Clerk Street, Edinburgh, EH8 9ES, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON ANEURISM"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34cbc9bfb3dda9c1c0e"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Haward, Edwin",
+    "name_clean": "edwin haward",
+    "birthplace": "Walesworth/ Suffolk",
+    "address": {
+      "original_name": "72 NORTHUMBERLAND STREET",
+      "lat": 55.956342,
+      "lon": -3.202132,
+      "place_name": "72 Northumberland Street, Edinburgh, EH3 6JG, United Kingdom"
+    },
+    "age": 25,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON INFANTILE MORTALITY OR AN INQUIRY INTO ITS CAUSES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34dbc9bfb3dda9c1c0f"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Giglioli, Joseph",
+    "name_clean": "joseph giglioli",
+    "birthplace": "Brescello/ State Of Modena [?]",
+    "address": {
+      "original_name": "26 FREDERICK STREET",
+      "lat": 55.952541,
+      "lon": -3.200116,
+      "place_name": "26 Frederick Street, Edinburgh, EH2 2ND, United Kingdom"
+    },
+    "age": 37,
+    "nationality": "Italy",
+    "entry_year": 1841,
+    "thesis": "AN INTRODUCTION TO A DYNAMICAL THEORY OF NATURE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34dbc9bfb3dda9c1c10"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wickham, Joseph",
+    "name_clean": "joseph wickham",
+    "birthplace": "Cumberland",
+    "address": {
+      "original_name": "MRS MITCHELL 35 LOTHIAN STREET",
+      "lat": 55.946207,
+      "lon": -3.188901,
+      "place_name": "35 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON CROUP"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34dbc9bfb3dda9c1c11"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Homer, Henry",
+    "name_clean": "henry homer",
+    "birthplace": "London",
+    "address": {
+      "original_name": "5 GRAHAM STREET/ LAURISTON",
+      "lat": 55.70567,
+      "lon": -2.46677,
+      "place_name": "5 Edinburgh Road, Greenlaw, Duns, TD10 6XF, United Kingdom"
+    },
+    "age": 25,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON HYDROCEPHALUS ACUTUS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34dbc9bfb3dda9c1c12"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Hill, Charles",
+    "name_clean": "charles hill",
+    "birthplace": "Ballylough",
+    "address": {
+      "original_name": "10 HILL PLACE",
+      "lat": 55.94627,
+      "lon": -3.18397,
+      "place_name": "10 Hill Place, Edinburgh, EH8 9DS, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Ireland",
+    "entry_year": 1842,
+    "thesis": "ON ACUTE RHEUMATISM"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34dbc9bfb3dda9c1c13"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Lambert, John",
+    "name_clean": "john lambert",
+    "birthplace": "Croyden/ Surrey",
+    "address": {
+      "original_name": "30 LOTHIAN STREET",
+      "lat": 55.946313,
+      "lon": -3.188763,
+      "place_name": "30 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 28,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON SCARATINA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34dbc9bfb3dda9c1c14"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Houston, Enoch Nasmyth",
+    "name_clean": "enoch nasmyth houston",
+    "birthplace": "Renfrewshire",
+    "address": {
+      "original_name": "10 RANKEILLOR ST.",
+      "lat": 55.942302,
+      "lon": -3.181987,
+      "place_name": "10 Rankeillor Street, Edinburgh, EH8 9JA, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "WHAT INFLUENCE DOES THE STATE OF THE PARENTS EXERT AT THE TIME OF CONCEPTION ON THE FUTURE OFFSPRING?"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34dbc9bfb3dda9c1c15"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Winchester, Charles Alexander",
+    "name_clean": "charles alexander winchester",
+    "birthplace": "Aberdeen",
+    "address": {
+      "original_name": "19 N.W. CIRCUS PLACE",
+      "lat": 55.9575,
+      "lon": -3.20687,
+      "place_name": "19 North West Circus Place, Edinburgh, EH3 6SX, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON DYSENTERY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34ebc9bfb3dda9c1c16"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Sanderson, John Thom",
+    "name_clean": "john thom sanderson",
+    "birthplace": "Musselburgh",
+    "address": {
+      "original_name": "6 N.E. CIRCUS PLACE",
+      "lat": 55.95733,
+      "lon": -3.20605,
+      "place_name": "6 North West Circus Place, Edinburgh, EH3 6ST, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON CLUB-FOOT"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34ebc9bfb3dda9c1c17"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Pringle, William Spence",
+    "name_clean": "william spence pringle",
+    "birthplace": "Kirkwall/Orkney",
+    "address": {
+      "original_name": "4 BUCCLEUCH ST",
+      "lat": 55.943342,
+      "lon": -3.184751,
+      "place_name": "4 Buccleuch Street, Edinburgh, EH8 9JR, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON CONCUSSION AND COMPRESSION OF THE BRAIN"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34ebc9bfb3dda9c1c18"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bleazby, Samuel",
+    "name_clean": "samuel bleazby",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": "41 LOTHIAN ST",
+      "lat": 55.94627,
+      "lon": -3.18923,
+      "place_name": "41 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34ebc9bfb3dda9c1c19"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Ferguson, James Maxwell",
+    "name_clean": "james maxwell ferguson",
+    "birthplace": "Dundee",
+    "address": {
+      "original_name": "10 SALISBURY STREET",
+      "lat": 56.1173,
+      "lon": -3.16368,
+      "place_name": "10 Salisbury Street, Kirkcaldy, KY2 5HN, United Kingdom"
+    },
+    "age": 25,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON TYPHUS OR CONTINUED FEVER"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34ebc9bfb3dda9c1c1a"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Mackenzie, James John",
+    "name_clean": "james john mackenzie",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34ebc9bfb3dda9c1c1b"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Stephens, John Edward",
+    "name_clean": "john edward stephens",
+    "birthplace": "Woolwich",
+    "address": {
+      "original_name": "25 DUNDAS STREET",
+      "lat": 55.95726,
+      "lon": -3.19885,
+      "place_name": "25 Dundas Street, Edinburgh, EH3 6QQ, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON THE INDUCTION OF PREMATURE LABOUR"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34ebc9bfb3dda9c1c1c"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bowie, William",
+    "name_clean": "william bowie",
+    "birthplace": "Bath",
+    "address": {
+      "original_name": "25 DUBLIN ST",
+      "lat": 55.95669,
+      "lon": -3.19309,
+      "place_name": "25 Dublin Street, Edinburgh, EH1 3PG, United Kingdom"
+    },
+    "age": 24,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON INSANITY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34ebc9bfb3dda9c1c1d"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Smith, William",
+    "name_clean": "william smith",
+    "birthplace": "Moffat",
+    "address": {
+      "original_name": "59 CASTLE STREET",
+      "lat": 55.952179,
+      "lon": -3.203368,
+      "place_name": "59 Castle Street, Edinburgh, EH2 3DN, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON ACUTE HYDROCEPHALUS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34fbc9bfb3dda9c1c1e"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Dudgeon, Robert Ellis",
+    "name_clean": "robert ellis dudgeon",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "35 LOTHIAN STREET",
+      "lat": 55.946207,
+      "lon": -3.188901,
+      "place_name": "35 Lothian Street, Edinburgh, EH1 1HB, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "PRACTICAL OBSERVATIONS ON THE CURE OF CATARACT BY MECHANICAL MEANS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34fbc9bfb3dda9c1c1f"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wilson, David",
+    "name_clean": "david wilson",
+    "birthplace": "Beith/ Ayrshire",
+    "address": {
+      "original_name": "LEITH, DISPENSARY",
+      "lat": 55.970566,
+      "lon": -3.171885,
+      "place_name": "Leith, Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON STRICTURE OF THE URETHRA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34fbc9bfb3dda9c1c20"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Lamb, John Stewart",
+    "name_clean": "john stewart lamb",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON THE IMPORTANCE OF METEROLOGY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34fbc9bfb3dda9c1c21"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Giles, Richard",
+    "name_clean": "richard giles",
+    "birthplace": "Oxfordshire",
+    "address": {
+      "original_name": "31 GAYFIELD SQUARE",
+      "lat": 55.958707,
+      "lon": -3.18444,
+      "place_name": "31 Gayfield Square, Edinburgh, EH1 3PA, United Kingdom"
+    },
+    "age": 27,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON IDIOPATHIC ACUTE BRONCHITIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34fbc9bfb3dda9c1c22"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Ross, Arthur",
+    "name_clean": "arthur ross",
+    "birthplace": "Ireland",
+    "address": {
+      "original_name": "8 ROXBURGH TERRACE/ MR TINDAL'S",
+      "lat": 56.45966,
+      "lon": -3.01286,
+      "place_name": "8 Roxburgh Terrace, Dundee, DD2 1NZ, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Ireland",
+    "entry_year": 1842,
+    "thesis": "ON LEAD"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34fbc9bfb3dda9c1c23"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Lookup, Thomas",
+    "name_clean": "thomas lookup",
+    "birthplace": "Dumfries",
+    "address": {
+      "original_name": "61 CLERK STREET/ MR GORDON'S",
+      "lat": 55.942231,
+      "lon": -3.182248,
+      "place_name": "61 Clerk Street, Edinburgh, EH8 9JH, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON THE EVOLUTION OF HEAT IN ORGANIZED BEINGS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a34fbc9bfb3dda9c1c24"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Smellie, William",
+    "name_clean": "william smellie",
+    "birthplace": "St Andrews Orkney",
+    "address": {
+      "original_name": "21 S. COLLEGE ST. (MRS FRASER)",
+      "lat": 55.947001,
+      "lon": -3.187167,
+      "place_name": "21 South College Street, Edinburgh, EH8 9AA, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON THE VASCULAR SYSTEM AND THE CIRCULATION OF THE SAP IN VEGETABLES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a350bc9bfb3dda9c1c25"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Barnard, John Wyatt",
+    "name_clean": "john wyatt barnard",
+    "birthplace": "Little Cranfield/Essex",
+    "address": {
+      "original_name": "TEVIOT ROW",
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": 24,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON RUBEOLA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a350bc9bfb3dda9c1c26"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Stewart, John",
+    "name_clean": "john stewart",
+    "birthplace": "Perth",
+    "address": {
+      "original_name": "10 HILL PLACE/ MR LAING",
+      "lat": 55.94627,
+      "lon": -3.18397,
+      "place_name": "10 Hill Place, Edinburgh, EH8 9DS, United Kingdom"
+    },
+    "age": 31,
+    "nationality": "Scotland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a350bc9bfb3dda9c1c27"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Jopp, Keith",
+    "name_clean": "keith jopp",
+    "birthplace": "Aberdeen",
+    "address": {
+      "original_name": "41 QUEEN ST",
+      "lat": 55.954378,
+      "lon": -3.201432,
+      "place_name": "41 Queen Street, Edinburgh, EH3 6EN, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON PERIPNEUMONIA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a350bc9bfb3dda9c1c28"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Pringle, Andrew",
+    "name_clean": "andrew pringle",
+    "birthplace": "East Lothian",
+    "address": {
+      "original_name": "22 LONDON STREET",
+      "lat": 55.958958,
+      "lon": -3.192792,
+      "place_name": "22 London Street, Edinburgh, EH3 6LZ, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON PLACENTA PRESENTATION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a350bc9bfb3dda9c1c29"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Hunter, John",
+    "name_clean": "john hunter",
+    "birthplace": "Dumfriesshire",
+    "address": {
+      "original_name": "17 ST PATRICK SQUARE",
+      "lat": 55.94315,
+      "lon": -3.18287,
+      "place_name": "17 St. Patrick Square, Edinburgh, EH8 9EZ, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON CATARACT"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a350bc9bfb3dda9c1c2a"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Twiss, Hastings",
+    "name_clean": "hastings twiss",
+    "birthplace": "Co. Cork",
+    "address": {
+      "original_name": "11 DRUMMOND STREET",
+      "lat": 55.947197,
+      "lon": -3.186029,
+      "place_name": "11 Drummond Street, Edinburgh, EH8 9DH, United Kingdom"
+    },
+    "age": 24,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON PARALYSIS OF THE MOTOR NERVES OF THE EYE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a350bc9bfb3dda9c1c2b"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Kelly, William Marwood",
+    "name_clean": "william marwood kelly",
+    "birthplace": "London",
+    "address": {
+      "original_name": "26 RANKEILLOR STREET (MRS BIRRELL)",
+      "lat": 55.942579,
+      "lon": -3.180934,
+      "place_name": "26 Rankeillor Street, Edinburgh, EH8 9JA, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON THE INFLUENCE OF AGE ON DISEASES"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a350bc9bfb3dda9c1c2c"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Taylor, Robert",
+    "name_clean": "robert taylor",
+    "birthplace": "Kirkudbrightshire",
+    "address": {
+      "original_name": "20 CHARLOTTE SQUARE",
+      "lat": 55.951212,
+      "lon": -3.208436,
+      "place_name": "20 Charlotte Square, Edinburgh, EH2 4DF, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON DIABETES MELITUS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a351bc9bfb3dda9c1c2d"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Kirkpatrick, James",
+    "name_clean": "james kirkpatrick",
+    "birthplace": "Kirkcudbright",
+    "address": {
+      "original_name": "14 BROUGHTON PLACE",
+      "lat": 55.95884,
+      "lon": -3.18889,
+      "place_name": "14 Broughton Place, Edinburgh, EH1 3RX, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON ULCERS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a351bc9bfb3dda9c1c2e"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Clerk, John",
+    "name_clean": "john clerk",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "MARIONVILLE, RESTALRIG",
+      "lat": 55.958272,
+      "lon": -3.157632,
+      "place_name": "Marionville Road, Edinburgh, EH7 6AW, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON TABES MESENTERICA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a351bc9bfb3dda9c1c2f"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Selby, Prideau",
+    "name_clean": "prideau selby",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a351bc9bfb3dda9c1c30"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Moore, James",
+    "name_clean": "james moore",
+    "birthplace": "Belfast",
+    "address": {
+      "original_name": "8 ROXBURGH TERRACE/MRS CRANSTONS",
+      "lat": 56.45966,
+      "lon": -3.01286,
+      "place_name": "8 Roxburgh Terrace, Dundee, DD2 1NZ, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Ireland",
+    "entry_year": 1842,
+    "thesis": "CAN ACQUIRED HABITS AND PHYSICAL CONFIGURATION OF THE BODY DESCEND TO THE OFFSPRING?"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a351bc9bfb3dda9c1c31"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wood, William",
+    "name_clean": "william wood",
+    "birthplace": "Yorkshire",
+    "address": {
+      "original_name": "9 BLENHEIM PLACE",
+      "lat": 55.95749,
+      "lon": -3.18332,
+      "place_name": "9 Blenheim Place, Edinburgh, EH7 5JH, United Kingdom"
+    },
+    "age": 27,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON UTERINE HAEMORRHAGE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a351bc9bfb3dda9c1c32"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Blennerhassett, Richard",
+    "name_clean": "richard blennerhassett",
+    "birthplace": "Dublin",
+    "address": {
+      "original_name": "11 DRUMMOND STREET",
+      "lat": 55.947197,
+      "lon": -3.186029,
+      "place_name": "11 Drummond Street, Edinburgh, EH8 9DH, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "English",
+    "entry_year": 1842,
+    "thesis": "ON URETHRITIS VENEREA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a351bc9bfb3dda9c1c33"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Malcolm, Andrew George",
+    "name_clean": "andrew george malcolm",
+    "birthplace": "Newry",
+    "address": {
+      "original_name": "12 HILL SQUARE",
+      "lat": 55.946663,
+      "lon": -3.184155,
+      "place_name": "12 Hill Square, Edinburgh, EH8 9DR, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Ireland",
+    "entry_year": 1842,
+    "thesis": "ON THE PATHOLOGY OF CONTINUED FEVER"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a351bc9bfb3dda9c1c34"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bull, Joshua",
+    "name_clean": "joshua bull",
+    "birthplace": "Cork",
+    "address": {
+      "original_name": "39 HANOVER ST",
+      "lat": 55.95292,
+      "lon": -3.19665,
+      "place_name": "39 Hanover Street, Edinburgh, EH2 2PJ, United Kingdom"
+    },
+    "age": 26,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON CROUP"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a352bc9bfb3dda9c1c35"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Osburne, Thomas",
+    "name_clean": "thomas osburne",
+    "birthplace": "Cork",
+    "address": {
+      "original_name": "39 HANOVER ST",
+      "lat": 55.95292,
+      "lon": -3.19665,
+      "place_name": "39 Hanover Street, Edinburgh, EH2 2PJ, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON ARTERIAL HAEMORRHAGE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a352bc9bfb3dda9c1c36"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Greenidge, John Francis",
+    "name_clean": "john francis greenidge",
+    "birthplace": "Barbadoes",
+    "address": {
+      "original_name": "8 LONDON STREET",
+      "lat": 55.958825,
+      "lon": -3.193532,
+      "place_name": "8 London Street, Edinburgh, EH3 6LZ, United Kingdom"
+    },
+    "age": 26,
+    "nationality": "West Indies",
+    "entry_year": 1841,
+    "thesis": "ON THE LITERATURE OF UTERINE HAEMORRAGE BEFORE DELIVERY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a352bc9bfb3dda9c1c37"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Barker, William Thomson",
+    "name_clean": "william thomson barker",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": "1 CLERK STREET",
+      "lat": 55.943033,
+      "lon": -3.183062,
+      "place_name": "1 Clerk Street, Edinburgh, EH8 9ES, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": "Scotland",
+    "entry_year": 1842,
+    "thesis": "ON ACUTE GOUT"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a352bc9bfb3dda9c1c38"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Bowie, John James",
+    "name_clean": "john james bowie",
+    "birthplace": "Cove Of Cork",
+    "address": {
+      "original_name": "4 ALBANY STREET/ MRS LYALLS LODGINGS",
+      "lat": 55.95708,
+      "lon": -3.19323,
+      "place_name": "4 Albany Street, Edinburgh, EH1 3QB, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON STRABISMUS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a352bc9bfb3dda9c1c39"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "George, Robert Villiers",
+    "name_clean": "robert villiers george",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": "18 DRUMMOND STREET",
+      "lat": 55.94733,
+      "lon": -3.18492,
+      "place_name": "18 Drummond Street, Edinburgh, EH8 9TX, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON HAEMORRHAGE FROM THE LUNGS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a352bc9bfb3dda9c1c3a"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Booth, Byron",
+    "name_clean": "byron booth",
+    "birthplace": "Derbyshire",
+    "address": {
+      "original_name": "12 CHARLES ST",
+      "lat": 55.83856,
+      "lon": -3.22571,
+      "place_name": "12 Charles Street, Penicuik, EH26 0HH, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a352bc9bfb3dda9c1c3b"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Wilson, Alexander",
+    "name_clean": "alexander wilson",
+    "birthplace": "Dalbeatie",
+    "address": {
+      "original_name": "13 ADAM ST/ SMITH'S",
+      "lat": 55.947422,
+      "lon": -3.182193,
+      "place_name": "13 East Adam Street, Edinburgh, EH8 9TJ, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a352bc9bfb3dda9c1c3c"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Adams, Kenneth Mckenzie A.M.",
+    "name_clean": "kenneth mckenzie a.m. adams",
+    "birthplace": "Forres/Morayshire",
+    "address": {
+      "original_name": "33 SCOTLAND ST",
+      "lat": 55.96037,
+      "lon": -3.19498,
+      "place_name": "33 Scotland Street, Edinburgh, EH3 6PY, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON RETENTION OF THE PLACENTA"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a353bc9bfb3dda9c1c3d"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Fraser, James George",
+    "name_clean": "james george fraser",
+    "birthplace": "Fort George",
+    "address": {
+      "original_name": "16 NORTHUMBERLAND STREET",
+      "lat": 55.95694,
+      "lon": -3.19766,
+      "place_name": "16 Northumberland Street, Edinburgh, EH3 6LS, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON THE VARIOUS LUSUS NATURAE OCCURRING IN THE ARTERIAL SYSTEM"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a353bc9bfb3dda9c1c3e"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Gordon, David",
+    "name_clean": "david gordon",
+    "birthplace": "Picton/ Nova Scotia",
+    "address": {
+      "original_name": "21 MONTAGUE STREET",
+      "lat": 55.941856,
+      "lon": -3.180817,
+      "place_name": "21 Montague Street, Edinburgh, EH8 9QT, United Kingdom"
+    },
+    "age": 26,
+    "nationality": "Canada",
+    "entry_year": 1841,
+    "thesis": "ON ULCERS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a353bc9bfb3dda9c1c3f"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Brown, William Crawford",
+    "name_clean": "william crawford brown",
+    "birthplace": "Midlothian",
+    "address": {
+      "original_name": "3 HOPE STREET",
+      "lat": 55.950557,
+      "lon": -3.208089,
+      "place_name": "3 Hope Street, Edinburgh, EH2 4BL, United Kingdom"
+    },
+    "age": 22,
+    "nationality": "Scotland",
+    "entry_year": 1843,
+    "thesis": "ON TIC DOULOUREUX"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a353bc9bfb3dda9c1c40"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Potts, Thomas Bailey William",
+    "name_clean": "thomas bailey william potts",
+    "birthplace": "Wiltshire",
+    "address": {
+      "original_name": "4 PICARDY PLACE",
+      "lat": 55.95712,
+      "lon": -3.18759,
+      "place_name": "4 Picardy Place, Edinburgh, EH1 3JT, United Kingdom"
+    },
+    "age": 20,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "A REPORT OF 104 CASES OF MIDWIFERY WITH REMARKS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a353bc9bfb3dda9c1c41"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Dickson, Walter",
+    "name_clean": "walter dickson",
+    "birthplace": "Edinburgh",
+    "address": {
+      "original_name": "7 DUKE STREET",
+      "lat": 55.97056,
+      "lon": -3.17118,
+      "place_name": "7 Duke Street, Edinburgh, EH6 8HG, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON THE PATHOLOGY OF DROPSY"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a353bc9bfb3dda9c1c42"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Whitton, Corbett",
+    "name_clean": "corbett whitton",
+    "birthplace": "Eydon Northamptonshire",
+    "address": {
+      "original_name": "26 RAINKELLOR ST",
+      "lat": 55.932904,
+      "lon": -3.013097,
+      "place_name": "Sweethope Crescent, Wallyford, Musselburgh, EH21 8EN, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "England",
+    "entry_year": 1842,
+    "thesis": "ON THE HISTORY ETC OF MONKSHOOD"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a353bc9bfb3dda9c1c43"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Reid, Francis",
+    "name_clean": "francis reid",
+    "birthplace": "Dumfries",
+    "address": {
+      "original_name": "1 WEST ARTHUR PLACE",
+      "lat": 55.48602,
+      "lon": -2.54582,
+      "place_name": "1 Edinburgh Road, Jedburgh, TD8 6EA, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON ASPHYXIA AND ON DEATH BY STRANGULATION SUSPENSION SMOTHERING ETC CONSIDERED IN REFERENCE TO PHYSIOLOGY PATHOLOGY AND MECIDAL JURISPRUDENCE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a353bc9bfb3dda9c1c44"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Horniblow, George",
+    "name_clean": "george horniblow",
+    "birthplace": "Oxfordshire",
+    "address": {
+      "original_name": "22 ST PATRICK SQUARE",
+      "lat": 55.94274,
+      "lon": -3.18343,
+      "place_name": "22 St. Patrick Square, Edinburgh, EH8 9EY, United Kingdom"
+    },
+    "age": 24,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON CANCER"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a354bc9bfb3dda9c1c45"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Fasken, William",
+    "name_clean": "william fasken",
+    "birthplace": "Madras",
+    "address": {
+      "original_name": "38 MINTO ST.",
+      "lat": 55.93547,
+      "lon": -3.17641,
+      "place_name": "38 Minto Street, Edinburgh, EH9 2BS, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "India",
+    "entry_year": 1841,
+    "thesis": "ON ACUTE HEPATITIS"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a354bc9bfb3dda9c1c46"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Kirkwood, Alexander",
+    "name_clean": "alexander kirkwood",
+    "birthplace": "Dunbar East Lothian",
+    "address": {
+      "original_name": "39 MONTAGUE ST (FRASER'S)",
+      "lat": 55.942098,
+      "lon": -3.1799,
+      "place_name": "39 Montague Street, Edinburgh, EH8 9QS, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Scotland",
+    "entry_year": 1841,
+    "thesis": "ON DYSENTERY ESPECIALLY AS IT OCCURS IN MILITARY PRACTICE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a354bc9bfb3dda9c1c47"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Fitch, Simon",
+    "name_clean": "simon fitch",
+    "birthplace": "Nova Scotia",
+    "address": {
+      "original_name": "LYING IN HOSPITAL PARK PLACE",
+      "lat": 55.978841,
+      "lon": -3.195523,
+      "place_name": "Park Place, Edinburgh, EH6 4LB, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "Canada",
+    "entry_year": 1841,
+    "thesis": "ON CASES AND OBSERVATIONS ILLUSTRATIVE OF THE MECHANISM AND MANAGEMENT OF PARTURITION"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a354bc9bfb3dda9c1c48"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Johnston, Francis",
+    "name_clean": "francis johnston",
+    "birthplace": {
+      "$numberDouble": "NaN"
+    },
+    "address": {
+      "original_name": {
+        "$numberDouble": "NaN"
+      },
+      "lat": 55.953346,
+      "lon": -3.188375,
+      "place_name": "Edinburgh, City of Edinburgh, Scotland, United Kingdom"
+    },
+    "age": {
+      "$numberDouble": "NaN"
+    },
+    "nationality": {
+      "$numberDouble": "NaN"
+    },
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a354bc9bfb3dda9c1c49"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Parker, Thomas Jefferson",
+    "name_clean": "thomas jefferson parker",
+    "birthplace": "Cumberland",
+    "address": {
+      "original_name": "16 CHAPEL ST. (MRS HILLS)",
+      "lat": 55.94449,
+      "lon": -3.18584,
+      "place_name": "16 Chapel Street, Edinburgh, EH8 9AY, United Kingdom"
+    },
+    "age": 23,
+    "nationality": "England",
+    "entry_year": {
+      "$numberDouble": "NaN"
+    },
+    "thesis": {
+      "$numberDouble": "NaN"
+    }
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a354bc9bfb3dda9c1c4a"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Graham, John",
+    "name_clean": "john graham",
+    "birthplace": "Cumberland",
+    "address": {
+      "original_name": "6 BRIGHTON ST",
+      "lat": 55.94656,
+      "lon": -3.18912,
+      "place_name": "6 Brighton Street, Edinburgh, EH1 1HD, United Kingdom"
+    },
+    "age": 21,
+    "nationality": "England",
+    "entry_year": 1841,
+    "thesis": "ON BRONCHOCELE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+},
+{
+  "_id": {
+    "$oid": "6995a354bc9bfb3dda9c1c4b"
+  },
+  "source": "students_of_medicine",
+  "original": {
+    "name": "Harrison, John",
+    "name_clean": "john harrison",
+    "birthplace": "Roscommon",
+    "address": {
+      "original_name": "18 S. FREDERICK ST",
+      "lat": 55.86025,
+      "lon": -4.24896,
+      "place_name": "18 South Frederick Street, Glasgow, G1 1HJ, United Kingdom"
+    },
+    "age": 24,
+    "nationality": "Ireland",
+    "entry_year": 1841,
+    "thesis": "ON THE SYMPTOMS AND TREATMENT OF HYDROCELE"
+  },
+  "match": null,
+  "enrichment": null,
+  "review_status": "unmatched"
+}]
