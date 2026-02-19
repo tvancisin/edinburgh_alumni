@@ -9,7 +9,7 @@
     duration: 600,
     easing: cubicOut,
     interpolate,
-    delay: i * 5,
+    delay: i * 2,
   });
 
   $effect(() => {

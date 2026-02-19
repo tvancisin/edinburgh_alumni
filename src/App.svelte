@@ -3,6 +3,7 @@
   import "./lib/d3.sketchy.js";
   import { onMount } from "svelte";
   import Bars from "./Bars.svelte";
+  import Map from "./Map.svelte";
   import {
     getCSV,
     getJSON,
@@ -31,6 +32,7 @@
     edinburgh_seven,
     medics_sample,
     st_andrews,
+    alumni_geocoded,
     year_st_andrews_group,
     full_years,
     year_medics_group,
@@ -83,7 +85,10 @@
       "./edinburgh_seven.csv",
       "./medics_sample.csv",
     ]);
-    [st_andrews] = await getJSON(["./st_andrews.json"]);
+    [st_andrews, alumni_geocoded] = await getJSON([
+      "./st_andrews.json",
+      "./alumni_geocoded_enriched.json",
+    ]);
 
     const st_andrews_students = st_andrews
       .map((d) => {
@@ -307,6 +312,10 @@
   }
 
   $: if (x_axis) {
+    const _dep = mapVisible; // reactive dependency
+    const axisColor = mapVisible ? "black" : "white";
+    const tickColor = mapVisible ? "black" : "gray";
+
     const xaxis = d3
       .axisBottom(x_scale)
       .ticks(d3.timeYear.every(20))
@@ -316,7 +325,7 @@
     d3.select(x_axis)
       .call(xaxis)
       .selectAll("text")
-      .attr("fill", "white")
+      .attr("fill", axisColor)
       .attr("font-family", "Montserrat, sans-serif")
       .attr("font-weight", 400)
       .attr("font-size", 12)
@@ -324,12 +333,12 @@
 
     d3.select(x_axis)
       .select("path.domain")
-      .attr("stroke", "gray")
+      .attr("stroke", tickColor)
       .attr("stroke-width", 1);
 
     d3.select(x_axis)
       .selectAll("line")
-      .attr("stroke", "gray")
+      .attr("stroke", tickColor)
       .attr("stroke-width", 1);
 
     // Y AXIS
@@ -448,53 +457,94 @@
       ? calculateAttributeCoverage(percentage_datasets[activeKey])
       : Object.fromEntries(uniqueInformationTypes.map((d) => [d, 0]));
 
-  $: console.log(percentages);
+  let open = false;
+  let selected = "all_medics";
+
+  const options = [
+    { id: "all_medics", label: "All Medics" },
+    { id: "medics", label: "Medical Students" },
+    { id: "matriculations", label: "Medical Matriculations" },
+    { id: "women_med_graduates", label: "Medical Women Graduates" },
+    { id: "medics_sample", label: "Medics Sample" },
+    { id: "extra_academic", label: "Extra Medics" },
+    { id: "edinburgh_seven", label: "Edinburgh Seven" },
+    { id: "all_uni", label: "All University" },
+    { id: "st_andrews", label: "St Andrews Dataset" },
+  ];
+
+  let mapVisible = false;
+
+  function toggleMap() {
+    mapVisible = !mapVisible;
+  }
+
+  $: if (selected !== "medics_sample") mapVisible = false;
+
+  function toggleMenu() {
+    open = !open;
+  }
+
+  function select(option) {
+    selected = option;
+    handleSwitch(option);
+    open = false;
+  }
+
+  $: selectedLabel = options.find((o) => o.id === selected)?.label;
 </script>
 
+<svelte:window on:click={() => (open = false)} />
 <main bind:clientHeight={height} bind:clientWidth={width}>
-  <h1>University of Edinburgh Historical Student Records</h1>
-  <div class="button-column">
-    <button on:click={() => handleSwitch("all_medics")}>All Medics</button>
-    <button on:click={() => handleSwitch("medics")}>Medical Students</button>
-    <button on:click={() => handleSwitch("matriculations")}
-      >Medical Matriculations</button
-    >
-    <button on:click={() => handleSwitch("women_med_graduates")}
-      >Medical Women Graduates</button
-    >
-    <button on:click={() => handleSwitch("medics_sample")}>Medics Sample</button
-    >
-    <button on:click={() => handleSwitch("extra_academic")}>Extra Medics</button
-    >
-    <button on:click={() => handleSwitch("edinburgh_seven")}
-      >Edinburgh Seven</button
-    >
-    <button id="all_uni" on:click={() => handleSwitch("all_uni")}
-      >All University</button
-    >
-    <button on:click={() => handleSwitch("st_andrews")}
-      >St Andrews Dataset</button
-    >
-  </div>
-  <div class="info-list">
-    <em>Type and percentage of information available</em>
-    {#each uniqueInformationTypes as item}
-      <div class="info-row">
-        <span class="label">{item}</span>
+  {#if alumni_geocoded}
+    <Map {alumni_geocoded} visible={mapVisible} />
+  {/if}
+  {#if selected === "medics_sample"}
+    <button class="map-toggle" on:click|stopPropagation={toggleMap}>
+      {mapVisible ? "Hide Map" : "Show Map"}
+    </button>
+  {/if}
 
-        <div class="bar">
-          <div
-            class="bar-fill"
-            style="width: {percentages[infoKeyMap[item]] || 0}%"
-          />
+  {#if mapVisible == false}
+    <h1>University of Edinburgh Historical Student Records</h1>
+    <div class="dropdown" on:click|stopPropagation>
+      <button class="dropdown-toggle" on:click={toggleMenu}>
+        {selectedLabel} ▾
+      </button>
+
+      {#if open}
+        <div class="dropdown-menu">
+          {#each options as option}
+            <button
+              class:selected={option.id === selected}
+              on:click={() => select(option.id)}
+            >
+              {option.label}
+            </button>
+          {/each}
         </div>
+      {/if}
+    </div>
 
-        <span class="pct">
-          {percentages[infoKeyMap[item]] || 0}%
-        </span>
-      </div>
-    {/each}
-  </div>
+    <div class="info-list">
+      <em>Type and percentage of information available</em>
+      {#each uniqueInformationTypes as item}
+        <div class="info-row">
+          <span class="label">{item}</span>
+
+          <div class="bar">
+            <div
+              class="bar-fill"
+              style="width: {percentages[infoKeyMap[item]] || 0}%"
+            />
+          </div>
+
+          <span class="pct">
+            {percentages[infoKeyMap[item]] || 0}%
+          </span>
+        </div>
+      {/each}
+    </div>
+  {/if}
 
   {#if year_medics_group}
     <svg {height} {width}>
@@ -511,14 +561,16 @@
       <g transform={`translate(${margin.left}, 0)`} bind:this={y_axis} />
 
       <!-- uncertainty years  -->
-      {#each full_years as d}
-        <rect
+      {#each full_years as d, i}
+        <Bars
           x={x_scale(new Date(d.year, 0, 1))}
-          y={y_scale(d.count)}
+          value={mapVisible ? 0 : d.count}
+          yScale={y_scale}
           width={2}
-          height={height - margin.bottom - y_scale(d.count)}
+          {height}
+          marginBottom={margin.bottom}
           fill={d.certainty === "uncertain" ? "url(#uncertaintyFade)" : "white"}
-          fill-opacity="0.7"
+          {i}
         />
       {/each}
 
@@ -530,7 +582,7 @@
           width={2}
           {height}
           marginBottom={margin.bottom}
-          fill="#bfbfbf"
+          fill={mapVisible ? "black" : "#bfbfbf"}
           {i}
         />
       {/each}
@@ -743,6 +795,7 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
+    z-index: 9999;
   }
 
   h1 {
@@ -753,52 +806,85 @@
     font-weight: 700;
   }
 
-  .button-column {
+  .map-toggle {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 10;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    appearance: none;
+    background: rgb(0, 0, 0);
+    color: #eaeaea;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .dropdown {
     position: absolute;
     top: 10px;
     right: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
     z-index: 10;
+    width: 240px;
   }
 
-  button {
+  .dropdown-toggle {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    width: 100%;
     appearance: none;
     background: rgba(255, 255, 255, 0.08);
     color: #eaeaea;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
+    border-radius: 4px;
     padding: 8px 14px;
-    font-family: inherit;
-    font-size: 13px;
-    text-align: left;
-
     cursor: pointer;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      transform 0.1s ease;
   }
 
-  /* hover */
-  button:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.35);
+  .dropdown-menu {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    backdrop-filter: blur(6px);
+    width: 100%;
+    overflow: hidden;
   }
 
-  button:active {
-    transform: translateY(1px);
+  .dropdown-menu button {
+    font-family: "Montserrat", sans-serif;
+    appearance: none;
+    background: transparent;
+    color: #eaeaea;
+    border: none;
+    padding: 8px 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease;
   }
 
-  button:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(100, 160, 255, 0.6);
+  .dropdown-menu button:hover {
+    background: rgba(255, 255, 255, 0.08);
   }
 
-  #all_uni {
-    background: rgba(109, 109, 109, 0.43);
-    border-color: rgba(255, 165, 0, 0.3);
+  .dropdown-menu button.selected {
+    background: rgba(255, 255, 255, 0.18);
+    border-left: 3px solid #4da3ff;
+    padding-left: 11px; /* compensate for border */
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
   }
 
   .info-list {
@@ -810,6 +896,7 @@
     flex-direction: column;
     gap: 6px;
     font-size: 0.9rem;
+    z-index: 2;
   }
 
   .info-row {
