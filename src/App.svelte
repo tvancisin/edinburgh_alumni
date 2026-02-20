@@ -629,145 +629,146 @@
         </g>
       {/if}
 
-      <!-- historical events -->
-      <text
-        x={x_scale(new Date(1582, 0, 1)) + 5}
-        y={y_scale(150)}
-        transform={`rotate(-25 ${x_scale(new Date(1582, 0, 1)) + 5} ${y_scale(150)})`}
-        fill="white"
-        opacity="0.5"
-        font-weight="300"
-        font-size="14">University Established (1583)</text
-      >
+      {#if mapVisible == false}
+        <!-- historical context -->
+        <text
+          x={x_scale(new Date(1582, 0, 1)) + 5}
+          y={y_scale(150)}
+          transform={`rotate(-25 ${x_scale(new Date(1582, 0, 1)) + 5} ${y_scale(150)})`}
+          fill="white"
+          opacity="0.5"
+          font-weight="300"
+          font-size="14">University Established (1583)</text
+        >
 
-      <rect
-        x={x_scale(new Date(1582, 0, 1))}
-        y={y_scale(150)}
-        width={1}
-        height={height - margin.bottom - y_scale(150)}
-        fill="orange"
-        opacity="0.4"
-      />
+        <rect
+          x={x_scale(new Date(1582, 0, 1))}
+          y={y_scale(150)}
+          width={1}
+          height={height - margin.bottom - y_scale(150)}
+          fill="orange"
+          opacity="0.4"
+        />
 
-      <!-- law school -->
-      <rect
-        x={x_scale(new Date(1707, 0, 1))}
-        y={y_scale(200)}
-        width={1}
-        height={height - margin.bottom - y_scale(200)}
-        fill="orange"
-        opacity="0.2"
-      />
-      <text
-        x={x_scale(new Date(1707, 0, 1))}
-        y={y_scale(200) - 10}
-        transform={`rotate(-25 ${x_scale(new Date(1707, 0, 1)) + 5} ${y_scale(200)})`}
-        fill="white"
-        font-family="Montserrat, sans-serif"
-        font-weight="300"
-        opacity="0.5"
-        font-size="14">Law School (1707)</text
-      >
+        <!-- law school -->
+        <rect
+          x={x_scale(new Date(1707, 0, 1))}
+          y={y_scale(200)}
+          width={1}
+          height={height - margin.bottom - y_scale(200)}
+          fill="orange"
+          opacity="0.2"
+        />
+        <text
+          x={x_scale(new Date(1707, 0, 1))}
+          y={y_scale(200) - 10}
+          transform={`rotate(-25 ${x_scale(new Date(1707, 0, 1)) + 5} ${y_scale(200)})`}
+          fill="white"
+          font-family="Montserrat, sans-serif"
+          font-weight="300"
+          opacity="0.5"
+          font-size="14">Law School (1707)</text
+        >
 
-      <!-- art school -->
-      <rect
-        x={x_scale(new Date(1708, 0, 1))}
-        y={y_scale(250)}
-        width={1}
-        opacity="0.2"
-        height={height - margin.bottom - y_scale(250)}
-        fill="orange"
-      />
-      <text
-        x={x_scale(new Date(1708, 0, 1))}
-        y={y_scale(250) - 10}
-        opacity="0.5"
-        transform={`rotate(-25 ${x_scale(new Date(1708, 0, 1)) + 5} ${y_scale(250)})`}
-        fill="white"
-        font-family="Montserrat, sans-serif"
-        font-weight="300"
-        font-size="14">Art School (1708)</text
-      >
+        <!-- art school -->
+        <rect
+          x={x_scale(new Date(1708, 0, 1))}
+          y={y_scale(250)}
+          width={1}
+          opacity="0.2"
+          height={height - margin.bottom - y_scale(250)}
+          fill="orange"
+        />
+        <text
+          x={x_scale(new Date(1708, 0, 1))}
+          y={y_scale(250) - 10}
+          opacity="0.5"
+          transform={`rotate(-25 ${x_scale(new Date(1708, 0, 1)) + 5} ${y_scale(250)})`}
+          fill="white"
+          font-family="Montserrat, sans-serif"
+          font-weight="300"
+          font-size="14">Art School (1708)</text
+        >
 
-      <!-- medical school establishment -->
-      <rect
-        x={x_scale(new Date(1726, 0, 1))}
-        y={y_scale(350)}
-        width={1}
-        opacity="0.2"
-        height={height - margin.bottom - y_scale(350)}
-        fill="orange"
-      />
-      <text
-        x={x_scale(new Date(1726, 0, 1))}
-        y={y_scale(350) - 10}
-        transform={`rotate(-25 ${x_scale(new Date(1726, 0, 1)) + 5} ${y_scale(350)})`}
-        fill="white"
-        opacity="0.5"
-        font-family="Montserrat, sans-serif"
-        font-weight="300"
-        font-size="14">Medical School (1726)</text
-      >
+        <!-- medical school establishment -->
+        <rect
+          x={x_scale(new Date(1726, 0, 1))}
+          y={y_scale(350)}
+          width={1}
+          opacity="0.2"
+          height={height - margin.bottom - y_scale(350)}
+          fill="orange"
+        />
+        <text
+          x={x_scale(new Date(1726, 0, 1))}
+          y={y_scale(350) - 10}
+          transform={`rotate(-25 ${x_scale(new Date(1726, 0, 1)) + 5} ${y_scale(350)})`}
+          fill="white"
+          opacity="0.5"
+          font-family="Montserrat, sans-serif"
+          font-weight="300"
+          font-size="14">Medical School (1726)</text
+        >
 
-      <!-- veterinary school establishment -->
-      <rect
-        x={x_scale(new Date(1823, 0, 1))}
-        y={y_scale(500)}
-        width={1}
-        opacity="0.2"
-        height={height - margin.bottom - y_scale(500)}
-        fill="orange"
-      />
-      <text
-        x={x_scale(new Date(1823, 0, 1))}
-        y={y_scale(500)}
-        transform={`rotate(-25 ${x_scale(new Date(1823, 0, 1)) + 5} ${y_scale(500)})`}
-        fill="white"
-        opacity="0.5"
-        font-family="Montserrat, sans-serif"
-        font-weight="300"
-        font-size="14">Veterinary School (1823)</text
-      >
+        <!-- veterinary school establishment -->
+        <rect
+          x={x_scale(new Date(1823, 0, 1))}
+          y={y_scale(500)}
+          width={1}
+          opacity="0.2"
+          height={height - margin.bottom - y_scale(500)}
+          fill="orange"
+        />
+        <text
+          x={x_scale(new Date(1823, 0, 1))}
+          y={y_scale(500)}
+          transform={`rotate(-25 ${x_scale(new Date(1823, 0, 1)) + 5} ${y_scale(500)})`}
+          fill="white"
+          opacity="0.5"
+          font-family="Montserrat, sans-serif"
+          font-weight="300"
+          font-size="14">Veterinary School (1823)</text
+        >
 
-      <!-- divinity school establishment -->
-      <rect
-        x={x_scale(new Date(1843, 0, 1))}
-        opacity="0.2"
-        y={y_scale(600)}
-        width={1}
-        height={height - margin.bottom - y_scale(600)}
-        fill="orange"
-      />
-      <text
-        x={x_scale(new Date(1843, 0, 1))}
-        y={y_scale(600)}
-        opacity="0.5"
-        transform={`rotate(-25 ${x_scale(new Date(1843, 0, 1)) + 5} ${y_scale(600)})`}
-        fill="white"
-        font-family="Montserrat, sans-serif"
-        font-weight="300"
-        font-size="14">Divinity School (1843)</text
-      >
+        <!-- divinity school establishment -->
+        <rect
+          x={x_scale(new Date(1843, 0, 1))}
+          opacity="0.2"
+          y={y_scale(600)}
+          width={1}
+          height={height - margin.bottom - y_scale(600)}
+          fill="orange"
+        />
+        <text
+          x={x_scale(new Date(1843, 0, 1))}
+          y={y_scale(600)}
+          opacity="0.5"
+          transform={`rotate(-25 ${x_scale(new Date(1843, 0, 1)) + 5} ${y_scale(600)})`}
+          fill="white"
+          font-family="Montserrat, sans-serif"
+          font-weight="300"
+          font-size="14">Divinity School (1843)</text
+        >
 
-      <!-- infirmary/efi -->
-      <rect
-        x={x_scale(new Date(1880, 0, 1))}
-        opacity="0.2"
-        y={y_scale(600)}
-        width={1}
-        height={height - margin.bottom - y_scale(600)}
-        fill="orange"
-      />
-      <text
-        x={x_scale(new Date(1880, 0, 1)) + 5}
-        y={y_scale(600)}
-        transform={`rotate(-25 ${x_scale(new Date(1880, 0, 1)) + 5} ${y_scale(600)})`}
-        opacity="0.5"
-        fill="white"
-        font-weight="300"
-        font-size="14">Infirmary built (EFI) (1880)</text
-      >
-
+        <!-- infirmary/efi -->
+        <rect
+          x={x_scale(new Date(1880, 0, 1))}
+          opacity="0.2"
+          y={y_scale(600)}
+          width={1}
+          height={height - margin.bottom - y_scale(600)}
+          fill="orange"
+        />
+        <text
+          x={x_scale(new Date(1880, 0, 1)) + 5}
+          y={y_scale(600)}
+          transform={`rotate(-25 ${x_scale(new Date(1880, 0, 1)) + 5} ${y_scale(600)})`}
+          opacity="0.5"
+          fill="white"
+          font-weight="300"
+          font-size="14">Infirmary built (EFI) (1880)</text
+        >
+      {/if}
       <!-- {#each year_medics_group as [year, entries]}
         <path
           d={generateSketchyRect({
