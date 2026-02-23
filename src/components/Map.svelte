@@ -3,7 +3,7 @@
   import L from "leaflet";
   import "leaflet/dist/leaflet.css";
 
-  export let alumni_geocoded;
+  export let medics_sample;
   export let visible = false;
 
   let map;
@@ -15,7 +15,7 @@
   let mapContainer;
 
   onMount(() => {
-    // historical map 
+    // historical map
     map = L.map("map-historical", {
       zoomControl: false,
       attributionControl: false,
@@ -25,7 +25,7 @@
       { maxZoom: 18, crossOrigin: true },
     ).addTo(map);
 
-    // Modern map 
+    // Modern map
     map2 = L.map("map-modern", {
       zoomControl: true,
       attributionControl: true,
@@ -57,20 +57,104 @@
     });
   }
 
+  function formatWikidata(wd) {
+    if (!wd) return "";
+
+    const list = (arr) =>
+      Array.isArray(arr) && arr.length
+        ? "<ul>" + arr.map((x) => `<li>${x}</li>`).join("") + "</ul>"
+        : "—";
+
+    return `
+    <hr/>
+    <strong>Wikidata Enrichment</strong><br/>
+    <b>Label:</b> ${wd.label || "—"}<br/>
+    <b>Birth:</b> ${wd.birth_date?.slice(0, 10) || "—"} (${wd.birth_place || "—"})<br/>
+    <b>Death:</b> ${wd.death_date?.slice(0, 10) || "—"} (${wd.death_place || "—"})<br/>
+    <b>Citizenship:</b> ${wd.citizenship || "—"}<br/>
+    <b>Gender:</b> ${wd.gender || "—"}<br/>
+    <b>Occupations:</b> ${list(wd.occupations)}<br/>
+    <b>Member of:</b> ${list(wd.member_of)}<br/>
+    <b>Education:</b> ${list(wd.education)}<br/>
+    <b>Employers:</b> ${list(wd.employers)}<br/>
+    <b>Awards:</b> ${list(wd.awards)}<br/>
+    <b>Position:</b> ${list(wd.positions)}<br/>
+    ${
+      wd.image
+        ? `<img src="${wd.image}" width="120" style="margin-top:5px;" />`
+        : ""
+    }
+  `;
+  }
+  function formatThesisData(td) {
+    if (!td) return "";
+
+    const safe = (v) =>
+      v && v !== "NaN" && v !== "Embargo or non_Pdfs" ? v : "—";
+
+    return `
+    <hr/>
+    <details>
+      <summary><strong>Thesis Record</strong></summary>
+      
+      <b>Title:</b> ${safe(td.Title)}<br/>
+      <b>Author:</b> ${safe(td.Authors)}<br/>
+      <b>Year:</b> ${safe(td.Year)}<br/>
+      <b>Type:</b> ${safe(td.type)}<br/>
+      <b>College:</b> ${safe(td.College)}<br/>
+      <b>Collection:</b> ${safe(td.Collections)}<br/>
+      <b>Section:</b> ${safe(td.SectionNamesFlat)}<br/>
+      <b>Publisher:</b> ${safe(td.publishers)}<br/>
+      <b>Full date:</b> ${safe(td.DatesFull)}<br/>
+
+      ${
+        td.Link
+          ? `<b>ERA Record:</b> <a href="${td.Link}" target="_blank">View record</a><br/>`
+          : ""
+      }
+
+      ${
+        td.PDF && td.Issues !== "Embargo or non_Pdfs"
+          ? `<b>PDF:</b> <a href="${td.PDF}" target="_blank">Download</a><br/>`
+          : ""
+      }
+
+      ${
+        td.MetadataLink
+          ? `<b>Metadata:</b> <a href="${td.MetadataLink}" target="_blank">Full metadata</a><br/>`
+          : ""
+      }
+
+      <b>Thesis ID:</b> ${safe(td.ThesisId)}<br/>
+      <b>Subject ID:</b> ${safe(td.SubjectId)}<br/>
+      
+    </details>
+  `;
+  }
+
   function drawCircles() {
-    alumni_geocoded.forEach((d) => {
-      const lat = d?.original?.address?.lat;
-      const lon = d?.original?.address?.lon;
+    medics_sample.forEach((d) => {
+      console.log(d);
+
+      if (d.match.status == "matched") {
+        console.warn("matched record:", d);
+      }
+
+      const lat = d?.source_data?.address?.lat;
+      const lon = d?.source_data?.address?.lon;
 
       if (lat && lon) {
         const popup = `
-          <strong>${d.original.name}</strong><br/>
-          ${d.original.place_name}<br/>
-          ${d.original.entry_year}
-        `;
+  <strong>${d.name.original}</strong><br/>
+  ${d.source_data.address.place_name}<br/>
+  Entry year: ${d.entry_year}<br/>
+  
+  ${formatThesisData(d.thesis_data)}
+  ${formatWikidata(d.wikidata)}
+`;
         L.circleMarker([lat, lon], {
-          radius: 5,
-          fillColor: "black",
+          radius: d.match.status == "matched" ? 8 : 4,
+          fillColor: d.wikidata != null ? "yellow" : "black",
           color: "black",
           weight: 1,
           opacity: 1,
@@ -80,8 +164,8 @@
           .bindPopup(popup);
 
         L.circleMarker([lat, lon], {
-          radius: 5,
-          fillColor: "black",
+          radius: d.match.status == "matched" ? 8 : 4,
+          fillColor: d.wikidata != null ? "yellow" : "black",
           color: "black",
           weight: 1,
           opacity: 1,

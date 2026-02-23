@@ -1,23 +1,14 @@
 <script>
-  import * as d3 from "d3";
   import "./lib/d3.sketchy.js";
   import { onMount } from "svelte";
-  import Bars from "./Bars.svelte";
-  import Map from "./Map.svelte";
-  import {
-    getCSV,
-    getJSON,
-    medical_terms,
-    generateSketchyRect,
-    fillMissingYears,
-    groupByYear,
-  } from "./utils.js";
+  import Map from "./components/Map.svelte";
+  import Timeline from "./components/Timeline.svelte";
+  import Percentages from "./components/Percentages.svelte";
+  import { datasetsStore, loadData } from "./datastore.js";
 
   let height,
     width,
-    x_scale,
     x_axis,
-    y_scale,
     y_axis,
     all_grouped,
     all_medics,
@@ -44,325 +35,44 @@
     year_women_med_graduates_group,
     year_edinburgh_seven_group,
     year_medics_sample_group,
-    margin = { top: 20, right: 30, bottom: 30, left: 40 },
-    careerFields = [
-      "Apprentice.of.Royal.College.of.Surgeons",
-      "British.Navy",
-      "Fellow.of.Royal.College.of.Surgeons",
-      "Indian.Medical.Service",
-      "Royal.Army.Medical.Corps",
-      "Royal.Medical.Society",
-    ];
+    margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
-  const hasValue = (v) => v !== "NA" && v !== "" && v != null;
-  function addCareerField(entry) {
-    return {
-      ...entry,
-      career: careerFields.some((field) => hasValue(entry[field])) ? "1" : "NA",
-    };
-  }
+  onMount(() => {
+    const unsubscribe = datasetsStore.subscribe((data) => {
+      if (!data) return;
 
-  onMount(async () => {
-    // load the data
-    [
-      medics,
-      new_college,
-      veterinary,
-      veterinary_graduates,
-      matriculations,
-      extra_academic,
-      women_med_graduates,
-      edinburgh_seven,
-      medics_sample,
-    ] = await getCSV([
-      "./1762_1826_medical.csv",
-      "./new_college_students.csv",
-      "./early_veterinary.csv",
-      "./veterinary_graduates.csv",
-      "./matriculations.csv",
-      "./extra_academic.csv",
-      "./female_graduates.csv",
-      "./edinburgh_seven.csv",
-      "./medics_sample.csv",
-    ]);
-    [st_andrews, alumni_geocoded] = await getJSON([
-      "./st_andrews.json",
-      "./alumni_geocoded_enriched.json",
-    ]);
-
-    const st_andrews_students = st_andrews
-      .map((d) => {
-        // find the first entry where official_name === 'Edinburgh'
-        const uni = d.other_universities?.find(
-          (u) => u.location?.official_name === "Edinburgh" && u.from != null,
-        );
-
-        if (!uni) return null; // skip if no valid Edinburgh entry
-
-        return {
-          ...d,
-          entry_year: +uni.from, // convert string to number
-        };
-      })
-      .filter(Boolean); // remove nulls
-
-    year_st_andrews_group = d3
-      .groups(st_andrews_students, (d) => d.entry_year)
-      .sort((a, b) => a[0] - b[0]);
-
-    year_st_andrews_group = fillMissingYears(year_st_andrews_group, 1500, 2025);
-
-    // medics data
-    medics = medics
-      .filter((d) => +d.entry_year >= 1762)
-      .map((d) => ({
-        ...d,
-        entry_year: +d.entry_year,
-      }));
-    medics = medics.map(addCareerField);
-    year_medics_group = d3
-      .groups(medics, (d) => d.entry_year)
-      .sort((a, b) => a[0] - b[0]);
-    year_medics_group = fillMissingYears(year_medics_group, 1762, 2025);
-
-    // medics sample data
-    medics_sample = medics_sample.map((d) => ({
-      ...d,
-      entry_year: +d.entry_year,
-    }));
-    medics_sample = medics_sample.filter((d) => !Number.isNaN(d.entry_year));
-    year_medics_sample_group = d3
-      .groups(medics_sample, (d) => d.entry_year)
-      .sort((a, b) => a[0] - b[0]);
-    year_medics_sample_group = fillMissingYears(
-      year_medics_sample_group,
-      1762,
-      2025,
-    );
-
-    // medics matriculations data
-    matriculations = matriculations.map((d) => ({
-      ...d,
-      entry_year: +d.entry_year.slice(0, -3),
-    }));
-    matriculations = matriculations.filter((d) => d.Faculty === "Medicine");
-    year_matriculations_group = d3
-      .groups(matriculations, (d) => d.entry_year)
-      .sort((a, b) => a[0] - b[0]);
-    year_matriculations_group = year_matriculations_group.filter(
-      ([year]) => Number.isFinite(year) && year >= 1700 && year <= 2025,
-    );
-    year_matriculations_group = fillMissingYears(
-      year_matriculations_group,
-      1700,
-      2025,
-    );
-
-    // extra medics academic data
-    extra_academic = extra_academic.filter((d) =>
-      medical_terms.some((term) =>
-        d.Class.toLowerCase().includes(term.toLowerCase()),
-      ),
-    );
-    extra_academic = extra_academic.map((d) => ({
-      ...d,
-      entry_year: +d.entry_year.slice(0, -5),
-      no_space_name: d.name.replace(/\s+/g, ""),
-    }));
-    let final_extra_academics = d3.groups(
-      extra_academic,
-      (d) => d.no_space_name,
-    );
-    final_extra_academics = final_extra_academics.map((d) => {
-      d[1].sort((a, b) => a.entry_year - b.entry_year);
-      return d;
+      ({
+        medics,
+        new_college,
+        veterinary,
+        matriculations,
+        veterinary_graduates,
+        extra_academic,
+        women_med_graduates,
+        edinburgh_seven,
+        medics_sample,
+        st_andrews,
+        year_st_andrews_group,
+        full_years,
+        year_medics_group,
+        year_college_group,
+        year_veterinary_group,
+        year_veterinary_graduates_group,
+        year_matriculations_group,
+        year_extra_academic_group,
+        year_women_med_graduates_group,
+        year_edinburgh_seven_group,
+        year_medics_sample_group,
+        all_grouped,
+        all_medics,
+        all_medics_grouped,
+      } = data);
     });
-    final_extra_academics = final_extra_academics.map((d) => ({
-      ...d,
-      name: d[1][0].name,
-      tha_year: d[1][0].entry_year,
-    }));
-    year_extra_academic_group = d3
-      .groups(final_extra_academics, (d) => d.tha_year)
-      .sort((a, b) => a[0] - b[0]);
-    year_extra_academic_group = fillMissingYears(
-      year_extra_academic_group,
-      1762,
-      2025,
-    );
 
-    // women medical graduates
-    women_med_graduates = women_med_graduates.map((d) => ({
-      ...d,
-      entry_year: +d.entry_year.slice(0, -6),
-    }));
-    year_women_med_graduates_group = d3
-      .groups(women_med_graduates, (d) => d.entry_year)
-      .sort((a, b) => a[0] - b[0]);
-    year_women_med_graduates_group = fillMissingYears(
-      year_women_med_graduates_group,
-      1762,
-      2025,
-    );
+    loadData();
 
-    // edinburgh 7
-    edinburgh_seven = edinburgh_seven.map((d) => ({
-      ...d,
-      entry_year: +d.entry_year,
-    }));
-    year_edinburgh_seven_group = d3
-      .groups(edinburgh_seven, (d) => d.entry_year)
-      .sort((a, b) => a[0] - b[0]);
-    year_edinburgh_seven_group = fillMissingYears(
-      year_edinburgh_seven_group,
-      1762,
-      2025,
-    );
-
-    all_medics = [
-      ...medics,
-      ...medics_sample,
-      ...matriculations,
-      ...extra_academic,
-      ...women_med_graduates,
-      ...edinburgh_seven,
-    ];
-
-    all_medics_grouped = d3
-      .groups(all_medics, (d) => d.entry_year)
-      .filter((d) => d[0] != null && !Number.isNaN(d[0]))
-      .filter((d) => d[0] >= 1762)
-      .sort((a, b) => a[0] - b[0]);
-
-    all_medics_grouped = fillMissingYears(all_medics_grouped, 1762, 2025);
-
-    // new college data
-    new_college = new_college.map((d) => ({
-      ...d,
-      entry_year: +d.entry_year,
-    }));
-    year_college_group = d3
-      .groups(new_college, (d) => d.entry_year)
-      .filter((d) => d[0] != null && !Number.isNaN(d[0]))
-      .sort((a, b) => a[0] - b[0]);
-    year_college_group = fillMissingYears(year_college_group, 1762, 2025);
-
-    // veterinary data
-    veterinary = veterinary.map((d) => ({
-      ...d,
-      entry_year: +d.entry_year,
-    }));
-    year_veterinary_group = d3
-      .groups(veterinary, (d) => d.entry_year)
-      .sort((a, b) => a[0] - b[0]);
-    year_veterinary_group = fillMissingYears(year_veterinary_group, 1762, 2025);
-
-    // veterinary graduates data
-    veterinary_graduates = veterinary_graduates
-      .filter((d) => +d.entry_year >= 1762)
-      .map((d) => ({
-        ...d,
-        entry_year: +d.entry_year,
-      }));
-    year_veterinary_graduates_group = d3
-      .groups(veterinary_graduates, (d) => d.entry_year)
-      .sort((a, b) => a[0] - b[0]);
-
-    // all data
-    let all = [
-      ...medics,
-      ...new_college,
-      ...veterinary,
-      ...veterinary_graduates,
-      ...matriculations,
-      ...extra_academic,
-      ...women_med_graduates,
-      ...edinburgh_seven,
-      ...medics_sample,
-    ];
-    all_grouped = d3
-      .groups(all, (d) => d.entry_year)
-      .filter((d) => d[0] != null && !Number.isNaN(d[0]))
-      .sort((a, b) => a[0] - b[0]);
-    all_grouped = fillMissingYears(all_grouped, 1583, 2025);
-
-    // uncertainty years
-    full_years = all_grouped.map((d) => ({
-      year: d[0],
-      certainty: "uncertain",
-      count: 200 + (Math.random() + Math.random()) * 100,
-      // make years that are certain starting point for drawing uncertain rects but maybe make uncertainty there lower
-    }));
+    return unsubscribe;
   });
-
-  let xStart, xEnd;
-  $: if (year_medics_group) {
-    x_scale = d3
-      .scaleTime()
-      .domain([new Date(1582, 0, 1), new Date(2025, 0, 1)])
-      .range([margin.left, width - margin.right]);
-
-    y_scale = d3
-      .scaleLinear()
-      .domain([0, d3.max(year_medics_group, (d) => d[1].length)])
-      .range([height - margin.bottom, margin.top])
-      .nice();
-    xStart = x_scale(new Date(1726, 0, 1));
-    xEnd = x_scale(new Date(2025, 0, 1));
-  }
-
-  $: if (x_axis) {
-    const _dep = mapVisible; // reactive dependency
-    const axisColor = mapVisible ? "black" : "white";
-    const tickColor = mapVisible ? "black" : "gray";
-
-    const xaxis = d3
-      .axisBottom(x_scale)
-      .ticks(d3.timeYear.every(20))
-      .tickFormat(d3.timeFormat("%Y"))
-      .tickSizeOuter(0);
-
-    d3.select(x_axis)
-      .call(xaxis)
-      .selectAll("text")
-      .attr("fill", axisColor)
-      .attr("font-family", "Montserrat, sans-serif")
-      .attr("font-weight", 400)
-      .attr("font-size", 12)
-      .attr("text-anchor", "middle");
-
-    d3.select(x_axis)
-      .select("path.domain")
-      .attr("stroke", tickColor)
-      .attr("stroke-width", 1);
-
-    d3.select(x_axis)
-      .selectAll("line")
-      .attr("stroke", tickColor)
-      .attr("stroke-width", 1);
-
-    // Y AXIS
-    const yaxis = d3.axisLeft(y_scale).ticks(5).tickSizeOuter(0);
-
-    d3.select(y_axis)
-      .call(yaxis)
-      .selectAll("text")
-      .attr("fill", "white")
-      .attr("font-family", "Montserrat, sans-serif")
-      .attr("font-weight", 400)
-      .attr("font-size", 12);
-
-    // remove axis domain line
-    d3.select(y_axis).select("path.domain").remove();
-
-    // // make ticks full width
-    // d3.select(y_axis)
-    //   .selectAll(".tick line")
-    //   .attr("x2", innerWidth)
-    //   .attr("stroke", "gray")
-    //   .attr("stroke-opacity", 0.5)
-    //   .attr("stroke-dasharray", "4 2");
-  }
 
   $: data_to_draw = all_medics_grouped;
   let activeKey = "medics";
@@ -393,69 +103,6 @@
     activeKey = key;
     data_to_draw = datasets[key];
   }
-
-  const uniqueInformationTypes = [
-    "name",
-    "birthplace",
-    "nationality",
-    "previous_education",
-    "previous_uni",
-    "entry_year",
-    "age",
-    "address",
-    "degree",
-    "thesis",
-    "scan",
-    "career",
-    "death",
-  ];
-
-  const infoKeyMap = {
-    name: "name",
-    birthplace: "birthplace",
-    nationality: "nationality",
-    previous_education: "previous_education",
-    previous_uni: "previous_uni",
-    entry_year: "entry_year",
-    age: "age",
-    address: "address",
-    degree: "degree",
-    thesis: "thesis",
-    scan: "scan",
-    career: "career",
-    death: "death",
-  };
-
-  // uncertainty calculation
-  function calculateAttributeCoverage(data) {
-    const total = data.length;
-    const counts = {};
-
-    data.forEach((row) => {
-      Object.entries(row).forEach(([key, value]) => {
-        if (!counts[key]) {
-          counts[key] = { present: 0 };
-        }
-
-        if (value !== "NA" && value !== "") {
-          counts[key].present += 1;
-        }
-      });
-    });
-
-    // convert to percentages
-    return Object.fromEntries(
-      Object.entries(counts).map(([key, { present }]) => [
-        key,
-        Math.round((present / total) * 100),
-      ]),
-    );
-  }
-
-  $: percentages =
-    percentage_datasets[activeKey] && percentage_datasets[activeKey].length
-      ? calculateAttributeCoverage(percentage_datasets[activeKey])
-      : Object.fromEntries(uniqueInformationTypes.map((d) => [d, 0]));
 
   let open = false;
   let selected = "all_medics";
@@ -495,9 +142,6 @@
 
 <svelte:window on:click={() => (open = false)} />
 <main bind:clientHeight={height} bind:clientWidth={width}>
-  {#if alumni_geocoded}
-    <Map {alumni_geocoded} visible={mapVisible} />
-  {/if}
   {#if selected === "medics_sample"}
     <button class="map-toggle" on:click|stopPropagation={toggleMap}>
       {mapVisible ? "Hide Map" : "Show Map"}
@@ -525,268 +169,24 @@
       {/if}
     </div>
 
-    <div class="info-list">
-      <em>Type and percentage of information available</em>
-      {#each uniqueInformationTypes as item}
-        <div class="info-row">
-          <span class="label">{item}</span>
-
-          <div class="bar">
-            <div
-              class="bar-fill"
-              style="width: {percentages[infoKeyMap[item]] || 0}%"
-            />
-          </div>
-
-          <span class="pct">
-            {percentages[infoKeyMap[item]] || 0}%
-          </span>
-        </div>
-      {/each}
-    </div>
+    <Percentages {percentage_datasets} {activeKey} />
+  {/if}
+  {#if medics_sample}
+    <Map {medics_sample} visible={mapVisible} />
   {/if}
 
-  {#if year_medics_group}
-    <svg {height} {width}>
-      <defs>
-        <linearGradient id="uncertaintyFade" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%" stop-color="gray" stop-opacity="0.4" />
-          <stop offset="100%" stop-color="gray" stop-opacity="0" />
-        </linearGradient>
-      </defs>
-      <g
-        transform={`translate(0,${height - margin.bottom})`}
-        bind:this={x_axis}
-      />
-      <g transform={`translate(${margin.left}, 0)`} bind:this={y_axis} />
-
-      <!-- uncertainty years  -->
-      {#each full_years as d, i}
-        <Bars
-          x={x_scale(new Date(d.year, 0, 1))}
-          value={mapVisible ? 0 : d.count}
-          yScale={y_scale}
-          width={2}
-          {height}
-          marginBottom={margin.bottom}
-          fill={d.certainty === "uncertain" ? "url(#uncertaintyFade)" : "white"}
-          {i}
-        />
-      {/each}
-
-      {#each data_to_draw as [year, entries], i (year)}
-        <Bars
-          x={x_scale(new Date(year, 0, 1))}
-          value={entries.length}
-          yScale={y_scale}
-          width={2}
-          {height}
-          marginBottom={margin.bottom}
-          fill={mapVisible ? "black" : "#bfbfbf"}
-          {i}
-        />
-      {/each}
-
-      {#if activeKey === "all"}
-        <!-- Charles Darwin -->
-        <g>
-          <circle
-            cx={x_scale(new Date(1825, 0, 1)) + 1}
-            cy={y_scale(370)}
-            r={3}
-            fill="white"
-          />
-          <text
-            x={x_scale(new Date(1825, 0, 1)) + 8}
-            y={y_scale(370) + 4}
-            font-size="14"
-            font-family="Montserrat, sans-serif"
-            font-weight="300"
-            fill="white"
-          >
-            Charles Darwin
-          </text>
-        </g>
-
-        <!-- Edinburgh Seven -->
-        <g>
-          <circle
-            cx={x_scale(new Date(1869, 0, 1)) + 1}
-            cy={y_scale(15)}
-            r={3}
-            fill="white"
-          />
-          <text
-            x={x_scale(new Date(1869, 0, 1)) + 8}
-            y={y_scale(15) + 4}
-            font-size="14"
-            font-family="Montserrat, sans-serif"
-            font-weight="300"
-            fill="white"
-          >
-            Edinburgh Seven
-          </text>
-        </g>
-      {/if}
-
-      {#if mapVisible == false}
-        <!-- historical context -->
-        <text
-          x={x_scale(new Date(1582, 0, 1)) + 5}
-          y={y_scale(150)}
-          transform={`rotate(-25 ${x_scale(new Date(1582, 0, 1)) + 5} ${y_scale(150)})`}
-          fill="white"
-          opacity="0.5"
-          font-weight="300"
-          font-size="14">University Established (1583)</text
-        >
-
-        <rect
-          x={x_scale(new Date(1582, 0, 1))}
-          y={y_scale(150)}
-          width={1}
-          height={height - margin.bottom - y_scale(150)}
-          fill="orange"
-          opacity="0.4"
-        />
-
-        <!-- law school -->
-        <rect
-          x={x_scale(new Date(1707, 0, 1))}
-          y={y_scale(200)}
-          width={1}
-          height={height - margin.bottom - y_scale(200)}
-          fill="orange"
-          opacity="0.2"
-        />
-        <text
-          x={x_scale(new Date(1707, 0, 1))}
-          y={y_scale(200) - 10}
-          transform={`rotate(-25 ${x_scale(new Date(1707, 0, 1)) + 5} ${y_scale(200)})`}
-          fill="white"
-          font-family="Montserrat, sans-serif"
-          font-weight="300"
-          opacity="0.5"
-          font-size="14">Law School (1707)</text
-        >
-
-        <!-- art school -->
-        <rect
-          x={x_scale(new Date(1708, 0, 1))}
-          y={y_scale(250)}
-          width={1}
-          opacity="0.2"
-          height={height - margin.bottom - y_scale(250)}
-          fill="orange"
-        />
-        <text
-          x={x_scale(new Date(1708, 0, 1))}
-          y={y_scale(250) - 10}
-          opacity="0.5"
-          transform={`rotate(-25 ${x_scale(new Date(1708, 0, 1)) + 5} ${y_scale(250)})`}
-          fill="white"
-          font-family="Montserrat, sans-serif"
-          font-weight="300"
-          font-size="14">Art School (1708)</text
-        >
-
-        <!-- medical school establishment -->
-        <rect
-          x={x_scale(new Date(1726, 0, 1))}
-          y={y_scale(350)}
-          width={1}
-          opacity="0.2"
-          height={height - margin.bottom - y_scale(350)}
-          fill="orange"
-        />
-        <text
-          x={x_scale(new Date(1726, 0, 1))}
-          y={y_scale(350) - 10}
-          transform={`rotate(-25 ${x_scale(new Date(1726, 0, 1)) + 5} ${y_scale(350)})`}
-          fill="white"
-          opacity="0.5"
-          font-family="Montserrat, sans-serif"
-          font-weight="300"
-          font-size="14">Medical School (1726)</text
-        >
-
-        <!-- veterinary school establishment -->
-        <rect
-          x={x_scale(new Date(1823, 0, 1))}
-          y={y_scale(500)}
-          width={1}
-          opacity="0.2"
-          height={height - margin.bottom - y_scale(500)}
-          fill="orange"
-        />
-        <text
-          x={x_scale(new Date(1823, 0, 1))}
-          y={y_scale(500)}
-          transform={`rotate(-25 ${x_scale(new Date(1823, 0, 1)) + 5} ${y_scale(500)})`}
-          fill="white"
-          opacity="0.5"
-          font-family="Montserrat, sans-serif"
-          font-weight="300"
-          font-size="14">Veterinary School (1823)</text
-        >
-
-        <!-- divinity school establishment -->
-        <rect
-          x={x_scale(new Date(1843, 0, 1))}
-          opacity="0.2"
-          y={y_scale(600)}
-          width={1}
-          height={height - margin.bottom - y_scale(600)}
-          fill="orange"
-        />
-        <text
-          x={x_scale(new Date(1843, 0, 1))}
-          y={y_scale(600)}
-          opacity="0.5"
-          transform={`rotate(-25 ${x_scale(new Date(1843, 0, 1)) + 5} ${y_scale(600)})`}
-          fill="white"
-          font-family="Montserrat, sans-serif"
-          font-weight="300"
-          font-size="14">Divinity School (1843)</text
-        >
-
-        <!-- infirmary/efi -->
-        <rect
-          x={x_scale(new Date(1880, 0, 1))}
-          opacity="0.2"
-          y={y_scale(600)}
-          width={1}
-          height={height - margin.bottom - y_scale(600)}
-          fill="orange"
-        />
-        <text
-          x={x_scale(new Date(1880, 0, 1)) + 5}
-          y={y_scale(600)}
-          transform={`rotate(-25 ${x_scale(new Date(1880, 0, 1)) + 5} ${y_scale(600)})`}
-          opacity="0.5"
-          fill="white"
-          font-weight="300"
-          font-size="14">Infirmary built (EFI) (1880)</text
-        >
-      {/if}
-      <!-- {#each year_medics_group as [year, entries]}
-        <path
-          d={generateSketchyRect({
-            x: x_scale(new Date(year, 0, 1)),
-            y: y_scale(entries.length),
-            width: 2,
-            height: height - margin.bottom - y_scale(entries.length),
-            density: 3,
-            sketch: 10,
-            angle: 45,
-          })}
-          stroke="steelblue"
-          fill="none"
-          stroke-width="1"
-        />
-      {/each} -->
-    </svg>
-  {/if}
+  <Timeline
+    {year_medics_group}
+    {height}
+    {width}
+    {margin}
+    {full_years}
+    {mapVisible}
+    {data_to_draw}
+    {activeKey}
+    bind:x_axis
+    bind:y_axis
+  />
 </main>
 
 <style>
@@ -878,43 +278,5 @@
     background: rgba(255, 255, 255, 0.18);
     border-left: 3px solid #4da3ff;
     padding-left: 11px; /* compensate for border */
-  }
-
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .info-list {
-    position: absolute;
-    top: 80px;
-    left: 70px;
-    width: 360px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    font-size: 0.9rem;
-    z-index: 2;
-  }
-
-  .info-row {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 160px 1fr 40px;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .bar {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  .bar-fill {
-    height: 100%;
-    background: #bfbfbf;
   }
 </style>
