@@ -74,7 +74,7 @@ export async function loadData() {
 
     [st_andrews, medics_sample] = await getJSON([
       "./st_andrews.json",
-      "./alumni.json",
+      "./edinburgh_alumni.json",
     ]);
 
     const st_andrews_students = st_andrews

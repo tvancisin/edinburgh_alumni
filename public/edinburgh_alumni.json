@@ -5,7 +5,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Skinner, John Robert",
-    "normalized": "john robert skinner"
+    "normalized": "john robert skinner",
+    "forename": "John",
+    "middlename": "Robert",
+    "surname": "Skinner"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -36,7 +39,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Synnot, Robert",
-    "normalized": "robert synnot"
+    "normalized": "robert synnot",
+    "forename": "Robert",
+    "middlename": null,
+    "surname": "Synnot"
   },
   "source_data": {
     "birthplace": "Ballymoyer/ Co. Armagh",
@@ -67,7 +73,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Heygate, William",
-    "normalized": "william heygate"
+    "normalized": "william heygate",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Heygate"
   },
   "source_data": {
     "birthplace": "West Haddon",
@@ -104,7 +113,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Axe, William",
-    "normalized": "william axe"
+    "normalized": "william axe",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Axe"
   },
   "source_data": {
     "birthplace": {
@@ -149,7 +161,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Dunbar, Henry",
-    "normalized": "henry dunbar"
+    "normalized": "henry dunbar",
+    "forename": "Henry",
+    "middlename": null,
+    "surname": "Dunbar"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -180,7 +195,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Holt, Thomas",
-    "normalized": "thomas holt"
+    "normalized": "thomas holt",
+    "forename": "Thomas",
+    "middlename": null,
+    "surname": "Holt"
   },
   "source_data": {
     "birthplace": "Bury/ Lancashire",
@@ -211,7 +229,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Thorburn, Adam W",
-    "normalized": "adam w thorburn"
+    "normalized": "adam w thorburn",
+    "forename": "Adam",
+    "middlename": "W",
+    "surname": "Thorburn"
   },
   "source_data": {
     "birthplace": "Jamaica",
@@ -246,7 +267,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Cumming, Alexander",
-    "normalized": "alexander cumming"
+    "normalized": "alexander cumming",
+    "forename": "Alexander",
+    "middlename": null,
+    "surname": "Cumming"
   },
   "source_data": {
     "birthplace": "Argyllshire",
@@ -277,7 +301,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Browne, Francis Greenidge",
-    "normalized": "francis greenidge browne"
+    "normalized": "francis greenidge browne",
+    "forename": "Francis",
+    "middlename": "Greenidge",
+    "surname": "Browne"
   },
   "source_data": {
     "birthplace": "Barbadoes",
@@ -308,7 +335,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Paterson, Alexander",
-    "normalized": "alexander paterson"
+    "normalized": "alexander paterson",
+    "forename": "Alexander",
+    "middlename": null,
+    "surname": "Paterson"
   },
   "source_data": {
     "birthplace": "Dundee",
@@ -339,7 +369,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Duarte De Faria, Mansel",
-    "normalized": "mansel duarte de faria"
+    "normalized": "mansel duarte de faria",
+    "forename": "Mansel",
+    "middlename": null,
+    "surname": "Duarte De Faria"
   },
   "source_data": {
     "birthplace": "Pernambuco",
@@ -376,7 +409,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Beattie, Joseph",
-    "normalized": "joseph beattie"
+    "normalized": "joseph beattie",
+    "forename": "Joseph",
+    "middlename": null,
+    "surname": "Beattie"
   },
   "source_data": {
     "birthplace": "Comber",
@@ -407,7 +443,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "O'Leary, Goodwin Ricardus Purcell",
-    "normalized": "goodwin ricardus purcell o'leary"
+    "normalized": "goodwin ricardus purcell o'leary",
+    "forename": "Goodwin",
+    "middlename": "Ricardus Purcell",
+    "surname": "O'Leary"
   },
   "source_data": {
     "birthplace": "Cork",
@@ -438,7 +477,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bawtree, Edward William",
-    "normalized": "edward william bawtree"
+    "normalized": "edward william bawtree",
+    "forename": "Edward",
+    "middlename": "William",
+    "surname": "Bawtree"
   },
   "source_data": {
     "birthplace": "Colchester",
@@ -469,7 +511,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Nelson, Charles",
-    "normalized": "charles nelson"
+    "normalized": "charles nelson",
+    "forename": "Charles",
+    "middlename": null,
+    "surname": "Nelson"
   },
   "source_data": {
     "birthplace": "Buteshire",
@@ -500,7 +545,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Catlett, William",
-    "normalized": "william catlett"
+    "normalized": "william catlett",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Catlett"
   },
   "source_data": {
     "birthplace": "Grantham",
@@ -531,7 +579,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Odell, George Mountain",
-    "normalized": "george mountain odell"
+    "normalized": "george mountain odell",
+    "forename": "George",
+    "middlename": "Mountain",
+    "surname": "Odell"
   },
   "source_data": {
     "birthplace": "Fredericton/ New Brunswick",
@@ -562,7 +613,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Scott, Walter",
-    "normalized": "walter scott"
+    "normalized": "walter scott",
+    "forename": "Walter",
+    "middlename": null,
+    "surname": "Scott"
   },
   "source_data": {
     "birthplace": "Roxburghshire",
@@ -587,7 +641,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Underwood, John",
-    "normalized": "john underwood"
+    "normalized": "john underwood",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Underwood"
   },
   "source_data": {
     "birthplace": "Pitsford/ Northamptonshire",
@@ -618,7 +675,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Gordon, William",
-    "normalized": "william gordon"
+    "normalized": "william gordon",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Gordon"
   },
   "source_data": {
     "birthplace": "Co. Tyrone",
@@ -649,7 +709,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Mierre, Albert De",
-    "normalized": "albert de mierre"
+    "normalized": "albert de mierre",
+    "forename": "Albert",
+    "middlename": "De",
+    "surname": "Mierre"
   },
   "source_data": {
     "birthplace": "Putney Surrey",
@@ -680,7 +743,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Fletcher, Frederick",
-    "normalized": "frederick fletcher"
+    "normalized": "frederick fletcher",
+    "forename": "Frederick",
+    "middlename": null,
+    "surname": "Fletcher"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -715,7 +781,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Jones, Frederick Denbigh",
-    "normalized": "frederick denbigh jones"
+    "normalized": "frederick denbigh jones",
+    "forename": "Frederick",
+    "middlename": "Denbigh",
+    "surname": "Jones"
   },
   "source_data": {
     "birthplace": "Manchester",
@@ -746,7 +815,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Gordon, Huntly George",
-    "normalized": "huntly george gordon"
+    "normalized": "huntly george gordon",
+    "forename": "Huntly",
+    "middlename": "George",
+    "surname": "Gordon"
   },
   "source_data": {
     "birthplace": "Glasgow",
@@ -777,7 +849,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Brown, George W.",
-    "normalized": "george w. brown"
+    "normalized": "george w. brown",
+    "forename": "George",
+    "middlename": "W.",
+    "surname": "Brown"
   },
   "source_data": {
     "birthplace": "Middlesex",
@@ -812,7 +887,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Johnstone, John",
-    "normalized": "john johnstone"
+    "normalized": "john johnstone",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Johnstone"
   },
   "source_data": {
     "birthplace": "Moffat",
@@ -843,7 +921,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Harrison, James",
-    "normalized": "james harrison"
+    "normalized": "james harrison",
+    "forename": "James",
+    "middlename": null,
+    "surname": "Harrison"
   },
   "source_data": {
     "birthplace": "London",
@@ -874,7 +955,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Daunt, Richard Gumbleton",
-    "normalized": "richard gumbleton daunt"
+    "normalized": "richard gumbleton daunt",
+    "forename": "Richard",
+    "middlename": "Gumbleton",
+    "surname": "Daunt"
   },
   "source_data": {
     "birthplace": "Humbleton East Yorkshire",
@@ -905,7 +989,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Atkinson, James George",
-    "normalized": "james george atkinson"
+    "normalized": "james george atkinson",
+    "forename": "James",
+    "middlename": "George",
+    "surname": "Atkinson"
   },
   "source_data": {
     "birthplace": "Ceylon",
@@ -936,7 +1023,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Armstrong, Alexander",
-    "normalized": "alexander armstrong"
+    "normalized": "alexander armstrong",
+    "forename": "Alexander",
+    "middlename": null,
+    "surname": "Armstrong"
   },
   "source_data": {
     "birthplace": "Donegal",
@@ -1004,7 +1094,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Jackson, Robert",
-    "normalized": "robert jackson"
+    "normalized": "robert jackson",
+    "forename": "Robert",
+    "middlename": null,
+    "surname": "Jackson"
   },
   "source_data": {
     "birthplace": "Midlothian",
@@ -1035,7 +1128,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Morrin, William Daniel",
-    "normalized": "william daniel morrin"
+    "normalized": "william daniel morrin",
+    "forename": "William",
+    "middlename": "Daniel",
+    "surname": "Morrin"
   },
   "source_data": {
     "birthplace": "Quebec",
@@ -1066,7 +1162,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "James, William Rhodes",
-    "normalized": "william rhodes james"
+    "normalized": "william rhodes james",
+    "forename": "William",
+    "middlename": "Rhodes",
+    "surname": "James"
   },
   "source_data": {
     "birthplace": "London",
@@ -1097,7 +1196,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Henderson, John",
-    "normalized": "john henderson"
+    "normalized": "john henderson",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Henderson"
   },
   "source_data": {
     "birthplace": "Co. Londonderry",
@@ -1128,7 +1230,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bremner, John Traill Urquhart",
-    "normalized": "john traill urquhart bremner"
+    "normalized": "john traill urquhart bremner",
+    "forename": "John",
+    "middlename": "Traill Urquhart",
+    "surname": "Bremner"
   },
   "source_data": {
     "birthplace": "Orkney",
@@ -1159,7 +1264,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wright, Thomas Bell",
-    "normalized": "thomas bell wright"
+    "normalized": "thomas bell wright",
+    "forename": "Thomas",
+    "middlename": "Bell",
+    "surname": "Wright"
   },
   "source_data": {
     "birthplace": "Ireland",
@@ -1190,7 +1298,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Dalton, William",
-    "normalized": "william dalton"
+    "normalized": "william dalton",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Dalton"
   },
   "source_data": {
     "birthplace": "Carlisle",
@@ -1221,7 +1332,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Smith, William",
-    "normalized": "william smith"
+    "normalized": "william smith",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Smith"
   },
   "source_data": {
     "birthplace": {
@@ -1266,7 +1380,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Swete, Benjamin",
-    "normalized": "benjamin swete"
+    "normalized": "benjamin swete",
+    "forename": "Benjamin",
+    "middlename": null,
+    "surname": "Swete"
   },
   "source_data": {
     "birthplace": "Cork",
@@ -1301,7 +1418,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Reynolds, James Maxwell",
-    "normalized": "james maxwell reynolds"
+    "normalized": "james maxwell reynolds",
+    "forename": "James",
+    "middlename": "Maxwell",
+    "surname": "Reynolds"
   },
   "source_data": {
     "birthplace": "America Septentrionali",
@@ -1332,7 +1452,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Fosbroke, William Michael Malbon",
-    "normalized": "william michael malbon fosbroke"
+    "normalized": "william michael malbon fosbroke",
+    "forename": "William",
+    "middlename": "Michael Malbon",
+    "surname": "Fosbroke"
   },
   "source_data": {
     "birthplace": "Herefordshire",
@@ -1363,7 +1486,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Fernandes, Bray",
-    "normalized": "bray fernandes"
+    "normalized": "bray fernandes",
+    "forename": "Bray",
+    "middlename": null,
+    "surname": "Fernandes"
   },
   "source_data": {
     "birthplace": "Bombay",
@@ -1398,7 +1524,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Duff, George",
-    "normalized": "george duff"
+    "normalized": "george duff",
+    "forename": "George",
+    "middlename": null,
+    "surname": "Duff"
   },
   "source_data": {
     "birthplace": "Elgin",
@@ -1429,7 +1558,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Grant, James",
-    "normalized": "james grant"
+    "normalized": "james grant",
+    "forename": "James",
+    "middlename": null,
+    "surname": "Grant"
   },
   "source_data": {
     "birthplace": "Grantown/ Invernessshire",
@@ -1460,7 +1592,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Cleghorn, Hugo Francis Clerke",
-    "normalized": "hugo francis clerke cleghorn"
+    "normalized": "hugo francis clerke cleghorn",
+    "forename": "Hugo",
+    "middlename": "Francis Clerke",
+    "surname": "Cleghorn"
   },
   "source_data": {
     "birthplace": "Fifeshire",
@@ -1534,7 +1669,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Russell, Robert James",
-    "normalized": "robert james russell"
+    "normalized": "robert james russell",
+    "forename": "Robert",
+    "middlename": "James",
+    "surname": "Russell"
   },
   "source_data": {
     "birthplace": "Northampton",
@@ -1565,7 +1703,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Thompson, Waldegrave Rock",
-    "normalized": "waldegrave rock thompson"
+    "normalized": "waldegrave rock thompson",
+    "forename": "Waldegrave",
+    "middlename": "Rock",
+    "surname": "Thompson"
   },
   "source_data": {
     "birthplace": "Gibraltar",
@@ -1596,7 +1737,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Moorhead, Edward",
-    "normalized": "edward moorhead"
+    "normalized": "edward moorhead",
+    "forename": "Edward",
+    "middlename": null,
+    "surname": "Moorhead"
   },
   "source_data": {
     "birthplace": "Ireland",
@@ -1627,7 +1771,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Stevenson, Robert John",
-    "normalized": "robert john stevenson"
+    "normalized": "robert john stevenson",
+    "forename": "Robert",
+    "middlename": "John",
+    "surname": "Stevenson"
   },
   "source_data": {
     "birthplace": "Camberwell Surrey",
@@ -1658,7 +1805,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Stuart, William",
-    "normalized": "william stuart"
+    "normalized": "william stuart",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Stuart"
   },
   "source_data": {
     "birthplace": "Duffus/ Morayshire",
@@ -1689,7 +1839,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Ashley, William Henry",
-    "normalized": "william henry ashley"
+    "normalized": "william henry ashley",
+    "forename": "William",
+    "middlename": "Henry",
+    "surname": "Ashley"
   },
   "source_data": {
     "birthplace": "Brighton",
@@ -1720,7 +1873,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Irvine, Francis Wemyss",
-    "normalized": "francis wemyss irvine"
+    "normalized": "francis wemyss irvine",
+    "forename": "Francis",
+    "middlename": "Wemyss",
+    "surname": "Irvine"
   },
   "source_data": {
     "birthplace": "Sydney, New South Wales",
@@ -1781,7 +1937,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Sievering, Edward Henry",
-    "normalized": "edward henry sievering"
+    "normalized": "edward henry sievering",
+    "forename": "Edward",
+    "middlename": "Henry",
+    "surname": "Sievering"
   },
   "source_data": {
     "birthplace": "London",
@@ -1847,7 +2006,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Mackenzie, Patrick",
-    "normalized": "patrick mackenzie"
+    "normalized": "patrick mackenzie",
+    "forename": "Patrick",
+    "middlename": null,
+    "surname": "Mackenzie"
   },
   "source_data": {
     "birthplace": {
@@ -1892,7 +2054,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Ford, Charles",
-    "normalized": "charles ford"
+    "normalized": "charles ford",
+    "forename": "Charles",
+    "middlename": null,
+    "surname": "Ford"
   },
   "source_data": {
     "birthplace": "Canterbury Kent",
@@ -1923,7 +2088,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Samuel, Brown",
-    "normalized": "brown samuel"
+    "normalized": "brown samuel",
+    "forename": "Brown",
+    "middlename": null,
+    "surname": "Samuel"
   },
   "source_data": {
     "birthplace": {
@@ -1968,7 +2136,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Turnbull, William Mackie",
-    "normalized": "william mackie turnbull"
+    "normalized": "william mackie turnbull",
+    "forename": "William",
+    "middlename": "Mackie",
+    "surname": "Turnbull"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -1999,7 +2170,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Patrick, James",
-    "normalized": "james patrick"
+    "normalized": "james patrick",
+    "forename": "James",
+    "middlename": null,
+    "surname": "Patrick"
   },
   "source_data": {
     "birthplace": "Dalry/ Ayrshire",
@@ -2034,7 +2208,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Forteath, Alexander",
-    "normalized": "alexander forteath"
+    "normalized": "alexander forteath",
+    "forename": "Alexander",
+    "middlename": null,
+    "surname": "Forteath"
   },
   "source_data": {
     "birthplace": "Morayshire",
@@ -2065,7 +2242,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bell, John",
-    "normalized": "john bell"
+    "normalized": "john bell",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Bell"
   },
   "source_data": {
     "birthplace": "Jamaica",
@@ -2096,7 +2276,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Young, Emanuel",
-    "normalized": "emanuel young"
+    "normalized": "emanuel young",
+    "forename": "Emanuel",
+    "middlename": null,
+    "surname": "Young"
   },
   "source_data": {
     "birthplace": "North Shields",
@@ -2133,7 +2316,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Holmes, Henry",
-    "normalized": "henry holmes"
+    "normalized": "henry holmes",
+    "forename": "Henry",
+    "middlename": null,
+    "surname": "Holmes"
   },
   "source_data": {
     "birthplace": "Darley Dale/Derbyshire",
@@ -2164,7 +2350,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Talbot, Robert",
-    "normalized": "robert talbot"
+    "normalized": "robert talbot",
+    "forename": "Robert",
+    "middlename": null,
+    "surname": "Talbot"
   },
   "source_data": {
     "birthplace": "Cork",
@@ -2195,7 +2384,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wright, Patrick",
-    "normalized": "patrick wright"
+    "normalized": "patrick wright",
+    "forename": "Patrick",
+    "middlename": null,
+    "surname": "Wright"
   },
   "source_data": {
     "birthplace": "Arbroath",
@@ -2230,7 +2422,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Smith, George",
-    "normalized": "george smith"
+    "normalized": "george smith",
+    "forename": "George",
+    "middlename": null,
+    "surname": "Smith"
   },
   "source_data": {
     "birthplace": "Edinburghshire",
@@ -2255,7 +2450,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wilkinson, Jonas Lyte",
-    "normalized": "jonas lyte wilkinson"
+    "normalized": "jonas lyte wilkinson",
+    "forename": "Jonas",
+    "middlename": "Lyte",
+    "surname": "Wilkinson"
   },
   "source_data": {
     "birthplace": "Barbadoes",
@@ -2290,7 +2488,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Smith, Thomas Wilkins",
-    "normalized": "thomas wilkins smith"
+    "normalized": "thomas wilkins smith",
+    "forename": "Thomas",
+    "middlename": "Wilkins",
+    "surname": "Smith"
   },
   "source_data": {
     "birthplace": "Kinsdale Co Cork",
@@ -2321,7 +2522,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bull, Henry Graves",
-    "normalized": "henry graves bull"
+    "normalized": "henry graves bull",
+    "forename": "Henry",
+    "middlename": "Graves",
+    "surname": "Bull"
   },
   "source_data": {
     "birthplace": "Pitsford Northamptonshire",
@@ -2352,7 +2556,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "M'Cosh, John",
-    "normalized": "john m'cosh"
+    "normalized": "john m'cosh",
+    "forename": "John",
+    "middlename": null,
+    "surname": "M'Cosh"
   },
   "source_data": {
     "birthplace": "Kirkmichael/ Ayr",
@@ -2383,7 +2590,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Scott, Alexander",
-    "normalized": "alexander scott"
+    "normalized": "alexander scott",
+    "forename": "Alexander",
+    "middlename": null,
+    "surname": "Scott"
   },
   "source_data": {
     "birthplace": {
@@ -2428,7 +2638,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wilson, John",
-    "normalized": "john wilson"
+    "normalized": "john wilson",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Wilson"
   },
   "source_data": {
     "birthplace": "Nairn",
@@ -2459,7 +2672,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Woodforde, Francis Henry",
-    "normalized": "francis henry woodforde"
+    "normalized": "francis henry woodforde",
+    "forename": "Francis",
+    "middlename": "Henry",
+    "surname": "Woodforde"
   },
   "source_data": {
     "birthplace": {
@@ -2496,7 +2712,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Maynard, Alleyne",
-    "normalized": "alleyne maynard"
+    "normalized": "alleyne maynard",
+    "forename": "Alleyne",
+    "middlename": null,
+    "surname": "Maynard"
   },
   "source_data": {
     "birthplace": "Barbadoes",
@@ -2527,7 +2746,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Robinson, John Trimble",
-    "normalized": "john trimble robinson"
+    "normalized": "john trimble robinson",
+    "forename": "John",
+    "middlename": "Trimble",
+    "surname": "Robinson"
   },
   "source_data": {
     "birthplace": "Clogher",
@@ -2558,7 +2780,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Scot, Thomas Goldie",
-    "normalized": "thomas goldie scot"
+    "normalized": "thomas goldie scot",
+    "forename": "Thomas",
+    "middlename": "Goldie",
+    "surname": "Scot"
   },
   "source_data": {
     "birthplace": "Madras",
@@ -2589,7 +2814,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Hoskin, William Thomas",
-    "normalized": "william thomas hoskin"
+    "normalized": "william thomas hoskin",
+    "forename": "William",
+    "middlename": "Thomas",
+    "surname": "Hoskin"
   },
   "source_data": {
     "birthplace": "Devonport",
@@ -2620,7 +2848,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Blythe, Newton",
-    "normalized": "newton blythe"
+    "normalized": "newton blythe",
+    "forename": "Newton",
+    "middlename": null,
+    "surname": "Blythe"
   },
   "source_data": {
     "birthplace": "Branton/ Northumberland",
@@ -2651,7 +2882,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Mackay, George",
-    "normalized": "george mackay"
+    "normalized": "george mackay",
+    "forename": "George",
+    "middlename": null,
+    "surname": "Mackay"
   },
   "source_data": {
     "birthplace": "Aberdeen",
@@ -2682,7 +2916,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Freeman, John Evan",
-    "normalized": "john evan freeman"
+    "normalized": "john evan freeman",
+    "forename": "John",
+    "middlename": "Evan",
+    "surname": "Freeman"
   },
   "source_data": {
     "birthplace": "Bombay",
@@ -2713,7 +2950,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Aitken, William",
-    "normalized": "william aitken"
+    "normalized": "william aitken",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Aitken"
   },
   "source_data": {
     "birthplace": {
@@ -2758,7 +2998,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Arthur, John",
-    "normalized": "john arthur"
+    "normalized": "john arthur",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Arthur"
   },
   "source_data": {
     "birthplace": "Castle Bellingham/ Co. Louth",
@@ -2789,7 +3032,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Keith, George Skene",
-    "normalized": "george skene keith"
+    "normalized": "george skene keith",
+    "forename": "George",
+    "middlename": "Skene",
+    "surname": "Keith"
   },
   "source_data": {
     "birthplace": "St Cyrus",
@@ -2820,7 +3066,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Moderno, Antonio Januario",
-    "normalized": "antonio januario moderno"
+    "normalized": "antonio januario moderno",
+    "forename": "Antonio",
+    "middlename": "Januario",
+    "surname": "Moderno"
   },
   "source_data": {
     "birthplace": "Ins Madeira",
@@ -2851,7 +3100,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Ogilvie, George",
-    "normalized": "george ogilvie"
+    "normalized": "george ogilvie",
+    "forename": "George",
+    "middlename": null,
+    "surname": "Ogilvie"
   },
   "source_data": {
     "birthplace": "Aberdeen",
@@ -2882,7 +3134,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Stokes, Adrian",
-    "normalized": "adrian stokes"
+    "normalized": "adrian stokes",
+    "forename": "Adrian",
+    "middlename": null,
+    "surname": "Stokes"
   },
   "source_data": {
     "birthplace": "Wickwar[?]/ Gloucestershire",
@@ -2907,7 +3162,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Cossar, Thomas",
-    "normalized": "thomas cossar"
+    "normalized": "thomas cossar",
+    "forename": "Thomas",
+    "middlename": null,
+    "surname": "Cossar"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -2938,7 +3196,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bates, William",
-    "normalized": "william bates"
+    "normalized": "william bates",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Bates"
   },
   "source_data": {
     "birthplace": "Lancashire",
@@ -2969,7 +3230,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Marlow, Benjamin William",
-    "normalized": "benjamin william marlow"
+    "normalized": "benjamin william marlow",
+    "forename": "Benjamin",
+    "middlename": "William",
+    "surname": "Marlow"
   },
   "source_data": {
     "birthplace": "Donegal",
@@ -3000,7 +3264,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Tucker, Park Benjamin",
-    "normalized": "park benjamin tucker"
+    "normalized": "park benjamin tucker",
+    "forename": "Park",
+    "middlename": "Benjamin",
+    "surname": "Tucker"
   },
   "source_data": {
     "birthplace": "Bermuda",
@@ -3031,7 +3298,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Jollie, William",
-    "normalized": "william jollie"
+    "normalized": "william jollie",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Jollie"
   },
   "source_data": {
     "birthplace": "Carlisle Cumbria",
@@ -3062,7 +3332,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Clarke, Vans Christian",
-    "normalized": "vans christian clarke"
+    "normalized": "vans christian clarke",
+    "forename": "Vans",
+    "middlename": "Christian",
+    "surname": "Clarke"
   },
   "source_data": {
     "birthplace": "Smyrna",
@@ -3095,7 +3368,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Reid, William L.",
-    "normalized": "william l. reid"
+    "normalized": "william l. reid",
+    "forename": "William",
+    "middlename": "L.",
+    "surname": "Reid"
   },
   "source_data": {
     "birthplace": "Ayrshire",
@@ -3126,7 +3402,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wright, John Innis",
-    "normalized": "john innis wright"
+    "normalized": "john innis wright",
+    "forename": "John",
+    "middlename": "Innis",
+    "surname": "Wright"
   },
   "source_data": {
     "birthplace": "Nagpour",
@@ -3161,7 +3440,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Warneford, Charles Francis",
-    "normalized": "charles francis warneford"
+    "normalized": "charles francis warneford",
+    "forename": "Charles",
+    "middlename": "Francis",
+    "surname": "Warneford"
   },
   "source_data": {
     "birthplace": "Surrey",
@@ -3192,7 +3474,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bedell, John",
-    "normalized": "john bedell"
+    "normalized": "john bedell",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Bedell"
   },
   "source_data": {
     "birthplace": "New Brunswick",
@@ -3223,7 +3508,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Reynolds, Thomas",
-    "normalized": "thomas reynolds"
+    "normalized": "thomas reynolds",
+    "forename": "Thomas",
+    "middlename": null,
+    "surname": "Reynolds"
   },
   "source_data": {
     "birthplace": "Brockville/Upper Canada",
@@ -3258,7 +3546,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Panton, Patrick",
-    "normalized": "patrick panton"
+    "normalized": "patrick panton",
+    "forename": "Patrick",
+    "middlename": null,
+    "surname": "Panton"
   },
   "source_data": {
     "birthplace": "Turriff/ Aberdeenshire",
@@ -3293,7 +3584,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Fair, Robert Kendall",
-    "normalized": "robert kendall fair"
+    "normalized": "robert kendall fair",
+    "forename": "Robert",
+    "middlename": "Kendall",
+    "surname": "Fair"
   },
   "source_data": {
     "birthplace": "Buenos Ayres",
@@ -3324,7 +3618,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Dickson, Joseph",
-    "normalized": "joseph dickson"
+    "normalized": "joseph dickson",
+    "forename": "Joseph",
+    "middlename": null,
+    "surname": "Dickson"
   },
   "source_data": {
     "birthplace": "Jersey",
@@ -3355,7 +3652,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Duncome, Frederick",
-    "normalized": "frederick duncome"
+    "normalized": "frederick duncome",
+    "forename": "Frederick",
+    "middlename": null,
+    "surname": "Duncome"
   },
   "source_data": {
     "birthplace": "Nassau",
@@ -3386,7 +3686,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "De Wolfe, James Ratchford",
-    "normalized": "james ratchford de wolfe"
+    "normalized": "james ratchford de wolfe",
+    "forename": "James",
+    "middlename": "Ratchford",
+    "surname": "De Wolfe"
   },
   "source_data": {
     "birthplace": "Horton/ Nova Scotia",
@@ -3417,7 +3720,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Lapsley, William",
-    "normalized": "william lapsley"
+    "normalized": "william lapsley",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Lapsley"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -3452,7 +3758,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Anderson, Thomas",
-    "normalized": "thomas anderson"
+    "normalized": "thomas anderson",
+    "forename": "Thomas",
+    "middlename": null,
+    "surname": "Anderson"
   },
   "source_data": {
     "birthplace": "Leith",
@@ -3524,7 +3833,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Tresilian, Stewart Jos.",
-    "normalized": "stewart jos. tresilian"
+    "normalized": "stewart jos. tresilian",
+    "forename": "Stewart",
+    "middlename": "Jos.",
+    "surname": "Tresilian"
   },
   "source_data": {
     "birthplace": "Brandon/ Co. Cork",
@@ -3559,7 +3871,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Cassels, Robert",
-    "normalized": "robert cassels"
+    "normalized": "robert cassels",
+    "forename": "Robert",
+    "middlename": null,
+    "surname": "Cassels"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -3590,7 +3905,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Darwin, Reginald",
-    "normalized": "reginald darwin"
+    "normalized": "reginald darwin",
+    "forename": "Reginald",
+    "middlename": null,
+    "surname": "Darwin"
   },
   "source_data": {
     "birthplace": "Lichfield",
@@ -3625,7 +3943,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Paterson, David",
-    "normalized": "david paterson"
+    "normalized": "david paterson",
+    "forename": "David",
+    "middlename": null,
+    "surname": "Paterson"
   },
   "source_data": {
     "birthplace": "Dumfriesshire",
@@ -3654,7 +3975,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Thompson, John Alexander William",
-    "normalized": "john alexander william thompson"
+    "normalized": "john alexander william thompson",
+    "forename": "John",
+    "middlename": "Alexander William",
+    "surname": "Thompson"
   },
   "source_data": {
     "birthplace": "Ballyshannon",
@@ -3685,7 +4009,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Jee, Joseph",
-    "normalized": "joseph jee"
+    "normalized": "joseph jee",
+    "forename": "Joseph",
+    "middlename": null,
+    "surname": "Jee"
   },
   "source_data": {
     "birthplace": "Northampton",
@@ -3720,7 +4047,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Stewart, Charles",
-    "normalized": "charles stewart"
+    "normalized": "charles stewart",
+    "forename": "Charles",
+    "middlename": null,
+    "surname": "Stewart"
   },
   "source_data": {
     "birthplace": "Midlothian",
@@ -3751,7 +4081,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Chapman, Edward",
-    "normalized": "edward chapman"
+    "normalized": "edward chapman",
+    "forename": "Edward",
+    "middlename": null,
+    "surname": "Chapman"
   },
   "source_data": {
     "birthplace": "Leith",
@@ -3782,7 +4115,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Johnstone, William Smellie",
-    "normalized": "william smellie johnstone"
+    "normalized": "william smellie johnstone",
+    "forename": "William",
+    "middlename": "Smellie",
+    "surname": "Johnstone"
   },
   "source_data": {
     "birthplace": {
@@ -3821,7 +4157,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bird, Henry",
-    "normalized": "henry bird"
+    "normalized": "henry bird",
+    "forename": "Henry",
+    "middlename": null,
+    "surname": "Bird"
   },
   "source_data": {
     "birthplace": "Somersetshire",
@@ -3850,7 +4189,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Manning, James",
-    "normalized": "james manning"
+    "normalized": "james manning",
+    "forename": "James",
+    "middlename": null,
+    "surname": "Manning"
   },
   "source_data": {
     "birthplace": "Barbadoes",
@@ -3881,7 +4223,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Fraser, William",
-    "normalized": "william fraser"
+    "normalized": "william fraser",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Fraser"
   },
   "source_data": {
     "birthplace": "Banffshire",
@@ -3912,7 +4257,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Blake, Ethelbert Harry",
-    "normalized": "ethelbert harry blake"
+    "normalized": "ethelbert harry blake",
+    "forename": "Ethelbert",
+    "middlename": "Harry",
+    "surname": "Blake"
   },
   "source_data": {
     "birthplace": "Seamount House/ Co. Mayo",
@@ -3943,7 +4291,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Robinson, William",
-    "normalized": "william robinson"
+    "normalized": "william robinson",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Robinson"
   },
   "source_data": {
     "birthplace": "Cumberland",
@@ -3978,7 +4329,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wark, Alexander",
-    "normalized": "alexander wark"
+    "normalized": "alexander wark",
+    "forename": "Alexander",
+    "middlename": null,
+    "surname": "Wark"
   },
   "source_data": {
     "birthplace": "Newton Limavady",
@@ -4009,7 +4363,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Steel, James",
-    "normalized": "james steel"
+    "normalized": "james steel",
+    "forename": "James",
+    "middlename": null,
+    "surname": "Steel"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -4040,7 +4397,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Craigie, James",
-    "normalized": "james craigie"
+    "normalized": "james craigie",
+    "forename": "James",
+    "middlename": null,
+    "surname": "Craigie"
   },
   "source_data": {
     "birthplace": "Dunkeld Perthshire",
@@ -4071,7 +4431,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Hair, Richard",
-    "normalized": "richard hair"
+    "normalized": "richard hair",
+    "forename": "Richard",
+    "middlename": null,
+    "surname": "Hair"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -4102,7 +4465,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Richardson, Henry",
-    "normalized": "henry richardson"
+    "normalized": "henry richardson",
+    "forename": "Henry",
+    "middlename": null,
+    "surname": "Richardson"
   },
   "source_data": {
     "birthplace": "Berwick On Tweed",
@@ -4133,7 +4499,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Hinson, Henry Joseph",
-    "normalized": "henry joseph hinson"
+    "normalized": "henry joseph hinson",
+    "forename": "Henry",
+    "middlename": "Joseph",
+    "surname": "Hinson"
   },
   "source_data": {
     "birthplace": "Bermuda",
@@ -4164,7 +4533,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Smith, William",
-    "normalized": "william smith"
+    "normalized": "william smith",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Smith"
   },
   "source_data": {
     "birthplace": "Ireland",
@@ -4195,7 +4567,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "White, John",
-    "normalized": "john white"
+    "normalized": "john white",
+    "forename": "John",
+    "middlename": null,
+    "surname": "White"
   },
   "source_data": {
     "birthplace": "Westmoreland",
@@ -4226,7 +4601,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Macleod, William",
-    "normalized": "william macleod"
+    "normalized": "william macleod",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Macleod"
   },
   "source_data": {
     "birthplace": "Sutherlandshire",
@@ -4251,7 +4629,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Drury, William Vallancey",
-    "normalized": "william vallancey drury"
+    "normalized": "william vallancey drury",
+    "forename": "William",
+    "middlename": "Vallancey",
+    "surname": "Drury"
   },
   "source_data": {
     "birthplace": "Sandymount",
@@ -4282,7 +4663,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Murison, Taylor H",
-    "normalized": "taylor h murison"
+    "normalized": "taylor h murison",
+    "forename": "Taylor",
+    "middlename": "H",
+    "surname": "Murison"
   },
   "source_data": {
     "birthplace": "Ireland",
@@ -4317,7 +4701,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Kelaart, Edward Frederick",
-    "normalized": "edward frederick kelaart"
+    "normalized": "edward frederick kelaart",
+    "forename": "Edward",
+    "middlename": "Frederick",
+    "surname": "Kelaart"
   },
   "source_data": {
     "birthplace": "Colombo",
@@ -4348,7 +4735,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Young, James",
-    "normalized": "james young"
+    "normalized": "james young",
+    "forename": "James",
+    "middlename": null,
+    "surname": "Young"
   },
   "source_data": {
     "birthplace": "Malin/Co. Donegal",
@@ -4379,7 +4769,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Thomson, David Purdie",
-    "normalized": "david purdie thomson"
+    "normalized": "david purdie thomson",
+    "forename": "David",
+    "middlename": "Purdie",
+    "surname": "Thomson"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -4410,7 +4803,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Huggins, William",
-    "normalized": "william huggins"
+    "normalized": "william huggins",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Huggins"
   },
   "source_data": {
     "birthplace": "St Vincent Island",
@@ -4441,7 +4837,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Fisher, Henry",
-    "normalized": "henry fisher"
+    "normalized": "henry fisher",
+    "forename": "Henry",
+    "middlename": null,
+    "surname": "Fisher"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -4472,7 +4871,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wielobycki, Severin",
-    "normalized": "severin wielobycki"
+    "normalized": "severin wielobycki",
+    "forename": "Severin",
+    "middlename": null,
+    "surname": "Wielobycki"
   },
   "source_data": {
     "birthplace": "Poland",
@@ -4493,7 +4895,39 @@
       "place_name": "Poland"
     }
   },
-  "wikidata": null,
+  "wikidata": {
+    "qid": "Q98973168",
+    "label": "Severin Wielobycki",
+    "birth_date": "1793-01-08T00:00:00Z",
+    "death_date": "1893-09-07T00:00:00Z",
+    "birth_place": "Volhynia",
+    "death_place": "St John's Wood, London, England",
+    "gender": "male",
+    "citizenship": "Poland",
+    "occupations": [
+      "physician",
+      "homeopath"
+    ],
+    "education": [
+      "University of Edinburgh"
+    ],
+    "positions": [],
+    "employers": [],
+    "fields_of_work": [],
+    "academic_degrees": [],
+    "awards": [],
+    "member_of": [],
+    "official_website": null,
+    "image": null,
+    "identifiers": {
+      "viaf": null,
+      "isni": null,
+      "gnd": null,
+      "orcid": null,
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Severin_Wielobycki"
+    },
+    "phd_thesis": null
+  },
   "phd_thesis": null
 },
 {
@@ -4503,7 +4937,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wyllie, David",
-    "normalized": "david wyllie"
+    "normalized": "david wyllie",
+    "forename": "David",
+    "middlename": null,
+    "surname": "Wyllie"
   },
   "source_data": {
     "birthplace": "Montrose",
@@ -4534,7 +4971,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Andrews, Charles",
-    "normalized": "charles andrews"
+    "normalized": "charles andrews",
+    "forename": "Charles",
+    "middlename": null,
+    "surname": "Andrews"
   },
   "source_data": {
     "birthplace": "Swansea",
@@ -4565,7 +5005,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Miller, Jacobus",
-    "normalized": "jacobus miller"
+    "normalized": "jacobus miller",
+    "forename": "Jacobus",
+    "middlename": null,
+    "surname": "Miller"
   },
   "source_data": {
     "birthplace": "Kent",
@@ -4596,7 +5039,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Heslop, Ralph Clayton",
-    "normalized": "ralph clayton heslop"
+    "normalized": "ralph clayton heslop",
+    "forename": "Ralph",
+    "middlename": "Clayton",
+    "surname": "Heslop"
   },
   "source_data": {
     "birthplace": "Withnell Near Chorley, Lancashire",
@@ -4631,7 +5077,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bird, John Edwards",
-    "normalized": "john edwards bird"
+    "normalized": "john edwards bird",
+    "forename": "John",
+    "middlename": "Edwards",
+    "surname": "Bird"
   },
   "source_data": {
     "birthplace": "Jamaica",
@@ -4662,7 +5111,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Castle, Henry Thomas",
-    "normalized": "henry thomas castle"
+    "normalized": "henry thomas castle",
+    "forename": "Henry",
+    "middlename": "Thomas",
+    "surname": "Castle"
   },
   "source_data": {
     "birthplace": "High Wycombe, Bucks.",
@@ -4693,7 +5145,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Gordon, Alexander",
-    "normalized": "alexander gordon"
+    "normalized": "alexander gordon",
+    "forename": "Alexander",
+    "middlename": null,
+    "surname": "Gordon"
   },
   "source_data": {
     "birthplace": "?Saintfield Down",
@@ -4718,7 +5173,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Mort, William",
-    "normalized": "william mort"
+    "normalized": "william mort",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Mort"
   },
   "source_data": {
     "birthplace": "Manchester",
@@ -4749,7 +5207,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Carlyle, William Johnstone",
-    "normalized": "william johnstone carlyle"
+    "normalized": "william johnstone carlyle",
+    "forename": "William",
+    "middlename": "Johnstone",
+    "surname": "Carlyle"
   },
   "source_data": {
     "birthplace": "Waterbeck",
@@ -4780,7 +5241,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Haward, Edwin",
-    "normalized": "edwin haward"
+    "normalized": "edwin haward",
+    "forename": "Edwin",
+    "middlename": null,
+    "surname": "Haward"
   },
   "source_data": {
     "birthplace": "Walesworth/ Suffolk",
@@ -4811,7 +5275,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Giglioli, Joseph",
-    "normalized": "joseph giglioli"
+    "normalized": "joseph giglioli",
+    "forename": "Joseph",
+    "middlename": null,
+    "surname": "Giglioli"
   },
   "source_data": {
     "birthplace": "Brescello/ State Of Modena [?]",
@@ -4836,7 +5303,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wickham, Joseph",
-    "normalized": "joseph wickham"
+    "normalized": "joseph wickham",
+    "forename": "Joseph",
+    "middlename": null,
+    "surname": "Wickham"
   },
   "source_data": {
     "birthplace": "Cumberland",
@@ -4867,7 +5337,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Homer, Henry",
-    "normalized": "henry homer"
+    "normalized": "henry homer",
+    "forename": "Henry",
+    "middlename": null,
+    "surname": "Homer"
   },
   "source_data": {
     "birthplace": "London",
@@ -4898,7 +5371,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Hill, Charles",
-    "normalized": "charles hill"
+    "normalized": "charles hill",
+    "forename": "Charles",
+    "middlename": null,
+    "surname": "Hill"
   },
   "source_data": {
     "birthplace": "Ballylough",
@@ -4929,7 +5405,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Lambert, John",
-    "normalized": "john lambert"
+    "normalized": "john lambert",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Lambert"
   },
   "source_data": {
     "birthplace": "Croyden/ Surrey",
@@ -4960,7 +5439,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Houston, Enoch Nasmyth",
-    "normalized": "enoch nasmyth houston"
+    "normalized": "enoch nasmyth houston",
+    "forename": "Enoch",
+    "middlename": "Nasmyth",
+    "surname": "Houston"
   },
   "source_data": {
     "birthplace": "Renfrewshire",
@@ -4991,7 +5473,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Winchester, Charles Alexander",
-    "normalized": "charles alexander winchester"
+    "normalized": "charles alexander winchester",
+    "forename": "Charles",
+    "middlename": "Alexander",
+    "surname": "Winchester"
   },
   "source_data": {
     "birthplace": "Aberdeen",
@@ -5022,7 +5507,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Sanderson, John Thom",
-    "normalized": "john thom sanderson"
+    "normalized": "john thom sanderson",
+    "forename": "John",
+    "middlename": "Thom",
+    "surname": "Sanderson"
   },
   "source_data": {
     "birthplace": "Musselburgh",
@@ -5053,7 +5541,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Pringle, William Spence",
-    "normalized": "william spence pringle"
+    "normalized": "william spence pringle",
+    "forename": "William",
+    "middlename": "Spence",
+    "surname": "Pringle"
   },
   "source_data": {
     "birthplace": "Kirkwall/Orkney",
@@ -5084,7 +5575,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bleazby, Samuel",
-    "normalized": "samuel bleazby"
+    "normalized": "samuel bleazby",
+    "forename": "Samuel",
+    "middlename": null,
+    "surname": "Bleazby"
   },
   "source_data": {
     "birthplace": {
@@ -5127,7 +5621,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Ferguson, James Maxwell",
-    "normalized": "james maxwell ferguson"
+    "normalized": "james maxwell ferguson",
+    "forename": "James",
+    "middlename": "Maxwell",
+    "surname": "Ferguson"
   },
   "source_data": {
     "birthplace": "Dundee",
@@ -5158,7 +5655,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Mackenzie, James John",
-    "normalized": "james john mackenzie"
+    "normalized": "james john mackenzie",
+    "forename": "James",
+    "middlename": "John",
+    "surname": "Mackenzie"
   },
   "source_data": {
     "birthplace": {
@@ -5203,7 +5703,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Stephens, John Edward",
-    "normalized": "john edward stephens"
+    "normalized": "john edward stephens",
+    "forename": "John",
+    "middlename": "Edward",
+    "surname": "Stephens"
   },
   "source_data": {
     "birthplace": "Woolwich",
@@ -5234,7 +5737,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bowie, William",
-    "normalized": "william bowie"
+    "normalized": "william bowie",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Bowie"
   },
   "source_data": {
     "birthplace": "Bath",
@@ -5265,7 +5771,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Smith, William",
-    "normalized": "william smith"
+    "normalized": "william smith",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Smith"
   },
   "source_data": {
     "birthplace": "Moffat",
@@ -5296,7 +5805,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Dudgeon, Robert Ellis",
-    "normalized": "robert ellis dudgeon"
+    "normalized": "robert ellis dudgeon",
+    "forename": "Robert",
+    "middlename": "Ellis",
+    "surname": "Dudgeon"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -5327,7 +5839,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wilson, David",
-    "normalized": "david wilson"
+    "normalized": "david wilson",
+    "forename": "David",
+    "middlename": null,
+    "surname": "Wilson"
   },
   "source_data": {
     "birthplace": "Beith/ Ayrshire",
@@ -5358,7 +5873,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Lamb, John Stewart",
-    "normalized": "john stewart lamb"
+    "normalized": "john stewart lamb",
+    "forename": "John",
+    "middlename": "Stewart",
+    "surname": "Lamb"
   },
   "source_data": {
     "birthplace": {
@@ -5397,7 +5915,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Giles, Richard",
-    "normalized": "richard giles"
+    "normalized": "richard giles",
+    "forename": "Richard",
+    "middlename": null,
+    "surname": "Giles"
   },
   "source_data": {
     "birthplace": "Oxfordshire",
@@ -5428,7 +5949,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Ross, Arthur",
-    "normalized": "arthur ross"
+    "normalized": "arthur ross",
+    "forename": "Arthur",
+    "middlename": null,
+    "surname": "Ross"
   },
   "source_data": {
     "birthplace": "Ireland",
@@ -5459,7 +5983,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Lookup, Thomas",
-    "normalized": "thomas lookup"
+    "normalized": "thomas lookup",
+    "forename": "Thomas",
+    "middlename": null,
+    "surname": "Lookup"
   },
   "source_data": {
     "birthplace": "Dumfries",
@@ -5490,7 +6017,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Smellie, William",
-    "normalized": "william smellie"
+    "normalized": "william smellie",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Smellie"
   },
   "source_data": {
     "birthplace": "St Andrews Orkney",
@@ -5521,7 +6051,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Barnard, John Wyatt",
-    "normalized": "john wyatt barnard"
+    "normalized": "john wyatt barnard",
+    "forename": "John",
+    "middlename": "Wyatt",
+    "surname": "Barnard"
   },
   "source_data": {
     "birthplace": "Little Cranfield/Essex",
@@ -5552,7 +6085,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Stewart, John",
-    "normalized": "john stewart"
+    "normalized": "john stewart",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Stewart"
   },
   "source_data": {
     "birthplace": "Perth",
@@ -5587,7 +6123,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Jopp, Keith",
-    "normalized": "keith jopp"
+    "normalized": "keith jopp",
+    "forename": "Keith",
+    "middlename": null,
+    "surname": "Jopp"
   },
   "source_data": {
     "birthplace": "Aberdeen",
@@ -5618,7 +6157,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Pringle, Andrew",
-    "normalized": "andrew pringle"
+    "normalized": "andrew pringle",
+    "forename": "Andrew",
+    "middlename": null,
+    "surname": "Pringle"
   },
   "source_data": {
     "birthplace": "East Lothian",
@@ -5649,7 +6191,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Hunter, John",
-    "normalized": "john hunter"
+    "normalized": "john hunter",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Hunter"
   },
   "source_data": {
     "birthplace": "Dumfriesshire",
@@ -5674,7 +6219,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Twiss, Hastings",
-    "normalized": "hastings twiss"
+    "normalized": "hastings twiss",
+    "forename": "Hastings",
+    "middlename": null,
+    "surname": "Twiss"
   },
   "source_data": {
     "birthplace": "Co. Cork",
@@ -5705,7 +6253,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Kelly, William Marwood",
-    "normalized": "william marwood kelly"
+    "normalized": "william marwood kelly",
+    "forename": "William",
+    "middlename": "Marwood",
+    "surname": "Kelly"
   },
   "source_data": {
     "birthplace": "London",
@@ -5736,7 +6287,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Taylor, Robert",
-    "normalized": "robert taylor"
+    "normalized": "robert taylor",
+    "forename": "Robert",
+    "middlename": null,
+    "surname": "Taylor"
   },
   "source_data": {
     "birthplace": "Kirkudbrightshire",
@@ -5767,7 +6321,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Kirkpatrick, James",
-    "normalized": "james kirkpatrick"
+    "normalized": "james kirkpatrick",
+    "forename": "James",
+    "middlename": null,
+    "surname": "Kirkpatrick"
   },
   "source_data": {
     "birthplace": "Kirkcudbright",
@@ -5798,7 +6355,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Clerk, John",
-    "normalized": "john clerk"
+    "normalized": "john clerk",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Clerk"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -5829,7 +6389,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Selby, Prideau",
-    "normalized": "prideau selby"
+    "normalized": "prideau selby",
+    "forename": "Prideau",
+    "middlename": null,
+    "surname": "Selby"
   },
   "source_data": {
     "birthplace": {
@@ -5874,7 +6437,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Moore, James",
-    "normalized": "james moore"
+    "normalized": "james moore",
+    "forename": "James",
+    "middlename": null,
+    "surname": "Moore"
   },
   "source_data": {
     "birthplace": "Belfast",
@@ -5905,7 +6471,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wood, William",
-    "normalized": "william wood"
+    "normalized": "william wood",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Wood"
   },
   "source_data": {
     "birthplace": "Yorkshire",
@@ -5936,7 +6505,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Blennerhassett, Richard",
-    "normalized": "richard blennerhassett"
+    "normalized": "richard blennerhassett",
+    "forename": "Richard",
+    "middlename": null,
+    "surname": "Blennerhassett"
   },
   "source_data": {
     "birthplace": "Dublin",
@@ -5967,7 +6539,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Malcolm, Andrew George",
-    "normalized": "andrew george malcolm"
+    "normalized": "andrew george malcolm",
+    "forename": "Andrew",
+    "middlename": "George",
+    "surname": "Malcolm"
   },
   "source_data": {
     "birthplace": "Newry",
@@ -5998,7 +6573,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bull, Joshua",
-    "normalized": "joshua bull"
+    "normalized": "joshua bull",
+    "forename": "Joshua",
+    "middlename": null,
+    "surname": "Bull"
   },
   "source_data": {
     "birthplace": "Cork",
@@ -6029,7 +6607,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Osburne, Thomas",
-    "normalized": "thomas osburne"
+    "normalized": "thomas osburne",
+    "forename": "Thomas",
+    "middlename": null,
+    "surname": "Osburne"
   },
   "source_data": {
     "birthplace": "Cork",
@@ -6060,7 +6641,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Greenidge, John Francis",
-    "normalized": "john francis greenidge"
+    "normalized": "john francis greenidge",
+    "forename": "John",
+    "middlename": "Francis",
+    "surname": "Greenidge"
   },
   "source_data": {
     "birthplace": "Barbadoes",
@@ -6091,7 +6675,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Barker, William Thomson",
-    "normalized": "william thomson barker"
+    "normalized": "william thomson barker",
+    "forename": "William",
+    "middlename": "Thomson",
+    "surname": "Barker"
   },
   "source_data": {
     "birthplace": {
@@ -6128,7 +6715,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Bowie, John James",
-    "normalized": "john james bowie"
+    "normalized": "john james bowie",
+    "forename": "John",
+    "middlename": "James",
+    "surname": "Bowie"
   },
   "source_data": {
     "birthplace": "Cove Of Cork",
@@ -6159,7 +6749,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "George, Robert Villiers",
-    "normalized": "robert villiers george"
+    "normalized": "robert villiers george",
+    "forename": "Robert",
+    "middlename": "Villiers",
+    "surname": "George"
   },
   "source_data": {
     "birthplace": {
@@ -6194,7 +6787,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Booth, Byron",
-    "normalized": "byron booth"
+    "normalized": "byron booth",
+    "forename": "Byron",
+    "middlename": null,
+    "surname": "Booth"
   },
   "source_data": {
     "birthplace": "Derbyshire",
@@ -6229,7 +6825,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Wilson, Alexander",
-    "normalized": "alexander wilson"
+    "normalized": "alexander wilson",
+    "forename": "Alexander",
+    "middlename": null,
+    "surname": "Wilson"
   },
   "source_data": {
     "birthplace": "Dalbeatie",
@@ -6264,7 +6863,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Adams, Kenneth Mckenzie A.M.",
-    "normalized": "kenneth mckenzie a.m. adams"
+    "normalized": "kenneth mckenzie a.m. adams",
+    "forename": "Kenneth",
+    "middlename": "Mckenzie A.M.",
+    "surname": "Adams"
   },
   "source_data": {
     "birthplace": "Forres/Morayshire",
@@ -6295,7 +6897,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Fraser, James George",
-    "normalized": "james george fraser"
+    "normalized": "james george fraser",
+    "forename": "James",
+    "middlename": "George",
+    "surname": "Fraser"
   },
   "source_data": {
     "birthplace": "Fort George",
@@ -6326,7 +6931,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Gordon, David",
-    "normalized": "david gordon"
+    "normalized": "david gordon",
+    "forename": "David",
+    "middlename": null,
+    "surname": "Gordon"
   },
   "source_data": {
     "birthplace": "Picton/ Nova Scotia",
@@ -6357,7 +6965,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Brown, William Crawford",
-    "normalized": "william crawford brown"
+    "normalized": "william crawford brown",
+    "forename": "William",
+    "middlename": "Crawford",
+    "surname": "Brown"
   },
   "source_data": {
     "birthplace": "Midlothian",
@@ -6388,7 +6999,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Potts, Thomas Bailey William",
-    "normalized": "thomas bailey william potts"
+    "normalized": "thomas bailey william potts",
+    "forename": "Thomas",
+    "middlename": "Bailey William",
+    "surname": "Potts"
   },
   "source_data": {
     "birthplace": "Wiltshire",
@@ -6419,7 +7033,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Dickson, Walter",
-    "normalized": "walter dickson"
+    "normalized": "walter dickson",
+    "forename": "Walter",
+    "middlename": null,
+    "surname": "Dickson"
   },
   "source_data": {
     "birthplace": "Edinburgh",
@@ -6450,7 +7067,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Whitton, Corbett",
-    "normalized": "corbett whitton"
+    "normalized": "corbett whitton",
+    "forename": "Corbett",
+    "middlename": null,
+    "surname": "Whitton"
   },
   "source_data": {
     "birthplace": "Eydon Northamptonshire",
@@ -6481,7 +7101,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Reid, Francis",
-    "normalized": "francis reid"
+    "normalized": "francis reid",
+    "forename": "Francis",
+    "middlename": null,
+    "surname": "Reid"
   },
   "source_data": {
     "birthplace": "Dumfries",
@@ -6512,7 +7135,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Horniblow, George",
-    "normalized": "george horniblow"
+    "normalized": "george horniblow",
+    "forename": "George",
+    "middlename": null,
+    "surname": "Horniblow"
   },
   "source_data": {
     "birthplace": "Oxfordshire",
@@ -6543,7 +7169,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Fasken, William",
-    "normalized": "william fasken"
+    "normalized": "william fasken",
+    "forename": "William",
+    "middlename": null,
+    "surname": "Fasken"
   },
   "source_data": {
     "birthplace": "Madras",
@@ -6574,7 +7203,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Kirkwood, Alexander",
-    "normalized": "alexander kirkwood"
+    "normalized": "alexander kirkwood",
+    "forename": "Alexander",
+    "middlename": null,
+    "surname": "Kirkwood"
   },
   "source_data": {
     "birthplace": "Dunbar East Lothian",
@@ -6605,7 +7237,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Fitch, Simon",
-    "normalized": "simon fitch"
+    "normalized": "simon fitch",
+    "forename": "Simon",
+    "middlename": null,
+    "surname": "Fitch"
   },
   "source_data": {
     "birthplace": "Nova Scotia",
@@ -6636,7 +7271,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Johnston, Francis",
-    "normalized": "francis johnston"
+    "normalized": "francis johnston",
+    "forename": "Francis",
+    "middlename": null,
+    "surname": "Johnston"
   },
   "source_data": {
     "birthplace": {
@@ -6681,7 +7319,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Parker, Thomas Jefferson",
-    "normalized": "thomas jefferson parker"
+    "normalized": "thomas jefferson parker",
+    "forename": "Thomas",
+    "middlename": "Jefferson",
+    "surname": "Parker"
   },
   "source_data": {
     "birthplace": "Cumberland",
@@ -6716,7 +7357,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Graham, John",
-    "normalized": "john graham"
+    "normalized": "john graham",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Graham"
   },
   "source_data": {
     "birthplace": "Cumberland",
@@ -6747,7 +7391,10 @@
   "source": "Students of Medicine (sample of 205), 1833-1846",
   "name": {
     "original": "Harrison, John",
-    "normalized": "john harrison"
+    "normalized": "john harrison",
+    "forename": "John",
+    "middlename": null,
+    "surname": "Harrison"
   },
   "source_data": {
     "birthplace": "Roscommon",

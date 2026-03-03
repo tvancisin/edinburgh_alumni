@@ -6,6 +6,13 @@
   export let medics_sample;
   export let visible = false;
 
+  // todo
+  // for those with an image on wikipedia, add img to the circle marker
+  // keep emphasizing uncertainty in circles somehow
+  // think about markerclustering customization
+
+  $: console.log(medics_sample);
+
   let map;
   let map2;
   const key = "3rzey539Y03YWue7YR65";
@@ -58,6 +65,8 @@
   }
 
   function formatWikidata(wd) {
+    console.log(wd);
+
     if (!wd) return "";
 
     const list = (arr) =>
@@ -67,22 +76,58 @@
 
     return `
     <hr/>
-    <strong>Wikidata Enrichment</strong><br/>
-    <b>Label:</b> ${wd.label || "—"}<br/>
+    <p style="font-size: 14px; padding-bottom: 5px; padding-top: 5px; margin: 0;"><strong>Wikidata Enrichment</strong></p>
     <b>Birth:</b> ${wd.birth_date?.slice(0, 10) || "—"} (${wd.birth_place || "—"})<br/>
     <b>Death:</b> ${wd.death_date?.slice(0, 10) || "—"} (${wd.death_place || "—"})<br/>
     <b>Citizenship:</b> ${wd.citizenship || "—"}<br/>
     <b>Gender:</b> ${wd.gender || "—"}<br/>
-    <b>Occupations:</b> ${list(wd.occupations)}<br/>
-    <b>Member of:</b> ${list(wd.member_of)}<br/>
-    <b>Education:</b> ${list(wd.education)}<br/>
-    <b>Employers:</b> ${list(wd.employers)}<br/>
-    <b>Awards:</b> ${list(wd.awards)}<br/>
-    <b>Position:</b> ${list(wd.positions)}<br/>
+    <b>Occupations:</b> ${
+      Array.isArray(wd.occupations)
+        ? wd.occupations.length
+          ? wd.occupations.join(", ")
+          : "—"
+        : wd.occupations || "—"
+    }<br/>
+    <b>Member of:</b> ${
+      Array.isArray(wd.member_of)
+        ? wd.member_of.length
+          ? wd.member_of.join(", ")
+          : "—"
+        : wd.member_of || "—"
+    }<br/>
+    <b>Education:</b> ${
+      Array.isArray(wd.education)
+        ? wd.education.length
+          ? wd.education.join(", ")
+          : "—"
+        : wd.education || "—"
+    }<br/>
+    <b>Employers:</b> ${
+      Array.isArray(wd.employers)
+        ? wd.employers.length
+          ? wd.employers.join(", ")
+          : "—"
+        : wd.employers || "—"
+    }<br/>
+    <b>Awards:</b> ${
+      Array.isArray(wd.awards)
+        ? wd.awards.length
+          ? wd.awards.join(", ")
+          : "—"
+        : wd.awards || "—"
+    }<br/>
+    <b>Position:</b> ${
+      Array.isArray(wd.positions)
+        ? wd.positions.length
+          ? wd.positions.join(", ")
+          : "—"
+        : wd.positions || "—"
+    }<br/>
+    <b>Image:</b><br/>
     ${
       wd.image
         ? `<img src="${wd.image}" width="120" style="margin-top:5px;" />`
-        : ""
+        : "—"
     }
   `;
   }
@@ -134,47 +179,59 @@
 
   function drawCircles() {
     medics_sample.forEach((d) => {
-      console.log(d);
-
-      if (d.match.status == "matched") {
-        console.warn("matched record:", d);
-      }
-
       const lat = d?.source_data?.address?.lat;
       const lon = d?.source_data?.address?.lon;
 
       if (lat && lon) {
         const popup = `
-  <strong>${d.name.original}</strong><br/>
-  ${d.source_data.address.place_name}<br/>
-  Entry year: ${d.entry_year}<br/>
+  <p style="font-size: 16px; padding-bottom: 5px; margin: 0;"><strong>${d.name.forename} ${d.name.middle_name || ""} ${d.name.surname}</strong></p>
+  <strong>Birthplace:</strong> ${d.source_data.birthplace}<br/>
+  <strong>Edinburgh address:</strong> ${d.source_data.address.original_name}<br/>
+  <strong>Entry year:</strong> ${d.entry_year}<br/>
+  <strong>Entry age:</strong> ${d.source_data.age}<br/>
+  <strong>Nationality:</strong> ${d.source_data.nationality}<br/>
+  <strong>Thesis:</strong> ${d.source_data.thesis || "—"}<br/>
   
   ${formatThesisData(d.thesis_data)}
   ${formatWikidata(d.wikidata)}
 `;
-        L.circleMarker([lat, lon], {
-          radius: d.match.status == "matched" ? 8 : 4,
-          fillColor: d.wikidata != null ? "yellow" : "black",
-          color: "black",
-          weight: 1,
-          opacity: 1,
-          fillOpacity: 0.4,
-        })
-          .addTo(map)
-          .bindPopup(popup);
-
-        L.circleMarker([lat, lon], {
-          radius: d.match.status == "matched" ? 8 : 4,
-          fillColor: d.wikidata != null ? "yellow" : "black",
-          color: "black",
-          weight: 1,
-          opacity: 1,
-          fillOpacity: 0.4,
-        })
-          .addTo(map2)
-          .bindPopup(popup);
+        createPersonMarker(d, lat, lon, popup, map);
+        createPersonMarker(d, lat, lon, popup, map2);
       }
     });
+  }
+
+  function escapeCssUrl(url) {
+    return String(url).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+  }
+
+  function createPersonMarker(d, lat, lon, popup, targetMap) {
+    const imageUrl = d?.wikidata?.image;
+
+    if (imageUrl) {
+      return L.marker([lat, lon], {
+        icon: L.divIcon({
+          className: "photo-marker-wrapper",
+          html: `<div class="photo-marker" style="background-image: url('${escapeCssUrl(imageUrl)}');"></div>`,
+          iconSize: [18, 18],
+          iconAnchor: [9, 9],
+          popupAnchor: [0, -9],
+        }),
+      })
+        .addTo(targetMap)
+        .bindPopup(popup);
+    }
+
+    return L.circleMarker([lat, lon], {
+      radius: d.wikidata != null ? "15" : 4,
+      fillColor: "black",
+      color: "black",
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.4,
+    })
+      .addTo(targetMap)
+      .bindPopup(popup);
   }
 
   function onMouseDown(e) {
@@ -278,7 +335,7 @@
   .slider-line {
     width: 10px;
     height: 100%;
-    background: white;
+    background: rgb(0, 0, 0);
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
     pointer-events: none;
   }
@@ -322,5 +379,20 @@
 
   .label-right {
     right: 16px;
+  }
+
+  :global(.photo-marker-wrapper) {
+    background: transparent;
+    border: none;
+  }
+
+  :global(.photo-marker) {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 </style>
