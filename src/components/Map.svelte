@@ -26,7 +26,7 @@
     map = L.map("map-historical", {
       zoomControl: false,
       attributionControl: false,
-    }).setView([55.9533, -3.1883], 14);
+    }).setView([55.9533, -3.1883], 13);
     L.tileLayer(
       `https://api.maptiler.com/tiles/uk-osgb10k1888/{z}/{x}/{y}.png?key=${key}`,
       { maxZoom: 18, crossOrigin: true },
@@ -36,7 +36,7 @@
     map2 = L.map("map-modern", {
       zoomControl: true,
       attributionControl: true,
-    }).setView([55.9533, -3.1883], 14);
+    }).setView([55.9533, -3.1883], 13);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
