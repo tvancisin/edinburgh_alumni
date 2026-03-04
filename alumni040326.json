@@ -1083,7 +1083,8 @@
       "gnd": "1157573886",
       "orcid": null
     },
-    "wikipedia_url": null
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Alexander_Armstrong_(Royal_Navy_officer)",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q4718255"
   },
   "phd_thesis": null
 },
@@ -1658,7 +1659,8 @@
       "gnd": "136013295",
       "orcid": null
     },
-    "wikipedia_url": null
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Hugh_Cleghorn_(forester)",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q5930356"
   },
   "phd_thesis": null
 },
@@ -1926,7 +1928,8 @@
       "gnd": null,
       "orcid": null
     },
-    "wikipedia_url": null
+    "wikipedia_url": null,
+    "wikidata_url": "https://www.wikidata.org/wiki/Q108762172"
   },
   "phd_thesis": null
 },
@@ -1995,7 +1998,8 @@
       "gnd": "117373532",
       "orcid": null
     },
-    "wikipedia_url": null
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Edward_Henry_Sieveking",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q1293634"
   },
   "phd_thesis": null
 },
@@ -3822,7 +3826,8 @@
       "gnd": "116306734",
       "orcid": null
     },
-    "wikipedia_url": null
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Thomas_Anderson_(chemist)",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q903374"
   },
   "phd_thesis": null
 },
@@ -4918,15 +4923,16 @@
     "awards": [],
     "member_of": [],
     "official_website": null,
-    "image": null,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Severin_Wielobycki.png",
     "identifiers": {
       "viaf": null,
       "isni": null,
       "gnd": null,
-      "orcid": null,
-      "wikipedia_url": "https://en.wikipedia.org/wiki/Severin_Wielobycki"
+      "orcid": null
     },
-    "phd_thesis": null
+    "phd_thesis": null,
+    "wikipedia_url": "https://en.wikipedia.org/wiki/Severin_Wielobycki",
+    "wikidata_url": "https://www.wikidata.org/wiki/Q98973168"
   },
   "phd_thesis": null
 },
