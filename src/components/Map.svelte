@@ -2,12 +2,15 @@
   import { onMount } from "svelte";
   import L from "leaflet";
   import "leaflet/dist/leaflet.css";
+  import "leaflet.markercluster";
+  import "leaflet.markercluster/dist/MarkerCluster.css";
+  import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
   export let medics_sample;
   export let visible = false;
 
   // todo
-  // for those with an image on wikipedia, add img to the circle marker
+  // add st andrews dataset
   // keep emphasizing uncertainty in circles somehow
   // think about markerclustering customization
 
@@ -15,6 +18,8 @@
 
   let map;
   let map2;
+  let historicalClusterGroup;
+  let modernClusterGroup;
   const key = "3rzey539Y03YWue7YR65";
 
   let sliderPosition = 50;
@@ -40,8 +45,20 @@
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 19,
+      maxZoom: 18,
     }).addTo(map2);
+
+    historicalClusterGroup = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      disableClusteringAtZoom: 16,
+    });
+    modernClusterGroup = L.markerClusterGroup({
+      showCoverageOnHover: false,
+      disableClusteringAtZoom: 16,
+    });
+
+    map.addLayer(historicalClusterGroup);
+    map2.addLayer(modernClusterGroup);
 
     // Sync the two maps
     syncMaps(map, map2);
@@ -65,14 +82,7 @@
   }
 
   function formatWikidata(wd) {
-    console.log(wd);
-
     if (!wd) return "";
-
-    const list = (arr) =>
-      Array.isArray(arr) && arr.length
-        ? "<ul>" + arr.map((x) => `<li>${x}</li>`).join("") + "</ul>"
-        : "—";
 
     return `
     <hr/>
@@ -122,6 +132,34 @@
           ? wd.positions.join(", ")
           : "—"
         : wd.positions || "—"
+    }<br/>
+    <b>Wikipedia:</b> ${
+      Array.isArray(wd.wikipedia_url)
+        ? wd.wikipedia_url.length
+          ? wd.wikipedia_url
+              .map(
+                (url) =>
+                  `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`,
+              )
+              .join(", ")
+          : "—"
+        : wd.wikipedia_url
+          ? `<a href="${wd.wikipedia_url}" target="_blank" rel="noopener noreferrer">Link</a>`
+          : "—"
+    }<br/>
+    <b>Wikidata:</b> ${
+      Array.isArray(wd.wikidata_url)
+        ? wd.wikidata_url.length
+          ? wd.wikidata_url
+              .map(
+                (url) =>
+                  `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`,
+              )
+              .join(", ")
+          : "—"
+        : wd.wikidata_url
+          ? `<a href="${wd.wikidata_url}" target="_blank" rel="noopener noreferrer">Link</a>`
+          : "—"
     }<br/>
     <b>Image:</b><br/>
     ${
@@ -178,13 +216,19 @@
   }
 
   function drawCircles() {
+    if (!Array.isArray(medics_sample)) return;
+
+    historicalClusterGroup?.clearLayers();
+    modernClusterGroup?.clearLayers();
+
     medics_sample.forEach((d) => {
       const lat = d?.source_data?.address?.lat;
       const lon = d?.source_data?.address?.lon;
 
       if (lat && lon) {
         const popup = `
-  <p style="font-size: 16px; padding-bottom: 5px; margin: 0;"><strong>${d.name.forename} ${d.name.middle_name || ""} ${d.name.surname}</strong></p>
+  <p style="font-size: 16px; padding-bottom: 5px; margin: 0;">
+  <strong>${d.name.forename} ${d.name.middle_name || ""} ${d.name.surname}</strong></p>
   <strong>Birthplace:</strong> ${d.source_data.birthplace}<br/>
   <strong>Edinburgh address:</strong> ${d.source_data.address.original_name}<br/>
   <strong>Entry year:</strong> ${d.entry_year}<br/>
@@ -195,8 +239,17 @@
   ${formatThesisData(d.thesis_data)}
   ${formatWikidata(d.wikidata)}
 `;
-        createPersonMarker(d, lat, lon, popup, map);
-        createPersonMarker(d, lat, lon, popup, map2);
+        const historicalMarker = createPersonMarker(d, lat, lon, popup);
+        const modernMarker = createPersonMarker(d, lat, lon, popup);
+
+        if (historicalClusterGroup && modernClusterGroup) {
+          historicalClusterGroup.addLayer(historicalMarker);
+          modernClusterGroup.addLayer(modernMarker);
+          return;
+        }
+
+        historicalMarker.addTo(map);
+        modernMarker.addTo(map2);
       }
     });
   }
@@ -205,7 +258,7 @@
     return String(url).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
   }
 
-  function createPersonMarker(d, lat, lon, popup, targetMap) {
+  function createPersonMarker(d, lat, lon, popup) {
     const imageUrl = d?.wikidata?.image;
 
     if (imageUrl) {
@@ -217,21 +270,21 @@
           iconAnchor: [9, 9],
           popupAnchor: [0, -9],
         }),
-      })
-        .addTo(targetMap)
-        .bindPopup(popup);
+      }).bindPopup(popup);
     }
 
-    return L.circleMarker([lat, lon], {
-      radius: d.wikidata != null ? "15" : 4,
-      fillColor: "black",
-      color: "black",
-      weight: 1,
-      opacity: 1,
-      fillOpacity: 0.4,
-    })
-      .addTo(targetMap)
-      .bindPopup(popup);
+    const radius = d.wikidata != null ? 15 : 4;
+    const diameter = radius * 2;
+
+    return L.marker([lat, lon], {
+      icon: L.divIcon({
+        className: "circle-marker-wrapper",
+        html: `<div class="circle-marker-dot" style="width:${diameter}px;height:${diameter}px;"></div>`,
+        iconSize: [diameter, diameter],
+        iconAnchor: [radius, radius],
+        popupAnchor: [0, -radius],
+      }),
+    }).bindPopup(popup);
   }
 
   function onMouseDown(e) {
@@ -340,25 +393,6 @@
     pointer-events: none;
   }
 
-  .slider-handle {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: white;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-    font-size: 1.4rem;
-    color: #333;
-    user-select: none;
-    pointer-events: none;
-  }
-
   .label {
     position: absolute;
     top: 16px;
@@ -386,13 +420,56 @@
     border: none;
   }
 
+  :global(.circle-marker-wrapper) {
+    background: transparent;
+    border: none;
+  }
+
+  :global(.circle-marker-dot) {
+    border-radius: 50%;
+    border: 1px solid black;
+    background: black;
+    opacity: 0.4;
+  }
+
   :global(.photo-marker) {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     border: 1px solid black;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  :global(.marker-cluster-small) {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  :global(.marker-cluster-small div) {
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  :global(.marker-cluster-medium) {
+    background: rgba(0, 0, 0, 0.35);
+  }
+  :global(.marker-cluster-medium div) {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  :global(.marker-cluster-large) {
+    background: rgba(0, 0, 0, 0.55);
+  }
+  :global(.marker-cluster-large div) {
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  :global(.marker-cluster span) {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+  }
+
+  :global(.circle-marker-dot) {
+    opacity: 0.7;
   }
 </style>
