@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@types/leaflet.markercluster": "^1.5.6",
     "svelte": "^5.43.8",
     "vite": "^7.2.4"
   },

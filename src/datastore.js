@@ -247,7 +247,7 @@ export async function loadData() {
     full_years = all_grouped.map((d) => ({
       year: d[0],
       certainty: "uncertain",
-      count: 200 + (Math.random() + Math.random()) * 100,
+      count: 5 + (Math.random() + Math.random()) * 100,
     }));
 
     datasetsStore.set({

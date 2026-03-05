@@ -75,7 +75,7 @@
   });
 
   $: data_to_draw = all_medics_grouped;
-  let activeKey = "medics";
+  let activeKey = "all_medics";
 
   $: datasets = {
     all_medics: all_medics_grouped,
@@ -149,7 +149,7 @@
   {/if}
 
   {#if mapVisible == false}
-    <h1>University of Edinburgh Historical Student Records</h1>
+    <!-- <h1>University of Edinburgh Historical Student Records</h1> -->
     <div class="dropdown" on:click|stopPropagation>
       <button class="dropdown-toggle" on:click={toggleMenu}>
         {selectedLabel} ▾

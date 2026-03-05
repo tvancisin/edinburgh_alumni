@@ -168,7 +168,7 @@
         fill="white"
         opacity="0.5"
         font-weight="300"
-        font-size="14">University Established (1583)</text
+        font-size="12">University Established (1583)</text
       >
 
       <rect
@@ -197,7 +197,7 @@
         font-family="Montserrat, sans-serif"
         font-weight="300"
         opacity="0.5"
-        font-size="14">Law School (1707)</text
+        font-size="12">Law School (1707)</text
       >
 
       <!-- art school -->
@@ -217,7 +217,7 @@
         fill="white"
         font-family="Montserrat, sans-serif"
         font-weight="300"
-        font-size="14">Art School (1708)</text
+        font-size="12">Art School (1708)</text
       >
 
       <!-- medical school establishment -->
@@ -237,7 +237,7 @@
         opacity="0.5"
         font-family="Montserrat, sans-serif"
         font-weight="300"
-        font-size="14">Medical School (1726)</text
+        font-size="12">Medical School (1726)</text
       >
 
       <!-- veterinary school establishment -->
@@ -257,7 +257,7 @@
         opacity="0.5"
         font-family="Montserrat, sans-serif"
         font-weight="300"
-        font-size="14">Veterinary School (1823)</text
+        font-size="12">Veterinary School (1823)</text
       >
 
       <!-- divinity school establishment -->
@@ -277,7 +277,7 @@
         fill="white"
         font-family="Montserrat, sans-serif"
         font-weight="300"
-        font-size="14">Divinity School (1843)</text
+        font-size="12">Divinity School (1843)</text
       >
 
       <!-- infirmary/efi -->
@@ -296,7 +296,7 @@
         opacity="0.5"
         fill="white"
         font-weight="300"
-        font-size="14">Infirmary built (EFI) (1880)</text
+        font-size="12">Infirmary built (EFI) (1880)</text
       >
     {/if}
   </svg>

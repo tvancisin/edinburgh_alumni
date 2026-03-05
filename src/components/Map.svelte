@@ -14,8 +14,6 @@
   // keep emphasizing uncertainty in circles somehow
   // think about markerclustering customization
 
-  $: console.log(medics_sample);
-
   let map;
   let map2;
   let historicalClusterGroup;
@@ -169,6 +167,7 @@
     }
   `;
   }
+
   function formatThesisData(td) {
     if (!td) return "";
 
