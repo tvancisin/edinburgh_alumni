@@ -14,6 +14,7 @@
   // keep emphasizing uncertainty in circles somehow
   // think about markerclustering customization
 
+  let currentLocationField = "address";
   let map;
   let map2;
   let historicalClusterGroup;
@@ -30,9 +31,19 @@
       zoomControl: false,
       attributionControl: false,
     }).setView([55.9533, -3.1883], 13);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+    }).addTo(map);
     L.tileLayer(
       `https://api.maptiler.com/tiles/uk-osgb10k1888/{z}/{x}/{y}.png?key=${key}`,
-      { maxZoom: 18, crossOrigin: true },
+      {
+        minZoom: 10,
+        maxZoom: 18,
+        crossOrigin: true,
+        opacity: 1,
+        // only request map tiles for the UK.
+        bounds: L.latLngBounds([49.5, -8.2], [60.9, 2.0]),
+      },
     ).addTo(map);
 
     // Modern map
@@ -62,7 +73,7 @@
     syncMaps(map, map2);
     syncMaps(map2, map);
 
-    drawCircles();
+    drawCircles(currentLocationField);
   });
 
   function syncMaps(source, target) {
@@ -214,15 +225,15 @@
   `;
   }
 
-  function drawCircles() {
+  function drawCircles(which) {
     if (!Array.isArray(medics_sample)) return;
 
     historicalClusterGroup?.clearLayers();
     modernClusterGroup?.clearLayers();
 
     medics_sample.forEach((d) => {
-      const lat = d?.source_data?.address?.lat;
-      const lon = d?.source_data?.address?.lon;
+      const lat = d?.source_data?.[which]?.lat;
+      const lon = d?.source_data?.[which]?.lon;
 
       if (lat && lon) {
         const popup = `
@@ -302,6 +313,17 @@
   function onMouseUp() {
     isDragging = false;
   }
+
+  function switch_data() {
+    currentLocationField =
+      currentLocationField === "address" ? "birthplace_location" : "address";
+
+    drawCircles(currentLocationField);
+    const zoom = currentLocationField === "address" ? 13 : 3;
+    const latitude = currentLocationField === "address" ? 55.9533 : 25.9533;
+    map.setView([latitude, -3.1883], zoom);
+    map2.setView([latitude, -3.1883], zoom);
+  }
 </script>
 
 <svelte:window
@@ -341,8 +363,18 @@
   </div>
 
   <!-- Labels -->
+  <h1>
+    {currentLocationField === "address"
+      ? "Addresses during University studies"
+      : "Birth Locations"}
+  </h1>
   <div class="label label-left">1888</div>
   <div class="label label-right">2026</div>
+  <button class="switch_button" on:click={switch_data}>
+    {currentLocationField === "address"
+      ? "Show Birth Locations"
+      : "Show University Addresses"}
+  </button>
 </div>
 
 <style>
@@ -392,6 +424,21 @@
     pointer-events: none;
   }
 
+  h1 {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    background: rgba(50, 50, 50, 0.95);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    pointer-events: none;
+  }
+
   .label {
     position: absolute;
     top: 16px;
@@ -412,6 +459,26 @@
 
   .label-right {
     right: 16px;
+  }
+
+  .switch_button {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    z-index: 1001;
+    background: steelblue;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .switch_button:hover {
+    background: rgb(50, 91, 124);
   }
 
   :global(.photo-marker-wrapper) {

@@ -2,8 +2,6 @@
   export let percentage_datasets;
   export let activeKey;
 
-  $: console.log(percentage_datasets[activeKey]);
-
   const uniqueInformationTypes = [
     "name",
     "birthplace",

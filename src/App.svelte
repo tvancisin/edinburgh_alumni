@@ -1,4 +1,5 @@
 <script>
+  import * as d3 from "d3";
   import "./lib/d3.sketchy.js";
   import { onMount } from "svelte";
   import Map from "./components/Map.svelte";
@@ -37,6 +38,18 @@
     year_medics_sample_group,
     margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
+  function getUniversityName(str) {
+    if (!str || str === "NA") return "NA";
+
+    // take first institution if multiple are listed
+    let first = str.split(/ - |\(/)[0];
+
+    // remove location
+    first = first.split(",")[0];
+
+    return first.trim();
+  }
+
   onMount(() => {
     const unsubscribe = datasetsStore.subscribe((data) => {
       if (!data) return;
@@ -67,6 +80,12 @@
         all_medics,
         all_medics_grouped,
       } = data);
+
+      let other_universities = d3.groups(matriculations, (d) =>
+        getUniversityName(d.previous_uni),
+      );
+
+      // console.log(other_universities);
     });
 
     loadData();
@@ -138,6 +157,8 @@
   }
 
   $: selectedLabel = options.find((o) => o.id === selected)?.label;
+  $: console.log(data_to_draw);
+  
 </script>
 
 <svelte:window on:click={() => (open = false)} />
@@ -150,8 +171,8 @@
 
   {#if mapVisible == false}
     <!-- <h1>University of Edinburgh Historical Student Records</h1> -->
-    <div class="dropdown" on:click|stopPropagation>
-      <button class="dropdown-toggle" on:click={toggleMenu}>
+    <div class="dropdown">
+      <button class="dropdown-toggle" on:click|stopPropagation={toggleMenu}>
         {selectedLabel} ▾
       </button>
 
@@ -176,13 +197,13 @@
   {/if}
 
   <Timeline
+    {data_to_draw}
     {year_medics_group}
     {height}
     {width}
     {margin}
     {full_years}
     {mapVisible}
-    {data_to_draw}
     {activeKey}
     bind:x_axis
     bind:y_axis
