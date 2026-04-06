@@ -1,6 +1,9 @@
 <script>
   export let percentage_datasets;
   export let activeKey;
+  export let current_ungrouped;
+
+  $: console.log(current_ungrouped);
 
   const uniqueInformationTypes = [
     "name",
@@ -136,7 +139,7 @@
 </script>
 
 <div class="info-list">
-  <em style="color: #7CACF8;">Source Data:</em>
+  <em style="color: #7CACF8;">Source Data: </em>
   {#each uniqueInformationTypes as item}
     <div class="info-row">
       <span class="label">{item}</span>
@@ -175,14 +178,25 @@
       >
     </p>
   </div>
+  <br />
+  <em style="color: #7CACF8;">{" Students:" + "  (" + current_ungrouped.length + ")"} </em>
+  <div class="names">
+    {#each current_ungrouped as row}
+      <p style="margin: 2px; font-size: 12px;">
+        {typeof row?.name === "object" && row?.name !== null
+          ? (row.name.original ?? row.name.normalized ?? "")
+          : (row?.name ?? "")}
+      </p>
+    {/each}
+  </div>
 </div>
 
 <style>
   .info-list {
-    position: absolute;
-    top: 20px;
-    left: 70px;
-    width: 350px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     gap: 0px;
@@ -231,5 +245,11 @@
     justify-content: center;
     font-size: 11px;
     line-height: 1;
+  }
+
+  .names {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
   }
 </style>

@@ -383,7 +383,7 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 100%;
+    width: 70%;
     overflow: hidden;
     cursor: col-resize;
     /* z-index: 1010; */

@@ -11,6 +11,7 @@
     width,
     x_axis,
     y_axis,
+    current_ungrouped,
     all_grouped,
     all_medics,
     all_medics_grouped,
@@ -81,6 +82,8 @@
         all_medics_grouped,
       } = data);
 
+      current_ungrouped = all_medics;
+
       let other_universities = d3.groups(matriculations, (d) =>
         getUniversityName(d.previous_uni),
       );
@@ -89,7 +92,6 @@
     });
 
     loadData();
-
     return unsubscribe;
   });
 
@@ -119,6 +121,7 @@
   };
 
   function handleSwitch(key) {
+    current_ungrouped = percentage_datasets[key];
     activeKey = key;
     data_to_draw = datasets[key];
   }
@@ -157,81 +160,102 @@
   }
 
   $: selectedLabel = options.find((o) => o.id === selected)?.label;
-  $: console.log(data_to_draw);
-  
+  // $: console.log(current_ungrouped);
 </script>
 
 <svelte:window on:click={() => (open = false)} />
-<main bind:clientHeight={height} bind:clientWidth={width}>
+<main bind:clientHeight={height}>
   {#if selected === "medics_sample"}
     <button class="map-toggle" on:click|stopPropagation={toggleMap}>
       {mapVisible ? "Hide Map" : "Show Map"}
     </button>
   {/if}
 
-  {#if mapVisible == false}
-    <!-- <h1>University of Edinburgh Historical Student Records</h1> -->
-    <div class="dropdown">
-      <button class="dropdown-toggle" on:click|stopPropagation={toggleMenu}>
-        {selectedLabel} ▾
-      </button>
+  <div class="timeline-panel" bind:clientWidth={width}>
+    <Timeline
+      {data_to_draw}
+      {year_medics_group}
+      {height}
+      {width}
+      {margin}
+      {full_years}
+      {mapVisible}
+      {activeKey}
+      bind:x_axis
+      bind:y_axis
+    />
+    {#if mapVisible == false}
+      <div class="dropdown">
+        <button class="dropdown-toggle" on:click|stopPropagation={toggleMenu}>
+          {selectedLabel} ▾
+        </button>
 
-      {#if open}
-        <div class="dropdown-menu">
-          {#each options as option}
-            <button
-              class:selected={option.id === selected}
-              on:click={() => select(option.id)}
-            >
-              {option.label}
-            </button>
-          {/each}
-        </div>
+        {#if open}
+          <div class="dropdown-menu">
+            {#each options as option}
+              <button
+                class:selected={option.id === selected}
+                on:click={() => select(option.id)}
+              >
+                {option.label}
+              </button>
+            {/each}
+          </div>
+        {/if}
+      </div>
+    {/if}
+  </div>
+
+  <div class="side-panel">
+    <div class="percentages-panel">
+      {#if current_ungrouped != undefined}
+        <Percentages {percentage_datasets} {activeKey} {current_ungrouped} />
       {/if}
     </div>
-
-    <Percentages {percentage_datasets} {activeKey} />
-  {/if}
+  </div>
   {#if medics_sample}
     <Map {medics_sample} visible={mapVisible} />
   {/if}
-
-  <Timeline
-    {data_to_draw}
-    {year_medics_group}
-    {height}
-    {width}
-    {margin}
-    {full_years}
-    {mapVisible}
-    {activeKey}
-    bind:x_axis
-    bind:y_axis
-  />
 </main>
 
 <style>
   main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    display: grid;
+    grid-template-columns: 70% 30%;
     height: 100vh;
     width: 100vw;
     z-index: 9999;
   }
 
-  h1 {
-    position: absolute;
-    top: 5px;
-    left: 10px;
-    font-size: 20px;
-    font-weight: 700;
+  .timeline-panel {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .side-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    width: 100%;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+
+  .percentages-panel {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
   }
 
   .map-toggle {
     position: absolute;
-    top: 50px;
-    right: 10px;
+    top: 45px;
+    right: 30.5%;
     z-index: 10;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
@@ -248,8 +272,8 @@
 
   .dropdown {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    left: 5px;
     z-index: 10;
     width: 240px;
   }
