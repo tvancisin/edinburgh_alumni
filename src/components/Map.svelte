@@ -11,13 +11,10 @@
   export let selected_key = "medics_sample";
   export let visible = false;
   
-
   // todo
-  // add st andrews dataset
   // keep emphasizing uncertainty in circles somehow
-  // think about markerclustering customization
 
-  let currentLocationField = "address";
+  let currentLocationField = "university_address";
   let map;
   let map2;
   let historicalClusterGroup;
@@ -234,6 +231,8 @@
     const activeDataset =
       selected_key === "matriculations" ? matriculations_medics : medics_sample;
 
+    console.log(activeDataset, which);
+    
     historicalClusterGroup?.clearLayers();
     modernClusterGroup?.clearLayers();
     clearStandaloneMarkers();
@@ -244,7 +243,7 @@
       activeDataset.forEach((d) => {
         const fullName = `${d?.name?.forename || ""} ${d?.name?.middlename || ""} ${d?.name?.surname || ""}`.trim();
 
-        if (which === "birthplace_location") {
+        if (which === "birthplace") {
           const birthplace = d?.source_data?.birthplace;
           const lat = Number(birthplace?.lat);
           const lon = Number(birthplace?.lon);
@@ -310,8 +309,8 @@
         const popup = `
   <p style="font-size: 16px; padding-bottom: 5px; margin: 0;">
   <strong>${d.name.forename} ${d.name.middle_name || ""} ${d.name.surname}</strong></p>
-  <strong>Birthplace:</strong> ${d.source_data.birthplace}<br/>
-  <strong>Edinburgh address:</strong> ${d.source_data.address.original_name}<br/>
+  <strong>Birthplace:</strong> ${d.source_data.birthplace?.original_name || "—"}<br/>
+  <strong>Edinburgh address:</strong> ${d.source_data?.university_address?.original_name}<br/>
   <strong>Entry year:</strong> ${d.entry_year}<br/>
   <strong>Entry age:</strong> ${d.source_data.age}<br/>
   <strong>Nationality:</strong> ${d.source_data.nationality}<br/>
@@ -419,14 +418,14 @@
     }
 
     return {
-      zoom: currentLocationField === "address" ? 13 : 3,
-      latitude: currentLocationField === "address" ? 55.9533 : 25.9533,
+      zoom: currentLocationField === "university_address" ? 13 : 3,
+      latitude: currentLocationField === "university_address" ? 55.9533 : 25.9533,
     };
   }
 
   function switch_data() {
     currentLocationField =
-      currentLocationField === "address" ? "birthplace_location" : "address";
+      currentLocationField === "university_address" ? "birthplace" : "university_address";
 
     drawCircles(currentLocationField);
     applyViewSettings();
@@ -471,14 +470,14 @@
 
   <!-- Labels -->
   <h1>
-    {currentLocationField === "address"
-      ? "Addresses during University studies"
+    {currentLocationField === "university_address"
+      ? "University Addresses"
       : "Birth Locations"}
   </h1>
   <div class="label label-left">1888</div>
   <div class="label label-right">2026</div>
   <button class="switch_button" on:click={switch_data}>
-    {currentLocationField === "address"
+    {currentLocationField === "university_address"
       ? "Show Birth Locations"
       : "Show University Addresses"}
   </button>
@@ -490,7 +489,7 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 70%;
+    width: 60%;
     overflow: hidden;
     cursor: col-resize;
     /* z-index: 1010; */

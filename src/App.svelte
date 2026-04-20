@@ -164,7 +164,6 @@
   }
 
   $: selectedLabel = options.find((o) => o.id === selected)?.label;
-  $: console.log(data_to_draw);
   
 </script>
 
@@ -232,7 +231,7 @@
   main {
     position: relative;
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
     height: 100vh;
     width: 100vw;
     z-index: 9999;
@@ -265,7 +264,7 @@
   .map-toggle {
     position: absolute;
     top: 45px;
-    right: 30.5%;
+    right: 40.5%;
     z-index: 10;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
