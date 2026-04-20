@@ -7,7 +7,10 @@
   import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
   export let medics_sample;
+  export let matriculations_medics;
+  export let selected_key = "medics_sample";
   export let visible = false;
+  
 
   // todo
   // add st andrews dataset
@@ -19,6 +22,8 @@
   let map2;
   let historicalClusterGroup;
   let modernClusterGroup;
+  let historicalStandaloneMarkers = [];
+  let modernStandaloneMarkers = [];
   const key = "3rzey539Y03YWue7YR65";
 
   let sliderPosition = 50;
@@ -226,12 +231,78 @@
   }
 
   function drawCircles(which) {
-    if (!Array.isArray(medics_sample)) return;
+    const activeDataset =
+      selected_key === "matriculations" ? matriculations_medics : medics_sample;
 
     historicalClusterGroup?.clearLayers();
     modernClusterGroup?.clearLayers();
+    clearStandaloneMarkers();
 
-    medics_sample.forEach((d) => {
+    if (!Array.isArray(activeDataset)) return;
+
+    if (selected_key === "matriculations") {
+      activeDataset.forEach((d) => {
+        const fullName = `${d?.name?.forename || ""} ${d?.name?.middlename || ""} ${d?.name?.surname || ""}`.trim();
+
+        if (which === "birthplace_location") {
+          const birthplace = d?.source_data?.birthplace;
+          const lat = Number(birthplace?.lat);
+          const lon = Number(birthplace?.lon);
+
+          if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+
+          const popup = `
+  <p style="font-size: 16px; padding-bottom: 5px; margin: 0;">
+  <strong>${fullName || d?.name?.original || "Unknown"}</strong></p>
+  <strong>Birthplace:</strong> ${birthplace?.original_name || birthplace?.place_name || "—"}<br/>
+  <strong>Entry year:</strong> ${d?.source_data?.entry_year || d?.entry_year || "—"}<br/>
+  <strong>Nationality:</strong> ${d?.source_data?.nationality || "—"}<br/>
+`;
+
+          const historicalMarker = createPersonMarker(d, lat, lon, popup);
+          const modernMarker = createPersonMarker(d, lat, lon, popup);
+
+          historicalMarker.addTo(map);
+          modernMarker.addTo(map2);
+          historicalStandaloneMarkers.push(historicalMarker);
+          modernStandaloneMarkers.push(modernMarker);
+
+          return;
+        }
+
+        const previousUniversities = Array.isArray(d?.source_data?.previous_university)
+          ? d.source_data.previous_university
+          : [];
+
+        previousUniversities.forEach((uni) => {
+          const lat = Number(uni?.lat);
+          const lon = Number(uni?.lon);
+
+          if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+
+          const popup = `
+  <p style="font-size: 16px; padding-bottom: 5px; margin: 0;">
+  <strong>${fullName || d?.name?.original || "Unknown"}</strong></p>
+  <strong>Previous university:</strong> ${uni?.original_name || "—"}<br/>
+  <strong>Degree:</strong> ${uni?.degree || "—"}<br/>
+  <strong>Entry year:</strong> ${d?.source_data?.entry_year || d?.entry_year || "—"}<br/>
+  <strong>Nationality:</strong> ${d?.source_data?.nationality || "—"}<br/>
+`;
+
+          const historicalMarker = createPersonMarker(d, lat, lon, popup);
+          const modernMarker = createPersonMarker(d, lat, lon, popup);
+
+          historicalMarker.addTo(map);
+          modernMarker.addTo(map2);
+          historicalStandaloneMarkers.push(historicalMarker);
+          modernStandaloneMarkers.push(modernMarker);
+        });
+      });
+
+      return;
+    }
+
+    activeDataset.forEach((d) => {
       const lat = d?.source_data?.[which]?.lat;
       const lon = d?.source_data?.[which]?.lon;
 
@@ -264,6 +335,34 @@
     });
   }
 
+  function clearStandaloneMarkers() {
+    historicalStandaloneMarkers.forEach((marker) => map?.removeLayer(marker));
+    modernStandaloneMarkers.forEach((marker) => map2?.removeLayer(marker));
+    historicalStandaloneMarkers = [];
+    modernStandaloneMarkers = [];
+  }
+
+  function applyViewSettings() {
+    if (!map || !map2) return;
+
+    const { zoom, latitude } = getViewSettings();
+    map.setView([latitude, -3.1883], zoom);
+    map2.setView([latitude, -3.1883], zoom);
+  }
+
+  $: if (map && map2 && historicalClusterGroup && modernClusterGroup) {
+    selected_key;
+    medics_sample;
+    matriculations_medics;
+    drawCircles(currentLocationField);
+  }
+
+  $: if (map && map2) {
+    selected_key;
+    currentLocationField;
+    applyViewSettings();
+  }
+
   function escapeCssUrl(url) {
     return String(url).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
   }
@@ -283,7 +382,7 @@
       }).bindPopup(popup);
     }
 
-    const radius = d.wikidata != null ? 15 : 4;
+    const radius = d.wikidata != null ? 15 : 2;
     const diameter = radius * 2;
 
     return L.marker([lat, lon], {
@@ -314,15 +413,23 @@
     isDragging = false;
   }
 
+  function getViewSettings() {
+    if (selected_key === "matriculations") {
+      return { zoom: 3, latitude: 25.9533 };
+    }
+
+    return {
+      zoom: currentLocationField === "address" ? 13 : 3,
+      latitude: currentLocationField === "address" ? 55.9533 : 25.9533,
+    };
+  }
+
   function switch_data() {
     currentLocationField =
       currentLocationField === "address" ? "birthplace_location" : "address";
 
     drawCircles(currentLocationField);
-    const zoom = currentLocationField === "address" ? 13 : 3;
-    const latitude = currentLocationField === "address" ? 55.9533 : 25.9533;
-    map.setView([latitude, -3.1883], zoom);
-    map2.setView([latitude, -3.1883], zoom);
+    applyViewSettings();
   }
 </script>
 

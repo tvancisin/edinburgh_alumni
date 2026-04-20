@@ -37,6 +37,7 @@
     year_women_med_graduates_group,
     year_edinburgh_seven_group,
     year_medics_sample_group,
+    matriculations_medics,
     margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
   function getUniversityName(str) {
@@ -80,17 +81,19 @@
         all_grouped,
         all_medics,
         all_medics_grouped,
+        matriculations_medics,
       } = data);
 
       current_ungrouped = all_medics;
+      
+      // let other_universities = d3.groups(matriculations, (d) =>
+      //   getUniversityName(d.previous_uni),
+      // );
 
-      let other_universities = d3.groups(matriculations, (d) =>
-        getUniversityName(d.previous_uni),
-      );
-
-      // console.log(other_universities);
+      // medicineMatriculations.forEach((d) => {
+      //   console.log(d.source_data.previous_university);
+      // });
     });
-
     loadData();
     return unsubscribe;
   });
@@ -131,14 +134,14 @@
 
   const options = [
     { id: "all_medics", label: "All Medics" },
-    { id: "medics", label: "Medical Students" },
-    { id: "matriculations", label: "Medical Matriculations" },
-    { id: "women_med_graduates", label: "Medical Women Graduates" },
-    { id: "medics_sample", label: "Medics Sample" },
-    { id: "extra_academic", label: "Extra Medics" },
-    { id: "edinburgh_seven", label: "Edinburgh Seven" },
+    { id: "medics", label: "Medical Students (1762-1826)" },
+    { id: "matriculations", label: "Medical Matriculations (1890-1899)" },
+    { id: "women_med_graduates", label: "Medical Women Graduates (1896-1900)" },
+    { id: "medics_sample", label: "Medics Sample (1833-1846)" },
+    { id: "extra_academic", label: "Extra Medics (1887-1922)" },
+    { id: "edinburgh_seven", label: "Edinburgh Seven (1869)" },
     { id: "all_uni", label: "All University" },
-    { id: "st_andrews", label: "St Andrews Dataset" },
+    { id: "st_andrews", label: "St Andrews/Edinburgh Students (1579-1897)" },
   ];
 
   let mapVisible = false;
@@ -147,7 +150,8 @@
     mapVisible = !mapVisible;
   }
 
-  $: if (selected !== "medics_sample") mapVisible = false;
+  $: if (selected !== "medics_sample" && selected !== "matriculations")
+    mapVisible = false;
 
   function toggleMenu() {
     open = !open;
@@ -160,12 +164,13 @@
   }
 
   $: selectedLabel = options.find((o) => o.id === selected)?.label;
-  // $: console.log(current_ungrouped);
+  $: console.log(data_to_draw);
+  
 </script>
 
 <svelte:window on:click={() => (open = false)} />
 <main bind:clientHeight={height}>
-  {#if selected === "medics_sample"}
+  {#if selected === "medics_sample" || selected === "matriculations"}
     <button class="map-toggle" on:click|stopPropagation={toggleMap}>
       {mapVisible ? "Hide Map" : "Show Map"}
     </button>
@@ -214,7 +219,12 @@
     </div>
   </div>
   {#if medics_sample}
-    <Map {medics_sample} visible={mapVisible} />
+    <Map
+      {medics_sample}
+      {matriculations_medics}
+      selected_key={selected}
+      visible={mapVisible}
+    />
   {/if}
 </main>
 
@@ -275,7 +285,7 @@
     top: 5px;
     left: 5px;
     z-index: 10;
-    width: 240px;
+    width: 400px;
   }
 
   .dropdown-toggle {

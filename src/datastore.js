@@ -50,7 +50,9 @@ export async function loadData() {
       year_medics_sample_group,
       all_grouped,
       all_medics,
-      all_medics_grouped;
+      all_medics_grouped,
+      matriculations_geo,
+      matriculations_medics;
 
     [
       medics,
@@ -72,11 +74,15 @@ export async function loadData() {
       "./edinburgh_seven.csv",
     ]);
 
-    [st_andrews, medics_sample] = await getJSON([
+    [st_andrews, medics_sample, matriculations_geo] = await getJSON([
       "./st_andrews.json",
       "./alumni040326.json",
+      "./matriculations_geo.json",
     ]);
 
+    matriculations_medics = matriculations_geo.filter((d) => d.source_data.Faculty === "Medicine");
+
+    ////////////////////////////////////////////////////////////////////////
     const st_andrews_students = st_andrews
       .map((d) => {
         const uni = d.other_universities?.find(
@@ -91,27 +97,25 @@ export async function loadData() {
         };
       })
       .filter(Boolean);
-
     year_st_andrews_group = d3
       .groups(st_andrews_students, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
-
     year_st_andrews_group = fillMissingYears(year_st_andrews_group, 1500, 2025);
 
+    ////////////////////////////////////////////////////////////////////////
     medics = medics
       .filter((d) => +d.entry_year >= 1762)
       .map((d) => ({
         ...d,
         entry_year: +d.entry_year,
       }));
-
     medics = medics.map(addCareerField);
-
     year_medics_group = d3
       .groups(medics, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
     year_medics_group = fillMissingYears(year_medics_group, 1762, 2025);
 
+    ////////////////////////////////////////////////////////////////////////
     medics_sample = medics_sample.map((d) => ({
       ...d,
       entry_year: +d.source_data.entry_year,
@@ -122,6 +126,7 @@ export async function loadData() {
       .sort((a, b) => a[0] - b[0]);
     year_medics_sample_group = fillMissingYears(year_medics_sample_group, 1762, 2025);
 
+    ////////////////////////////////////////////////////////////////////////
     matriculations = matriculations.map((d) => ({
       ...d,
       entry_year: +d.entry_year.slice(0, -3),
@@ -135,6 +140,7 @@ export async function loadData() {
     );
     year_matriculations_group = fillMissingYears(year_matriculations_group, 1700, 2025);
 
+    ////////////////////////////////////////////////////////////////////////
     extra_academic = extra_academic.filter((d) =>
       medical_terms.some((term) => d.Class.toLowerCase().includes(term.toLowerCase())),
     );
@@ -158,6 +164,7 @@ export async function loadData() {
       .sort((a, b) => a[0] - b[0]);
     year_extra_academic_group = fillMissingYears(year_extra_academic_group, 1762, 2025);
 
+    ////////////////////////////////////////////////////////////////////////
     women_med_graduates = women_med_graduates.map((d) => ({
       ...d,
       entry_year: +d.entry_year.slice(0, -6),
@@ -171,6 +178,7 @@ export async function loadData() {
       2025,
     );
 
+    ////////////////////////////////////////////////////////////////////////
     edinburgh_seven = edinburgh_seven.map((d) => ({
       ...d,
       entry_year: +d.entry_year,
@@ -180,6 +188,7 @@ export async function loadData() {
       .sort((a, b) => a[0] - b[0]);
     year_edinburgh_seven_group = fillMissingYears(year_edinburgh_seven_group, 1762, 2025);
 
+    ////////////////////////////////////////////////////////////////////////
     all_medics = [
       ...medics,
       ...medics_sample,
@@ -188,15 +197,14 @@ export async function loadData() {
       ...women_med_graduates,
       ...edinburgh_seven,
     ];
-
     all_medics_grouped = d3
       .groups(all_medics, (d) => d.entry_year)
       .filter((d) => d[0] != null && !Number.isNaN(d[0]))
       .filter((d) => d[0] >= 1762)
       .sort((a, b) => a[0] - b[0]);
-
     all_medics_grouped = fillMissingYears(all_medics_grouped, 1762, 2025);
 
+    ////////////////////////////////////////////////////////////////////////
     new_college = new_college.map((d) => ({
       ...d,
       entry_year: +d.entry_year,
@@ -207,6 +215,7 @@ export async function loadData() {
       .sort((a, b) => a[0] - b[0]);
     year_college_group = fillMissingYears(year_college_group, 1762, 2025);
 
+    ////////////////////////////////////////////////////////////////////////
     veterinary = veterinary.map((d) => ({
       ...d,
       entry_year: +d.entry_year,
@@ -216,6 +225,7 @@ export async function loadData() {
       .sort((a, b) => a[0] - b[0]);
     year_veterinary_group = fillMissingYears(year_veterinary_group, 1762, 2025);
 
+    ////////////////////////////////////////////////////////////////////////
     veterinary_graduates = veterinary_graduates
       .filter((d) => +d.entry_year >= 1762)
       .map((d) => ({
@@ -226,6 +236,7 @@ export async function loadData() {
       .groups(veterinary_graduates, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
 
+    ////////////////////////////////////////////////////////////////////////
     const all = [
       ...medics,
       ...new_college,
@@ -237,13 +248,11 @@ export async function loadData() {
       ...edinburgh_seven,
       ...medics_sample,
     ];
-
     all_grouped = d3
       .groups(all, (d) => d.entry_year)
       .filter((d) => d[0] != null && !Number.isNaN(d[0]))
       .sort((a, b) => a[0] - b[0]);
     all_grouped = fillMissingYears(all_grouped, 1583, 2025);
-
     full_years = all_grouped.map((d) => ({
       year: d[0],
       certainty: "uncertain",
@@ -275,6 +284,7 @@ export async function loadData() {
       all_grouped,
       all_medics,
       all_medics_grouped,
+      matriculations_medics,
     });
 
     dataStatus.set({ loading: false, error: null });

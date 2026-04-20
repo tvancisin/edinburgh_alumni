@@ -3,8 +3,6 @@
   export let activeKey;
   export let current_ungrouped;
 
-  $: console.log(current_ungrouped);
-
   const uniqueInformationTypes = [
     "name",
     "birthplace",
