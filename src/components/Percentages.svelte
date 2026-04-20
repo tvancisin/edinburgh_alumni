@@ -263,18 +263,45 @@
     );
   }
 
+  function calculateInformationDensity(data) {
+    const total = data.length;
+    const buckets = [
+      { key: "low", label: "0-33% filled", color: "#4d4d4d", count: 0 },
+      { key: "medium", label: "33-66% filled", color: "#a3a3a3", count: 0 },
+      { key: "high", label: "66-100% filled", color: "#ffffff", count: 0 },
+    ];
+
+    data.forEach((row) => {
+      const filledCount = uniqueInformationTypes.reduce((acc, key) => {
+        const value = getInfoValue(row, key);
+        return acc + (isPresent(value) ? 1 : 0);
+      }, 0);
+
+      const ratio = uniqueInformationTypes.length
+        ? filledCount / uniqueInformationTypes.length
+        : 0;
+
+      let bucketIndex = 0;
+      if (ratio > 2 / 3) bucketIndex = 2;
+      else if (ratio > 1 / 3) bucketIndex = 1;
+
+      buckets[bucketIndex].count += 1;
+    });
+
+    return {
+      total,
+      buckets: buckets.map((bucket) => ({
+        ...bucket,
+        widthPct: total ? (bucket.count / total) * 100 : 0,
+      })),
+    };
+  }
+
   $: percentages =
     percentage_datasets[activeKey] && percentage_datasets[activeKey].length
       ? calculatePercentage(percentage_datasets[activeKey])
       : Object.fromEntries(uniqueInformationTypes.map((d) => [d, { count: 0, total: 0 }]));
 
-  $: activeDataset = percentage_datasets?.[activeKey] ?? [];
-  $: hasWikidata = hasAttributeOnFirstEntry(activeDataset, "wikidata");
-  $: hasPhdThesis = hasAttributeOnFirstEntry(activeDataset, "phd_thesis");
-  $: hasStAndrews =
-    activeKey === "st_andrews" ||
-    hasAttributeOnFirstEntry(activeDataset, "st_andrews") ||
-    hasAttributeOnFirstEntry(activeDataset, "st_andrews_data");
   $: enrichmentCounts = (() => {
     const data = percentage_datasets?.[activeKey] ?? [];
     const total = data.length;
@@ -288,6 +315,7 @@
     ).length;
     return { wikidata, phd_thesis, st_andrews, total };
   })();
+  $: infoDensity = calculateInformationDensity(percentage_datasets?.[activeKey] ?? []);
   $: {
     const signature = `${activeKey}:${current_ungrouped?.length ?? 0}`;
     if (signature !== lastDatasetSignature) {
@@ -347,6 +375,35 @@
     </div>
   </div>
   <br />
+  <em style="color: #7CACF8;">Overall Information Density:</em>
+  <div class="density-list">
+    <div class="info-row density-row">
+      <span class="label">Record fullness</span>
+      <div class="bar stacked-bar">
+        {#each infoDensity.buckets as bucket}
+          <div
+            class="density-segment"
+            style="width: {bucket.widthPct}%; background-color: {bucket.color};"
+            title={`${bucket.label}: ${bucket.count}/${infoDensity.total}`}
+          ></div>
+        {/each}
+      </div>
+      <!-- <span class="pct">{infoDensity.total}/{infoDensity.total}</span> -->
+    </div>
+    <div class="density-legend">
+      {#each infoDensity.buckets as bucket}
+        <p class="density-legend-item">
+          <span
+            class="density-legend-swatch"
+            style="background-color: {bucket.color};"
+          ></span>
+          <span>{bucket.label}</span>
+          <span>{bucket.count}/{infoDensity.total}</span>
+        </p>
+      {/each}
+    </div>
+  </div>
+  <br />
   <em style="color: #7CACF8;">{" Students:" + "  (" + current_ungrouped.length + ")"} </em>
   <div class="names" on:scroll={handleNamesScroll}>
     {#each displayRows as row}
@@ -389,7 +446,7 @@
 
   .bar {
     height: 8px;
-    background: rgba(111, 111, 111, 0.5);
+    background: rgba(61, 61, 61, 0.5);
   }
 
   .bar-fill {
@@ -404,6 +461,46 @@
 
   .enrichment-list {
     margin-top: 4px;
+  }
+
+  .density-list {
+    margin-top: 4px;
+  }
+
+  .density-row {
+    margin-bottom: 4px;
+  }
+
+  .stacked-bar {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .density-segment {
+    height: 100%;
+    background: #ffffff;
+  }
+
+  .density-legend {
+    display: grid;
+    gap: 2px;
+  }
+
+  .density-legend-item {
+    margin: 0;
+    font-size: 11px;
+    color: #bfbfbf;
+    display: grid;
+    grid-template-columns: 12px 1fr auto;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .density-legend-swatch {
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    display: inline-block;
   }
 
   .names {

@@ -113,6 +113,7 @@
         marginBottom={margin.bottom}
         fill={mapVisible ? "black" : "#bfbfbf"}
         {i}
+        {year}
       />
     {/each}
 
@@ -306,6 +307,6 @@
     top: 0;
     left: 0;
     z-index: 1;
-    pointer-events: none;
+    pointer-events: auto;
   }
 </style>

@@ -492,7 +492,7 @@
     width: 60%;
     overflow: hidden;
     cursor: col-resize;
-    /* z-index: 1010; */
+    z-index: 9;
     transform: translateY(-100%);
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
