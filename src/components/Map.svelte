@@ -78,7 +78,7 @@
     );
     const universityIcon = L.divIcon({
       className: "university-logo-wrapper",
-      html: `<div class="university-logo-marker"><img src="/uni.png" alt="University logo" /></div>`,
+      html: `<div class="university-logo-marker"><img src="./uni.png" alt="University logo" /></div>`,
       iconSize: [36, 36],
       iconAnchor: [18, 18],
       popupAnchor: [0, -18],
