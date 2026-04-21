@@ -135,3 +135,129 @@ export function fillMissingYears(data, startYear = null, endYear = 2025) {
 
   return result;
 }
+
+
+// map functions
+export function formatWikidata(wd) {
+  if (!wd) return "";
+
+  return `
+    <hr/>
+    <p style="font-size: 14px; padding-bottom: 5px; padding-top: 5px; margin: 0;"><strong>Wikidata Enrichment</strong></p>
+    <b>Birth:</b> ${wd.birth_date?.slice(0, 10) || "—"} (${wd.birth_place || "—"})<br/>
+    <b>Death:</b> ${wd.death_date?.slice(0, 10) || "—"} (${wd.death_place || "—"})<br/>
+    <b>Citizenship:</b> ${wd.citizenship || "—"}<br/>
+    <b>Gender:</b> ${wd.gender || "—"}<br/>
+    <b>Occupations:</b> ${Array.isArray(wd.occupations)
+      ? wd.occupations.length
+        ? wd.occupations.join(", ")
+        : "—"
+      : wd.occupations || "—"
+    }<br/>
+    <b>Member of:</b> ${Array.isArray(wd.member_of)
+      ? wd.member_of.length
+        ? wd.member_of.join(", ")
+        : "—"
+      : wd.member_of || "—"
+    }<br/>
+    <b>Education:</b> ${Array.isArray(wd.education)
+      ? wd.education.length
+        ? wd.education.join(", ")
+        : "—"
+      : wd.education || "—"
+    }<br/>
+    <b>Employers:</b> ${Array.isArray(wd.employers)
+      ? wd.employers.length
+        ? wd.employers.join(", ")
+        : "—"
+      : wd.employers || "—"
+    }<br/>
+    <b>Awards:</b> ${Array.isArray(wd.awards)
+      ? wd.awards.length
+        ? wd.awards.join(", ")
+        : "—"
+      : wd.awards || "—"
+    }<br/>
+    <b>Position:</b> ${Array.isArray(wd.positions)
+      ? wd.positions.length
+        ? wd.positions.join(", ")
+        : "—"
+      : wd.positions || "—"
+    }<br/>
+    <b>Wikipedia:</b> ${Array.isArray(wd.wikipedia_url)
+      ? wd.wikipedia_url.length
+        ? wd.wikipedia_url
+          .map(
+            (url) =>
+              `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`,
+          )
+          .join(", ")
+        : "—"
+      : wd.wikipedia_url
+        ? `<a href="${wd.wikipedia_url}" target="_blank" rel="noopener noreferrer">Link</a>`
+        : "—"
+    }<br/>
+    <b>Wikidata:</b> ${Array.isArray(wd.wikidata_url)
+      ? wd.wikidata_url.length
+        ? wd.wikidata_url
+          .map(
+            (url) =>
+              `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`,
+          )
+          .join(", ")
+        : "—"
+      : wd.wikidata_url
+        ? `<a href="${wd.wikidata_url}" target="_blank" rel="noopener noreferrer">Link</a>`
+        : "—"
+    }<br/>
+    <b>Image:</b><br/>
+    ${wd.image
+      ? `<img src="${wd.image}" width="120" style="margin-top:5px;" />`
+      : "—"
+    }
+  `;
+}
+
+
+export function formatThesisData(td) {
+  if (!td) return "";
+
+  const safe = (v) =>
+    v && v !== "NaN" && v !== "Embargo or non_Pdfs" ? v : "—";
+
+  return `
+    <hr/>
+    <details>
+      <summary><strong>Thesis Record</strong></summary>
+      
+      <b>Title:</b> ${safe(td.Title)}<br/>
+      <b>Author:</b> ${safe(td.Authors)}<br/>
+      <b>Year:</b> ${safe(td.Year)}<br/>
+      <b>Type:</b> ${safe(td.type)}<br/>
+      <b>College:</b> ${safe(td.College)}<br/>
+      <b>Collection:</b> ${safe(td.Collections)}<br/>
+      <b>Section:</b> ${safe(td.SectionNamesFlat)}<br/>
+      <b>Publisher:</b> ${safe(td.publishers)}<br/>
+      <b>Full date:</b> ${safe(td.DatesFull)}<br/>
+
+      ${td.Link
+      ? `<b>ERA Record:</b> <a href="${td.Link}" target="_blank">View record</a><br/>`
+      : ""
+    }
+
+      ${td.PDF && td.Issues !== "Embargo or non_Pdfs"
+      ? `<b>PDF:</b> <a href="${td.PDF}" target="_blank">Download</a><br/>`
+      : ""
+    }
+
+      ${td.MetadataLink
+      ? `<b>Metadata:</b> <a href="${td.MetadataLink}" target="_blank">Full metadata</a><br/>`
+      : ""
+    }
+
+      <b>Thesis ID:</b> ${safe(td.ThesisId)}<br/>
+      <b>Subject ID:</b> ${safe(td.SubjectId)}<br/>
+      
+    </details>
+  `;
+}
