@@ -52,7 +52,8 @@ export async function loadData() {
       all_medics,
       all_medics_grouped,
       matriculations_geo,
-      matriculations_medics;
+      matriculations_medics,
+      colonies_1885;
 
     [
       medics,
@@ -74,10 +75,11 @@ export async function loadData() {
       "./edinburgh_seven.csv",
     ]);
 
-    [st_andrews, medics_sample, matriculations_geo] = await getJSON([
+    [st_andrews, medics_sample, matriculations_geo, colonies_1885] = await getJSON([
       "./st_andrews.json",
       "./medics_sample.json",
       "./matriculations_geo.json",
+      "./geojson/colonies_1885.json"
     ]);
 
     matriculations_medics = matriculations_geo.filter((d) => d.source_data.Faculty === "Medicine");
@@ -285,6 +287,7 @@ export async function loadData() {
       all_medics,
       all_medics_grouped,
       matriculations_medics,
+      colonies_1885,
     });
 
     dataStatus.set({ loading: false, error: null });

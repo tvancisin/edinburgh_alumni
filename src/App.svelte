@@ -38,19 +38,8 @@
     year_edinburgh_seven_group,
     year_medics_sample_group,
     matriculations_medics,
+    colonies_1885,
     margin = { top: 20, right: 30, bottom: 30, left: 40 };
-
-  function getUniversityName(str) {
-    if (!str || str === "NA") return "NA";
-
-    // take first institution if multiple are listed
-    let first = str.split(/ - |\(/)[0];
-
-    // remove location
-    first = first.split(",")[0];
-
-    return first.trim();
-  }
 
   onMount(() => {
     const unsubscribe = datasetsStore.subscribe((data) => {
@@ -82,17 +71,11 @@
         all_medics,
         all_medics_grouped,
         matriculations_medics,
+        colonies_1885,
       } = data);
 
       current_ungrouped = all_medics;
       
-      // let other_universities = d3.groups(matriculations, (d) =>
-      //   getUniversityName(d.previous_uni),
-      // );
-
-      // medicineMatriculations.forEach((d) => {
-      //   console.log(d.source_data.previous_university);
-      // });
     });
     loadData();
     return unsubscribe;
@@ -221,6 +204,7 @@
     <Map
       {medics_sample}
       {matriculations_medics}
+      {colonies_1885}
       selected_key={selected}
       visible={mapVisible}
     />

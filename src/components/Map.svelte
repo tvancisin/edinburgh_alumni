@@ -11,12 +11,15 @@
   export let matriculations_medics;
   export let selected_key = "medics_sample";
   export let visible = false;
+  export let colonies_1885;
 
   let map,
     map2,
     currentLocationField = "university_address",
     historicalClusterGroup,
     modernClusterGroup,
+    historicalColoniesLayer,
+    modernColoniesLayer,
     historicalStandaloneMarkers = [],
     modernStandaloneMarkers = [],
     historicalRouteLayers = [],
@@ -72,19 +75,20 @@
     map.addLayer(historicalClusterGroup);
     map2.addLayer(modernClusterGroup);
 
+    // medical school marker
     const universityCoordinates = L.latLng(
       55.945451058135745,
       -3.190103658123212,
     );
     const universityIcon = L.divIcon({
       className: "university-logo-wrapper",
-      html: `<div class="university-logo-marker"><img src="./uni.png" alt="University logo" /></div>`,
+      html: `<div class="university-logo-marker"><img src="./img/uni.png" alt="University logo" /></div>`,
       iconSize: [36, 36],
       iconAnchor: [18, 18],
       popupAnchor: [0, -18],
     });
 
-    const popup = "<strong>University of Edinburgh</strong>";
+    const popup = "<strong>Medical School</strong>";
 
     L.marker(universityCoordinates, { icon: universityIcon })
       .bindPopup(popup)
@@ -97,8 +101,151 @@
     syncMaps(map, map2);
     syncMaps(map2, map);
 
+    updateColoniesLayer();
     drawCircles(currentLocationField);
+    drawIsochrones();
   });
+
+  function createColoniesLayer() {
+    if (!colonies_1885?.features?.length) return null;
+
+    return L.geoJSON(colonies_1885, {
+      style: {
+        color: "#8b5a2b",
+        weight: 1,
+        opacity: 0.8,
+        fillColor: "black",
+        fillOpacity: 0.18,
+      },
+      interactive: false,
+    });
+  }
+
+  function updateColoniesLayer() {
+    if (!map || !map2) return;
+
+    if (historicalColoniesLayer) {
+      map.removeLayer(historicalColoniesLayer);
+      historicalColoniesLayer = null;
+    }
+
+    if (modernColoniesLayer) {
+      map2.removeLayer(modernColoniesLayer);
+      modernColoniesLayer = null;
+    }
+
+    historicalColoniesLayer = createColoniesLayer();
+    modernColoniesLayer = createColoniesLayer();
+
+    historicalColoniesLayer?.addTo(map);
+    modernColoniesLayer?.addTo(map2);
+
+    historicalColoniesLayer?.bringToBack();
+    modernColoniesLayer?.bringToBack();
+  }
+
+  function getSpeedForDirection(angleDeg) {
+    // crude but effective heuristic from UK perspective
+
+    // west = Atlantic → fast (sea)
+    if (angleDeg > 200 && angleDeg < 340) {
+      return 220; // km/day (sea)
+    }
+
+    // south-east = Europe (mixed rail + land)
+    if (angleDeg >= 90 && angleDeg <= 200) {
+      return 80; // faster than land due to early rail
+    }
+
+    // north = Scotland highlands (slower)
+    if (angleDeg >= 340 || angleDeg <= 20) {
+      return 30;
+    }
+
+    // default land
+    return 40;
+  }
+
+  function generateIsochrone(center, days) {
+    const points = [];
+    const steps = 72; // every 5 degrees
+
+    for (let i = 0; i < steps; i++) {
+      const angle = (i / steps) * 360;
+      const speed = getSpeedForDirection(angle);
+
+      const distanceKm = speed * days;
+
+      const point = destinationPoint([center.lat, center.lng], angle, distanceKm);
+      points.push(point);
+    }
+
+    return points;
+  }
+
+  function destinationPoint([lat, lng], bearingDeg, distanceKm) {
+    const R = 6371; // Earth radius in km
+
+    const bearing = (bearingDeg * Math.PI) / 180;
+    const lat1 = (lat * Math.PI) / 180;
+    const lng1 = (lng * Math.PI) / 180;
+
+    const lat2 = Math.asin(
+      Math.sin(lat1) * Math.cos(distanceKm / R) +
+        Math.cos(lat1) * Math.sin(distanceKm / R) * Math.cos(bearing),
+    );
+
+    const lng2 =
+      lng1 +
+      Math.atan2(
+        Math.sin(bearing) * Math.sin(distanceKm / R) * Math.cos(lat1),
+        Math.cos(distanceKm / R) - Math.sin(lat1) * Math.sin(lat2),
+      );
+
+    return [(lat2 * 180) / Math.PI, (lng2 * 180) / Math.PI];
+  }
+
+  function drawIsochrones() {
+    const center = L.latLng(55.945451058135745, -3.190103658123212);
+
+    const timeSteps = [
+      { label: "1 day", days: 1, color: "#8B4513" },
+      { label: "1 week", days: 7, color: "#CD853F" },
+      { label: "1 month", days: 30, color: "#DEB887" },
+    ];
+
+    timeSteps.forEach((t) => {
+      const polygonCoords = generateIsochrone(center, t.days);
+      // Convert number[][] to LatLngExpression[]
+      const latLngCoords = polygonCoords.map(([lat, lng]) => L.latLng(lat, lng));
+
+      L.polygon(latLngCoords, {
+        color: t.color,
+        weight: 1,
+        fillOpacity: 0.08,
+      }).addTo(map);
+
+      L.polygon(latLngCoords, {
+        color: t.color,
+        weight: 1,
+        fillOpacity: 0.08,
+      }).addTo(map2);
+
+      // Add text label at 45° angle from center (NE position)
+      const labelPoint = destinationPoint([center.lat, center.lng], 45, (t.days * getSpeedForDirection(45)) * 0.5);
+      const labelLatLng = L.latLng(labelPoint[0], labelPoint[1]);
+
+      const textIcon = L.divIcon({
+        className: "isochrone-label",
+        html: `<div style="font-size: 11px; font-weight: bold; color: ${t.color}; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); pointer-events: none;">${t.label}</div>`,
+        iconSize: [60, 20],
+        iconAnchor: [30, 10],
+      });
+
+      L.marker(labelLatLng, { icon: textIcon }).addTo(map);
+      L.marker(labelLatLng, { icon: textIcon }).addTo(map2);
+    });
+  }
 
   function syncMaps(source, target) {
     source.on("move", () => {
@@ -321,12 +468,17 @@
   }
 
   // might be unnecessary so keep tesing
-  // $: if (map && map2 && historicalClusterGroup && modernClusterGroup) {
-  //   selected_key;
-  //   medics_sample;
-  //   matriculations_medics;
-  //   drawCircles(currentLocationField);
-  // }
+  $: if (map && map2 && historicalClusterGroup && modernClusterGroup) {
+    selected_key;
+    medics_sample;
+    matriculations_medics;
+    drawCircles(currentLocationField);
+  }
+
+  $: if (map && map2) {
+    colonies_1885;
+    updateColoniesLayer();
+  }
 
   $: if (map && map2) {
     selected_key;
@@ -340,11 +492,13 @@
 
   // mouse events
   function onMouseDown(e) {
+    if (!showSplitSlider) return;
     isDragging = true;
     e.preventDefault();
   }
 
   function onMouseMove(e) {
+    if (!showSplitSlider) return;
     if (!isDragging) return;
     const rect = mapContainer.getBoundingClientRect();
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -378,6 +532,9 @@
     drawCircles(currentLocationField);
     applyViewSettings();
   }
+
+  $: showSplitSlider =
+    selected_key === "medics_sample" && currentLocationField === "university_address";
 </script>
 
 <svelte:window
@@ -387,34 +544,43 @@
   on:touchend={onMouseUp}
 />
 
-<div class="map-container" class:visible bind:this={mapContainer}>
+<div class="map-container" class:visible class:split-mode={showSplitSlider} bind:this={mapContainer}>
   <!-- Historical map: full size, clipped to left of slider -->
   <div
     id="map-historical"
-    style="clip-path: inset(0 {100 - sliderPosition}% 0 0);"
+    style={showSplitSlider
+      ? `clip-path: inset(0 ${100 - sliderPosition}% 0 0);`
+      : "clip-path: inset(0 100% 0 0);"}
   ></div>
 
   <!-- Modern map: full size, clipped to right of slider -->
-  <div id="map-modern" style="clip-path: inset(0 0 0 {sliderPosition}%);"></div>
+  <div
+    id="map-modern"
+    style={showSplitSlider
+      ? `clip-path: inset(0 0 0 ${sliderPosition}%);`
+      : "clip-path: inset(0 0 0 0);"}
+  ></div>
 
   <!-- Slider divider -->
-  <div
-    class="slider-divider"
-    style="left: {sliderPosition}%;"
-    on:mousedown={onMouseDown}
-    on:touchstart={onMouseDown}
-    role="slider"
-    aria-valuenow={sliderPosition}
-    aria-valuemin={0}
-    aria-valuemax={100}
-    tabindex="0"
-  >
-    <div class="slider-line"></div>
-    <!-- <div class="slider-handle">
-      <span>&#8249;</span>
-      <span>&#8250;</span>
-    </div> -->
-  </div>
+  {#if showSplitSlider}
+    <div
+      class="slider-divider"
+      style="left: {sliderPosition}%;"
+      on:mousedown={onMouseDown}
+      on:touchstart={onMouseDown}
+      role="slider"
+      aria-valuenow={sliderPosition}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      tabindex="0"
+    >
+      <div class="slider-line"></div>
+      <!-- <div class="slider-handle">
+        <span>&#8249;</span>
+        <span>&#8250;</span>
+      </div> -->
+    </div>
+  {/if}
 
   <!-- Labels -->
   <h1>
@@ -422,7 +588,9 @@
       ? "University Addresses"
       : "Birth Locations"}
   </h1>
-  <div class="label label-left">1888</div>
+  {#if showSplitSlider}
+    <div class="label label-left">1888</div>
+  {/if}
   <div class="label label-right">2026</div>
   <button class="switch_button" on:click={switch_data}>
     {currentLocationField === "university_address"
@@ -439,7 +607,7 @@
     height: 100vh;
     width: 60%;
     overflow: hidden;
-    cursor: col-resize;
+    cursor: default;
     z-index: 9;
     transform: translateY(-100%);
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -447,6 +615,10 @@
 
   .map-container.visible {
     transform: translateY(0);
+  }
+
+  .map-container.split-mode {
+    cursor: col-resize;
   }
 
   #map-historical,
