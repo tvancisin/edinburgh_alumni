@@ -4,7 +4,7 @@
   import { onMount } from "svelte";
   import Map from "./components/Map.svelte";
   import Timeline from "./components/Timeline.svelte";
-  import Percentages from "./components/Percentages.svelte";
+  import Details from "./components/Details.svelte";
   import { datasetsStore, loadData } from "./datastore.js";
 
   let height,
@@ -39,6 +39,8 @@
     year_medics_sample_group,
     matriculations_medics,
     colonies_1885,
+    five_days,
+    ten_days,
     margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
   onMount(() => {
@@ -72,6 +74,8 @@
         all_medics_grouped,
         matriculations_medics,
         colonies_1885,
+        five_days,
+        ten_days,
       } = data);
 
       current_ungrouped = all_medics;
@@ -196,7 +200,7 @@
   <div class="side-panel">
     <div class="percentages-panel">
       {#if current_ungrouped != undefined}
-        <Percentages {percentage_datasets} {activeKey} {current_ungrouped} />
+        <Details {percentage_datasets} {activeKey} {current_ungrouped} />
       {/if}
     </div>
   </div>
@@ -205,6 +209,8 @@
       {medics_sample}
       {matriculations_medics}
       {colonies_1885}
+      {five_days}
+      {ten_days}
       selected_key={selected}
       visible={mapVisible}
     />

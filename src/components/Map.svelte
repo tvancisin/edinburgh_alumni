@@ -12,6 +12,8 @@
   export let selected_key = "medics_sample";
   export let visible = false;
   export let colonies_1885;
+  export let five_days;
+  export let ten_days;
 
   let map,
     map2,
@@ -20,6 +22,10 @@
     modernClusterGroup,
     historicalColoniesLayer,
     modernColoniesLayer,
+    historicalFiveDaysLayer,
+    modernFiveDaysLayer,
+    historicalTenDaysLayer,
+    modernTenDaysLayer,
     historicalStandaloneMarkers = [],
     modernStandaloneMarkers = [],
     historicalRouteLayers = [],
@@ -36,9 +42,12 @@
       zoomControl: false,
       attributionControl: false,
     }).setView([55.9533, -3.1883], 13);
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 18,
-    }).addTo(map);
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+      {
+        maxZoom: 18,
+      },
+    ).addTo(map);
     L.tileLayer(
       `https://api.maptiler.com/tiles/uk-osgb10k1888/{z}/{x}/{y}.png?key=${key}`,
       {
@@ -56,11 +65,15 @@
       zoomControl: true,
       attributionControl: true,
     }).setView([55.9533, -3.1883], 13);
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 18,
-    }).addTo(map2);
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+      {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: "abcd",
+        maxZoom: 20,
+      },
+    ).addTo(map2);
 
     // marker clustering
     historicalClusterGroup = L.markerClusterGroup({
@@ -74,6 +87,14 @@
 
     map.addLayer(historicalClusterGroup);
     map2.addLayer(modernClusterGroup);
+
+    // Sync the two maps
+    syncMaps(map, map2);
+    syncMaps(map2, map);
+
+    updateColoniesLayer();
+    updateTravelDaysLayers();
+    drawCircles(currentLocationField);
 
     // medical school marker
     const universityCoordinates = L.latLng(
@@ -96,29 +117,91 @@
     L.marker(universityCoordinates, { icon: universityIcon })
       .bindPopup(popup)
       .addTo(map2);
-
-    // Sync the two maps
-    syncMaps(map, map2);
-    syncMaps(map2, map);
-
-    updateColoniesLayer();
-    drawCircles(currentLocationField);
-    drawIsochrones();
   });
 
   function createColoniesLayer() {
     if (!colonies_1885?.features?.length) return null;
 
-    return L.geoJSON(colonies_1885, {
+    const filteredColonies = {
+      ...colonies_1885,
+      features: colonies_1885.features.filter(
+        (feature) => feature?.properties?.ADMIN !== "Britain",
+      ),
+    };
+
+    return L.geoJSON(filteredColonies, {
       style: {
-        color: "#8b5a2b",
+        color: "white",
         weight: 1,
         opacity: 0.8,
         fillColor: "black",
-        fillOpacity: 0.18,
+        fillOpacity: 0.4,
       },
       interactive: false,
     });
+  }
+
+  function createTravelDaysLayer(geojsonData, styleOverrides = {}) {
+    if (!geojsonData?.features?.length) return null;
+
+    return L.geoJSON(geojsonData, {
+      style: {
+        color: "#8B4513",
+        weight: 1.5,
+        opacity: 0.8,
+        fillColor: "#8B4513",
+        fillOpacity: 0.04,
+        ...styleOverrides,
+      },
+      interactive: false,
+    });
+  }
+
+  function updateTravelDaysLayers() {
+    if (!map || !map2) return;
+
+    if (historicalFiveDaysLayer) {
+      map.removeLayer(historicalFiveDaysLayer);
+      historicalFiveDaysLayer = null;
+    }
+
+    if (modernFiveDaysLayer) {
+      map2.removeLayer(modernFiveDaysLayer);
+      modernFiveDaysLayer = null;
+    }
+
+    if (historicalTenDaysLayer) {
+      map.removeLayer(historicalTenDaysLayer);
+      historicalTenDaysLayer = null;
+    }
+
+    if (modernTenDaysLayer) {
+      map2.removeLayer(modernTenDaysLayer);
+      modernTenDaysLayer = null;
+    }
+
+    historicalFiveDaysLayer = createTravelDaysLayer(five_days);
+    modernFiveDaysLayer = createTravelDaysLayer(five_days);
+    historicalTenDaysLayer = createTravelDaysLayer(ten_days, {
+      color: "#3E2723",
+      fillColor: "#3E2723",
+      fillOpacity: 0.03,
+    });
+    modernTenDaysLayer = createTravelDaysLayer(ten_days, {
+      color: "#3E2723",
+      fillColor: "#3E2723",
+      fillOpacity: 0.03,
+    });
+
+    historicalFiveDaysLayer?.addTo(map);
+    modernFiveDaysLayer?.addTo(map2);
+    historicalTenDaysLayer?.addTo(map);
+    modernTenDaysLayer?.addTo(map2);
+
+    historicalFiveDaysLayer?.bringToBack();
+    modernFiveDaysLayer?.bringToBack();
+    historicalTenDaysLayer?.bringToBack();
+    modernTenDaysLayer?.bringToBack();
   }
 
   function updateColoniesLayer() {
@@ -144,108 +227,7 @@
     modernColoniesLayer?.bringToBack();
   }
 
-  function getSpeedForDirection(angleDeg) {
-    // crude but effective heuristic from UK perspective
 
-    // west = Atlantic → fast (sea)
-    if (angleDeg > 200 && angleDeg < 340) {
-      return 220; // km/day (sea)
-    }
-
-    // south-east = Europe (mixed rail + land)
-    if (angleDeg >= 90 && angleDeg <= 200) {
-      return 80; // faster than land due to early rail
-    }
-
-    // north = Scotland highlands (slower)
-    if (angleDeg >= 340 || angleDeg <= 20) {
-      return 30;
-    }
-
-    // default land
-    return 40;
-  }
-
-  function generateIsochrone(center, days) {
-    const points = [];
-    const steps = 72; // every 5 degrees
-
-    for (let i = 0; i < steps; i++) {
-      const angle = (i / steps) * 360;
-      const speed = getSpeedForDirection(angle);
-
-      const distanceKm = speed * days;
-
-      const point = destinationPoint([center.lat, center.lng], angle, distanceKm);
-      points.push(point);
-    }
-
-    return points;
-  }
-
-  function destinationPoint([lat, lng], bearingDeg, distanceKm) {
-    const R = 6371; // Earth radius in km
-
-    const bearing = (bearingDeg * Math.PI) / 180;
-    const lat1 = (lat * Math.PI) / 180;
-    const lng1 = (lng * Math.PI) / 180;
-
-    const lat2 = Math.asin(
-      Math.sin(lat1) * Math.cos(distanceKm / R) +
-        Math.cos(lat1) * Math.sin(distanceKm / R) * Math.cos(bearing),
-    );
-
-    const lng2 =
-      lng1 +
-      Math.atan2(
-        Math.sin(bearing) * Math.sin(distanceKm / R) * Math.cos(lat1),
-        Math.cos(distanceKm / R) - Math.sin(lat1) * Math.sin(lat2),
-      );
-
-    return [(lat2 * 180) / Math.PI, (lng2 * 180) / Math.PI];
-  }
-
-  function drawIsochrones() {
-    const center = L.latLng(55.945451058135745, -3.190103658123212);
-
-    const timeSteps = [
-      { label: "1 day", days: 1, color: "#8B4513" },
-      { label: "1 week", days: 7, color: "#CD853F" },
-      { label: "1 month", days: 30, color: "#DEB887" },
-    ];
-
-    timeSteps.forEach((t) => {
-      const polygonCoords = generateIsochrone(center, t.days);
-      // Convert number[][] to LatLngExpression[]
-      const latLngCoords = polygonCoords.map(([lat, lng]) => L.latLng(lat, lng));
-
-      L.polygon(latLngCoords, {
-        color: t.color,
-        weight: 1,
-        fillOpacity: 0.08,
-      }).addTo(map);
-
-      L.polygon(latLngCoords, {
-        color: t.color,
-        weight: 1,
-        fillOpacity: 0.08,
-      }).addTo(map2);
-
-      // Add text label at 45° angle from center (NE position)
-      const labelPoint = destinationPoint([center.lat, center.lng], 45, (t.days * getSpeedForDirection(45)) * 0.5);
-      const labelLatLng = L.latLng(labelPoint[0], labelPoint[1]);
-
-      const textIcon = L.divIcon({
-        className: "isochrone-label",
-        html: `<div style="font-size: 11px; font-weight: bold; color: ${t.color}; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); pointer-events: none;">${t.label}</div>`,
-        iconSize: [60, 20],
-        iconAnchor: [30, 10],
-      });
-
-      L.marker(labelLatLng, { icon: textIcon }).addTo(map);
-      L.marker(labelLatLng, { icon: textIcon }).addTo(map2);
-    });
-  }
 
   function syncMaps(source, target) {
     source.on("move", () => {
@@ -481,6 +463,12 @@
   }
 
   $: if (map && map2) {
+    five_days;
+    ten_days;
+    updateTravelDaysLayers();
+  }
+
+  $: if (map && map2) {
     selected_key;
     currentLocationField;
     applyViewSettings();
@@ -534,7 +522,8 @@
   }
 
   $: showSplitSlider =
-    selected_key === "medics_sample" && currentLocationField === "university_address";
+    selected_key === "medics_sample" &&
+    currentLocationField === "university_address";
 </script>
 
 <svelte:window
@@ -544,7 +533,12 @@
   on:touchend={onMouseUp}
 />
 
-<div class="map-container" class:visible class:split-mode={showSplitSlider} bind:this={mapContainer}>
+<div
+  class="map-container"
+  class:visible
+  class:split-mode={showSplitSlider}
+  bind:this={mapContainer}
+>
   <!-- Historical map: full size, clipped to left of slider -->
   <div
     id="map-historical"
