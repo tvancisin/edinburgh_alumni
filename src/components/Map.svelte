@@ -19,6 +19,8 @@
   let map,
     map2,
     currentLocationField = "university_address",
+    currentViewLabel = "University Addresses",
+    toggleButtonLabel = "Show Birth Locations",
     historicalClusterGroup,
     modernClusterGroup,
     historicalColoniesLayer,
@@ -577,15 +579,52 @@
     };
   }
 
-  $: console.log(currentLocationField);
-  
+  function getPrimaryLocationField() {
+    return "birthplace";
+  }
+
+  function getLocationConfig(datasetKey) {
+    if (datasetKey === "matriculations") {
+      return {
+        secondaryField: "previous_university",
+        secondaryLabel: "Previous Universities",
+      };
+    }
+
+    return {
+      secondaryField: "university_address",
+      secondaryLabel: "University Addresses",
+    };
+  }
+
+  function isPrimaryLocationSelected(locationField) {
+    return locationField === getPrimaryLocationField();
+  }
+
+  $: {
+    const { secondaryField, secondaryLabel } = getLocationConfig(selected_key);
+
+    if (
+      currentLocationField !== getPrimaryLocationField() &&
+      currentLocationField !== secondaryField
+    ) {
+      currentLocationField = secondaryField;
+    }
+
+    const isPrimary = isPrimaryLocationSelected(currentLocationField);
+    currentViewLabel = isPrimary ? "Birth Locations" : secondaryLabel;
+    toggleButtonLabel = isPrimary
+      ? `Show ${secondaryLabel}`
+      : "Show Birth Locations";
+  }
 
   // switch between datasets inside the map
   function switch_data() {
-    currentLocationField =
-      currentLocationField === "university_address"
-        ? "birthplace"
-        : "university_address";
+    const { secondaryField } = getLocationConfig(selected_key);
+
+    currentLocationField = isPrimaryLocationSelected(currentLocationField)
+      ? secondaryField
+      : getPrimaryLocationField();
 
     drawCircles(currentLocationField);
     applyViewSettings();
@@ -647,19 +686,13 @@
   {/if}
 
   <!-- Labels -->
-  <h1>
-    {currentLocationField === "university_address"
-      ? "University Addresses"
-      : "Birth Locations"}
-  </h1>
+  <h1>{currentViewLabel}</h1>
   {#if showSplitSlider}
     <div class="label label-left">1888</div>
+    <div class="label label-right">2026</div>
   {/if}
-  <div class="label label-right">2026</div>
   <button class="switch_button" on:click={switch_data}>
-    {currentLocationField === "university_address"
-      ? "Show Birth Locations"
-      : "Show University Addresses"}
+    {toggleButtonLabel}
   </button>
 </div>
 
@@ -753,8 +786,8 @@
 
   .switch_button {
     position: absolute;
-    top: 50px;
-    left: 10px;
+    top: 80px;
+    right: 10px;
     z-index: 1001;
     background: steelblue;
     color: white;
