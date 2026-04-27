@@ -14,6 +14,7 @@
   export let colonies_1885;
   export let five_days;
   export let ten_days;
+  export let twenty_days;
 
   let map,
     map2,
@@ -26,6 +27,8 @@
     modernFiveDaysLayer,
     historicalTenDaysLayer,
     modernTenDaysLayer,
+    historicalTwentyDaysLayer,
+    modernTwentyDaysLayer,
     historicalStandaloneMarkers = [],
     modernStandaloneMarkers = [],
     historicalRouteLayers = [],
@@ -117,7 +120,39 @@
     L.marker(universityCoordinates, { icon: universityIcon })
       .bindPopup(popup)
       .addTo(map2);
+
+    [
+      { text: "5 days", lat: 48.939422746428605, lon: -16.337924818178145 },
+      { text: "10 days", lat: 32.734148114603016, lon: -42.6861896686726 },
+      { text: "10 days", lat: 58.29257755429044, lon: 57.612366397035025 },
+      { text: "20 days", lat: -17.88100382582765, lon: -15.044701552635098 },
+      { text: "20 days", lat: 25.621140332793438, lon: -144.4434852513595 },
+      { text: "20 days", lat: 4.271497258164796, lon: 66.10932191725907 },
+    ].forEach(({ text, lat, lon }) => {
+      addTravelDaysLabel(text, lat, lon);
+    });
   });
+
+  function addTravelDaysLabel(text, lat, lon) {
+    if (!map || !map2) return;
+
+    const iconWidth = Math.max(72, text.length * 8);
+    const labelIcon = L.divIcon({
+      className: "travel-days-label-wrapper",
+      html: `<div class="travel-days-label">${text}</div>`,
+      iconSize: [iconWidth, 20],
+      iconAnchor: [iconWidth / 2, 10],
+    });
+
+    const markerOptions = {
+      icon: labelIcon,
+      interactive: false,
+      keyboard: false,
+    };
+
+    L.marker([lat, lon], markerOptions).addTo(map);
+    L.marker([lat, lon], markerOptions).addTo(map2);
+  }
 
   function createColoniesLayer() {
     if (!colonies_1885?.features?.length) return null;
@@ -133,7 +168,7 @@
       style: {
         color: "white",
         weight: 1,
-        opacity: 0.8,
+        opacity: 0,
         fillColor: "black",
         fillOpacity: 0.4,
       },
@@ -148,9 +183,9 @@
       style: {
         color: "#8B4513",
         weight: 1.5,
-        opacity: 0.8,
+        opacity: 0.1,
         fillColor: "#8B4513",
-        fillOpacity: 0.04,
+        fillOpacity: 0.1,
         ...styleOverrides,
       },
       interactive: false,
@@ -180,28 +215,62 @@
       modernTenDaysLayer = null;
     }
 
-    historicalFiveDaysLayer = createTravelDaysLayer(five_days);
-    modernFiveDaysLayer = createTravelDaysLayer(five_days);
+    if (historicalTwentyDaysLayer) {
+      map.removeLayer(historicalTwentyDaysLayer);
+      historicalTwentyDaysLayer = null;
+    }
+
+    if (modernTwentyDaysLayer) {
+      map2.removeLayer(modernTwentyDaysLayer);
+      modernTwentyDaysLayer = null;
+    }
+
+    historicalFiveDaysLayer = createTravelDaysLayer(five_days, {
+      opacity: 0.26,
+      fillOpacity: 0.05,
+    });
+    modernFiveDaysLayer = createTravelDaysLayer(five_days, {
+      opacity: 0.26,
+      fillOpacity: 0.05,
+    });
     historicalTenDaysLayer = createTravelDaysLayer(ten_days, {
-      color: "#3E2723",
-      fillColor: "#3E2723",
-      fillOpacity: 0.03,
+      color: "#2C5F77",
+      opacity: 0.2,
+      fillColor: "#2C5F77",
+      fillOpacity: 0.08,
     });
     modernTenDaysLayer = createTravelDaysLayer(ten_days, {
-      color: "#3E2723",
-      fillColor: "#3E2723",
-      fillOpacity: 0.03,
+      color: "#2C5F77",
+      opacity: 0.2,
+      fillColor: "#2C5F77",
+      fillOpacity: 0.08,
+    });
+    historicalTwentyDaysLayer = createTravelDaysLayer(twenty_days, {
+      color: "#1A0F00",
+      opacity: 0.08,
+      fillColor: "#1A0F00",
+      fillOpacity: 0.04,
+    });
+    modernTwentyDaysLayer = createTravelDaysLayer(twenty_days, {
+      color: "#1A0F00",
+      opacity: 0.08,
+      fillColor: "#1A0F00",
+      fillOpacity: 0.04,
     });
 
     historicalFiveDaysLayer?.addTo(map);
     modernFiveDaysLayer?.addTo(map2);
     historicalTenDaysLayer?.addTo(map);
     modernTenDaysLayer?.addTo(map2);
+    historicalTwentyDaysLayer?.addTo(map);
+    modernTwentyDaysLayer?.addTo(map2);
 
     historicalFiveDaysLayer?.bringToBack();
     modernFiveDaysLayer?.bringToBack();
     historicalTenDaysLayer?.bringToBack();
     modernTenDaysLayer?.bringToBack();
+    historicalTwentyDaysLayer?.bringToBack();
+    modernTwentyDaysLayer?.bringToBack();
   }
 
   function updateColoniesLayer() {
@@ -226,8 +295,6 @@
     historicalColoniesLayer?.bringToBack();
     modernColoniesLayer?.bringToBack();
   }
-
-
 
   function syncMaps(source, target) {
     source.on("move", () => {
@@ -510,6 +577,9 @@
     };
   }
 
+  $: console.log(currentLocationField);
+  
+
   // switch between datasets inside the map
   function switch_data() {
     currentLocationField =
@@ -599,7 +669,7 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 60%;
+    width: 65%;
     overflow: hidden;
     cursor: default;
     z-index: 9;
@@ -749,6 +819,26 @@
     width: 36px;
     height: 36px;
     /* object-fit: contain; */
+  }
+
+  :global(.travel-days-label-wrapper) {
+    background: transparent;
+    border: none;
+  }
+
+  :global(.travel-days-label) {
+    color: #24180a;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-shadow:
+      -1px -1px 0 rgba(255, 255, 255, 0.75),
+      1px -1px 0 rgba(255, 255, 255, 0.75),
+      -1px 1px 0 rgba(255, 255, 255, 0.75),
+      1px 1px 0 rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
   }
 
   :global(.marker-cluster-small) {

@@ -41,6 +41,7 @@
     colonies_1885,
     five_days,
     ten_days,
+    twenty_days,
     margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
   onMount(() => {
@@ -76,6 +77,7 @@
         colonies_1885,
         five_days,
         ten_days,
+        twenty_days,
       } = data);
 
       current_ungrouped = all_medics;
@@ -211,6 +213,7 @@
       {colonies_1885}
       {five_days}
       {ten_days}
+      {twenty_days}
       selected_key={selected}
       visible={mapVisible}
     />
@@ -221,7 +224,7 @@
   main {
     position: relative;
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 65% 35%;
     height: 100vh;
     width: 100vw;
     z-index: 9999;
@@ -254,7 +257,7 @@
   .map-toggle {
     position: absolute;
     top: 45px;
-    right: 40.5%;
+    right: 35.5%;
     z-index: 10;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
