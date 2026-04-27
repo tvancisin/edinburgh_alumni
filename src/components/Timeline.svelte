@@ -163,16 +163,16 @@
       <!-- uni establishment -->
       <rect
         x={x_scale(new Date(1582, 0, 1))}
-        y={y_scale(height / 2)}
+        y={y_scale(height / 4)}
         width={1}
-        height={height - margin.bottom - y_scale(height / 2)}
+        height={height - margin.bottom - y_scale(height / 4)}
         fill="orange"
         opacity="0.2"
       />
       <text
         x={x_scale(new Date(1582, 0, 1)) + 5}
-        y={y_scale(height / 2)}
-        transform={`rotate(-25 ${x_scale(new Date(1582, 0, 1)) + 5} ${y_scale(height / 2)})`}
+        y={y_scale(height / 4)}
+        transform={`rotate(-25 ${x_scale(new Date(1582, 0, 1)) + 5} ${y_scale(height / 4)})`}
         fill="white"
         opacity="0.5"
         font-weight="300"
@@ -222,21 +222,59 @@
       <!-- medical school establishment -->
       <rect
         x={x_scale(new Date(1726, 0, 1))}
-        y={y_scale(height / 2)}
+        y={y_scale(height / 3)}
         width={1}
         opacity="0.2"
-        height={height - margin.bottom - y_scale(height / 2)}
+        height={height - margin.bottom - y_scale(height / 3)}
         fill="orange"
       />
       <text
         x={x_scale(new Date(1726, 0, 1))}
-        y={y_scale(height / 2)}
-        transform={`rotate(-25 ${x_scale(new Date(1726, 0, 1)) + 5} ${y_scale(height / 2)})`}
+        y={y_scale(height / 3)}
+        transform={`rotate(-25 ${x_scale(new Date(1726, 0, 1)) + 5} ${y_scale(height / 3)})`}
         fill="white"
         opacity="0.5"
         font-family="Montserrat, sans-serif"
         font-weight="300"
         font-size="12">Medical School (1726)</text
+      >
+
+      <!-- first women educated -->
+      <rect
+        x={x_scale(new Date(1867, 0, 1))}
+        y={y_scale(height / 3)}
+        width={1}
+        opacity="0.2"
+        height={height - margin.bottom - y_scale(height / 3)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1867, 0, 1))}
+        y={y_scale(height / 3)}
+        transform={`rotate(-25 ${x_scale(new Date(1867, 0, 1)) + 5} ${y_scale(height / 3)})`}
+        fill="steelblue"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        font-size="12">First Women Educated (1867)</text
+      >
+
+      <!-- women officially allowed to study -->
+      <rect
+        x={x_scale(new Date(1892, 0, 1))}
+        y={y_scale(height / 3)}
+        width={1}
+        opacity="0.2"
+        height={height - margin.bottom - y_scale(height / 3)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1892, 0, 1))}
+        y={y_scale(height / 3)}
+        transform={`rotate(-25 ${x_scale(new Date(1892, 0, 1)) + 5} ${y_scale(height / 3)})`}
+        fill="steelblue"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        font-size="12">Women Officially Allowed to Study (1892)</text
       >
 
       <!-- veterinary school establishment -->

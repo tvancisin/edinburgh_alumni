@@ -786,7 +786,7 @@
 
   .switch_button {
     position: absolute;
-    top: 80px;
+    top: 100px;
     right: 10px;
     z-index: 1001;
     background: steelblue;

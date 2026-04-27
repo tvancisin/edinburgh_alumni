@@ -160,6 +160,7 @@
 <main bind:clientHeight={height}>
   {#if selected === "medics_sample" || selected === "matriculations"}
     <button class="map-toggle" on:click|stopPropagation={toggleMap}>
+      <img src="/img/world.svg" alt="Map icon" />
       {mapVisible ? "Hide Map" : "Show Map"}
     </button>
   {/if}
@@ -270,6 +271,15 @@
     padding: 5px 12px;
     cursor: pointer;
     transition: background 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .map-toggle img {
+    width: 36px;
+    height: 36px;
+    filter: brightness(0.9);
   }
 
   .dropdown {
