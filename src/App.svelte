@@ -153,14 +153,14 @@
   }
 
   $: selectedLabel = options.find((o) => o.id === selected)?.label;
-  
+
 </script>
 
 <svelte:window on:click={() => (open = false)} />
 <main bind:clientHeight={height}>
   {#if selected === "medics_sample" || selected === "matriculations"}
     <button class="map-toggle" on:click|stopPropagation={toggleMap}>
-      <img src="/img/world.svg" alt="Map icon" />
+      <img src="./img/world.svg" alt="Map icon" />
       {mapVisible ? "Hide Map" : "Show Map"}
     </button>
   {/if}

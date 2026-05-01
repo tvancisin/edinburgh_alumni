@@ -35,6 +35,7 @@ export async function loadData() {
       extra_academic,
       women_med_graduates,
       edinburgh_seven,
+      women_doctors,
       medics_sample,
       st_andrews,
       year_st_andrews_group,
@@ -67,6 +68,7 @@ export async function loadData() {
       extra_academic,
       women_med_graduates,
       edinburgh_seven,
+      women_doctors,
     ] = await getCSV([
       "./1762_1826_medical.csv",
       "./new_college_students.csv",
@@ -76,6 +78,7 @@ export async function loadData() {
       "./extra_academic.csv",
       "./female_graduates.csv",
       "./edinburgh_seven.csv",
+      "./women_doctors.csv",
     ]);
 
     [st_andrews, medics_sample, matriculations_geo, colonies_1885, five_days, ten_days, twenty_days] = await getJSON([
@@ -105,6 +108,7 @@ export async function loadData() {
         };
       })
       .filter(Boolean);
+
     year_st_andrews_group = d3
       .groups(st_andrews_students, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
@@ -140,6 +144,7 @@ export async function loadData() {
       entry_year: +d.entry_year.slice(0, -3),
     }));
     matriculations = matriculations.filter((d) => d.Faculty === "Medicine");
+
     year_matriculations_group = d3
       .groups(matriculations, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
@@ -158,6 +163,8 @@ export async function loadData() {
       no_space_name: d.name.replace(/\s+/g, ""),
     }));
     let final_extra_academics = d3.groups(extra_academic, (d) => d.no_space_name);
+
+
     final_extra_academics = final_extra_academics.map((d) => {
       d[1].sort((a, b) => a.entry_year - b.entry_year);
       return d;
@@ -266,6 +273,25 @@ export async function loadData() {
       certainty: "uncertain",
       count: 5 + (Math.random() + Math.random()) * 100,
     }));
+
+
+    ////////////////////////////////////////////////////////////////////////
+    let women_mat = matriculations.filter((d) => d.Gender === "Female");
+    console.log(women_mat);
+
+    console.log(women_med_graduates);
+
+    let women_extra = final_extra_academics.filter((d) => d[1][0].Gender == "Female");
+    console.log(women_extra);
+
+    console.log(edinburgh_seven);
+
+    let st_andrews_women = st_andrews_students.filter((d) => d.gender === "F");
+    console.log(st_andrews_women);
+
+    console.log(women_doctors);
+    
+
 
     datasetsStore.set({
       medics,
