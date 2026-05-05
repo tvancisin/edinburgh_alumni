@@ -35,11 +35,59 @@
     modernStandaloneMarkers = [],
     historicalRouteLayers = [],
     modernRouteLayers = [],
+    activeRouteController = null,
     routeDrawVersion = 0,
     key = "3rzey539Y03YWue7YR65",
     sliderPosition = 60,
     isDragging = false,
     mapContainer;
+
+  const MAX_ROUTE_REQUESTS = 10;
+  const ROUTE_CONCURRENCY = 2;
+  const ROUTE_FETCH_TIMEOUT_MS = 10000;
+  const ROUTE_MAX_RETRIES = 1;
+  const ROUTE_RETRY_DELAY_MS = 700;
+
+  function pickEvenlySpaced(items, maxCount) {
+    if (items.length <= maxCount) return items;
+    const result = [];
+    const step = (items.length - 1) / (maxCount - 1);
+    for (let i = 0; i < maxCount; i += 1) {
+      result.push(items[Math.round(i * step)]);
+    }
+    return result;
+  }
+
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async function fetchRouteCoordinates(url, signal) {
+    for (let attempt = 0; attempt <= ROUTE_MAX_RETRIES; attempt += 1) {
+      const timeoutSignal = AbortSignal.timeout(ROUTE_FETCH_TIMEOUT_MS);
+      const combinedSignal = AbortSignal.any([signal, timeoutSignal]);
+
+      try {
+        const res = await fetch(url, { signal: combinedSignal });
+
+        if (res.status === 429) {
+          if (attempt === ROUTE_MAX_RETRIES) return null;
+          await wait(ROUTE_RETRY_DELAY_MS);
+          continue;
+        }
+
+        if (!res.ok) return null;
+
+        const data = await res.json();
+        return data?.routes?.[0]?.geometry?.coordinates ?? null;
+      } catch {
+        if (signal.aborted || attempt === ROUTE_MAX_RETRIES) return null;
+        await wait(ROUTE_RETRY_DELAY_MS);
+      }
+    }
+
+    return null;
+  }
 
   onMount(() => {
     // historical map
@@ -313,6 +361,8 @@
   }
 
   function clearRouteLayers() {
+    activeRouteController?.abort();
+    activeRouteController = null;
     historicalRouteLayers.forEach((r) => map?.removeLayer(r));
     modernRouteLayers.forEach((r) => map2?.removeLayer(r));
     historicalRouteLayers = [];
@@ -333,31 +383,50 @@
       return true;
     });
 
+    const selectedOrigins = pickEvenlySpaced(unique, MAX_ROUTE_REQUESTS);
+
+    activeRouteController?.abort();
+    const controller = new AbortController();
+    activeRouteController = controller;
+    const { signal } = controller;
+
+    const queue = [...selectedOrigins];
     await Promise.all(
-      unique.map(async ([lat, lon]) => {
-        const url =
-          `https://routing.openstreetmap.de/routed-foot/route/v1/driving/` +
-          `${lon},${lat};${destLon},${destLat}` +
-          `?overview=full&geometries=geojson`;
-        try {
-          const res = await fetch(url);
-          const data = await res.json();
-          const coords = data?.routes?.[0]?.geometry?.coordinates;
-          if (!coords || thisVersion !== routeDrawVersion) return;
-          const latLngs = coords.map(([lo, la]) => [la, lo]);
-          const style = { color: "black", weight: 2, opacity: 0.4 };
-          historicalRouteLayers.push(L.polyline(latLngs, style).addTo(map));
-          modernRouteLayers.push(L.polyline(latLngs, style).addTo(map2));
-        } catch {
-          // silently skip failed routes
+      Array.from({ length: Math.min(ROUTE_CONCURRENCY, queue.length) }, async () => {
+        while (queue.length > 0) {
+          if (thisVersion !== routeDrawVersion || signal.aborted) return;
+          const origin = queue.shift();
+          if (!origin) continue;
+
+          const [lat, lon] = origin;
+          const url =
+            `http://router.project-osrm.org/route/v1/driving/` +
+            `${lon},${lat};${destLon},${destLat}` +
+            `?overview=simplified&geometries=geojson`;
+
+          try {
+            const coords = await fetchRouteCoordinates(url, signal);
+            if (!coords || thisVersion !== routeDrawVersion || signal.aborted) continue;
+
+            const latLngs = coords.map(([lo, la]) => [la, lo]);
+            const style = { color: "black", weight: 2, opacity: 0.4 };
+            historicalRouteLayers.push(L.polyline(latLngs, style).addTo(map));
+            modernRouteLayers.push(L.polyline(latLngs, style).addTo(map2));
+          } catch {
+            // silently skip failed, aborted, or timed out routes
+          }
         }
       }),
     );
+
+    if (activeRouteController === controller) {
+      activeRouteController = null;
+    }
   }
 
   function drawCircles(which) {
     const activeDataset =
-      selected_key === "matriculations" ? matriculations_medics : medics_sample;
+      selected_key === "matriculations_medics" ? matriculations_medics : medics_sample;
 
     historicalClusterGroup?.clearLayers();
     modernClusterGroup?.clearLayers();
@@ -367,7 +436,7 @@
 
     if (!Array.isArray(activeDataset)) return;
 
-    if (selected_key === "matriculations") {
+    if (selected_key === "matriculations_medics") {
       activeDataset.forEach((d) => {
         const fullName =
           `${d?.name?.forename || ""} ${d?.name?.middlename || ""} ${d?.name?.surname || ""}`.trim();
@@ -470,7 +539,7 @@
     });
 
     if (which === "university_address" && routeOrigins.length > 0) {
-      drawRoutes(routeOrigins);
+      // drawRoutes(routeOrigins);
     }
   }
 
@@ -568,7 +637,7 @@
   }
 
   function getViewSettings() {
-    if (selected_key === "matriculations") {
+    if (selected_key === "matriculations_medics") {
       return { zoom: 3, latitude: 25.9533 };
     }
 
@@ -584,7 +653,7 @@
   }
 
   function getLocationConfig(datasetKey) {
-    if (datasetKey === "matriculations") {
+    if (datasetKey === "matriculations_medics") {
       return {
         secondaryField: "previous_university",
         secondaryLabel: "Previous Universities",

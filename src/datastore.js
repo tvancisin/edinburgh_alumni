@@ -22,38 +22,63 @@ function addCareerField(entry) {
 
 export const datasetsStore = writable(null);
 export const dataStatus = writable({ loading: false, error: null });
-
 export async function loadData() {
   dataStatus.set({ loading: true, error: null });
 
   try {
-    let medics,
-      new_college,
-      veterinary,
-      matriculations,
-      veterinary_graduates,
-      extra_academic,
-      women_med_graduates,
-      edinburgh_seven,
-      women_doctors,
-      medics_sample,
-      st_andrews,
-      year_st_andrews_group,
-      full_years,
+    let
+      // Students of medicine 1762-1826
+      medics,
       year_medics_group,
-      year_college_group,
-      year_veterinary_group,
-      year_veterinary_graduates_group,
-      year_matriculations_group,
-      year_extra_academic_group,
-      year_women_med_graduates_group,
-      year_edinburgh_seven_group,
+
+      // Students of medicine sample 1833-1846
+      medics_sample,
       year_medics_sample_group,
-      all_grouped,
-      all_medics,
-      all_medics_grouped,
+
+      // Female Medical Graduates 1896-1900
+      women_med_graduates,
+      year_women_med_graduates_group,
+
+      // Edinburgh Seven 1869
+      edinburgh_seven,
+      year_edinburgh_seven_group,
+
+      // Extra Academic Students 1887-1922
+      extra_academic,
+      year_extra_academic_group,
+
+      // First Matriculations 1890-1899
       matriculations_geo,
       matriculations_medics,
+      year_matriculations_group,
+
+      // Women Doctors
+      women_doctors,
+      year_women_doctors_group,
+
+      // St Andrews/Edinburgh students 1579-1897
+      st_andrews,
+      year_st_andrews_group,
+
+      // Combined datasets
+      all_grouped,
+      full_years,
+      all_medics,
+      all_medics_grouped,
+      all_women_medics,
+      all_women_medics_grouped,
+
+      // Students at New College 1843-1943
+      new_college,
+      year_college_group,
+
+      // Veterinary
+      veterinary,
+      year_veterinary_group,
+      veterinary_graduates,
+      year_veterinary_graduates_group,
+
+      // Geo layers
       colonies_1885,
       five_days,
       ten_days,
@@ -64,34 +89,31 @@ export async function loadData() {
       new_college,
       veterinary,
       veterinary_graduates,
-      matriculations,
       extra_academic,
       women_med_graduates,
       edinburgh_seven,
-      women_doctors,
     ] = await getCSV([
       "./1762_1826_medical.csv",
       "./new_college_students.csv",
       "./early_veterinary.csv",
       "./veterinary_graduates.csv",
-      "./matriculations.csv",
       "./extra_academic.csv",
       "./female_graduates.csv",
       "./edinburgh_seven.csv",
-      "./women_doctors.csv",
     ]);
 
-    [st_andrews, medics_sample, matriculations_geo, colonies_1885, five_days, ten_days, twenty_days] = await getJSON([
-      "./st_andrews.json",
-      "./medics_sample.json",
-      "./matriculations_geo.json",
-      "./geojson/colonies_1885_update.geojson",
-      "./geojson/five_days.geojson",
-      "./geojson/ten_days.geojson",
-      "./geojson/twenty_days.geojson",
-    ]);
+    [st_andrews, medics_sample, matriculations_geo, women_doctors,
+      colonies_1885, five_days, ten_days, twenty_days] = await getJSON([
+        "./st_andrews.json",
+        "./medics_sample_geo.json",
+        "./matriculations_geo.json",
+        "./women_doctors_geo.json",
+        "./geojson/colonies_1885_update.geojson",
+        "./geojson/five_days.geojson",
+        "./geojson/ten_days.geojson",
+        "./geojson/twenty_days.geojson",
+      ]);
 
-    matriculations_medics = matriculations_geo.filter((d) => d.source_data.Faculty === "Medicine");
 
     ////////////////////////////////////////////////////////////////////////
     const st_andrews_students = st_andrews
@@ -139,15 +161,15 @@ export async function loadData() {
     year_medics_sample_group = fillMissingYears(year_medics_sample_group, 1762, 2025);
 
     ////////////////////////////////////////////////////////////////////////
-    matriculations = matriculations.map((d) => ({
+    matriculations_medics = matriculations_geo.filter((d) => d.source_data.Faculty === "Medicine");
+    matriculations_medics = matriculations_medics.map((d) => ({
       ...d,
-      entry_year: +d.entry_year.slice(0, -3),
+      entry_year: +d.source_data.entry_year,
     }));
-    matriculations = matriculations.filter((d) => d.Faculty === "Medicine");
-
     year_matriculations_group = d3
-      .groups(matriculations, (d) => d.entry_year)
+      .groups(matriculations_medics, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
+
     year_matriculations_group = year_matriculations_group.filter(
       ([year]) => Number.isFinite(year) && year >= 1700 && year <= 2025,
     );
@@ -204,13 +226,24 @@ export async function loadData() {
     year_edinburgh_seven_group = fillMissingYears(year_edinburgh_seven_group, 1762, 2025);
 
     ////////////////////////////////////////////////////////////////////////
+    women_doctors = women_doctors.map((d) => ({
+      ...d,
+      entry_year: +d.source_data.entry_year,
+    }));
+    year_women_doctors_group = d3
+      .groups(women_doctors, (d) => d.entry_year)
+      .sort((a, b) => a[0] - b[0]);
+    year_women_doctors_group = fillMissingYears(year_women_doctors_group, 1762, 2025);
+
+    ////////////////////////////////////////////////////////////////////////
     all_medics = [
       ...medics,
       ...medics_sample,
-      ...matriculations,
+      ...matriculations_medics,
       ...extra_academic,
       ...women_med_graduates,
       ...edinburgh_seven,
+      ...women_doctors,
     ];
     all_medics_grouped = d3
       .groups(all_medics, (d) => d.entry_year)
@@ -218,6 +251,21 @@ export async function loadData() {
       .filter((d) => d[0] >= 1762)
       .sort((a, b) => a[0] - b[0]);
     all_medics_grouped = fillMissingYears(all_medics_grouped, 1762, 2025);
+
+    ////////////////////////////////////////////////////////////////////////
+    all_women_medics = [
+      ...matriculations_medics.filter((d) => d.source_data.Gender === "Female"),
+      ...women_med_graduates,
+      ...extra_academic.filter((d) => d.Gender === "Female"),
+      ...edinburgh_seven,
+      ...women_doctors,
+    ];
+    all_women_medics_grouped = d3
+      .groups(all_women_medics, (d) => d.entry_year)
+      .filter((d) => d[0] != null && !Number.isNaN(d[0]))
+      .filter((d) => d[0] >= 1762)
+      .sort((a, b) => a[0] - b[0]);
+    all_women_medics_grouped = fillMissingYears(all_women_medics_grouped, 1762, 2025);
 
     ////////////////////////////////////////////////////////////////////////
     new_college = new_college.map((d) => ({
@@ -257,11 +305,12 @@ export async function loadData() {
       ...new_college,
       ...veterinary,
       ...veterinary_graduates,
-      ...matriculations,
+      ...matriculations_medics,
       ...extra_academic,
       ...women_med_graduates,
       ...edinburgh_seven,
       ...medics_sample,
+      ...women_doctors,
     ];
     all_grouped = d3
       .groups(all, (d) => d.entry_year)
@@ -276,7 +325,7 @@ export async function loadData() {
 
 
     ////////////////////////////////////////////////////////////////////////
-    let women_mat = matriculations.filter((d) => d.Gender === "Female");
+    let women_mat = matriculations_medics.filter((d) => d.source_data.Gender === "Female");
     console.log(women_mat);
 
     console.log(women_med_graduates);
@@ -290,35 +339,61 @@ export async function loadData() {
     console.log(st_andrews_women);
 
     console.log(women_doctors);
+
     
 
-
     datasetsStore.set({
+      // Students of medicine 1762-1826
       medics,
-      new_college,
-      veterinary,
-      matriculations,
-      veterinary_graduates,
-      extra_academic,
-      women_med_graduates,
-      edinburgh_seven,
+      year_medics_group,
+
+      // Students of medicine sample 1833-1846
       medics_sample,
+      year_medics_sample_group,
+
+      // Female Medical Graduates 1896-1900
+      women_med_graduates,
+      year_women_med_graduates_group,
+
+      // Edinburgh Seven 1869
+      edinburgh_seven,
+      year_edinburgh_seven_group,
+
+      // Extra Academic Students 1887-1922
+      extra_academic,
+      year_extra_academic_group,
+
+      // First Matriculations 1890-1899
+      matriculations_medics,
+      year_matriculations_group,
+
+      // Women Doctors
+      women_doctors,
+      year_women_doctors_group,
+
+      // St Andrews/Edinburgh students 1579-1897
       st_andrews,
       year_st_andrews_group,
-      full_years,
-      year_medics_group,
-      year_college_group,
-      year_veterinary_group,
-      year_veterinary_graduates_group,
-      year_matriculations_group,
-      year_extra_academic_group,
-      year_women_med_graduates_group,
-      year_edinburgh_seven_group,
-      year_medics_sample_group,
+
+      // Combined datasets
       all_grouped,
+      full_years,
       all_medics,
       all_medics_grouped,
-      matriculations_medics,
+      all_women_medics,
+      all_women_medics_grouped,
+
+      // Students at New College 1843-1943
+      new_college,
+      year_college_group,
+
+      // Veterinary
+      veterinary,
+      year_veterinary_group,
+      veterinary_graduates,
+      year_veterinary_graduates_group,
+
+      // Geo layers
       colonies_1885,
       five_days,
       ten_days,
