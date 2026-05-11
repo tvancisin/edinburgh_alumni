@@ -56,6 +56,10 @@ export async function loadData() {
       women_doctors,
       year_women_doctors_group,
 
+      // Women physiology
+      women_physiology,
+      year_women_physiology_group,
+
       // St Andrews/Edinburgh students 1579-1897
       st_andrews,
       year_st_andrews_group,
@@ -102,18 +106,18 @@ export async function loadData() {
       "./edinburgh_seven.csv",
     ]);
 
-    [st_andrews, medics_sample, matriculations_geo, women_doctors,
+    [st_andrews, medics_sample, matriculations_geo, women_doctors, women_physiology,
       colonies_1885, five_days, ten_days, twenty_days] = await getJSON([
         "./st_andrews.json",
         "./medics_sample_geo.json",
         "./matriculations_geo.json",
         "./women_doctors_geo.json",
+        "./women_physiology_geo.json",
         "./geojson/colonies_1885_update.geojson",
         "./geojson/five_days.geojson",
         "./geojson/ten_days.geojson",
         "./geojson/twenty_days.geojson",
       ]);
-
 
     ////////////////////////////////////////////////////////////////////////
     const st_andrews_students = st_andrews
@@ -236,6 +240,17 @@ export async function loadData() {
     year_women_doctors_group = fillMissingYears(year_women_doctors_group, 1762, 2025);
 
     ////////////////////////////////////////////////////////////////////////
+    women_physiology = women_physiology.map((d) => ({
+      ...d,
+      entry_year: +d.source_data.entry_year,
+    }));
+    
+    year_women_physiology_group = d3
+      .groups(women_physiology, (d) => d.entry_year)
+      .sort((a, b) => a[0] - b[0]);
+    year_women_physiology_group = fillMissingYears(year_women_physiology_group, 1762, 2025);
+
+    ////////////////////////////////////////////////////////////////////////
     all_medics = [
       ...medics,
       ...medics_sample,
@@ -244,6 +259,7 @@ export async function loadData() {
       ...women_med_graduates,
       ...edinburgh_seven,
       ...women_doctors,
+      ...women_physiology,
     ];
     all_medics_grouped = d3
       .groups(all_medics, (d) => d.entry_year)
@@ -259,6 +275,7 @@ export async function loadData() {
       ...extra_academic.filter((d) => d.Gender === "Female"),
       ...edinburgh_seven,
       ...women_doctors,
+      ...women_physiology,
     ];
     all_women_medics_grouped = d3
       .groups(all_women_medics, (d) => d.entry_year)
@@ -311,6 +328,7 @@ export async function loadData() {
       ...edinburgh_seven,
       ...medics_sample,
       ...women_doctors,
+      ...women_physiology,
     ];
     all_grouped = d3
       .groups(all, (d) => d.entry_year)
@@ -326,22 +344,22 @@ export async function loadData() {
 
     ////////////////////////////////////////////////////////////////////////
     let women_mat = matriculations_medics.filter((d) => d.source_data.Gender === "Female");
-    console.log(women_mat);
+    console.log("matriculations: ", women_mat);
 
-    console.log(women_med_graduates);
+    console.log("medical graduates: ",women_med_graduates);
 
     let women_extra = final_extra_academics.filter((d) => d[1][0].Gender == "Female");
-    console.log(women_extra);
+    console.log("extra academics: ", women_extra);
 
-    console.log(edinburgh_seven);
+    console.log("edinburgh seven: ", edinburgh_seven);
 
     let st_andrews_women = st_andrews_students.filter((d) => d.gender === "F");
-    console.log(st_andrews_women);
+    console.log("st andrews women: ", st_andrews_women);
 
-    console.log(women_doctors);
+    console.log("women doctors: ", women_doctors);
 
+    console.log("women physiology: ", women_physiology);
     
-
     datasetsStore.set({
       // Students of medicine 1762-1826
       medics,
@@ -370,6 +388,9 @@ export async function loadData() {
       // Women Doctors
       women_doctors,
       year_women_doctors_group,
+
+      women_physiology,
+      year_women_physiology_group,
 
       // St Andrews/Edinburgh students 1579-1897
       st_andrews,

@@ -12,41 +12,35 @@
     x_axis,
     y_axis,
     current_ungrouped,
-
     // Students of medicine 1762-1826
     medics,
     year_medics_group,
-
     // Students of medicine sample 1833-1846
     medics_sample,
     year_medics_sample_group,
-
     // Female Medical Graduates 1896-1900
     women_med_graduates,
     year_women_med_graduates_group,
-
     // Edinburgh Seven 1869
     edinburgh_seven,
     year_edinburgh_seven_group,
-
     // Extra Academic Students 1887-1922
     extra_academic,
     year_extra_academic_group,
-
     // First Matriculations 1890-1899
     matriculations,
     matriculations_medics,
     year_matriculations_group,
-
     // Women Doctors
     women_doctors,
     year_women_doctors_group,
-
+    // Women physiology
+    women_physiology,
+    year_women_physiology_group,
     // St Andrews/Edinburgh students 1579-1897
     st_andrews,
     alumni_geocoded,
     year_st_andrews_group,
-
     // Combined datasets
     all_grouped,
     full_years,
@@ -54,23 +48,19 @@
     all_medics_grouped,
     all_women_medics,
     all_women_medics_grouped,
-
     // Students at New College 1843-1943
     new_college,
     year_college_group,
-
     // Veterinary
     veterinary,
     year_veterinary_group,
     veterinary_graduates,
     year_veterinary_graduates_group,
-
     // Geo layers
     colonies_1885,
     five_days,
     ten_days,
     twenty_days,
-
     margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
   onMount(() => {
@@ -106,6 +96,10 @@
         women_doctors,
         year_women_doctors_group,
 
+        // Women physiology
+        women_physiology,
+        year_women_physiology_group,
+
         // St Andrews/Edinburgh students 1579-1897
         st_andrews,
         year_st_andrews_group,
@@ -136,7 +130,6 @@
       } = data);
 
       current_ungrouped = all_medics;
-      
     });
     loadData();
     return unsubscribe;
@@ -152,6 +145,7 @@
     matriculations_medics: year_matriculations_group,
     women_med_graduates: year_women_med_graduates_group,
     women_doctors: year_women_doctors_group,
+    women_physiology: year_women_physiology_group,
     medics_sample: year_medics_sample_group,
     extra_academic: year_extra_academic_group,
     edinburgh_seven: year_edinburgh_seven_group,
@@ -169,6 +163,7 @@
     women_doctors,
     extra_academic,
     edinburgh_seven,
+    women_physiology,
   };
 
   function handleSwitch(key) {
@@ -184,9 +179,13 @@
     { id: "all_medics", label: "All Medics" },
     { id: "all_women_medics", label: "All Women Medics" },
     { id: "medics", label: "Medical Students (1762-1826)" },
-    { id: "matriculations_medics", label: "Medical Matriculations (1890-1899)" },
+    {
+      id: "matriculations_medics",
+      label: "Medical Matriculations (1890-1899)",
+    },
     { id: "women_med_graduates", label: "Medical Women Graduates (1896-1900)" },
     { id: "women_doctors", label: "Women Doctors" },
+    { id: "women_physiology", label: "Women Physiology" },
     { id: "medics_sample", label: "Medics Sample (1833-1846)" },
     { id: "extra_academic", label: "Extra Medics (1887-1922)" },
     { id: "edinburgh_seven", label: "Edinburgh Seven (1869)" },
@@ -214,7 +213,6 @@
   }
 
   $: selectedLabel = options.find((o) => o.id === selected)?.label;
-
 </script>
 
 <svelte:window on:click={() => (open = false)} />
@@ -286,7 +284,7 @@
   main {
     position: relative;
     display: grid;
-    grid-template-columns: 65% 35%;
+    grid-template-columns: 75% 25%;
     height: 100vh;
     width: 100vw;
     z-index: 9999;

@@ -771,7 +771,7 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 65%;
+    width: 75%;
     overflow: hidden;
     cursor: default;
     z-index: 9;
