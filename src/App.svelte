@@ -46,6 +46,7 @@
     full_years,
     all_medics,
     all_medics_grouped,
+    all_medics_separated,
     all_women_medics,
     all_women_medics_grouped,
     // Students at New College 1843-1943
@@ -109,6 +110,7 @@
         full_years,
         all_medics,
         all_medics_grouped,
+        all_medics_separated,
         all_women_medics,
         all_women_medics_grouped,
 
@@ -213,6 +215,9 @@
   }
 
   $: selectedLabel = options.find((o) => o.id === selected)?.label;
+  $: console.log(data_to_draw);
+  $: console.log(year_medics_group);
+  
 </script>
 
 <svelte:window on:click={() => (open = false)} />
@@ -228,6 +233,7 @@
     <Timeline
       {data_to_draw}
       {year_medics_group}
+      {all_medics_separated}
       {height}
       {width}
       {margin}
@@ -317,7 +323,7 @@
   .map-toggle {
     position: absolute;
     top: 45px;
-    right: 35.5%;
+    right: 25.5%;
     z-index: 10;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
@@ -344,7 +350,7 @@
   .dropdown {
     position: absolute;
     top: 5px;
-    left: 5px;
+    left: calc(20% + 5px);
     z-index: 10;
     width: 400px;
   }

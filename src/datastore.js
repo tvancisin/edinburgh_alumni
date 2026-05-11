@@ -68,6 +68,7 @@ export async function loadData() {
       all_grouped,
       full_years,
       all_medics,
+      all_medics_separated,
       all_medics_grouped,
       all_women_medics,
       all_women_medics_grouped,
@@ -175,9 +176,9 @@ export async function loadData() {
       .sort((a, b) => a[0] - b[0]);
 
     year_matriculations_group = year_matriculations_group.filter(
-      ([year]) => Number.isFinite(year) && year >= 1700 && year <= 2025,
+      ([year]) => Number.isFinite(year) && year >= 1762 && year <= 2025,
     );
-    year_matriculations_group = fillMissingYears(year_matriculations_group, 1700, 2025);
+    year_matriculations_group = fillMissingYears(year_matriculations_group, 1762, 2025);
 
     ////////////////////////////////////////////////////////////////////////
     extra_academic = extra_academic.filter((d) =>
@@ -244,7 +245,7 @@ export async function loadData() {
       ...d,
       entry_year: +d.source_data.entry_year,
     }));
-    
+
     year_women_physiology_group = d3
       .groups(women_physiology, (d) => d.entry_year)
       .sort((a, b) => a[0] - b[0]);
@@ -261,6 +262,11 @@ export async function loadData() {
       ...women_doctors,
       ...women_physiology,
     ];
+
+    all_medics_separated = [year_medics_group, year_medics_sample_group,  year_extra_academic_group, year_women_med_graduates_group, year_edinburgh_seven_group, year_women_doctors_group, year_women_physiology_group, year_matriculations_group];
+
+    console.log(year_medics_group);
+    
     all_medics_grouped = d3
       .groups(all_medics, (d) => d.entry_year)
       .filter((d) => d[0] != null && !Number.isNaN(d[0]))
@@ -346,7 +352,7 @@ export async function loadData() {
     let women_mat = matriculations_medics.filter((d) => d.source_data.Gender === "Female");
     console.log("matriculations: ", women_mat);
 
-    console.log("medical graduates: ",women_med_graduates);
+    console.log("medical graduates: ", women_med_graduates);
 
     let women_extra = final_extra_academics.filter((d) => d[1][0].Gender == "Female");
     console.log("extra academics: ", women_extra);
@@ -359,7 +365,7 @@ export async function loadData() {
     console.log("women doctors: ", women_doctors);
 
     console.log("women physiology: ", women_physiology);
-    
+
     datasetsStore.set({
       // Students of medicine 1762-1826
       medics,
@@ -401,6 +407,7 @@ export async function loadData() {
       full_years,
       all_medics,
       all_medics_grouped,
+      all_medics_separated,
       all_women_medics,
       all_women_medics_grouped,
 
