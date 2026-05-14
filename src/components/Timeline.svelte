@@ -4,6 +4,7 @@
 
   export let data_to_draw;
   export let year_medics_group;
+  export let students_1836_1920;
   export let height;
   export let width;
   export let margin;
@@ -16,7 +17,7 @@
 
   let x_scale, y_scale;
   const STACK_GAP = 3;
-  const Y_AXIS_MAX = 900;
+  let y_axis_max = 900;
   const CONNECTOR_BOTTOM_GAP = 30;
   const SOURCE_PANEL_RATIO = 0.2;
   const SOURCE_PANEL_PADDING = 10;
@@ -51,6 +52,30 @@
   let source_items = [];
   let source_connectors = [];
   let hoveredSourceSubsetIndex = null;
+  let students_line_path = null;
+
+  let source_names = [
+    `Matriculation Albums: 1762-1786, 1786-1805, 1804-1816 (3 vols.). [Edinburgh University Library Special Collections: EUA IN1/ADS/STA/2]
+Comrie, J.D. and Gardner, J.J, Biographical Index of Edinburgh Medical Graduates, 1705-1866 [Edinburgh University Library Special Collections]
+List of the Graduates in Medicine in the University of Edinburgh from MDCCV to MDCCCLXVI (Edinburgh, Neil & Co., 1867)
+List of the Members, Laws, and Library-Catalogue of the Medical Society of Edinburgh, instituted 1737; incorporated by Royal Charter Dec. 14, 1778 (Edinburgh, Printed for the Society by William Aitken, 1820)
+Lists of apprentices, diplomates (later called Licentiates), and members (later called Fellows) of the Royal College of Surgeons of Edinburgh (taken from Minute Books, vols. 4-8, 1708-1822)
+Crawford, Dirom Grey, Roll of the Indian Medical Service (London, W. Thacker & Co., 1930)
+Johnston, William, Roll of Commissioned Officers in the Medical Service of the British Army (Aberdeen, Aberdeen University Press, 1917)
+Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Professional Men at Sea (London, Richard Phillips, 1806)`,
+    `Medical Examinations (later Graduates in Medicine): 1833- . [Edinburgh University Library Special Collections: EUA IN1/ADS/STA/8]`,
+    `Register of Extra-Academical Students`,
+    `Women Medical Graduates: University Calendar`,
+    `Edinburgh Seven: Wikipedia`,
+    `Women Doctors 1884-1911`,
+    `Edinburgh Association for the University Education of Women (Coll-42)
+  Class register books, 1867-1893`,
+    `First Matriculations (first year of enrolment in a course of study) [Edinburgh University Library Special Collections: EUA IN1/ADS/STA/4]`,
+  ];
+
+  function toggleYAxisScale() {
+    y_axis_max = y_axis_max === 900 ? 10000 : 900;
+  }
 
   function buildConnectorPath({ startX, startY, downX, endX, endY }) {
     const turnTopX = downX - CONNECTOR_RADIUS;
@@ -132,9 +157,24 @@
 
     y_scale = d3
       .scaleLinear()
-      .domain([0, Y_AXIS_MAX])
+      .domain([0, y_axis_max])
       .range([axis_y, margin.top])
       .nice();
+  }
+
+  $: {
+    students_line_path = null;
+
+    if (x_scale && y_scale && students_1836_1920.length > 0) {
+      const areaGenerator = d3
+        .area()
+        .x((d) => x_scale(new Date(d.entry_year, 0, 1)))
+        .y0(axis_y)
+        .y1((d) => y_scale(d.number))
+        .curve(d3.curveMonotoneX);
+
+      students_line_path = areaGenerator(students_1836_1920);
+    }
   }
 
   $: {
@@ -200,7 +240,7 @@
   }
 
   // Render axes
-  $: if (x_axis && x_scale) {
+  $: if (x_axis && y_axis) {
     const axisColor = mapVisible ? "black" : "white";
     const tickColor = mapVisible ? "black" : "gray";
 
@@ -228,9 +268,8 @@
       .selectAll("line")
       .attr("stroke", tickColor)
       .attr("stroke-width", 1);
-  }
 
-  $: if (y_axis && y_scale) {
+    // y axis
     const yaxis = d3.axisLeft(y_scale).ticks(5).tickSizeOuter(0);
 
     d3.select(y_axis)
@@ -246,15 +285,31 @@
 </script>
 
 {#if year_medics_group}
+  <button class="scale-toggle" on:click={toggleYAxisScale}>
+    Y max: {y_axis_max === 900 ? "900" : "10000"}
+  </button>
+
   <svg {height} {width}>
     <defs>
-      <linearGradient id="uncertaintyFade" x1="0" y1="1" x2="0" y2="0">
-        <stop offset="0%" stop-color="gray" stop-opacity="0.4" />
-        <stop offset="100%" stop-color="gray" stop-opacity="0" />
-      </linearGradient>
+      {#each source_items as item, i (item.subsetIndex)}
+        <clipPath id={`src-clip-${i}`}>
+          <rect
+            x={SOURCE_PANEL_PADDING}
+            y={SOURCE_LIST_TOP + i * (SOURCE_ITEM_HEIGHT + SOURCE_ITEM_GAP)}
+            width={source_item_width}
+            height={SOURCE_ITEM_HEIGHT}
+            rx={SOURCE_CORNER_RADIUS}
+            ry={SOURCE_CORNER_RADIUS}
+          />
+        </clipPath>
+      {/each}
     </defs>
     <g transform={`translate(0,${axis_y})`} bind:this={x_axis} />
     <g transform={`translate(${plot_left}, 0)`} bind:this={y_axis} />
+
+    {#if students_line_path}
+      <path d={students_line_path} fill="#4a4a4a" opacity="0.4" />
+    {/if}
 
     {#each source_connectors as connector (connector.subsetIndex)}
       <path
@@ -276,6 +331,7 @@
         width={connector.rangeWidth}
         height={SOURCE_RANGE_HEIGHT}
         fill="white"
+        opacity={hoveredSourceSubsetIndex == null || connector.subsetIndex === hoveredSourceSubsetIndex ? 1 : 0.2}
       />
     {/each}
 
@@ -301,10 +357,23 @@
           height={SOURCE_ITEM_HEIGHT}
           rx={SOURCE_CORNER_RADIUS}
           ry={SOURCE_CORNER_RADIUS}
-          fill="steelblue"
+          fill="#333333"
+          stroke="gray"
+          opacity={hoveredSourceSubsetIndex == null || item.subsetIndex === hoveredSourceSubsetIndex ? 1 : 0.2}
           on:mouseenter={() => (hoveredSourceSubsetIndex = item.subsetIndex)}
           on:mouseleave={() => (hoveredSourceSubsetIndex = null)}
         />
+        <text
+          x={SOURCE_PANEL_PADDING + 6}
+          y={SOURCE_LIST_TOP + i * (SOURCE_ITEM_HEIGHT + SOURCE_ITEM_GAP) + SOURCE_ITEM_HEIGHT / 2 + 4}
+          fill="white"
+          font-size="10"
+          font-family="Montserrat, sans-serif"
+          font-weight="400"
+          pointer-events="none"
+          opacity={hoveredSourceSubsetIndex == null || item.subsetIndex === hoveredSourceSubsetIndex ? 1 : 0.2}
+          clip-path={`url(#src-clip-${i})`}
+        >{source_names[item.subsetIndex]?.split('\n')[0].trim()}</text>
       {/each}
     {/if}
 
@@ -334,6 +403,7 @@
           fill={mapVisible
             ? "black"
             : SUBSET_COLORS[bar.subsetIndex % SUBSET_COLORS.length]}
+          opacity={hoveredSourceSubsetIndex == null || bar.subsetIndex === hoveredSourceSubsetIndex ? 1 : 0.1}
           {i}
           year={bar.year}
         />
@@ -354,66 +424,115 @@
       {/each}
     {/if}
 
-    {#if activeKey === "all"}
-      <!-- Charles Darwin -->
-      <g>
-        <circle
-          cx={x_scale(new Date(1825, 0, 1)) + 1}
-          cy={y_scale(370)}
-          r={3}
-          fill="white"
-        />
-        <text
-          x={x_scale(new Date(1825, 0, 1)) + 8}
-          y={y_scale(370) + 4}
-          font-size="14"
-          font-family="Montserrat, sans-serif"
-          font-weight="300"
-          fill="white"
-        >
-          Charles Darwin
-        </text>
-      </g>
-
-      <!-- Edinburgh Seven -->
-      <g>
-        <circle
-          cx={x_scale(new Date(1869, 0, 1)) + 1}
-          cy={y_scale(15)}
-          r={3}
-          fill="white"
-        />
-        <text
-          x={x_scale(new Date(1869, 0, 1)) + 8}
-          y={y_scale(15) + 4}
-          font-size="14"
-          font-family="Montserrat, sans-serif"
-          font-weight="300"
-          fill="white"
-        >
-          Edinburgh Seven
-        </text>
-      </g>
-    {/if}
-
     {#if mapVisible == false}
       <!-- uni establishment -->
       <rect
         x={x_scale(new Date(1582, 0, 1))}
-        y={y_scale(height / 4)}
+        y={y_scale(height - 50)}
         width={1}
-        height={height - margin.bottom - y_scale(height / 4)}
+        height={height -
+          margin.bottom -
+          CONNECTOR_BOTTOM_BASE_OFFSET -
+          y_scale(height - 50)}
         fill="orange"
         opacity="0.2"
       />
       <text
         x={x_scale(new Date(1582, 0, 1)) + 5}
-        y={y_scale(height / 4)}
-        transform={`rotate(-25 ${x_scale(new Date(1582, 0, 1)) + 5} ${y_scale(height / 4)})`}
+        y={y_scale(height - 50)}
+        transform={`rotate(-25 ${x_scale(new Date(1582, 0, 1)) + 5} ${y_scale(height - 50)})`}
         fill="white"
         opacity="0.5"
         font-weight="300"
         font-size="12">University Established (1583)</text
+      >
+
+      <!-- medical school establishment -->
+      <rect
+        x={x_scale(new Date(1726, 0, 1))}
+        y={y_scale(height - 50)}
+        width={1}
+        opacity="0.2"
+        height={height -
+          margin.bottom -
+          CONNECTOR_BOTTOM_BASE_OFFSET -
+          y_scale(height - 50)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1726, 0, 1))}
+        y={y_scale(height - 50)}
+        transform={`rotate(-25 ${x_scale(new Date(1726, 0, 1)) + 5} ${y_scale(height - 50)})`}
+        fill="white"
+        opacity="0.5"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        font-size="12">Medical School (1726)</text
+      >
+
+      <!-- 
+      <rect
+        x={x_scale(new Date(1867, 0, 1))}
+        y={y_scale(height / 2 + 20)}
+        width={1}
+        opacity="0.2"
+        height={height -
+          margin.bottom -
+          CONNECTOR_BOTTOM_BASE_OFFSET -
+          y_scale(height / 2 + 20)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1867, 0, 1))}
+        y={y_scale(height / 2 + 20)}
+        transform={`rotate(-25 ${x_scale(new Date(1867, 0, 1)) + 5} ${y_scale(height / 2 + 20)})`}
+        fill="steelblue"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        font-size="12">First Women Educated (1867)</text
+      >
+
+      <rect
+        x={x_scale(new Date(1892, 0, 1))}
+        y={y_scale(height / 2 + 80)}
+        width={1}
+        opacity="0.2"
+        height={height -
+          margin.bottom -
+          CONNECTOR_BOTTOM_BASE_OFFSET -
+          y_scale(height / 2 + 80)}
+        fill="orange"
+      />
+      <text
+        x={x_scale(new Date(1892, 0, 1))}
+        y={y_scale(height / 2 + 80)}
+        transform={`rotate(-25 ${x_scale(new Date(1892, 0, 1)) + 5} ${y_scale(height / 2 + 80)})`}
+        fill="steelblue"
+        font-family="Montserrat, sans-serif"
+        font-weight="300"
+        font-size="12">Women Officially Allowed to Study (1892)</text
+      > -->
+
+      <!-- infirmary/efi -->
+      <rect
+        x={x_scale(new Date(1880, 0, 1))}
+        opacity="0.2"
+        y={y_scale(height - 50)}
+        width={1}
+        height={height -
+          margin.bottom -
+          CONNECTOR_BOTTOM_BASE_OFFSET -
+          y_scale(height - 50)}
+        fill="white"
+      />
+      <text
+        x={x_scale(new Date(1880, 0, 1)) + 5}
+        y={y_scale(height - 50)}
+        transform={`rotate(-25 ${x_scale(new Date(1880, 0, 1))} ${y_scale(height - 50)})`}
+        opacity="0.5"
+        fill="white"
+        font-weight="300"
+        font-size="12">Infirmary built (EFI) (1880)</text
       >
 
       <!-- law school -->
@@ -456,64 +575,6 @@
         font-size="12">Art School (1708)</text
       > -->
 
-      <!-- medical school establishment -->
-      <rect
-        x={x_scale(new Date(1726, 0, 1))}
-        y={y_scale(height / 3)}
-        width={1}
-        opacity="0.2"
-        height={height - margin.bottom - y_scale(height / 3)}
-        fill="orange"
-      />
-      <text
-        x={x_scale(new Date(1726, 0, 1))}
-        y={y_scale(height / 3)}
-        transform={`rotate(-25 ${x_scale(new Date(1726, 0, 1)) + 5} ${y_scale(height / 3)})`}
-        fill="white"
-        opacity="0.5"
-        font-family="Montserrat, sans-serif"
-        font-weight="300"
-        font-size="12">Medical School (1726)</text
-      >
-
-      <!-- first women educated -->
-      <rect
-        x={x_scale(new Date(1867, 0, 1))}
-        y={y_scale(height / 2 + 20)}
-        width={1}
-        opacity="0.2"
-        height={height - margin.bottom - y_scale(height / 2 + 20)}
-        fill="orange"
-      />
-      <text
-        x={x_scale(new Date(1867, 0, 1))}
-        y={y_scale(height / 2 + 20)}
-        transform={`rotate(-25 ${x_scale(new Date(1867, 0, 1)) + 5} ${y_scale(height / 2 + 20)})`}
-        fill="steelblue"
-        font-family="Montserrat, sans-serif"
-        font-weight="300"
-        font-size="12">First Women Educated (1867)</text
-      >
-
-      <!-- women officially allowed to study -->
-      <rect
-        x={x_scale(new Date(1892, 0, 1))}
-        y={y_scale(height / 2 + 80)}
-        width={1}
-        opacity="0.2"
-        height={height - margin.bottom - y_scale(height / 2 + 80)}
-        fill="orange"
-      />
-      <text
-        x={x_scale(new Date(1892, 0, 1))}
-        y={y_scale(height / 2 + 80)}
-        transform={`rotate(-25 ${x_scale(new Date(1892, 0, 1)) + 5} ${y_scale(height / 2 + 80)})`}
-        fill="steelblue"
-        font-family="Montserrat, sans-serif"
-        font-weight="300"
-        font-size="12">Women Officially Allowed to Study (1892)</text
-      >
-
       <!-- veterinary school establishment -->
       <!-- <rect
         x={x_scale(new Date(1823, 0, 1))}
@@ -552,31 +613,72 @@
         font-family="Montserrat, sans-serif"
         font-weight="300"
         font-size="12">Divinity School (1843)</text
-      > -->
+      > 
 
-      <!-- infirmary/efi -->
-      <rect
-        x={x_scale(new Date(1880, 0, 1))}
-        opacity="0.2"
-        y={y_scale(height / 2)}
-        width={1}
-        height={height - margin.bottom - y_scale(height / 2)}
-        fill="orange"
-      />
-      <text
-        x={x_scale(new Date(1880, 0, 1)) + 5}
-        y={y_scale(height / 2)}
-        transform={`rotate(-25 ${x_scale(new Date(1880, 0, 1)) + 5} ${y_scale(height / 2)})`}
-        opacity="0.5"
-        fill="white"
-        font-weight="300"
-        font-size="12">Infirmary built (EFI) (1880)</text
-      >
+       {#if activeKey === "all"}
+        <g>
+          <circle
+            cx={x_scale(new Date(1825, 0, 1)) + 1}
+            cy={y_scale(370)}
+            r={3}
+            fill="white"
+          />
+          <text
+            x={x_scale(new Date(1825, 0, 1)) + 8}
+            y={y_scale(370) + 4}
+            font-size="14"
+            font-family="Montserrat, sans-serif"
+            font-weight="300"
+            fill="white"
+          >
+            Charles Darwin
+          </text>
+        </g>
+
+        <g>
+          <circle
+            cx={x_scale(new Date(1869, 0, 1)) + 1}
+            cy={y_scale(15)}
+            r={3}
+            fill="white"
+          />
+          <text
+            x={x_scale(new Date(1869, 0, 1)) + 8}
+            y={y_scale(15) + 4}
+            font-size="14"
+            font-family="Montserrat, sans-serif"
+            font-weight="300"
+            fill="white"
+          >
+            Edinburgh Seven
+          </text>
+        </g> 
+      {/if} -->
     {/if}
   </svg>
 {/if}
 
 <style>
+  .scale-toggle {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 5;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(20, 20, 20, 0.75);
+    color: white;
+    font-family: Montserrat, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .scale-toggle:hover {
+    background: rgba(40, 40, 40, 0.9);
+  }
+
   svg {
     position: absolute;
     top: 0;

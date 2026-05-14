@@ -14,6 +14,7 @@
     i,
     year,
     baseValue = 0,
+    opacity = 1,
   } = $props();
 
   const tY = new Tween(0, {
@@ -37,6 +38,7 @@
   {width}
   height={yScale(baseValue) - yScale(baseValue + tY.current)}
   {fill}
+  {opacity}
 >
   <title>{year}</title>
 </rect>

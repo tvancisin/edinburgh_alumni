@@ -62,6 +62,8 @@
     five_days,
     ten_days,
     twenty_days,
+    // student numbers
+    students_1836_1920,
     margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
   onMount(() => {
@@ -129,6 +131,9 @@
         five_days,
         ten_days,
         twenty_days,
+
+        //student numbers
+        students_1836_1920,
       } = data);
 
       current_ungrouped = all_medics;
@@ -215,9 +220,9 @@
   }
 
   $: selectedLabel = options.find((o) => o.id === selected)?.label;
-  $: console.log(data_to_draw);
-  $: console.log(year_medics_group);
-  
+  // $: console.log(data_to_draw);
+  // $: console.log(year_medics_group);
+ 
 </script>
 
 <svelte:window on:click={() => (open = false)} />
@@ -234,6 +239,7 @@
       {data_to_draw}
       {year_medics_group}
       {all_medics_separated}
+      {students_1836_1920}
       {height}
       {width}
       {margin}

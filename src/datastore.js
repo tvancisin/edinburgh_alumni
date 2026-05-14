@@ -87,7 +87,10 @@ export async function loadData() {
       colonies_1885,
       five_days,
       ten_days,
-      twenty_days;
+      twenty_days,
+
+      // student_numbers
+      students_1836_1920;
 
     [
       medics,
@@ -97,6 +100,7 @@ export async function loadData() {
       extra_academic,
       women_med_graduates,
       edinburgh_seven,
+      students_1836_1920,
     ] = await getCSV([
       "./1762_1826_medical.csv",
       "./new_college_students.csv",
@@ -105,6 +109,7 @@ export async function loadData() {
       "./extra_academic.csv",
       "./female_graduates.csv",
       "./edinburgh_seven.csv",
+      "./students_1836_1920.csv"
     ]);
 
     [st_andrews, medics_sample, matriculations_geo, women_doctors, women_physiology,
@@ -265,8 +270,6 @@ export async function loadData() {
 
     all_medics_separated = [year_medics_group, year_medics_sample_group,  year_extra_academic_group, year_women_med_graduates_group, year_edinburgh_seven_group, year_women_doctors_group, year_women_physiology_group, year_matriculations_group];
 
-    console.log(year_medics_group);
-    
     all_medics_grouped = d3
       .groups(all_medics, (d) => d.entry_year)
       .filter((d) => d[0] != null && !Number.isNaN(d[0]))
@@ -366,6 +369,13 @@ export async function loadData() {
 
     console.log("women physiology: ", women_physiology);
 
+    ///////////////////////////////////////////////////////////////////////
+    students_1836_1920 = students_1836_1920.map((d) => ({
+      ...d,
+      entry_year: +d.entry_year,
+      number: +d.number,
+    }));
+
     datasetsStore.set({
       // Students of medicine 1762-1826
       medics,
@@ -426,6 +436,8 @@ export async function loadData() {
       five_days,
       ten_days,
       twenty_days,
+      // student numbers
+      students_1836_1920,
     });
 
     dataStatus.set({ loading: false, error: null });
