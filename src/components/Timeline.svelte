@@ -16,8 +16,7 @@
   export let x_axis;
   export let y_axis;
 
-  $:console.log(women_1914_1965);
-  
+  $: console.log(women_1914_1965);
 
   let x_scale, y_scale;
   const STACK_GAP = 3;
@@ -58,6 +57,10 @@
   let hoveredSourceSubsetIndex = null;
   let students_line_path = null;
   let women_students_line_path = null;
+  let students_top_line_path = null;
+  let women_students_top_line_path = null;
+  let students_line_label = null;
+  let women_line_label = null;
 
   let source_names = [
     `Matriculation Albums: 1762-1786, 1786-1805, 1804-1816 (3 vols.). [Edinburgh University Library Special Collections: EUA IN1/ADS/STA/2]
@@ -169,6 +172,11 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
 
   $: {
     students_line_path = null;
+    students_top_line_path = null;
+    women_students_line_path = null;
+    women_students_top_line_path = null;
+    students_line_label = null;
+    women_line_label = null;
 
     if (x_scale && y_scale && students_1836_1920.length > 0) {
       const areaGenerator = d3
@@ -178,8 +186,32 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
         .y1((d) => y_scale(d.number))
         .curve(d3.curveMonotoneX);
 
+      const lineGenerator = d3
+        .line()
+        .x((d) => x_scale(new Date(d.entry_year, 0, 1)))
+        .y((d) => y_scale(d.number))
+        .curve(d3.curveMonotoneX);
+
       students_line_path = areaGenerator(students_1836_1920);
+      students_top_line_path = lineGenerator(students_1836_1920);
       women_students_line_path = areaGenerator(women_1914_1965);
+      women_students_top_line_path = lineGenerator(women_1914_1965);
+
+      const firstStudentsPoint = students_1836_1920[0];
+      if (firstStudentsPoint) {
+        students_line_label = {
+          x: x_scale(new Date(firstStudentsPoint.entry_year, 0, 1)),
+          y: y_scale(firstStudentsPoint.number),
+        };
+      }
+
+      const firstWomenPoint = women_1914_1965?.[0];
+      if (firstWomenPoint) {
+        women_line_label = {
+          x: x_scale(new Date(firstWomenPoint.entry_year, 0, 1)),
+          y: y_scale(firstWomenPoint.number),
+        };
+      }
     }
   }
 
@@ -301,8 +333,55 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
 
     <!-- all students area -->
     {#if students_line_path}
-      <path d={students_line_path} fill="#4a4a4a" opacity="0.4" />
-      <path d={women_students_line_path} fill="steelblue" opacity="0.4" />
+      <path d={students_line_path} fill="#4a4a4a" opacity="0.2" />
+      <path d={women_students_line_path} fill="steelblue" opacity="0.2" />
+
+      <path
+        d={students_top_line_path}
+        fill="none"
+        stroke="#9a9a9a"
+        stroke-width="1"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      />
+      <path
+        d={women_students_top_line_path}
+        fill="none"
+        stroke="#6fb7e9"
+        stroke-width="1"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      />
+
+      {#if students_line_label}
+        <text
+          x={students_line_label.x}
+          y={students_line_label.y - 6}
+          fill="#b8b8b8"
+          font-size="11"
+          font-family="Montserrat, sans-serif"
+          font-weight="500"
+          pointer-events="none"
+          text-anchor="end"
+        >
+          Overall student numbers
+        </text>
+      {/if}
+
+      {#if women_line_label}
+        <text
+          x={women_line_label.x - 5}
+          y={women_line_label.y + 12}
+          fill="#8fc7ec"
+          font-size="11"
+          font-family="Montserrat, sans-serif"
+          font-weight="500"
+          pointer-events="none"
+          text-anchor="end"
+        >
+          female students
+        </text>
+      {/if}
     {/if}
 
     <!-- sources rectangles -->
