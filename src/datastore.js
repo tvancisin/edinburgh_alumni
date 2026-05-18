@@ -90,7 +90,9 @@ export async function loadData() {
       twenty_days,
 
       // student_numbers
-      students_1836_1920;
+      students_1836_1920,
+      women_1914_1965;
+
 
     [
       medics,
@@ -101,6 +103,7 @@ export async function loadData() {
       women_med_graduates,
       edinburgh_seven,
       students_1836_1920,
+      women_1914_1965,
     ] = await getCSV([
       "./1762_1826_medical.csv",
       "./new_college_students.csv",
@@ -109,7 +112,8 @@ export async function loadData() {
       "./extra_academic.csv",
       "./female_graduates.csv",
       "./edinburgh_seven.csv",
-      "./students_1836_1920.csv"
+      "./students_1836_1920.csv",
+      "./women_students_1914_1965.csv"
     ]);
 
     [st_andrews, medics_sample, matriculations_geo, women_doctors, women_physiology,
@@ -376,6 +380,12 @@ export async function loadData() {
       number: +d.number,
     }));
 
+    women_1914_1965 = women_1914_1965.map((d) => ({
+      ...d,
+      entry_year: +d.entry_year,
+      number: +d.number,
+    }));
+
     datasetsStore.set({
       // Students of medicine 1762-1826
       medics,
@@ -438,6 +448,7 @@ export async function loadData() {
       twenty_days,
       // student numbers
       students_1836_1920,
+      women_1914_1965,
     });
 
     dataStatus.set({ loading: false, error: null });

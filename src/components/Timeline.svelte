@@ -5,6 +5,7 @@
   export let data_to_draw;
   export let year_medics_group;
   export let students_1836_1920;
+  export let women_1914_1965;
   export let height;
   export let width;
   export let margin;
@@ -15,9 +16,12 @@
   export let x_axis;
   export let y_axis;
 
+  $:console.log(women_1914_1965);
+  
+
   let x_scale, y_scale;
   const STACK_GAP = 3;
-  let y_axis_max = 900;
+  let y_axis_max = 1500;
   const CONNECTOR_BOTTOM_GAP = 30;
   const SOURCE_PANEL_RATIO = 0.2;
   const SOURCE_PANEL_PADDING = 10;
@@ -53,6 +57,7 @@
   let source_connectors = [];
   let hoveredSourceSubsetIndex = null;
   let students_line_path = null;
+  let women_students_line_path = null;
 
   let source_names = [
     `Matriculation Albums: 1762-1786, 1786-1805, 1804-1816 (3 vols.). [Edinburgh University Library Special Collections: EUA IN1/ADS/STA/2]
@@ -74,7 +79,7 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
   ];
 
   function toggleYAxisScale() {
-    y_axis_max = y_axis_max === 900 ? 10000 : 900;
+    y_axis_max = y_axis_max === 1500 ? 10000 : 1500;
   }
 
   function buildConnectorPath({ startX, startY, downX, endX, endY }) {
@@ -174,6 +179,7 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
         .curve(d3.curveMonotoneX);
 
       students_line_path = areaGenerator(students_1836_1920);
+      women_students_line_path = areaGenerator(women_1914_1965);
     }
   }
 
@@ -286,7 +292,7 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
 
 {#if year_medics_group}
   <button class="scale-toggle" on:click={toggleYAxisScale}>
-    {y_axis_max === 900 ? "All students" : "Focus"}
+    {y_axis_max === 1500 ? "Scale-up" : "Focus"}
   </button>
 
   <svg {height} {width}>
@@ -296,6 +302,7 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
     <!-- all students area -->
     {#if students_line_path}
       <path d={students_line_path} fill="#4a4a4a" opacity="0.4" />
+      <path d={women_students_line_path} fill="steelblue" opacity="0.4" />
     {/if}
 
     <!-- sources rectangles -->

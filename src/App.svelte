@@ -64,6 +64,7 @@
     twenty_days,
     // student numbers
     students_1836_1920,
+    women_1914_1965,
     margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
   onMount(() => {
@@ -134,6 +135,7 @@
 
         //student numbers
         students_1836_1920,
+        women_1914_1965,
       } = data);
 
       current_ungrouped = all_medics;
@@ -260,6 +262,7 @@
       {year_medics_group}
       {all_medics_separated}
       {students_1836_1920}
+      {women_1914_1965}
       {height}
       {width}
       {margin}
