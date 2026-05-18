@@ -222,7 +222,6 @@
   $: selectedLabel = options.find((o) => o.id === selected)?.label;
   // $: console.log(data_to_draw);
   // $: console.log(year_medics_group);
- 
 </script>
 
 <svelte:window on:click={() => (open = false)} />
@@ -235,20 +234,6 @@
   {/if}
 
   <div class="timeline-panel" bind:clientWidth={width}>
-    <Timeline
-      {data_to_draw}
-      {year_medics_group}
-      {all_medics_separated}
-      {students_1836_1920}
-      {height}
-      {width}
-      {margin}
-      {full_years}
-      {mapVisible}
-      {activeKey}
-      bind:x_axis
-      bind:y_axis
-    />
     {#if mapVisible == false}
       <div class="dropdown">
         <button class="dropdown-toggle" on:click|stopPropagation={toggleMenu}>
@@ -269,6 +254,21 @@
         {/if}
       </div>
     {/if}
+
+    <Timeline
+      {data_to_draw}
+      {year_medics_group}
+      {all_medics_separated}
+      {students_1836_1920}
+      {height}
+      {width}
+      {margin}
+      {full_years}
+      {mapVisible}
+      {activeKey}
+      bind:x_axis
+      bind:y_axis
+    />
   </div>
 
   <div class="side-panel">
@@ -356,7 +356,7 @@
   .dropdown {
     position: absolute;
     top: 5px;
-    left: calc(20% + 5px);
+    left: 5px;
     z-index: 10;
     width: 400px;
   }

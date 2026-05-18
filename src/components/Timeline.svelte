@@ -21,15 +21,15 @@
   const CONNECTOR_BOTTOM_GAP = 30;
   const SOURCE_PANEL_RATIO = 0.2;
   const SOURCE_PANEL_PADDING = 10;
-  const SOURCE_TITLE_Y = 26;
-  const SOURCE_TITLE_SIZE = 16;
-  const SOURCE_LIST_TOP = 40;
-  const SOURCE_ITEM_HEIGHT = 20;
-  const SOURCE_ITEM_GAP = 3;
-  const SOURCE_CORNER_RADIUS = 4;
+  const SOURCE_TITLE_Y = 85;
+  const SOURCE_TITLE_SIZE = 14;
+  const SOURCE_LIST_TOP = 100;
+  const SOURCE_ITEM_HEIGHT = 25;
+  const SOURCE_ITEM_GAP = 1;
+  const SOURCE_CORNER_RADIUS = 3;
   const SOURCE_RANGE_HEIGHT = 2;
   const CONNECTOR_STAGGER = 4;
-  const CONNECTOR_TOP_STAGGER_X = 2;
+  const CONNECTOR_TOP_STAGGER_X = 3;
   const CONNECTOR_BOTTOM_BASE_OFFSET = 24;
   const CONNECTOR_RADIUS = 5;
   const CONNECTOR_START_LEAD = 2;
@@ -246,7 +246,7 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
 
     const xaxis = d3
       .axisBottom(x_scale)
-      .ticks(d3.timeYear.every(20))
+      .ticks(d3.timeYear.every(50))
       .tickFormat(d3.timeFormat("%Y"))
       .tickSizeOuter(0);
 
@@ -275,10 +275,10 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
     d3.select(y_axis)
       .call(yaxis)
       .selectAll("text")
-      .attr("fill", "white")
+      .attr("fill", "gray")
       .attr("font-family", "Montserrat, sans-serif")
       .attr("font-weight", 400)
-      .attr("font-size", 12);
+      .attr("font-size", 10);
 
     d3.select(y_axis).select("path.domain").remove();
   }
@@ -286,10 +286,19 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
 
 {#if year_medics_group}
   <button class="scale-toggle" on:click={toggleYAxisScale}>
-    Y max: {y_axis_max === 900 ? "900" : "10000"}
+    {y_axis_max === 900 ? "All students" : "Focus"}
   </button>
 
   <svg {height} {width}>
+    <g transform={`translate(0,${axis_y})`} bind:this={x_axis} />
+    <g transform={`translate(${plot_left}, 0)`} bind:this={y_axis} />
+
+    <!-- all students area -->
+    {#if students_line_path}
+      <path d={students_line_path} fill="#4a4a4a" opacity="0.4" />
+    {/if}
+
+    <!-- sources rectangles -->
     <defs>
       {#each source_items as item, i (item.subsetIndex)}
         <clipPath id={`src-clip-${i}`}>
@@ -304,19 +313,14 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
         </clipPath>
       {/each}
     </defs>
-    <g transform={`translate(0,${axis_y})`} bind:this={x_axis} />
-    <g transform={`translate(${plot_left}, 0)`} bind:this={y_axis} />
 
-    {#if students_line_path}
-      <path d={students_line_path} fill="#4a4a4a" opacity="0.4" />
-    {/if}
-
+    <!-- sources paths -->
     {#each source_connectors as connector (connector.subsetIndex)}
       <path
         d={connector.d}
         fill="none"
-        stroke="rgba(70,130,180,0.55)"
-        stroke-width="1.5"
+        stroke="rgba(70,130,180,0.5)"
+        stroke-width="1"
         stroke-opacity={hoveredSourceSubsetIndex == null
           ? 0.55
           : connector.subsetIndex === hoveredSourceSubsetIndex
@@ -325,13 +329,17 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
         stroke-linecap="round"
         stroke-linejoin="round"
       />
+      <!-- gantt at the bottom -->
       <rect
         x={connector.rangeStartX}
         y={connector.rangeY}
         width={connector.rangeWidth}
         height={SOURCE_RANGE_HEIGHT}
-        fill="white"
-        opacity={hoveredSourceSubsetIndex == null || connector.subsetIndex === hoveredSourceSubsetIndex ? 1 : 0.2}
+        fill="gray"
+        opacity={hoveredSourceSubsetIndex == null ||
+        connector.subsetIndex === hoveredSourceSubsetIndex
+          ? 1
+          : 0.2}
       />
     {/each}
 
@@ -357,23 +365,33 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
           height={SOURCE_ITEM_HEIGHT}
           rx={SOURCE_CORNER_RADIUS}
           ry={SOURCE_CORNER_RADIUS}
-          fill="#333333"
-          stroke="gray"
-          opacity={hoveredSourceSubsetIndex == null || item.subsetIndex === hoveredSourceSubsetIndex ? 1 : 0.2}
+          fill="#262626"
+          stroke="#121212"
+          opacity={hoveredSourceSubsetIndex == null ||
+          item.subsetIndex === hoveredSourceSubsetIndex
+            ? 1
+            : 0.2}
           on:mouseenter={() => (hoveredSourceSubsetIndex = item.subsetIndex)}
           on:mouseleave={() => (hoveredSourceSubsetIndex = null)}
         />
         <text
           x={SOURCE_PANEL_PADDING + 6}
-          y={SOURCE_LIST_TOP + i * (SOURCE_ITEM_HEIGHT + SOURCE_ITEM_GAP) + SOURCE_ITEM_HEIGHT / 2 + 4}
+          y={SOURCE_LIST_TOP +
+            i * (SOURCE_ITEM_HEIGHT + SOURCE_ITEM_GAP) +
+            SOURCE_ITEM_HEIGHT / 2 +
+            4}
           fill="white"
-          font-size="10"
+          font-size="12"
           font-family="Montserrat, sans-serif"
           font-weight="400"
           pointer-events="none"
-          opacity={hoveredSourceSubsetIndex == null || item.subsetIndex === hoveredSourceSubsetIndex ? 1 : 0.2}
+          opacity={hoveredSourceSubsetIndex == null ||
+          item.subsetIndex === hoveredSourceSubsetIndex
+            ? 1
+            : 0.2}
           clip-path={`url(#src-clip-${i})`}
-        >{source_names[item.subsetIndex]?.split('\n')[0].trim()}</text>
+          >{source_names[item.subsetIndex]?.split("\n")[0].trim()}</text
+        >
       {/each}
     {/if}
 
@@ -403,7 +421,10 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
           fill={mapVisible
             ? "black"
             : SUBSET_COLORS[bar.subsetIndex % SUBSET_COLORS.length]}
-          opacity={hoveredSourceSubsetIndex == null || bar.subsetIndex === hoveredSourceSubsetIndex ? 1 : 0.1}
+          opacity={hoveredSourceSubsetIndex == null ||
+          bar.subsetIndex === hoveredSourceSubsetIndex
+            ? 1
+            : 0.1}
           {i}
           year={bar.year}
         />
@@ -426,7 +447,7 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
 
     {#if mapVisible == false}
       <!-- uni establishment -->
-      <rect
+      <!-- <rect
         x={x_scale(new Date(1582, 0, 1))}
         y={y_scale(height - 50)}
         width={1}
@@ -444,11 +465,11 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
         fill="white"
         opacity="0.5"
         font-weight="300"
-        font-size="12">University Established (1583)</text
+        font-size="12">University Established (1583)</text -->
       >
 
       <!-- medical school establishment -->
-      <rect
+      <!-- <rect
         x={x_scale(new Date(1726, 0, 1))}
         y={y_scale(height - 50)}
         width={1}
@@ -468,7 +489,7 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
         font-family="Montserrat, sans-serif"
         font-weight="300"
         font-size="12">Medical School (1726)</text
-      >
+      > -->
 
       <!-- 
       <rect
@@ -514,7 +535,7 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
       > -->
 
       <!-- infirmary/efi -->
-      <rect
+      <!-- <rect
         x={x_scale(new Date(1880, 0, 1))}
         opacity="0.2"
         y={y_scale(height - 50)}
@@ -533,7 +554,7 @@ Turnbull, William, The Naval Surgeon: Comprising the Entire Duties of Profession
         fill="white"
         font-weight="300"
         font-size="12">Infirmary built (EFI) (1880)</text
-      >
+      > -->
 
       <!-- law school -->
       <!-- <rect
