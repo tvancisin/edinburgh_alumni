@@ -222,8 +222,9 @@
   }
 
   $: selectedLabel = options.find((o) => o.id === selected)?.label;
-  // $: console.log(data_to_draw);
-  // $: console.log(year_medics_group);
+  $: console.log(selected);
+  
+
 </script>
 
 <svelte:window on:click={() => (open = false)} />
@@ -233,6 +234,16 @@
       <img src="./img/world.svg" alt="Map icon" />
       {mapVisible ? "Hide Map" : "Show Map"}
     </button>
+  {/if}
+  {#if selected === "all_women_medics"}
+    <a
+      class="women-doctors"
+      href="https://tvancisin.github.io/women_medics/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Open Women Medics site"
+    >Web
+    </a>
   {/if}
 
   <div class="timeline-panel" bind:clientWidth={width}>
@@ -327,6 +338,16 @@
     flex: 1;
     min-height: 0;
     width: 100%;
+  }
+
+  .women-doctors {
+    position: absolute;
+    z-index: 10;
+    top: 45px;
+    right: 25.5%;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
   }
 
   .map-toggle {
